@@ -103,7 +103,7 @@ tailored to that problem.</p>
 any low-level supervision for individual modules: the model never sees an
 isolated example of blue object or a “left-of” relationship. Modules are learned
 only inside larger composed structures, with only (question, answer) pairs as
-supervision. But the training procedure is able <em>automatically</em> infer the
+supervision. But the training procedure is able to <em>automatically</em> infer the
 correct relationship between pieces of structure and the computations they’re
 responsible for:</p>
 
