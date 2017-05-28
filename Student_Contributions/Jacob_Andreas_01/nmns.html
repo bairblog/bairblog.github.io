@@ -1,18 +1,43 @@
----
-layout:     post
-title:      Learning to Reason with Neural Module Networks
-date:       2017-06-01 00:00:00
-author:     Jacob Andreas
-visible:    True
-excerpt_separator: <!--more-->
----
+<!DOCTYPE html>
+<html>
 
-<p>Suppose we’re building a household robot, and want it to be able to answer
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Learning to reason with neural module networks</title>
+  <meta name="description" content="Suppose we’re building a household robot, and want it to be able to answerquestions about its surroundings. We might ask questions like these:">
+
+  <link href="http://people.eecs.berkeley.edu/~jda/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://people.eecs.berkeley.edu/~jda/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/solarized-light.css" />
+  <link rel="canonical" href="http://localhost:4000/nmns.html">
+  <link rel="alternate" type="application/rss+xml" title="blog" href="http://localhost:4000/feed.xml" />
+
+  <script type="text/javascript"
+          src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+</head>
+
+
+  <body>
+    <div class="content">
+
+    <div class="post content">
+
+  <header class="post-header">
+    <p class="home"><a href="/">Home</a></p>
+    <p class="post-meta">May 17, 2017</p>
+    <h1 class="post-title">Learning to reason with neural module networks</h1>
+  </header>
+
+  <article class="post-content">
+    <p>Suppose we’re building a household robot, and want it to be able to answer
 questions about its surroundings. We might ask questions like these:</p>
 
-<p style="text-align:center;"> 
-<img src="{{site.url}}/assets/nmns/examples.jpg"> 
-</p>
+<p><img src="figures/nmns/examples.jpg" /></p>
 
 <p>How can we ensure that the robot can answer these questions correctly? The
 standard approach in deep learning is to collect a large dataset of questions,
@@ -21,15 +46,11 @@ questions and images to answers.  If most questions look like the one on the
 left, we have a familiar image recognition problem, and approaches like the one
 shown above are quite effective:</p>
 
-<p style="text-align:center;"> 
-<img src="{{site.url}}/assets/nmns/cat_pred.jpg"> 
-</p>
+<p><img src="figures/nmns/cat_pred.jpg" /></p>
 
 <p>But things don’t work quite so well for approaches like the one on the right:</p>
 
-<p style="text-align:center;"> 
-<img src="{{site.url}}/assets/nmns/clevr_pred.jpg"> 
-</p>
+<p><img src="figures/nmns/clevr_pred.jpg" /></p>
 
 <p>Here the neural net has given up and guessed the most common color in the image.
 What makes this question so much harder? Even though the image is cleaner, the
@@ -49,27 +70,22 @@ different capabilities, combined and synthesized in new ways for every new
 challenge we encounter in the wild. What we need is a model that can
 <em>dynamically</em> determine how to reason about the problem in front of it—a
 network that can choose its own structure on the fly. In this post, we’ll talk
-about a new class of models we call <strong>neural module networks</strong>
-(NMNs), which incorporate this more flexible approach to problem-solving while
-preserving the expressive power that makes deep learning so effective.</p>
+about a new class of models we call <strong>neural module networks</strong> (NMNs), which
+incorporate this more flexible approach to problem-solving while preserving the
+expressive power that makes deep learning so effective.</p>
 
-<!--more-->
 <hr />
 
 <p>Earlier, we noticed that there are three different steps involved in answering
 the question above: finding a blue cylinder, finding something else the same
 size, and determining its color. We can draw this schematically like:</p>
 
-<p style="text-align:center;"> 
-<img src="{{site.url}}/assets/nmns/layout1.jpg"> 
-</p>
+<p><img src="figures/nmns/layout1.jpg" /></p>
 
 <p>A different question might involve a different series of steps. If we ask “how
 many things are the same size as the ball?”, we might have something like:</p>
 
-<p style="text-align:center;"> 
-<img src="{{site.url}}/assets/nmns/layout2.jpg"> 
-</p>
+<p><img src="figures/nmns/layout2.jpg" /></p>
 
 <p>Basic operations like “compare size” are shared between questions, but they get
 used in different ways. The key idea behind NMNs is to make this sharing
@@ -77,18 +93,14 @@ explicit: we use two different network structures to answer the two questions
 above, but we share weights between pieces of networks that involve the same
 basic operations:</p>
 
-<p style="text-align:center;"> 
-<img src="{{site.url}}/assets/nmns/tying.jpg"> 
-</p>
+<p><img src="figures/nmns/tying.jpg" /></p>
 
 <p>How do we learn a model like this? Rather than training a single large network
 on lots of input / ouptut pairs, we actually train a huge number of different
 networks at the same time, while tying their parameters together where
 appropriate:</p>
 
-<p style="text-align:center;"> 
-<img src="{{site.url}}/assets/nmns/training.jpg"> 
-</p>
+<p><img src="figures/nmns/training.jpg" /></p>
 
 <p>(Several recent deep learning frameworks, including DyNet and TensorFlow Fold,
 were explicitly designed with this kind of dynamic computation in mind.)</p>
@@ -107,9 +119,7 @@ supervision. But the training procedure is able <em>automatically</em> infer the
 correct relationship between pieces of structure and the computations they’re
 responsible for:</p>
 
-<p style="text-align:center;"> 
-<img src="{{site.url}}/assets/nmns/exploded.jpg"> 
-</p>
+<p><img src="figures/nmns/exploded.jpg" /></p>
 
 <hr />
 
@@ -127,13 +137,13 @@ processing, we can use off-the-shelf tools for grammatical analysis to provide
 approximate version of these blueprints automatically.</p>
 
 <p>But finding exactly the right mapping from linguistic structure to network
-structure is still a challenging problem, and the conversion process is prone
+structure Is still a challenging problem, and the conversion process is prone
 to errors. In later work, rather than relying on this kind of linguistic
 analysis, we instead turned to data produced by human experts who directly
 labeled a collection of questions with idealized reasoning blueprints.  By
 learning to imitate these humans, our model was able to improve the quality of
 its predictions substantially. Most surprisingly, when we took a model trained
-to imitate experts, but allowed it to explore its own modifications to these
+to imitiate experts, but allowed it to explore its own modifications to these
 expert predictions, it was able to find even better solutions than experts on a
 wide variety of problems.</p>
 
@@ -149,20 +159,30 @@ power of deep networks. NMNs have already seen a number of successes for
 visual reasoning problems, and we’re excited to start applying them to other AI
 problems as well.</p>
 
-<hr />
 
-This post is based on the following papers:
+  </article>
 
-* Neural Module Networks.
-    - Jacob Andreas, Marcus Rohrbach, Trevor Darrell and Dan Klein.
-    - CVPR 2016, Talk. ([arXiv][1]) 
-* Learning to Compose Neural Networks for Question Answering.
-    - Jacob Andreas, Marcus Rohrbach, Trevor Darrell and Dan Klein.
-    - NAACL 2016, Best Paper Award. ([arXiv][2])
-* Modeling Relationships in Referential Expressions with Compositional Modular Networks.
-    - Ronghang Hu, Marcus Rohrbach, Jacob Andreas, Trevor Darrell and Kate Saenko.
-    - CVPR 2017, Spotlight. ([arXiv][3])
+  
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'jacobandreas-blog';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
-[1]:https://arxiv.org/abs/1511.02799
-[2]:https://arxiv.org/abs/1601.01705
-[3]:https://arxiv.org/abs/1611.09978
+  
+
+</div>
+
+
+    </div>
+  </body>
+
+</html>
