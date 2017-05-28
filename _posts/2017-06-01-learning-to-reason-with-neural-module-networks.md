@@ -7,7 +7,7 @@ visible:    True
 excerpt_separator: <!--more-->
 ---
 
-<p>Suppose we're building a household robot, and want it to be able to answer
+<p>Suppose we’re building a household robot, and want it to be able to answer
 questions about its surroundings. We might ask questions like these:</p>
 
 <p style="text-align:center;"> 
@@ -25,7 +25,7 @@ shown above are quite effective:</p>
 <img src="{{site.url}}/assets/nmns/cat_pred.jpg"> 
 </p>
 
-<p>But things don't work quite so well for approaches like the one on the right:</p>
+<p>But things don’t work quite so well for approaches like the one on the right:</p>
 
 <p style="text-align:center;"> 
 <img src="{{site.url}}/assets/nmns/clevr_pred.jpg"> 
@@ -44,7 +44,7 @@ learning: for whatever problem we’re trying to solve, we write down a fixed
 model architecture that we hope captures the relationship between the input and
 output, and learn parameters for that fixed model from labeled training data.</p>
 
-<p>But real-world reasoning doesn't work this way: it involves a variety of
+<p>But real-world reasoning doesn’t work this way: it involves a variety of
 different capabilities, combined and synthesized in new ways for every new 
 challenge we encounter in the wild. What we need is a model that can
 <em>dynamically</em> determine how to reason about the problem in front of it—a
@@ -127,7 +127,7 @@ processing, we can use off-the-shelf tools for grammatical analysis to provide
 approximate version of these blueprints automatically.</p>
 
 <p>But finding exactly the right mapping from linguistic structure to network
-structure Is still a challenging problem, and the conversion process is prone
+structure is still a challenging problem, and the conversion process is prone
 to errors. In later work, rather than relying on this kind of linguistic
 analysis, we instead turned to data produced by human experts who directly
 labeled a collection of questions with idealized reasoning blueprints.  By

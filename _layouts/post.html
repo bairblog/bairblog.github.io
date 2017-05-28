@@ -2,27 +2,14 @@
 layout: default
 ---
 
-{% assign minutes = content | strip_html | number_of_words | divided_by: 120 %}
-{% if minutes == 0 %}
-{% assign minutes = 1 %}
-{% endif %}
-
 <div class="post-header mb2">
   <h1>{{ page.title }}</h1>
   <div class="post-meta">
   {% if page.author %}
-  {{ page.author }} &nbsp;&bull;&nbsp;
+  {{ page.author }} &nbsp;&nbsp;
   {% endif %}
   {% if page.date %}
-  {{ page.date | date: site.date_format }} &nbsp;&bull;&nbsp;
-  {% endif %}
-  {% if page.update_date %}
-  Updated: {{ page.update_date | date: site.date_format }} &nbsp;&bull;&nbsp;
-  {% endif %}
-  {% if page.minutes %}
-    {{ page.minutes }} minute read
-  {% else %}
-    {{ minutes }} minute read
+  {{ page.date | date: site.date_format }}
   {% endif %}
   </div>
 </div>
