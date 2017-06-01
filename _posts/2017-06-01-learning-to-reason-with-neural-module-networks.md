@@ -18,31 +18,34 @@ questions about its surroundings. We might ask questions like these:</p>
 standard approach in deep learning is to collect a large dataset of questions,
 images, and answers, and train a single neural network to map directly from
 questions and images to answers.  If most questions look like the one on the
-left, we have a familiar image recognition problem, and approaches like the one
-shown above are quite effective:</p>
+left, we have a familiar image recognition problem, and these kinds of
+monolithic approaches are quite effective:</p>
 
 <p style="text-align:center;"> 
 <img src="{{site.url}}/assets/nmns/cat_pred.jpg"> 
 </p>
 
-<p>But things don’t work quite so well for approaches like the one on the right:</p>
+<p>But things don’t work quite so well for questions like the one on the
+right:</p>
 
 <p style="text-align:center;"> 
 <img src="{{site.url}}/assets/nmns/clevr_pred.jpg"> 
 </p>
 
-<p>Here the neural net has given up and guessed the most common color in the image.
-What makes this question so much harder? Even though the image is cleaner, the
-question requires many steps of <em>reasoning</em>: rather than simply recognizing the
-main object in the image, the model must first find the blue cylinder, locate
-the other object with the same size, and then determine its color. This is a
-complicated computation, and it’s a computation <em>specific to the question that
-was asked</em>. Different questions require different sequences of steps to solve.</p>
+<p>Here the network we trained has given up and guessed the most common color in
+the image.  What makes this question so much harder? Even though the image is
+cleaner, the question requires many steps of <em>reasoning</em>: rather than
+simply recognizing the main object in the image, the model must first find the
+blue cylinder, locate the other object with the same size, and then determine
+its color. This is a complicated computation, and it’s a computation
+<em>specific to the question that was asked</em>. Different questions require
+different sequences of steps to solve.</p>
 
-<p>This stands in contrast to the dominant “one size fits all” paradigm in deep
-learning: for whatever problem we’re trying to solve, we write down a fixed
-model architecture that we hope captures the relationship between the input and
-output, and learn parameters for that fixed model from labeled training data.</p>
+<p>The dominant paradigm in deep learning is a "one size fits all" approach: for
+whatever problem we’re trying to solve, we write down a fixed model architecture
+that we hope can capture everything about the relationship between the input and
+output, and learn parameters for that fixed model from labeled training
+data.</p>
 
 <p>But real-world reasoning doesn’t work this way: it involves a variety of
 different capabilities, combined and synthesized in new ways for every new 
@@ -64,15 +67,15 @@ size, and determining its color. We can draw this schematically like:</p>
 <img src="{{site.url}}/assets/nmns/layout1.jpg"> 
 </p>
 
-<p>A different question might involve a different series of steps. If we ask “how
-many things are the same size as the ball?”, we might have something like:</p>
+<p>A different question might involve a different series of steps. If we ask "how
+many things are the same size as the ball?", we might have something like:</p>
 
 <p style="text-align:center;"> 
 <img src="{{site.url}}/assets/nmns/layout2.jpg"> 
 </p>
 
-<p>Basic operations like “compare size” are shared between questions, but they get
-used in different ways. The key idea behind NMNs is to make this sharing
+<p>Basic operations like "compare size" are shared between questions, but they
+get used in different ways. The key idea behind NMNs is to make this sharing
 explicit: we use two different network structures to answer the two questions
 above, but we share weights between pieces of networks that involve the same
 basic operations:</p>
@@ -93,15 +96,15 @@ appropriate:</p>
 <p>(Several recent deep learning frameworks, including DyNet and TensorFlow Fold,
 were explicitly designed with this kind of dynamic computation in mind.)</p>
 
-<p>What we get at the end of the training process is not a single deep network, but
-rather a collection of neural “modules”, each of which implements a single step
-of reasoning. When we want to use our trained model on a new problem instance,
-we can assemble these modules dynamically to produce a new network structure
-tailored to that problem.</p>
+<p>What we get at the end of the training process is not a single deep network,
+but rather a collection of neural "modules", each of which implements a single
+step of reasoning. When we want to use our trained model on a new problem
+instance, we can assemble these modules dynamically to produce a new network
+structure tailored to that problem.</p>
 
 <p>One of the remarkable things about this process is that we don’t need to provide
 any low-level supervision for individual modules: the model never sees an
-isolated example of blue object or a “left-of” relationship. Modules are learned
+isolated example of blue object or a "left-of" relationship. Modules are learned
 only inside larger composed structures, with only (question, answer) pairs as
 supervision. But the training procedure is able to <em>automatically</em> infer the
 correct relationship between pieces of structure and the computations they’re
@@ -114,7 +117,7 @@ responsible for:</p>
 <hr />
 
 <p>The key ingredient in this whole process is a collection of high-level
-“reasoning blueprints” like the ones above. These blueprints tell us how the
+"reasoning blueprints" like the ones above. These blueprints tell us how the
 network for each question should be laid out, and how different questions relate
 to one another. But where do the blueprints come from?</p>
 
@@ -140,7 +143,7 @@ wide variety of problems.</p>
 <hr />
 
 <p>Despite the remarkable success of deep learning methods in recent years, many
-problems—including few-shot learning and complex reasoning—remain a
+problems---including few-shot learning and complex reasoning---remain a
 challenge. But these are exactly the sorts of problems where more structured
 classical techniques like semantic parsing and program induction really shine.
 Neural module networks give us the best of both worlds: the flexibility and data
@@ -155,13 +158,13 @@ This post is based on the following papers:
 
 * Neural Module Networks.
     - Jacob Andreas, Marcus Rohrbach, Trevor Darrell and Dan Klein.
-    - CVPR 2016, Talk. ([arXiv][1]) 
+    - CVPR 2016. ([arXiv][1])
 * Learning to Compose Neural Networks for Question Answering.
     - Jacob Andreas, Marcus Rohrbach, Trevor Darrell and Dan Klein.
-    - NAACL 2016, Best Paper Award. ([arXiv][2])
+    - NAACL 2016. ([arXiv][2])
 * Modeling Relationships in Referential Expressions with Compositional Modular Networks.
     - Ronghang Hu, Marcus Rohrbach, Jacob Andreas, Trevor Darrell and Kate Saenko.
-    - CVPR 2017, Spotlight. ([arXiv][3])
+    - CVPR 2017. ([arXiv][3])
 
 [1]:https://arxiv.org/abs/1511.02799
 [2]:https://arxiv.org/abs/1601.01705
