@@ -32,7 +32,7 @@ The editorial board consists of the following members:
 * [Harry Huazhe Xu][7]
 * [Daniel Seita][5]
 * [Dequan Wang][6]
-* Jane Liang
+* [Jane Liang][8]
 * [Sergey Levine][4]
 
 To contact the group, send email to `bair-blog@berkeley.edu`.
@@ -51,3 +51,4 @@ Artificial Intelligence Research for hosting support.
 [5]:https://people.eecs.berkeley.edu/~seita/
 [6]:http://www.dequan.wang/
 [7]:http://hxu.rocks/
+[8]:https://yishuangl.github.io
