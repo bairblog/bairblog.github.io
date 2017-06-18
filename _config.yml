@@ -22,7 +22,7 @@ future: true
 
 # Disqus post comments
 # (leave blank to disable Disqus)
-disqus_shortname: bairblog
+disqus_shortname: 
 
 # Facebook Comments plugin
 # (leave blank to disable Facebook Comments, otherwise set it to true)

@@ -6,23 +6,21 @@ permalink: /about/
 
 ## Overview and Blog Purpose
 
-Besides writing papers and obtaining state-of-the-art results, part of our
-scientific mission is to disseminate our results to the public at large. In
-recent years, scientific blogs have attracted a large number of views for
-technically advanced audiences as a way of disseminating perspectives on recent
-results and overall perspectives on the field. However, the most popular blogs
-in this area are dominated by large industrial labs.
-
-We hope to address this gap with a dedicated blog for presenting results from
-the [Berkeley Artificial Intelligence Research][3] group. Our aim is to
-disseminate results to the wider community (including non-scientists), provide
-our perspectives on the field, discuss recent trends, provide commentary on
-other work (diplomatically!), and discuss BAIR-related things. Our goal is to
-publish blog posts at least once a week and at at regularly-spaced intervals.
-
-Posts on this blog are written by BAIR students, post-docs, and faculty.
-
-**TODO**: link to RSS feed goes here.
+[Berkeley AI Research][3] (BAIR) brings together researchers at UC Berkeley
+across the areas of computer vision, machine learning, natural language
+processing, planning, and robotics, and each year we publish cutting edge
+research across all of these areas. Dissemination of scientific results is a
+core component of our mission, and while the traditional avenues for fulfilling
+this mission -- publications and presentations at academic conferences --
+continue to be the primary method for disseminating our results, we must also
+strive to make our results accessible, easily interpretable, and available to
+all. As part of this effort, we are launching the BAIR Blog, a general audience
+blog where we will present and discuss recent results in computer vision, deep
+learning, robotics, NLP, and a variety of other areas where BAIR conducts
+cutting-edge research. Our aim with the BAIR Blog will be to present recent
+scientific findings in a format that is engaging, accessible, but at the same
+time informative for readers with all levels of expertise. Posts on a variety of
+other topics will follow on approximately a weekly basis.
 
 
 ## Bair Blog Editorial Board
