@@ -13,7 +13,7 @@ Or you can start from another Markdown "starter file" and the editors here can
 fix it.
 
 We strongly recommend you preview locally. To do so, run `bundle exec jekyll
-serve` as described in [the Jekyll starter guide][1]. If all goes well, you
+serve` as described in [the Jekyll starter guide][2]. If all goes well, you
 should see the following output:
 
 ```
