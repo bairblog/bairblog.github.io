@@ -22,6 +22,9 @@ scientific findings in a format that is engaging, accessible, but at the same
 time informative for readers with all levels of expertise. Posts on a variety of
 other topics will appear on approximately a weekly basis.
 
+**Daniel: this is basically the same as [what's in Sergey's introductory
+post][9].  What should we put here, then?**
+
 
 ## Bair Blog Editorial Board
 
@@ -50,3 +53,4 @@ Artificial Intelligence Research for hosting support.
 [6]:http://www.dequan.wang/
 [7]:http://hxu.rocks/
 [8]:https://yishuangl.github.io
+[9]:{{ site.baseurl }}/2017/06/20/welcome/

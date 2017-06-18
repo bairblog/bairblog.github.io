@@ -23,7 +23,7 @@ layout: default
       </center></h5>
       <br>
       {{ post.excerpt }} 
-      <a href="{{ post.url }}">Continue</a>
+      <a href="{{ post.url | prepend: site.baseurl }}">Continue</a>
       </p>
       </div>
      {% endif %}
