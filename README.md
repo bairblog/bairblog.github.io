@@ -120,6 +120,14 @@ Then we can securely copy:
 scp -r _site seita@login.eecs.berkeley.edu:/project/eecs/interact/www-bair/blog2
 ```
 
+if the `blog2` folder doesn't exist. Otherwise use
+
+```
+scp -r _site/* seita@login.eecs.berkeley.edu:/project/eecs/interact/www-bair/blog2/
+```
+
+so that the contents of `_site` go in `blog2`.
+
 Note that you'll need permissions to push to this group (it's from Anca Dragan).
 Right now only Jane and I have permissions for this.
 

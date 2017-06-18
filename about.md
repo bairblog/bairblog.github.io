@@ -6,24 +6,13 @@ permalink: /about/
 
 ## Overview and Blog Purpose
 
-[Berkeley AI Research][3] (BAIR) brings together researchers at UC Berkeley
-across the areas of computer vision, machine learning, natural language
-processing, planning, and robotics, and each year we publish cutting edge
-research across all of these areas. Dissemination of scientific results is a
-core component of our mission, and while the traditional avenues for fulfilling
-this mission -- publications and presentations at academic conferences --
-continue to be the primary method for disseminating our results, we must also
-strive to make our results accessible, easily interpretable, and available to
-all. As part of this effort, we are launching the BAIR Blog, a general audience
-blog where we will present and discuss recent results in computer vision, deep
-learning, robotics, NLP, and a variety of other areas where BAIR conducts
-cutting-edge research. Our aim with the BAIR Blog will be to present recent
-scientific findings in a format that is engaging, accessible, but at the same
-time informative for readers with all levels of expertise. Posts on a variety of
-other topics will appear on approximately a weekly basis.
-
-**Daniel: this is basically the same as [what's in Sergey's introductory
-post][9].  What should we put here, then?**
+The BAIR Blog provides an accessible, general-audience medium for BAIR
+researchers to communicate research findings, perspectives on the field, and
+various updates. Posts are written by [students][11], [post-docs][11], and
+[faculty][10] in BAIR, and are intended to provide relevant and timely
+discussion of research findings and results, both to experts and the general
+audience. Posts on a variety of topics studied at BAIR will appear on
+approximately a weekly basis.
 
 
 ## Bair Blog Editorial Board
@@ -47,10 +36,11 @@ Artificial Intelligence Research for hosting support.
 
 [1]:https://github.com/johnotander/pixyll
 [2]:https://www.offconvex.org/
-[3]:http://bair.berkeley.edu/
 [4]:https://people.eecs.berkeley.edu/~svlevine/
 [5]:https://people.eecs.berkeley.edu/~seita/
 [6]:http://www.dequan.wang/
 [7]:http://hxu.rocks/
 [8]:https://yishuangl.github.io
 [9]:{{ site.baseurl }}/2017/06/20/welcome/
+[10]:http://bair.berkeley.edu/faculty.html
+[11]:http://bair.berkeley.edu/students.html
