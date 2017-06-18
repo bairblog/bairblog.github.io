@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Learning to Reason with Neural Module Networks
-date:       2017-06-01 00:00:00
+date:       2017-06-20 10:00:00
 author:     Jacob Andreas
 visible:    True
 excerpt_separator: <!--more-->
@@ -130,7 +130,7 @@ problem of analyzing grammatical structure. Linguists have long observed that
 the grammar of a question is closely related to the sequence of computational
 steps needed to answer it. Thanks to recent advances in natural language
 processing, we can use off-the-shelf tools for grammatical analysis to provide
-approximate version of these blueprints automatically.</p>
+approximate versions of these blueprints automatically.</p>
 
 <p>But finding exactly the right mapping from linguistic structure to network
 structure is still a challenging problem, and the conversion process is prone
