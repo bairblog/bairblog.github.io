@@ -7,14 +7,12 @@ to where the BAIR website lives, and the blog is updated perfectly.
 
 The easiest way to get started is to copy one of the older posts we have and
 start from there. Please make the title informative and also to start with the
-date first and then the title. 
-
-Or you can start from another Markdown "starter file" and the editors here can
-fix it.
+date first and then the title.  You can also start from another Markdown
+"starter file" and the editors here can fix it.
 
 We strongly recommend you preview locally. To do so, run `bundle exec jekyll
-serve` as described in [the Jekyll starter guide][2]. If all goes well, you
-should see the following output:
+serve` as described in [the Jekyll starter guide][2]. If all goes well, and you
+[have jekyll installed][7], you should see the following output:
 
 ```
 danielseita$ bundle exec jekyll serve
@@ -44,9 +42,10 @@ Tips:
 
 - Make sure that `visible: True` is set in the header when previewing.
 
-- When hyperlinking to other posts (e.g. if your post builds upon an earlier
-  one) please use the `site.baseurl` feature. See Sergey's welcome post for an
-  example of how to do this. You can do it with:
+- When hyperlinking to other posts that have **not yet been released**, (e.g. if
+  your post builds upon an earlier one) please use the `site.baseurl` feature.
+  See Sergey's welcome post for an example of how to do this. You can do it
+  with:
   
   ```
   [1]:{{ site.baseurl }}/2017/06/20/learning-to-reason-with-neural-module-networks/
@@ -61,7 +60,8 @@ Tips:
   ```
 
   The text here will automatically form a hyperlink to the URL described with
-  `[1]`.
+  `[1]`. If you're linking a post which already has been released, you can just
+  use the full URL since that won't change.
 
 - For images and GIFs, please store them in the `assets` folder (an online link
   also works, see Jeff's post for examples of how to do this). You can put an
@@ -158,3 +158,4 @@ links:
 [4]:https://byparker.com/blog/2014/clearing-up-confusion-around-baseurl/
 [5]:https://github.com/jekyll/jekyll/issues/5853
 [6]:https://jekyllrb.com/docs/configuration/#specifying-a-jekyll-environment-at-build-time
+[7]:https://jekyllrb.com/docs/installation/
