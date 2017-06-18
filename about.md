@@ -20,7 +20,7 @@ learning, robotics, NLP, and a variety of other areas where BAIR conducts
 cutting-edge research. Our aim with the BAIR Blog will be to present recent
 scientific findings in a format that is engaging, accessible, but at the same
 time informative for readers with all levels of expertise. Posts on a variety of
-other topics will follow on approximately a weekly basis.
+other topics will appear on approximately a weekly basis.
 
 
 ## Bair Blog Editorial Board
