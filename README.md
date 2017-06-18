@@ -93,17 +93,14 @@ becomes
 Or change the baseurl to be something else you want. This, by the way, is why we
 encourage post authors to use `{{ site.baseurl }}` when hyperlinking posts,
 because then changing the baseurl automatically means hyperlinks will work.
-
-Run the following command:
-
-When previewing locally, I told writes to use 
+When previewing locally, I told writers to use 
 
 ```
 bundle exec jekyll serve
 ```
 
 to preview. However, if you want to get this actually deployed online, you need
-to run it in production mode:
+to run it in **production mode**:
 
 ```
 JEKYLL_ENV=production bundle exec jekyll serve
@@ -116,7 +113,8 @@ in it (bair.berkeley.edu and whatever your baseurl was). If you didn't add the
 production environment, the `_site` folder would contain a bunch of
 `http://localhost:4000` links.
 
-Let's suppose we've set the baseurl to be blog2. Then we can securely copy:
+Let's suppose we've set the baseurl to be `blog2` in the configuration file.
+Then we can securely copy:
 
 ```
 scp -r _site seita@login.eecs.berkeley.edu:/project/eecs/interact/www-bair/blog2
@@ -152,9 +150,11 @@ links:
 - [Configuring for project GitHub pages][3] (this is a "project" page because we're
   putting it on bair.berkeley.edu/blog and not in a personal github website).
 - [Changing the root URL to be the correct one][5]
+- [Jekyll docs on configurations][6]
 
 [1]:https://jekyllrb.com/docs/posts/
 [2]:http://jekyllrb.com/docs/quickstart/
 [3]:http://downtothewire.io/2015/08/15/configuring-jekyll-for-user-and-project-github-pages/
 [4]:https://byparker.com/blog/2014/clearing-up-confusion-around-baseurl/
 [5]:https://github.com/jekyll/jekyll/issues/5853
+[6]:https://jekyllrb.com/docs/configuration/#specifying-a-jekyll-environment-at-build-time
