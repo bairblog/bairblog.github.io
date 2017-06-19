@@ -118,7 +118,7 @@ responsible for:</p>
 </p>
 
 This same process works for answering questions about more realistic
-photographs, and even other sources of knowledge like databases:
+photographs, and even other knowledge sources like databases:
 
 <p>
 <table>
