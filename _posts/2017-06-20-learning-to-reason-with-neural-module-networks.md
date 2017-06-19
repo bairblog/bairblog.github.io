@@ -162,14 +162,14 @@ wide variety of problems.</p>
 <hr />
 
 <p>Despite the remarkable success of deep learning methods in recent years, many
-problems---including few-shot learning and complex reasoning---remain a
+problems&mdash;including few-shot learning and complex reasoning&mdash;remain a
 challenge. But these are exactly the sorts of problems where more structured
 classical techniques like semantic parsing and program induction really shine.
 Neural module networks give us the best of both worlds: the flexibility and data
 efficiency of discrete compositionality, combined with the representational
-power of deep networks. NMNs have already seen a number of successes for
-visual reasoning problems, and we’re excited to start applying them to other AI
-problems as well.</p>
+power of deep networks. NMNs have already seen a number of successes for visual
+and textual reasoning tasks, and we’re excited to start applying them to other
+AI problems as well.</p>
 
 <hr />
 
