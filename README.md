@@ -137,9 +137,16 @@ localhost). When doing this:
 - Be *very careful* that all links are working correctly, and that their
   baseurls are correct.
 
-- Before actual deployment, be careful about setting `visible: False` for posts
-  which are not yet released! Future posts should only be set to visible for the
+- Before actual deployment, **make sure `visible: False` is set for posts
+  which are not yet released**! Future posts should only be set to visible for the
   purposes of previewing them.
+
+- Make sure permissions are set correctly, otherwise people will not be able to
+  view the `.html` files, or they may see them but the output will look awful
+  (think normal HTML text without the Jekyll beautification). Run `ls -lh` and
+  check that files have permissions shown as `drwxrwxr-x` for directories and
+  `-rwxrwxr-x` for non-directories. This can be done recursively inside a blog
+  directory with `chmod -R 775 *`.
 
 Finally, if you're satisfied with how this looks, then change the baseurl to be
 `blog`, re-bundle in production mode using the same command above, and copy the
