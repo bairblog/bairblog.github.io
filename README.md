@@ -129,7 +129,9 @@ scp -r _site/* seita@login.eecs.berkeley.edu:/project/eecs/interact/www-bair/blo
 so that the contents of `_site` go in `blog2`.
 
 Note that you'll need permissions to push to this group (it's from Anca Dragan).
-Right now only Jane and I have permissions for this.
+Right now only Jane and I have permissions for this. At some point, though, we
+should probably figure out a way to copy only the new files we need, but this
+likely won't be a problem until we get maybe 40 posts.
 
 This will generate a blog preview on an actual, live website (and not
 localhost). When doing this: 
