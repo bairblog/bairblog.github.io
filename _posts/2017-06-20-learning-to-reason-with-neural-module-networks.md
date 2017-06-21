@@ -88,7 +88,7 @@ basic operations:</p>
 </p>
 
 <p>How do we learn a model like this? Rather than training a single large network
-on lots of input / output pairs, we actually train a huge number of different
+on lots of input/output pairs, we actually train a huge number of different
 networks at the same time, while tying their parameters together where
 appropriate:</p>
 
@@ -140,24 +140,24 @@ photographs, and even other knowledge sources like databases:
 network for each question should be laid out, and how different questions relate
 to one another. But where do the blueprints come from?</p>
 
-<p>In our initial work on these models, we drew on a surprising connection
-between the problem of designing question-specific neural networks and the
-problem of analyzing grammatical structure. Linguists have long observed that
-the grammar of a question is closely related to the sequence of computational
-steps needed to answer it. Thanks to recent advances in natural language
-processing, we can use off-the-shelf tools for grammatical analysis to provide
-approximate versions of these blueprints automatically.</p>
+<p>In our initial work on these models (1, 2), we drew on a surprising
+connection between the problem of designing question-specific neural networks
+and the problem of analyzing grammatical structure. Linguists have long observed
+that the grammar of a question is closely related to the sequence of
+computational steps needed to answer it. Thanks to recent advances in natural
+language processing, we can use off-the-shelf tools for grammatical analysis to
+provide approximate versions of these blueprints automatically.</p>
 
 <p>But finding exactly the right mapping from linguistic structure to network
-structure is still a challenging problem, and the conversion process is prone
-to errors. In later work, rather than relying on this kind of linguistic
-analysis, we instead turned to data produced by human experts who directly
-labeled a collection of questions with idealized reasoning blueprints.  By
-learning to imitate these humans, our model was able to improve the quality of
-its predictions substantially. Most surprisingly, when we took a model trained
-to imitate experts, but allowed it to explore its own modifications to these
-expert predictions, it was able to find even better solutions than experts on a
-wide variety of problems.</p>
+structure is still a challenging problem, and the conversion process is prone to
+errors. In later work, rather than relying on this kind of linguistic analysis,
+we instead turned to data produced by human experts who directly labeled a
+collection of questions with idealized reasoning blueprints (3). By learning to
+imitate these humans, our model was able to improve the quality of its
+predictions substantially. Most surprisingly, when we took a model trained to
+imitate experts, but allowed it to explore its own modifications to these expert
+predictions, it was able to find even better solutions than experts on a 
+variety of questions.</p>
 
 <hr />
 
@@ -175,16 +175,21 @@ AI problems as well.</p>
 
 This post is based on the following papers:
 
-* Neural Module Networks.
-    - Jacob Andreas, Marcus Rohrbach, Trevor Darrell and Dan Klein.
-    - CVPR 2016. ([arXiv][1])
-* Learning to Compose Neural Networks for Question Answering.
-    - Jacob Andreas, Marcus Rohrbach, Trevor Darrell and Dan Klein.
-    - NAACL 2016. ([arXiv][2])
-* Modeling Relationships in Referential Expressions with Compositional Modular Networks.
-    - Ronghang Hu, Marcus Rohrbach, Jacob Andreas, Trevor Darrell and Kate Saenko.
-    - CVPR 2017. ([arXiv][3])
+1. Neural Module Networks. Jacob Andreas, Marcus Rohrbach, Trevor Darrell and
+   Dan Klein.  CVPR 2016. ([arXiv][1])
+
+2. Learning to Compose Neural Networks for Question Answering.
+   Jacob Andreas, Marcus Rohrbach, Trevor Darrell and Dan Klein.
+   NAACL 2016. ([arXiv][2])
+
+3. Modeling Relationships in Referential Expressions with Compositional Modular
+   Networks. Ronghang Hu, Marcus Rohrbach, Jacob Andreas, Trevor Darrell and Kate
+   Saenko. CVPR 2017. ([arXiv][3])
+
+Images are from the [VQA][4] and [CLEVR][5] datasets.
 
 [1]:https://arxiv.org/abs/1511.02799
 [2]:https://arxiv.org/abs/1601.01705
 [3]:https://arxiv.org/abs/1611.09978
+[4]:http://www.visualqa.org/
+[5]:http://cs.stanford.edu/people/jcjohns/clevr/
