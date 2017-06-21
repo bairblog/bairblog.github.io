@@ -129,7 +129,9 @@ scp -r _site/* seita@login.eecs.berkeley.edu:/project/eecs/interact/www-bair/blo
 so that the contents of `_site` go in `blog2`.
 
 Note that you'll need permissions to push to this group (it's from Anca Dragan).
-Right now only Jane and I have permissions for this.
+Right now only Jane and I have permissions for this. At some point, though, we
+should probably figure out a way to copy only the new files we need, but this
+likely won't be a problem until we get maybe 40 posts.
 
 This will generate a blog preview on an actual, live website (and not
 localhost). When doing this: 
@@ -137,9 +139,16 @@ localhost). When doing this:
 - Be *very careful* that all links are working correctly, and that their
   baseurls are correct.
 
-- Before actual deployment, be careful about setting `visible: False` for posts
-  which are not yet released! Future posts should only be set to visible for the
+- Before actual deployment, **make sure `visible: False` is set for posts
+  which are not yet released**! Future posts should only be set to visible for the
   purposes of previewing them.
+
+- Make sure permissions are set correctly, otherwise people will not be able to
+  view the `.html` files, or they may see them but the output will look awful
+  (think normal HTML text without the Jekyll beautification). Run `ls -lh` and
+  check that files have permissions shown as `drwxrwxr-x` for directories and
+  `-rwxrwxr-x` for non-directories. This can be done recursively inside a blog
+  directory with `chmod -R 775 *`.
 
 Finally, if you're satisfied with how this looks, then change the baseurl to be
 `blog`, re-bundle in production mode using the same command above, and copy the

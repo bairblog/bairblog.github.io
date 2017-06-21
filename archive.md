@@ -8,11 +8,11 @@ Find an article within this site using search terms:
 
 <script>
   (function() {
-    var cx = '012587250564323129862:w5iqfetffay';
+    var cx = '000373180906647854396:quv89icw3um';
     var gcse = document.createElement('script');
     gcse.type = 'text/javascript';
     gcse.async = true;
-    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//cse.google.com/cse.js?cx=' + cx;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(gcse, s);
   })();
