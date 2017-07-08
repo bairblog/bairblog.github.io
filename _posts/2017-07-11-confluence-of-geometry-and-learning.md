@@ -16,9 +16,10 @@ Interestingly, this problem is under-constrained, since an image could be the pr
 <!--
 ![The workshop metaphor](https://i.imgur.com/3uXL86o.png) | ![MVS](https://i.imgur.com/P2b8u7v.png)
 -->
-![sinha](https://people.eecs.berkeley.edu/~tinghuiz/bair_blog/sinha.png =400x) | ![MVS](https://i.imgur.com/P2b8u7v.png)
+
+![sinha](https://people.eecs.berkeley.edu/~tinghuiz/bair_blog/sinha.png) | ![MVS](https://i.imgur.com/P2b8u7v.png)
 :-------------------------:|:-------------------------:
-An image could be the projection of infinitely many 3D structures [Sinha & Adelson 1993]. | Our visual experiences are solely comprised of 2D projections of the 3D world.
+*An image could be the projection of infinitely many 3D structures [Sinha & Adelson 1993].* | *Our visual experiences are solely comprised of 2D projections of the 3D world.*
 
 Building computational models for single image 3D inference is a long-standing problem in computer vision. Early attempts, such as the *Blocks World* [1] or 3D surface from line drawings [2], leveraged explicit reasoning over geometric cues to optimize for the 3D structure. Over the years, the incorporation of supervised learning allowed approaches to scale to more realistic settings and infer qualitative [3] or quantitative [4] 3D representations. The trend of obtaining impressive results in realistic settings has since continued to the current CNN-based incarnations [5,6], but at the cost of increasing reliance on direct 3D supervision, making this paradigm rather restrictive. It is costly and painstaking, if not impossible, to obtain such supervision at a large scale. Instead, akin to the human visual system, we want our computational systems to **learn 3D prediction without requiring 3D supervision**.
 
@@ -77,7 +78,10 @@ Our aim is to to learn a *Predictor* $P$ (typically a neural network) that can i
 <!--
 Given a 3D shape and a 2D image, we can verify whether they adhere to these equations i.e. whether the 3D structure is *geometrically consistent* with the 2D observation. 
 -->
-![](https://i.imgur.com/KT2s75c.png)
+
+<p style="text-align:center;">
+<img src="https://i.imgur.com/KT2s75c.png" alt="geometric consistency">
+</p>
 
 To illustrate the training process, consider a simple game between the *Predictor* $P$ and a geometry expert, the *Verifier* $V$. We give $P$ a single image $I$, and it predicts a 3D representation $y$. $V$, who is then given the prediction $y$, and an observation $O$ of the world from a different camera viewpoint $C$, uses the geometric equations to validate if these are consistent. We ask $P$ to predict $y$ that would pass this consistency check performed by $V$. The key insight is that since $P$ does not know $(O, C)$ which will be used to verify its prediction, it will have to predict $y$ that is consistent will *all* the possible observations (similar to the unknown ground-truth $y_{gt}$). This allows us to define the following training algorithm to learn 3D-from-2D prediction using only multi-view supervision.
 
@@ -119,7 +123,9 @@ In our [recent paper](https://arxiv.org/pdf/1704.06254.pdf), we formulate a *Ver
 
 An insight which allows defining $V$ is that each pixel in the observation $O$ corresponds to a ray with some associated information. Then, instead of computing the geometric consistency between the observation $O$ and the shape $y$, we can consider, one ray at a time, the consistency between the shape $y$ and a ray $r$.
 
-<div style="text-align:center"><img src="https://i.imgur.com/NQaMdTl.png"></div>
+<p style="text-align:center;">
+<img src="https://i.imgur.com/NQaMdTl.png" alt="rays">
+</p>
 
 The figure above depicts the various aspects of formulating the ray consistency cost. a) The predicted 3D shape and a sample ray with which we measure consistency. b,c) We trace the ray through the 3D shape and compute *event probabilities* - the probabilities that the ray terminates at various points on its path. d) We can measure how inconsistent each ray termination event is with the information available for that ray. e) By defining the ray consistency cost as the expected event cost, we can compute gradients for how the prediction should be updated to increase the consistency. While in this example we visualize a depth observation $O$, an advantage of our formulation is that it allows incorporating diverse kinds of observations (color images, foreground masks etc.) by simply defining the corresponding event cost function.
 
@@ -128,17 +134,19 @@ The figure above depicts the various aspects of formulating the ray consistency 
 
 ![](https://shubhtuls.github.io/drc/resources/images/sNetVis.png)  |  ![](https://shubhtuls.github.io/drc/resources/images/pascalVis.png)
 :-------------------------:|:-------------------------:
-Results on ShapeNet dataset using multiple depth images as supervision for training. a) Input image. b,c) Predicted 3D shape.  | Results on PASCAL VOC dataset using pose and foreground masks as supervision for training. a) Input image. b,c) Predicted 3D shape.
+*Results on ShapeNet dataset using multiple depth images as supervision for training. a) Input image. b,c) Predicted 3D shape.*  | *Results on PASCAL VOC dataset using pose and foreground masks as supervision for training. a) Input image. b,c) Predicted 3D shape.*
 
 ![](https://shubhtuls.github.io/drc/resources/images/csVis.png)  |  ![](https://shubhtuls.github.io/drc/resources/images/sNetColorVis.png)
 :-------------------------:|:-------------------------:
-Results on Cityscapes dataset using  depth, semantics as supervision. a) Input image. b,c) Predicted 3D shape rendered under simulated forward motion. | Results on ShapeNet dataset using multiple color images as supervision for training shape and per-voxel color prediction. a) Input image. b,c) Predicted 3D shape. 
+*Results on Cityscapes dataset using  depth, semantics as supervision. a) Input image. b,c) Predicted 3D shape rendered under simulated forward motion.* | *Results on ShapeNet dataset using multiple color images as supervision for training shape and per-voxel color prediction. a) Input image. b,c) Predicted 3D shape.*
 
 
 ## Learning Depth and Pose from Unlabeled Videos
 Notice that in the above work, the input to the verifier $V$ is an observation with *known* camera viewpoint/pose. This is reasonable from the perspective of an agent with sensorimotor functionality (e.g. human or robots with odometers), but prevents its applications to more unstructured data sources (e.g. videos). In another [recent work](https://arxiv.org/abs/1704.07813), we show that the pose requirement can be relaxed, and in fact jointly learned with the single image 3D predictor $P$.
 
-![Problem setup](https://people.eecs.berkeley.edu/~tinghuiz/bair_blog/teaser_h.jpg)
+<p style="text-align:center;">
+<img src="https://people.eecs.berkeley.edu/~tinghuiz/bair_blog/teaser_h.jpg" alt="problem setup">
+</p>
 
 
 More specifically, our verifier $V$ in this case is based on a *differentiable depth-based view synthesizer* that outputs a target view of the scene using the predicted depth map and pixels from a source view (i.e. observation) seen under a different camera pose. Here both the depth map and the camera pose are predicted, and the consistency is defined by the pixel reconstruction error between the synthesized and the ground-truth target view. By jointly learning the scene geometry and the camera pose, we are able to train the system on unlabeled video clips without any direct supervision for either depth or pose. 
@@ -152,10 +160,9 @@ adopt the setup of having an agent (e.g. a car mounted with a monocular camera) 
 <!--
 Our approach is again based on the principle of learning via geometric consistency, and the verifier is defined using the task of *view synthesis*: given one input view of a scene, synthesize a new image of the scene seen from a different camera pose. It turns out the entire view synthesis pipeline can be formulated in a differentiable manner with depth and pose as the intermediate output predicted by deep networks. As a result, the view reconstruction loss can serve as a measure of the depth and pose prediction quality, and provide supervision signal for both networks directly. The figure below shows an overview of our learning pipeline. -->
 
-![Training pipeline](https://people.eecs.berkeley.edu/~tinghuiz/bair_blog/pipeline.jpg =600x) |
+![Training pipeline](https://people.eecs.berkeley.edu/~tinghuiz/bair_blog/pipeline.jpg) |
 :-------------------------:|:-------------------------:
-Formulating the verifier as a depth-based view synthesizer and joint learning of depth and camera pose allows us to train the entire system from unlabeled videos without any direct supervision for either depth or pose. | 
-
+*Formulating the verifier as a depth-based view synthesizer and joint learning of depth and camera pose allows us to train the entire system from unlabeled videos without any direct supervision for either depth or pose.* | 
 
 <!--Our approach also bears resemblance to the *direct methods* in structure from motion literature, where both the camera parameters and scene geometry are estimated by minimizing a pixel-based error function. However, in contrast to the classic direct methods, our apporach is learning-based that allows the network to learn an implicit prior from a large corpus of related imagery.-->
 
