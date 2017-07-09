@@ -3,7 +3,7 @@ layout:     post
 title:      "The Confluence of Geometry and Learning for 3D Understanding"
 date:       2017-07-11 9:00:00
 author:     Shubham Tulsiani and Tinghui Zhou
-visible:    False
+visible:    True
 excerpt_separator: <!--more-->
 ---
 
@@ -22,17 +22,17 @@ In this blog post, we provide an overview of this recent trend and in particular
 <!--more-->
 
 ## Learning via Geometric Consistency
-Our aim is to to learn a *Predictor* $P$ (typically a neural network) that can infer 3D from a single 2D image. Under the supervision setting considered, the training data $T$ consists of multiple observations from different viewpoints. As alluded to earlier, geometry acts as a bridge to allow learning the *Predictor* $P$ using the training data $T$. This is because we know precisely, in the form of concise geometric equations, the relationship between a 3D representation and the corresponding 2D projections.  We can therefore train $P$ to predict 3D that is *geometrically consistent* with the associated 2D observations (from $T$).
+Our aim is to to learn a *Predictor* $P$ (typically a neural network) that can infer 3D from a single 2D image. Under the supervision setting considered, the training data consists of multiple observations from different viewpoints. As alluded to earlier, geometry acts as a bridge to allow learning the *Predictor* $P$ using the training data. This is because we know precisely, in the form of concise geometric equations, the relationship between a 3D representation and the corresponding 2D projections.  We can therefore train $P$ to predict 3D that is *geometrically consistent* with the associated 2D observations.
 
 <p style="text-align:center;">
-<img src="https://i.imgur.com/KT2s75c.png" alt="geometric consistency">
+<img src="https://i.imgur.com/st1Ia9i.png" alt="geometric consistency">
 </p>
 
-To illustrate the training process, consider a simple game between the *Predictor* $P$ and a geometry expert, the *Verifier* $V$. We give $P$ a single image $I$, and it predicts a 3D representation $y$. $V$, who is then given the prediction $y$, and an observation $O$ of the world from a different camera viewpoint $C$, uses the geometric equations to validate if these are consistent. We ask $P$ to predict $y$ that would pass this consistency check performed by $V$. The key insight is that since $P$ does not know $(O, C)$ which will be used to verify its prediction, it will have to predict $y$ that is consistent will *all* the possible observations (similar to the unknown ground-truth $y_{gt}$). This allows us to define the following training algorithm to learn 3D-from-2D prediction using only multi-view supervision.
+To illustrate the training process, consider a simple game between the *Predictor* $P$ and a geometry expert, the *Verifier* $V$. We give $P$ a single image $I$, and it predicts a 3D shape $S$. $V$, who is then given the prediction $S$, and an observation $O$ of the world from a different camera viewpoint $C$, uses the geometric equations to validate if these are consistent. We ask $P$ to predict $S$ that would pass this consistency check performed by $V$. The key insight is that since $P$ does not know $(O, C)$ which will be used to verify its prediction, it will have to predict $S$ that is consistent will *all* the possible observations (similar to the unknown ground-truth $S_{gt}$). This allows us to define the following training algorithm to learn 3D-from-2D prediction using only multi-view supervision.
 
-- From $T$, pick random image $I$, with associated observation $O$ from viewpoint $C$.
-- Predict $y = P(I)$. Use $V$ to check consistency between $(y, O, C)$
-- Update $P$, using gradient descent, to make $y$ more consistent with $(O, C)$.
+- Pick a random training image $I$ with associated observation $O$ from viewpoint $C$.
+- Predict $S = P(I)$. Use $V$ to check consistency between $(S, O, C)$
+- Update $P$, using gradient descent, to make $S$ more consistent with $(O, C)$.
 - Repeat until convergence.
 
 The recent approaches pursuing single-view prediction using multi-view supervision all adhere to this template, the differences being the form of 3D prediction being pursued (e.g. depth or shape), and the kinds of multi-view observations needed (e.g. color images or foreground masks). We now look at two papers which push the boundaries of the multi-view supervision paradigm. The first one leverages classical ray consistency formulations to introduce a generic *Verifier* which can measure consistency between a 3D shape and diverse kinds of observations $O$. The second one demonstrates that it is possible to even further relax the supervision required and presents a technique to learn 3D-from-2D without even requiring the camera viewpoints $C$ for training.
