@@ -15,7 +15,7 @@ Given only a single image, humans are able to infer the rich 3D structure presen
 
 Building computational models for single image 3D inference is a long-standing problem in computer vision. Early attempts, such as the *Blocks World* [1] or 3D surface from line drawings [2], leveraged explicit reasoning over geometric cues to optimize for the 3D structure. Over the years, the incorporation of supervised learning allowed approaches to scale to more realistic settings and infer qualitative [3] or quantitative [4] 3D representations. The trend of obtaining impressive results in realistic settings has since continued to the current CNN-based incarnations [5,6], but at the cost of increasing reliance on direct 3D supervision, making this paradigm rather restrictive. It is costly and painstaking, if not impossible, to obtain such supervision at a large scale. Instead, akin to the human visual system, we want our computational systems to **learn 3D prediction without requiring 3D supervision**.
 
-With this goal in mind, our work and several other recent approaches [7-11] explore another form of supervision: multi-view observations, for learning single-view 3D. Interesingly, not only do these different works share the goal of incorporating multi-view supervision, the methodologies used also follow common principles. A unifying foundation to these approaches is the interaction between learning and geometry, where predictions made by the learning system are encouraged to be 'geometrically consistent' with the multi-view observations. Therefore, geometry acts as a bridge between the learning system and the multi-view training data. 
+With this goal in mind, our work and several other recent approaches [7-11] explore another form of supervision: multi-view observations, for learning single-view 3D. Interesingly, not only do these different works share the goal of incorporating multi-view supervision, the methodologies used also follow common principles. A unifying foundation to these approaches is the interaction between learning and geometry, where predictions made by the learning system are encouraged to be 'geometrically consistent' with the multi-view observations. Therefore, geometry acts as a bridge between the learning system and the multi-view training data.
 
 In this blog post, we provide an overview of this recent trend and in particular, highlight the common principles across approaches. We then focus on two papers from the Berkeley Artificial Intelligence Research (BAIR) lab to appear in CVPR 2017 and discuss how these push the multi-view supervision paradigm further.
 
@@ -69,18 +69,16 @@ Notice that in the above work, the input to the verifier $V$ is an observation w
 </p>
 
 
-More specifically, our verifier $V$ in this case is based on a *differentiable depth-based view synthesizer* that outputs a target view of the scene using the predicted depth map and pixels from a source view (i.e. observation) seen under a different camera pose. Here both the depth map and the camera pose are predicted, and the consistency is defined by the pixel reconstruction error between the synthesized and the ground-truth target view. By jointly learning the scene geometry and the camera pose, we are able to train the system on unlabeled video clips without any direct supervision for either depth or pose. 
+More specifically, our verifier $V$ in this case is based on a *differentiable depth-based view synthesizer* that outputs a target view of the scene using the predicted depth map and pixels from a source view (i.e. observation) seen under a different camera pose. Here both the depth map and the camera pose are predicted, and the consistency is defined by the pixel reconstruction error between the synthesized and the ground-truth target view. By jointly learning the scene geometry and the camera pose, we are able to train the system on unlabeled video clips without any direct supervision for either depth or pose.
 
 
 ![Training pipeline](https://people.eecs.berkeley.edu/~tinghuiz/bair_blog/pipeline.jpg) |
 :-------------------------:|:-------------------------:
-<sub>*Formulating the verifier as a depth-based view synthesizer and joint learning of depth and camera pose allows us to train the entire system from unlabeled videos without any direct supervision for either depth or pose.* </sub> | 
+<sub>*Formulating the verifier as a depth-based view synthesizer and joint learning of depth and camera pose allows us to train the entire system from unlabeled videos without any direct supervision for either depth or pose.* </sub> |
 
-We train and evaluate our model on the KITTI and Cityscapes datasets, which consist of videos captured by a car driving in urban cities. The video below shows frame-by-frame (i.e. no temporal smoothness) prediction made by our single-view depth network. 
+We train and evaluate our model on the KITTI and Cityscapes datasets, which consist of videos captured by a car driving in urban cities. The video below shows frame-by-frame (i.e. no temporal smoothness) prediction made by our single-view depth network.
 
-<p style="text-align:center;">
-<iframe  width="560" height="315" src="https://www.youtube.com/embed/UTlpYilJgrk" frameborder="0" allowfullscreen></iframe>
-</p>
+{% youtube "https://www.youtube.com/watch?v=UTlpYilJgrk" %}
 
 Surprisingly, despite being trained without any ground-truth labels, our single-view depth model performs on par with some of the supervised baselines, while the pose estimation model is also comparable with well-established SLAM systems (see the [paper](https://arxiv.org/pdf/1704.07813.pdf) for more details).
 
@@ -119,5 +117,3 @@ This post is based on the following papers:
 [10] Matheus Gadelha, Subhransu Maji, Rui Wang. *3D Shape Induction from 2D Views of Multiple Objects.* arXiv preprint, 2016.
 
 [11] Clément Godard, Oisin Mac Aodha, Gabriel J. Brostow. *Unsupervised Monocular Depth Estimation with Left-Right Consistency.* In CVPR, 2017.
-
-
