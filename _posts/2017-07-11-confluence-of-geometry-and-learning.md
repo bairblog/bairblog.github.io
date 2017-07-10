@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "The Confluence of Geometry and Learning for 3D Understanding"
+title:      "The Confluence of Geometry and Learning"
 date:       2017-07-11 9:00:00
 author:     Shubham Tulsiani and Tinghui Zhou
 visible:    False
@@ -11,11 +11,11 @@ Given only a single 2D image, humans are able to effortlessly infer the rich 3D 
 
 ![sinha](https://people.eecs.berkeley.edu/~tinghuiz/bair_blog/sinha.png) | ![MVS](https://i.imgur.com/dpe8C7u.png)
 :-------------------------:|:-------------------------:
-<sub>*An image could be the projection of infinitely many 3D structures [Sinha & Adelson 1993].*</sub> | <sub>*Our visual experiences are solely comprised of 2D projections of the 3D world.*</sub>
+<sub>*An image could be the projection of infinitely many 3D structures (figure from [Sinha & Adelson](http://ieeexplore.ieee.org/document/378224/)).*</sub> | <sub>*Our visual experiences solely comprise of 2D projections of the 3D world.*</sub>
 
-Building computational models for single image 3D inference is a long-standing problem in computer vision. Early attempts, such as the *Blocks World* [1] or 3D surface from line drawings [2], leveraged explicit reasoning over geometric cues to optimize for the 3D structure. Over the years, the incorporation of supervised learning allowed approaches to scale to more realistic settings and infer qualitative [3] or quantitative [4] 3D representations. The trend of obtaining impressive results in realistic settings has since continued to the current CNN-based incarnations [5,6], but at the cost of increasing reliance on direct 3D supervision, making this paradigm rather restrictive. It is costly and painstaking, if not impossible, to obtain such supervision at a large scale. Instead, akin to the human visual system, we want our computational systems to **learn 3D prediction without requiring 3D supervision**.
+Building computational models for single image 3D inference is a long-standing problem in computer vision. Early attempts, such as the [Blocks World](https://dspace.mit.edu/handle/1721.1/11589) or [3D surface from line drawings](http://web.mit.edu/cocosci/Papers/Barrow-Tenenbaum81.pdf), leveraged explicit reasoning over geometric cues to optimize for the 3D structure. Over the years, the incorporation of supervised learning allowed approaches to scale to more realistic settings and infer qualitative (e.g. [Hoiem et al.](http://dhoiem.cs.illinois.edu/projects/popup/)) or quantitative (e.g. [Saxena et al.](http://www.cs.cornell.edu/~asaxena/learningdepth/)) 3D representations. The trend of obtaining impressive results in realistic settings has since continued to the current CNN-based incarnations (e.g. [Eigen & Fergus](http://www.cs.nyu.edu/~deigen/depth/), [Wang et al.](http://www.cs.cmu.edu/~xiaolonw/deep3d.html)), but at the cost of increasing reliance on direct 3D supervision, making this paradigm rather restrictive. It is costly and painstaking, if not impossible, to obtain such supervision at a large scale. Instead, akin to the human visual system, we want our computational systems to **learn 3D prediction without requiring 3D supervision**.
 
-With this goal in mind, our work and several other recent approaches [7-11] explore another form of supervision: multi-view observations, for learning single-view 3D. Interesingly, not only do these different works share the goal of incorporating multi-view supervision, the methodologies used also follow common principles. A unifying foundation to these approaches is the interaction between learning and geometry, where predictions made by the learning system are encouraged to be 'geometrically consistent' with the multi-view observations. Therefore, geometry acts as a bridge between the learning system and the multi-view training data.
+With this goal in mind, our work and [several other recent approaches](#refs) explore another form of supervision: multi-view observations, for learning single-view 3D. Interestingly, not only do these different works share the goal of incorporating multi-view supervision, the methodologies used also follow common principles. A unifying foundation to these approaches is the interaction between learning and geometry, where predictions made by the learning system are encouraged to be 'geometrically consistent' with the multi-view observations. Therefore, geometry acts as a bridge between the learning system and the multi-view training data.
 
 In this blog post, we provide an overview of this recent trend and in particular, highlight the common principles across approaches. We then focus on two papers from the Berkeley Artificial Intelligence Research (BAIR) lab to appear in CVPR 2017 and discuss how these push the multi-view supervision paradigm further.
 
@@ -42,7 +42,7 @@ The recent approaches pursuing single-view prediction using multi-view supervisi
 
 In our [recent paper](https://arxiv.org/pdf/1704.06254.pdf), we formulate a *Verifier* $V$ to measure the consistency between a 3D shape (represented as a probabilistic occupancy grid) and a 2D observation. Our generic formulation allows learning volumetric 3D prediction by leveraging different types of multi-view observations e.g. foreground masks, depth, color images, semantics etc. as supervision.
 
-An insight which allows defining $V$ is that each pixel in the observation $O$ corresponds to a ray with some associated information. Then, instead of computing the geometric consistency between the observation $O$ and the shape $y$, we can consider, one ray at a time, the consistency between the shape $y$ and a ray $r$.
+An insight which allows defining $V$ is that each pixel in the observation $O$ corresponds to a ray with some associated information. Then, instead of computing the geometric consistency between the observation $O$ and the shape $S$, we can consider, one ray at a time, the consistency between the shape $S$ and a ray $r$.
 
 <p style="text-align:center;">
 <img src="https://i.imgur.com/NQaMdTl.png" alt="rays">
@@ -88,32 +88,27 @@ Learning single image 3D without 3D supervision is an exciting and thriving topi
 
 <hr />
 
-This post is based on the following papers:
-* Multi-view Supervision for Single-view Reconstruction via Differentiable Ray Consistency. CVPR 2017 ([pdf](https://arxiv.org/pdf/1704.06254.pdf), [code](https://github.com/shubhtuls/drc), [webpage](https://shubhtuls.github.io/drc/))
-*Shubham Tulsiani, Tinghui Zhou, Alexei Efros, Jitendra Malik*
-* Unsupervised Learning of Depth and Ego-Motion from Video. CVPR 2017 ([pdf](https://arxiv.org/pdf/1704.07813.pdf), [code](https://github.com/tinghuiz/SfMLearner), [webpage](https://people.eecs.berkeley.edu/~tinghuiz/projects/SfMLearner/))
-*Tinghui Zhou, Matthew Brown, Noah Snavely, David Lowe*
+**This post is based on the following papers**:
+* [*Multi-view Supervision for Single-view Reconstruction via Differentiable Ray Consistency.*](https://shubhtuls.github.io/drc/)  <br>
+S. Tulsiani, T. Zhou, A. A. Efros, J. Malik. In CVPR, 2017 . ([pdf](https://arxiv.org/pdf/1704.06254.pdf), [code](https://github.com/shubhtuls/drc), [webpage](https://shubhtuls.github.io/drc/))
+
+* [*Unsupervised Learning of Depth and Ego-Motion from Video.*](https://people.eecs.berkeley.edu/~tinghuiz/projects/SfMLearner/) <br>
+T. Zhou, M. Brown, N. Snavely, D. Lowe. In CVPR, 2017. ([pdf](https://arxiv.org/pdf/1704.07813.pdf), [code](https://github.com/tinghuiz/SfMLearner), [webpage](https://people.eecs.berkeley.edu/~tinghuiz/projects/SfMLearner/))
 
 
-### References
-[1] Lawrence G. Roberts. *Machine perception of three-dimensional solids.* PhD Dissertation, MIT, 1963.
+**Other recent multi-view supervised 3D prediction approaches:**<a name="refs"></a>
 
-[2] Harry G. Barrow, Jay M. Tenenbaum. *Interpreting line drawings as three-dimensional surfaces.* Artificial intelligence, 1981.
+* [*Unsupervised CNN for Single View Depth Estimation: Geometry to the Rescue.*](https://arxiv.org/abs/1603.04992) <br>
+R. Garg, B. G. Vijay Kumar, G. Carneiro, I. Reid. In ECCV, 2016.
 
-[3] Derek Hoiem, Alexei A. Efros, Martial Hebert. *Automatic photo pop-up.* In SIGGRAPH, 2005.
+* [*Perspective Transformer Nets: Learning Single-View 3D Object Reconstruction without 3D Supervision.*](https://sites.google.com/site/skywalkeryxc/perspective_transformer_nets)  <br>
+X. Yan, J. Yang, E. Yumer, Y. Guo, H. Lee. In NIPS, 2016.
 
-[4] Ashutosh Saxena, Sung H. Chung, Andrew Y. Ng. *Learning depth from single monocular images.* In NIPS, 2006.
+* [*Unsupervised Learning of 3D Structure from Images.*](https://arxiv.org/abs/1607.00662)  <br>
+D. J. Rezende, S. M. Ali Eslami, S. Mohamed, P. Battaglia, M. Jaderberg, N. Heess. In NIPS, 2016.
 
-[5] David Eigen, Christian Puhrsch, Rob Fergus. *Depth map prediction from a single image using a multi-scale deep network.* In NIPS, 2014.
+* [*3D Shape Induction from 2D Views of Multiple Objects.*](http://mgadelha.me/home/prgan/index.html) <br>
+M. Gadelha, S. Maji, R. Wang. arXiv preprint, 2016.
 
-[6] Xiaolong Wang, David Fouhey, Abhinav Gupta. *Designing deep networks for surface normal estimation.* In CVPR, 2015.
-
-[7] Ravi Garg, Vijay Kumar BG, Gustavo Carneiro, Ian Reid. *Unsupervised CNN for Single View Depth Estimation: Geometry to the Rescue.* In ECCV, 2016.
-
-[8] Xinchen Yan, Jimei Yang, Ersin Yumer, Yijie Guo, Honglak Lee. *Perspective Transformer Nets: Learning Single-View 3D Object Reconstruction without 3D Supervision.* In NIPS, 2016.
-
-[9] Danilo Jimenez Rezende, S. M. Ali Eslami, Shakir Mohamed, Peter Battaglia, Max Jaderberg, Nicolas Heess. *Unsupervised Learning of 3D Structure from Images.* In NIPS, 2016.
-
-[10] Matheus Gadelha, Subhransu Maji, Rui Wang. *3D Shape Induction from 2D Views of Multiple Objects.* arXiv preprint, 2016.
-
-[11] Clément Godard, Oisin Mac Aodha, Gabriel J. Brostow. *Unsupervised Monocular Depth Estimation with Left-Right Consistency.* In CVPR, 2017.
+* [*Unsupervised Monocular Depth Estimation with Left-Right Consistency.*](http://visual.cs.ucl.ac.uk/pubs/monoDepth/) <br>
+C. Godard, O. M. Aodha, G. J. Brostow. In CVPR, 2017.
