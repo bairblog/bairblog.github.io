@@ -7,7 +7,7 @@ visible:    False
 excerpt_separator: <!--more-->
 ---
 
-Given only a single image, humans are able to infer the rich 3D structure present in the underlying scene. Since the task of inferring 3D-from-2D is mathematically under-constrained (see e.g. the left figure below), we must rely on learning from our past visual experiences. These visual experiences solely consist of 2D projections (as received on the retina) of the 3D world. Therefore, the learning signal for our 3D perception capability likely comes from making consistent connections among different perspectives of the world that only capture *partial* evidence of the 3D reality. In this post, we describe methods for building 3D predictions systems that can learn in a similar manner.
+Given only a single 2D image, humans are able to effortlessly infer the rich 3D structure of the underlying scene. Since the task of inferring 3D from 2D is mathematically under-constrained (see e.g. the left figure below), we must rely on learning from our past visual experiences. These visual experiences solely consist of 2D projections (as received on the retina) of the 3D world. Therefore, the learning signal for our 3D perception capability likely comes from making consistent connections among different perspectives of the world that only capture *partial* evidence of the 3D reality. In this post, we describe methods for building 3D prediction systems that can learn in a similar manner.
 
 ![sinha](https://people.eecs.berkeley.edu/~tinghuiz/bair_blog/sinha.png) | ![MVS](https://i.imgur.com/dpe8C7u.png)
 :-------------------------:|:-------------------------:
