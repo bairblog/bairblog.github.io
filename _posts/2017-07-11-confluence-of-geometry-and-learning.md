@@ -60,19 +60,19 @@ The figure above depicts the various aspects of formulating the ray consistency 
 
 
 ## Learning Depth and Pose from Unlabeled Videos
-Notice that in the above work, the input to the verifier $V$ is an observation with *known* camera viewpoint/pose. This is reasonable from the perspective of an agent with sensorimotor functionality (e.g. human or robots with odometers), but prevents its applications to more unstructured data sources (e.g. videos). In another [recent work](https://arxiv.org/abs/1704.07813), we show that the pose requirement can be relaxed, and in fact jointly learned with the single image 3D predictor $P$.
+Notice that in the above work, the input to the *Verifier* $V$ is an observation with *known* camera viewpoint/pose. This is reasonable from the perspective of an agent with sensorimotor functionality (e.g. human or robots with odometers), but prevents its applications to more unstructured data sources (e.g. videos). In another [recent work](https://arxiv.org/abs/1704.07813), we show that the pose requirement can be relaxed, and in fact jointly learned with the single image 3D predictor $P$.
 
 <p style="text-align:center;">
 <img src="https://people.eecs.berkeley.edu/~tinghuiz/bair_blog/teaser_h.jpg" alt="problem setup">
 </p>
 
 
-More specifically, our verifier $V$ in this case is based on a *differentiable depth-based view synthesizer* that outputs a target view of the scene using the predicted depth map and pixels from a source view (i.e. observation) seen under a different camera pose. Here both the depth map and the camera pose are predicted, and the consistency is defined by the pixel reconstruction error between the synthesized and the ground-truth target view. By jointly learning the scene geometry and the camera pose, we are able to train the system on unlabeled video clips without any direct supervision for either depth or pose.
+More specifically, our *Verifier* $V$ in this case is based on a *differentiable depth-based view synthesizer* that outputs a target view of the scene using the predicted depth map and pixels from a source view (i.e. observation) seen under a different camera pose. Here both the depth map and the camera pose are predicted, and the consistency is defined by the pixel reconstruction error between the synthesized and the ground-truth target view. By jointly learning the scene geometry and the camera pose, we are able to train the system on unlabeled video clips without any direct supervision for either depth or pose.
 
 
 ![Training pipeline](https://people.eecs.berkeley.edu/~tinghuiz/bair_blog/pipeline.jpg) |
 :-------------------------:|:-------------------------:
-<sub>*Formulating the verifier as a depth-based view synthesizer and joint learning of depth and camera pose allows us to train the entire system from unlabeled videos without any direct supervision for either depth or pose.* </sub> |
+<sub>*Formulating the Verifier as a depth-based view synthesizer and joint learning of depth and camera pose allows us to train the entire system from unlabeled videos without any direct supervision for either depth or pose.* </sub> |
 
 We train and evaluate our model on the KITTI and Cityscapes datasets, which consist of videos captured by a car driving in urban cities. The video below shows frame-by-frame (i.e. no temporal smoothness) prediction made by our single-view depth network (more can be found in the [project webage](https://people.eecs.berkeley.edu/~tinghuiz/projects/SfMLearner/)).
 
@@ -87,6 +87,7 @@ Surprisingly, despite being trained without any ground-truth labels, our single-
 Learning single image 3D without 3D supervision is an exciting and thriving topic in computer vision. Using geometry as a bridge between the learning system and the multi-view training data allows us to bypass the tedious and expensive process of acquiring ground-truth 3D labels. More broadly, one could interpret the geometric consistency as a form of *meta supervision* on not *what* the prediction is but *how* it should behave. We believe that similar principles could be applied to other problem domains where obtaining direct labels is difficult or infeasible.
 
 <hr />
+*We would like to thank [TZ's advisor](https://people.eecs.berkeley.edu/~efros/) and [TZ's advisor's advisor](https://people.eecs.berkeley.edu/~malik/) for their valuable feedback.*
 
 **This post is based on the following papers:**
 * [*Multi-view Supervision for Single-view Reconstruction via Differentiable Ray Consistency.*](https://shubhtuls.github.io/drc/)  <br>
