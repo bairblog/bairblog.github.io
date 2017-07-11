@@ -9,9 +9,9 @@ excerpt_separator: <!--more-->
 
 Given only a single 2D image, humans are able to effortlessly infer the rich 3D structure of the underlying scene. Since inferring 3D from 2D is an ambiguous task by itself (see e.g. the left figure below), we must rely on learning from our past visual experiences. These visual experiences solely consist of 2D projections (as received on the retina) of the 3D world. Therefore, the learning signal for our 3D perception capability likely comes from making consistent connections among different perspectives of the world that only capture *partial* evidence of the 3D reality. We present methods for building 3D prediction systems that can learn in a similar manner.
 
-![sinha](https://people.eecs.berkeley.edu/~tinghuiz/bair_blog/sinha.png) | ![MVS](https://i.imgur.com/dpe8C7u.png) | ![sinha](https://people.eecs.berkeley.edu/~tinghuiz/bair_blog/sample_result.png)
+<img src="https://people.eecs.berkeley.edu/~tinghuiz/bair_blog/sinha.png" alt="sinha" style="width: 300px;"/>| <img src="https://i.imgur.com/dpe8C7u.png" alt="MVS" style="width: 300px;"/> | <img src="https://people.eecs.berkeley.edu/~tinghuiz/bair_blog/sample_result.png" alt="sampleres" style="width: 180px;"/>
 :-------------------------:|:-------------------------:|:-------------------------:
-<sub>*An image could be the projection of infinitely many 3D structures (figure from [Sinha & Adelson](http://ieeexplore.ieee.org/document/378224/)).*</sub> | <sub>*Our visual experiences solely comprise of 2D projections of the 3D world.*</sub>|<sub>*Example single image 3D tasks: voxel (top) and depth (bottom) prediction.*</sub>
+<sub>*An image could be the projection of infinitely many 3D structures (figure from [Sinha & Adelson](http://ieeexplore.ieee.org/document/378224/)).*</sub> | <sub>*Our visual experiences solely comprise of 2D projections of the 3D world.*</sub>|<sub>*Our approach can learn from 2D projections and predict shape (top) or depth (bottom) from a single image.*</sub>
 
 Building computational models for single image 3D inference is a long-standing problem in computer vision. Early attempts, such as the [Blocks World](https://dspace.mit.edu/handle/1721.1/11589) or [3D surface from line drawings](http://web.mit.edu/cocosci/Papers/Barrow-Tenenbaum81.pdf), leveraged explicit reasoning over geometric cues to optimize for the 3D structure. Over the years, the incorporation of supervised learning allowed approaches to scale to more realistic settings and infer qualitative (e.g. [Hoiem et al.](http://dhoiem.cs.illinois.edu/projects/popup/)) or quantitative (e.g. [Saxena et al.](http://www.cs.cornell.edu/~asaxena/learningdepth/)) 3D representations. The trend of obtaining impressive results in realistic settings has since continued to the current CNN-based incarnations (e.g. [Eigen & Fergus](http://www.cs.nyu.edu/~deigen/depth/), [Wang et al.](http://www.cs.cmu.edu/~xiaolonw/deep3d.html)), but at the cost of increasing reliance on direct 3D supervision, making this paradigm rather restrictive. It is costly and painstaking, if not impossible, to obtain such supervision at a large scale. Instead, akin to the human visual system, we want our computational systems to **learn 3D prediction without requiring 3D supervision**.
 
@@ -88,7 +88,7 @@ Learning single image 3D without 3D supervision is an exciting and thriving topi
 
 <hr />
 
-**This post is based on the following papers**:
+**This post is based on the following papers:**
 * [*Multi-view Supervision for Single-view Reconstruction via Differentiable Ray Consistency.*](https://shubhtuls.github.io/drc/)  <br>
 S. Tulsiani, T. Zhou, A. A. Efros, J. Malik. In CVPR, 2017 . ([pdf](https://arxiv.org/pdf/1704.06254.pdf), [code](https://github.com/shubhtuls/drc), [webpage](https://shubhtuls.github.io/drc/))
 
