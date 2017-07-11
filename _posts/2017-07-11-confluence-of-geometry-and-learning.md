@@ -3,7 +3,7 @@ layout:     post
 title:      "The Confluence of Geometry and Learning"
 date:       2017-07-11 9:00:00
 author:     Shubham Tulsiani and Tinghui Zhou
-visible:    False
+visible:    True
 excerpt_separator: <!--more-->
 ---
 
