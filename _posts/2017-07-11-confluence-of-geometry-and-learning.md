@@ -74,9 +74,11 @@ More specifically, our verifier $V$ in this case is based on a *differentiable d
 :-------------------------:|:-------------------------:
 <sub>*Formulating the verifier as a depth-based view synthesizer and joint learning of depth and camera pose allows us to train the entire system from unlabeled videos without any direct supervision for either depth or pose.* </sub> |
 
-We train and evaluate our model on the KITTI and Cityscapes datasets, which consist of videos captured by a car driving in urban cities. The video below shows frame-by-frame (i.e. no temporal smoothness) prediction made by our single-view depth network.
+We train and evaluate our model on the KITTI and Cityscapes datasets, which consist of videos captured by a car driving in urban cities. The video below shows frame-by-frame (i.e. no temporal smoothness) prediction made by our single-view depth network (more can be found in the [project webage](https://people.eecs.berkeley.edu/~tinghuiz/projects/SfMLearner/)).
 
-{% youtube "https://www.youtube.com/watch?v=UTlpYilJgrk" %}
+<p style="text-align:center;">
+<img src="https://github.com/tinghuiz/SfMLearner/blob/master/misc/cityscapes_sample_results.gif?raw=true" alt="depth_gif">
+</p>
 
 Surprisingly, despite being trained without any ground-truth labels, our single-view depth model performs on par with some of the supervised baselines, while the pose estimation model is also comparable with well-established SLAM systems (see the [paper](https://arxiv.org/pdf/1704.07813.pdf) for more details).
 
