@@ -31,7 +31,7 @@ considering each new task in isolation. This approach of learning to learn, or
 meta-learning, is a key stepping stone towards versatile agents that can
 continually learn a wide variety of tasks throughout their lifetimes.
 
-So, what is learning to learn, and what has it been used for? 
+### So, what is learning to learn, and what has it been used for? 
 
 <!--more-->
 
@@ -48,7 +48,7 @@ recent papers, most commonly using the technique for [hyperparameter][5] and
 <i>Various recent meta-learning approaches.</i>
 </p>
 
-## Few-Shot Learning
+### Few-Shot Learning
 
 <img src="{{site.url}}{{site.baseurl}}/assets/maml/segway.jpg" alt="maml" width="160" hspace="30" align="right">
 In 2015, [Brendan Lake et al.][19] published a paper that challenged modern machine
@@ -77,7 +77,7 @@ examples from that task.
 <p style="text-align:center;">
 <img src="{{site.url}}{{site.baseurl}}/assets/maml/meta_example.png" alt="maml" width="600"><br>
 <i>Example meta-learning set-up for few-shot image classification, visual
-adapted from <a href="https://openreview.net/forum?id=rJY0-Kcll&noteId=ryq49XyLg">Ravi & Larochelle ‘17</a>.</i>
+adapted from <a href="https://openreview.net/forum?id=rJY0-Kcll">Ravi & Larochelle ‘17</a>.</i>
 </p>
 
 During meta-learning, the model is trained to learn tasks in the meta-training
@@ -86,7 +86,7 @@ and the meta-learner, which trains the meta-learner. Methods for meta-learning
 have typically fallen into one of three categories: recurrent models, metric
 learning, and learning optimizers.
 
-## Recurrent Models
+**Recurrent Models**
 
 These approaches train a recurrent model, e.g. an [LSTM][24], to take in the
 dataset sequentially and then process new inputs from the task., In an image
@@ -102,12 +102,12 @@ $y_t$, figure from <a href="http://proceedings.mlr.press/v48/santoro16.pdf">Sant
 
 The meta-learner uses gradient descent, whereas the learner simply rolls out the
 recurrent network. This approach is one of the most general approaches and has
-been used for [few-shot classification and regression][25], and
-[meta][26]-[reinforcement][27] [learning][28]. Due to its flexibility, this
-approach also tends to be less (meta-)efficient than other methods because the
-learner network needs to come up with its learning strategy from scratch.
+been used for [few-shot classification and regression][25], [and][26]
+[meta-reinforcement][27] [learning][28]. Due to its flexibility, this approach
+also tends to be less (meta-)efficient than other methods because the learner
+network needs to come up with its learning strategy from scratch.
 
-## Metric Learning
+**Metric Learning**
 
 This approach involves learning a metric space in which learning is particularly
 efficient. This approach has mostly been used for few-shot classification.
@@ -123,7 +123,7 @@ nearest neighbors, in the meta-learned metric space. These approaches work
 demonstrated in other meta-learning domains such as regression or reinforcement
 learning.
 
-## Learning Optimizers
+**Learning Optimizers**
 
 The final approach is to [learn an optimizer][33]. In this method, there is one
 network (the meta-learner) which learns to update another network (the learner)
@@ -152,7 +152,7 @@ don’t have an analogous pre-training scheme for non-vision domains such as
 speech, language, and control.[^pre_training] Is there something to learn from
 the remarkable success of ImageNet fine-tuning?
 
-# Model-Agnostic Meta-Learning (MAML)
+## Model-Agnostic Meta-Learning (MAML)
 
 What if we directly optimized for an initial representation that can be
 effectively fine-tuned from a small number of examples? This is exactly the idea
@@ -209,6 +209,18 @@ We hope that MAML’s simple approach for effectively teaching agents to adapt t
 variety of scenarios will bring us one step closer towards developing versatile
 agents that can learn a variety of skills in real world settings.
 
+<hr>
+
+*I would like to thank Sergey Levine and Pieter Abbeel for their valuable
+feedback.*
+
+**This last part of this post was based on the following research paper**:
+
+- [Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks][45]. <br>
+  C. Finn, P. Abbeel, S. Levine. In ICML, 2017. ([pdf][46], [code][47])
+
+<hr>
+
 
 [^pre_training]: Though, researchers have developed domain-agnostic
     initialization schemes to encourage [well][40]-[conditioned][41]
@@ -231,7 +243,7 @@ agents that can learn a variety of skills in real world settings.
 [10]:https://arxiv.org/abs/1611.02167
 [11]:https://arxiv.org/abs/1704.08792
 [12]:https://arxiv.org/abs/1606.04080
-[13]:https://openreview.net/forum?id=rJY0-Kcll&noteId=ryq49XyLg
+[13]:https://openreview.net/forum?id=rJY0-Kcll
 [14]:https://arxiv.org/abs/1703.03400
 [15]:https://arxiv.org/abs/1606.02819
 [16]:https://arxiv.org/abs/1611.02779
@@ -256,10 +268,13 @@ agents that can learn a variety of skills in real world settings.
 [35]:https://arxiv.org/abs/1606.04474
 [36]:https://arxiv.org/abs/1703.00441
 [37]:https://arxiv.org/abs/1703.04813
-[38]:https://openreview.net/forum?id=rJY0-Kcll&noteId=ryq49XyLg
+[38]:https://openreview.net/forum?id=rJY0-Kcll
 [39]:http://proceedings.mlr.press/v32/donahue14.pdf
 [40]:http://proceedings.mlr.press/v9/glorot10a.html
 [41]:https://arxiv.org/abs/1602.07868
 [42]:https://arxiv.org/abs/1312.6120
 [43]:https://arxiv.org/abs/1511.06856
 [44]:https://arxiv.org/abs/1511.06422
+[45]:https://arxiv.org/abs/1703.03400
+[46]:https://arxiv.org/pdf/1703.03400.pdf
+[47]:https://github.com/cbfinn/maml
