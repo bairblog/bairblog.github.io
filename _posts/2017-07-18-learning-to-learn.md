@@ -19,8 +19,10 @@ situations. How can we enable our artificial agents to acquire such versatility?
 
 There are several techniques being developed to solve these sorts of problems
 and I'll survey them in this post, as well as discuss a recent technique from
-our lab, called model-agnostic meta-learning. (You can check out the [research
-paper here][1], and the code for the [underlying technique here][2].)
+our lab, called <a
+href="{{site.url}}{{site.baseurl}}/2017/07/18/learning-to-learn/#model-agnostic-meta-learning-maml">model-agnostic
+meta-learning</a>. (You can check out the [research paper here][1], and the code
+for the [underlying technique here][2].)
 
 Current AI systems can master a complex skill from scratch, using an
 understandably large amount of time and experience. But if we want our agents to
