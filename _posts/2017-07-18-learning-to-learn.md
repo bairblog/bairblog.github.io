@@ -62,7 +62,7 @@ can also draw a character in a new alphabet after seeing just one example).
 Along with the paper, Lake included a dataset of handwritten characters,
 [Omniglot][20], the “transpose” of [MNIST][21], with 1623 character classes,
 each with 20 examples. Two deep learning models quickly followed with papers at
-ICML 2015 that used [memory-augmented neural networks][22] and [sequential
+ICML 2016 that used [memory-augmented neural networks][22] and [sequential
 generative models][23]; showing it is possible for deep models to learn to learn
 from a few examples, though not yet at the level of humans.
 
