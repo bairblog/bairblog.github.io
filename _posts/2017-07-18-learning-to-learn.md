@@ -72,7 +72,7 @@ Meta-learning systems are trained by being exposed to a large number of tasks
 and are then tested in their ability to learn new tasks; an example of a task
 might be classifying a new image within 5 possible classes, given one example of
 each class, or learning to efficiently navigate a new maze with only one
-traversal through the maze. This differs to many standard machine learning
+traversal through the maze. This differs from many standard machine learning
 techniques, which involve training on a single task and testing on held-out
 examples from that task.
 
@@ -84,7 +84,7 @@ adapted from <a href="https://openreview.net/forum?id=rJY0-Kcll">Ravi & Larochel
 
 During meta-learning, the model is trained to learn tasks in the meta-training
 set. There are two optimizations at play -- the learner, which learns new tasks,
-and the meta-learner, which trains the meta-learner. Methods for meta-learning
+and the meta-learner, which trains the learner. Methods for meta-learning
 have typically fallen into one of three categories: recurrent models, metric
 learning, and learning optimizers.
 
@@ -121,7 +121,7 @@ perform comparisons in a [learned metric space][30]. Like the previous approach,
 meta-learning is performed using gradient descent (or your favorite neural
 network optimizer), whereas the learner corresponds to a comparison scheme, e.g.
 nearest neighbors, in the meta-learned metric space. These approaches work
-[quite][31] [well][32] for few-shot classification, though have yet to be
+[quite][31] [well][32] for few-shot classification, though they have yet to be
 demonstrated in other meta-learning domains such as regression or reinforcement
 learning.
 
