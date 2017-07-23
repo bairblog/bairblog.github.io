@@ -3,7 +3,7 @@ title:       The Berkeley Artificial Intelligence Research Blog
 email:       bair-blog@berkeley.edu
 author:      Daniel Seita
 description: "The BAIR Blog"
-baseurl:     "/blog"
+baseurl:     "/blog2"
 url:         "http://bair.berkeley.edu"
 date_format: "%b %-d, %Y"
 timezone:    America/Los_Angeles
@@ -22,12 +22,12 @@ future: true
 
 # Disqus post comments
 # (leave blank to disable Disqus)
-disqus_shortname: 
+disqus_shortname: bair-blog
 
 # Facebook Comments plugin
 # (leave blank to disable Facebook Comments, otherwise set it to true)
-facebook_comments: 
-facebook_appid: 
+facebook_comments:
+facebook_appid:
 facebook_comments_number:
 
 # Social icons
