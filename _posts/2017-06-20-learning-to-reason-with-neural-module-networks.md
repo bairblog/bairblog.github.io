@@ -5,6 +5,7 @@ date:       2017-06-20 10:00:00
 author:     Jacob Andreas
 visible:    True
 excerpt_separator: <!--more-->
+show_comments: true
 ---
 
 (Joint work with Ronghang Hu, Marcus Rohrbach, Trevor Darrell, Dan Klein and
@@ -13,8 +14,8 @@ Kate Saenko.)
 <p>Suppose we’re building a household robot, and want it to be able to answer
 questions about its surroundings. We might ask questions like these:</p>
 
-<p style="text-align:center;"> 
-<img src="{{site.url}}{{site.baseurl}}/assets/nmns/examples.jpg" width="600"> 
+<p style="text-align:center;">
+<img src="{{site.url}}{{site.baseurl}}/assets/nmns/examples.jpg" width="600">
 </p>
 
 <p>How can we ensure that the robot can answer these questions correctly? The
@@ -24,15 +25,15 @@ questions and images to answers.  If most questions look like the one on the
 left, we have a familiar image recognition problem, and these kinds of
 monolithic approaches are quite effective:</p>
 
-<p style="text-align:center;"> 
-<img src="{{site.url}}{{site.baseurl}}/assets/nmns/cat_pred.jpg" width="600"> 
+<p style="text-align:center;">
+<img src="{{site.url}}{{site.baseurl}}/assets/nmns/cat_pred.jpg" width="600">
 </p>
 
 <p>But things don’t work quite so well for questions like the one on the
 right:</p>
 
-<p style="text-align:center;"> 
-<img src="{{site.url}}{{site.baseurl}}/assets/nmns/clevr_pred.jpg" width="600"> 
+<p style="text-align:center;">
+<img src="{{site.url}}{{site.baseurl}}/assets/nmns/clevr_pred.jpg" width="600">
 </p>
 
 <p>Here the network we trained has given up and guessed the most common color in
@@ -51,7 +52,7 @@ output, and learn parameters for that fixed model from labeled training
 data.</p>
 
 <p>But real-world reasoning doesn’t work this way: it involves a variety of
-different capabilities, combined and synthesized in new ways for every new 
+different capabilities, combined and synthesized in new ways for every new
 challenge we encounter in the wild. What we need is a model that can
 <em>dynamically</em> determine how to reason about the problem in front of it—a
 network that can choose its own structure on the fly. In this post, we’ll talk
@@ -66,15 +67,15 @@ preserving the expressive power that makes deep learning so effective.</p>
 the question above: finding a blue cylinder, finding something else the same
 size, and determining its color. We can draw this schematically like:</p>
 
-<p style="text-align:center;"> 
-<img src="{{site.url}}{{site.baseurl}}/assets/nmns/layout1.jpg" width="600"> 
+<p style="text-align:center;">
+<img src="{{site.url}}{{site.baseurl}}/assets/nmns/layout1.jpg" width="600">
 </p>
 
 <p>A different question might involve a different series of steps. If we ask "how
 many things are the same size as the ball?", we might have something like:</p>
 
-<p style="text-align:center;"> 
-<img src="{{site.url}}{{site.baseurl}}/assets/nmns/layout2.jpg" width="600"> 
+<p style="text-align:center;">
+<img src="{{site.url}}{{site.baseurl}}/assets/nmns/layout2.jpg" width="600">
 </p>
 
 <p>Basic operations like "compare size" are shared between questions, but they
@@ -83,8 +84,8 @@ explicit: we use two different network structures to answer the two questions
 above, but we share weights between pieces of networks that involve the same
 basic operations:</p>
 
-<p style="text-align:center;"> 
-<img src="{{site.url}}{{site.baseurl}}/assets/nmns/tying.jpg" width="600"> 
+<p style="text-align:center;">
+<img src="{{site.url}}{{site.baseurl}}/assets/nmns/tying.jpg" width="600">
 </p>
 
 <p>How do we learn a model like this? Rather than training a single large network
@@ -92,8 +93,8 @@ on lots of input/output pairs, we actually train a huge number of different
 networks at the same time, while tying their parameters together where
 appropriate:</p>
 
-<p style="text-align:center;"> 
-<img src="{{site.url}}{{site.baseurl}}/assets/nmns/training.jpg" width="600"> 
+<p style="text-align:center;">
+<img src="{{site.url}}{{site.baseurl}}/assets/nmns/training.jpg" width="600">
 </p>
 
 <p>(Several recent deep learning frameworks, including DyNet and TensorFlow Fold,
@@ -113,8 +114,8 @@ supervision. But the training procedure is able to <em>automatically</em> infer 
 correct relationship between pieces of structure and the computations they’re
 responsible for:</p>
 
-<p style="text-align:center;"> 
-<img src="{{site.url}}{{site.baseurl}}/assets/nmns/exploded.jpg" width="600"> 
+<p style="text-align:center;">
+<img src="{{site.url}}{{site.baseurl}}/assets/nmns/exploded.jpg" width="600">
 </p>
 
 This same process works for answering questions about more realistic
@@ -156,7 +157,7 @@ collection of questions with idealized reasoning blueprints (3). By learning to
 imitate these humans, our model was able to improve the quality of its
 predictions substantially. Most surprisingly, when we took a model trained to
 imitate experts, but allowed it to explore its own modifications to these expert
-predictions, it was able to find even better solutions than experts on a 
+predictions, it was able to find even better solutions than experts on a
 variety of questions.</p>
 
 <hr />

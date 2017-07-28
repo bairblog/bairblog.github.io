@@ -5,6 +5,7 @@ date:       2017-07-11 9:00:00
 author:     Shubham Tulsiani and Tinghui Zhou
 visible:    True
 excerpt_separator: <!--more-->
+show_comments: true
 ---
 
 Given only a single 2D image, humans are able to effortlessly infer the rich 3D structure of the underlying scene. Since inferring 3D from 2D is an ambiguous task by itself (see e.g. the left figure below), we must rely on learning from our past visual experiences. These visual experiences solely consist of 2D projections (as received on the retina) of the 3D world. Therefore, the learning signal for our 3D perception capability likely comes from making consistent connections among different perspectives of the world that only capture *partial* evidence of the 3D reality. We present methods for building 3D prediction systems that can learn in a similar manner.

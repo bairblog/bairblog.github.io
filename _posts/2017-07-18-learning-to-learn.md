@@ -5,6 +5,7 @@ date:       2017-07-18 9:00:00
 author:     Chelsea Finn
 visible:    True
 excerpt_separator: <!--more-->
+show_comments: true
 ---
 
 A key aspect of intelligence is versatility -- the capability of doing many
@@ -15,7 +16,7 @@ champion Jeopardy program cannot hold a conversation, and an expert helicopter
 controller for aerobatics cannot navigate in new, simple situations such as
 locating, navigating to, and hovering over a fire to put it out. In contrast, a
 human can act and adapt intelligently to a wide variety of new, unseen
-situations. How can we enable our artificial agents to acquire such versatility? 
+situations. How can we enable our artificial agents to acquire such versatility?
 
 There are several techniques being developed to solve these sorts of problems
 and I'll survey them in this post, as well as discuss a recent technique from
@@ -33,7 +34,7 @@ considering each new task in isolation. This approach of learning to learn, or
 meta-learning, is a key stepping stone towards versatile agents that can
 continually learn a wide variety of tasks throughout their lifetimes.
 
-### So, what is learning to learn, and what has it been used for? 
+### So, what is learning to learn, and what has it been used for?
 
 <!--more-->
 
@@ -67,7 +68,7 @@ generative models][23]; showing it is possible for deep models to learn to learn
 from a few examples, though not yet at the level of humans.
 
 # How Recent Meta-learning Approaches Work
- 
+
 Meta-learning systems are trained by being exposed to a large number of tasks
 and are then tested in their ability to learn new tasks; an example of a task
 might be classifying a new image within 5 possible classes, given one example of
@@ -205,7 +206,7 @@ gradient update. See videos below:
 
 The generality of the method &mdash;  it can be combined with any model smooth
 enough for gradient-based optimization &mdash;  makes MAML applicable to a wide
-range of domains and learning objectives beyond those explored in the paper. 
+range of domains and learning objectives beyond those explored in the paper.
 
 We hope that MAML’s simple approach for effectively teaching agents to adapt to
 variety of scenarios will bring us one step closer towards developing versatile
