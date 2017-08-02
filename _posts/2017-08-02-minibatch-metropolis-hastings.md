@@ -3,7 +3,7 @@ layout:     post
 title:      "Minibatch Metropolis-Hastings"
 date:       2017-08-02 9:00:00
 author:     Daniel Seita
-visible:    False
+visible:    True
 excerpt_separator: <!--more-->
 show_comments: true
 ---
@@ -161,7 +161,7 @@ $\theta$. Notice that
   $\theta$ and $\theta'$), because that cancels out in the
   $p(\theta')/p(\theta)$ ratio. This is great, because normalizing constants are
   arguably the biggest reason why distributions become intractable.
-- The higher the value of $p(\theta')$, so the more likely we are to accept.
+- The higher the value of $p(\theta')$, the more likely we are to accept.
 
 To get more intuition on how the test works, we've created the following figure
 from [this Jupyter Notebook][21], showing the progression of samples to
@@ -258,7 +258,7 @@ full-data value plus some noise (which is asymptotically normal by the Central
 Limit Theorem). 
 
 The first step for applying our MH test is to use a different acceptance
-function. Expressed in terms of $\Delta$, the classic MH accepts a transition
+function. Expressed in terms of $\Delta$, the classical MH accepts a transition
 with probability given by the blue curve. 
 
 <p style="text-align:center;">
@@ -322,9 +322,9 @@ two distributions using an additive correction variable $X_{\rm correction}$:
 alt="test_visual"><br>
 <i>
 A diagram of our minibatch MH test. On the right we have the full data test that
-we want, but we can't sample from since $\Delta$ is intractable to compute.
-Instead, we have $\Delta + X_{\rm normal}$ (from the left side) and must add a
-correction $X_{\rm correction}$.
+we want, but we can't use it since $\Delta$ is intractable.  Instead, we have
+$\Delta + X_{\rm normal}$ (from the left side) and must add a correction $X_{\rm
+correction}$.
 </i>
 </p>
 
