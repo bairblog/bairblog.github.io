@@ -31,8 +31,8 @@ To contact the group, send email to `bair-blog@berkeley.edu`.
 
 ## Translating Posts
 
-If you wish to translate our blog posts, please contact the individual authors
-of the posts, as they own the copyright. If you have trouble finding contact
+If you wish to translate our blog posts, please contact the authors of the
+posts, as they own the copyright. If you have trouble finding contact
 information, send email to `bair-blog@berkeley.edu` and we'll put you in touch.
 
 
