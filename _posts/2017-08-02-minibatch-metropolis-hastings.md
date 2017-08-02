@@ -80,8 +80,8 @@ Because of these developments, interest has warmed recently in scalable MCMC and
 in particular in doing the MH tests required by general MCMC models on large
 datasets. Normally an MH test requires a scan of the full dataset and is applied
 each time one wants a data sample. Clearly for large datasets, it’s intractable
-to do this. Two papers from ICML 2014, [Korattikara et al][14] and [Bardenet et
-al][15], attempt to reduce the cost of MH tests. They both use concentration
+to do this. Two papers from ICML 2014, [Korattikara et al.][14] and [Bardenet et
+al.][15], attempt to reduce the cost of MH tests. They both use concentration
 bounds, and both achieve constant-factor improvements relative to a full dataset
 scan. [Other recent work][16] improves performance but makes even stronger
 assumptions about the model which limits applicability, especially for deep
@@ -220,7 +220,7 @@ $$
 $$
 
 Unfortunately, this won't sample from the correct target distribution; see
-Section 6.1 in [Bardenet et al (2017)][16] for details.
+Section 6.1 in [Bardenet et al. (2017)][16] for details.
 
 A better strategy is to start with the same batch of $b$ points, but then gauge
 the *confidence* of the batch test relative to using the full data. If, after
@@ -229,7 +229,7 @@ significantly worse than our current sample $\theta$, then we should reject
 right away. If $\theta'$ is significantly better, we should accept. If it's
 ambiguous, then we increase the size of our test batch, perhaps to $2b$
 elements, and then measure the test's confidence. Lather, rinse, repeat. As
-mentioned earlier, [Korattikara et al (2014)][14] and [Bardenet et al
+mentioned earlier, [Korattikara et al. (2014)][14] and [Bardenet et al.
 (2014)][15] developed algorithms following this framework.
 
 A weakness of the above approach is that it’s doing repeated testing and one
@@ -351,8 +351,8 @@ Histograms showing the batch sizes used for Metropolis-Hastings for the three
 algorithms benchmarked in our paper. The posterior is similar to the earlier
 example from the Jupyter Notebook, except generated with one million data
 points.  Left is our result, the other two are from <a
-href="https://arxiv.org/abs/1304.5299">Korattikara et al (2014)</a>, and <a
-href="http://proceedings.mlr.press/v32/bardenet14.html">Bardenet et al
+href="https://arxiv.org/abs/1304.5299">Korattikara et al. (2014)</a>, and <a
+href="http://proceedings.mlr.press/v32/bardenet14.html">Bardenet et al.
 (2014)</a>, respectively. Our algorithm uses an average of just 172 data points
 each iteration. Note the log-log scale of the histograms.
 </i>
