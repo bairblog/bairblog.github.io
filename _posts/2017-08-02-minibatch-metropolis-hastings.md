@@ -31,9 +31,9 @@ over-fitting, excessively sensitive coefficient values, and possibly slow
 convergence. A more robust approach is to treat the inference problem for
 $\theta$ as a full-blown posterior inference, deriving a joint distribution
 $p(x,\theta)$ from the loss function, and computing the posterior $p(\theta|x)$.
-This is the Bayesian modeling approach, and specifically when applied to deep
-models. This recent [tutorial by Zoubin Ghahramani][6] discusses some of the
-advantages of this approach. 
+This is the Bayesian modeling approach, and specifically the Bayesian Neural
+Network approach when applied to deep models. This recent [tutorial by Zoubin
+Ghahramani][6] discusses some of the advantages of this approach. 
 
 The model posterior $p(\theta|x)$ for most problems is intractable (no closed
 form). There are two methods in Machine Learning to work around intractable
@@ -55,7 +55,7 @@ can infer useful statistics, apply regularizing terms, etc. But MCMC methods
 have one over-riding problem with respect to large datasets: other than the
 important class of conjugate models which admit Gibbs sampling, there has been
 no efficient way to do the Metropolis-Hastings tests required by general MCMC
-methods on minibatches of data (we will define/review M-H tests in a moment). In
+methods on minibatches of data (we will define/review MH tests in a moment). In
 response, researchers had to design models to make inference tractable, e.g.
 [Restricted Boltzmann Machines][11] (RBMs) use a layered, undirected design to
 make Gibbs sampling possible. In a recent breakthrough, [VAEs][10] use
@@ -113,21 +113,22 @@ To explain the approach, we review the role of MH tests in MCMC models.
 MCMC methods are designed to sample from a target distribution which is
 difficult to compute. To generate samples, they utilize Markov Chains, which
 consist of nodes representing states of the system and probability distributions
-for transitioning from one state to another. A key concept is the *Markovian
-assumption*, which states that the probability of being in a state at time $t+1$
-can be inferred entirely based on the current state at time $t$.
-
-Mathematically, letting $\theta_t$ represent the current state of the Markov
-chain at time $t$, we have $p(\theta_{t+1} | \theta_t, \ldots, \theta_0) =
-p(\theta_{t+1} | \theta_t)$. By using these probability distributions, we can
-generate a *chain of samples* $(\theta_i)_{i=1}^N$ for some large $T$.
+for transitioning from one state to another. 
+    
+A key concept is the *Markovian assumption*, which states that the probability
+of being in a state at time $t+1$ can be inferred entirely based on the current
+state at time $t$.  Mathematically, letting $\theta_t$ represent the current
+state of the Markov chain at time $t$, we have $p(\theta_{t+1} | \theta_t,
+\ldots, \theta_0) = p(\theta_{t+1} | \theta_t)$. By using these probability
+distributions, we can generate a *chain of samples* $(\theta_i)_{i=1}^T$ for
+some large $T$.
 
 Since the probability of being in state $\theta_{t+1}$ directly depends on
 $\theta_t$, the samples are *correlated*. Rather surprisingly, it can be shown
 that, under mild assumptions, in the limit of many samples the distribution of
 the chain's samples approximates the target distribution. 
 
-A full review of MCMC method is beyond the scope of this post, but a good
+A full review of MCMC methods is beyond the scope of this post, but a good
 reference is the [Handbook of Markov Chain Monte Carlo (2011)][17]. Standard
 machine learning textbooks such as [Koller & Friedman (2009)][18] and [Murphy
 (2012)][19] also cover MCMC methods.
@@ -141,7 +142,7 @@ approximate. In general, it's intractable to sample directly from it.
 Metropolis-Hastings uses a simpler *proposal distribution* $q(\theta' | \theta)$
 to generate samples. Here, $\theta$ represents our *current* sample in the
 chain, and $\theta'$ represents the proposed sample. For simple cases, it's
-common to use a Gaussian proposal centered at $q$.
+common to use a Gaussian proposal centered at $\theta$.
 
 If we were to just use a Gaussian to generate samples in our chain, there's no
 way we could approximate our target $p$, since the samples would form a random
@@ -275,7 +276,7 @@ Instead of using the classical test, we'll use the sigmoid function. It might
 not be apparent why this is allowed, but there's some elegant theory that
 explains why using this alternative function *as the acceptance test for MH*
 still results in the correct semantics of MCMC. That is, under the same mild
-assumptions, the distribution of samples $(\theta_i)_{i=1}^N$ approaches the
+assumptions, the distribution of samples $(\theta_i)_{i=1}^T$ approaches the
 target distribution.
 
 <p style="text-align:center;">
@@ -329,8 +330,8 @@ correction $X_{\rm correction}$.
 
 We want to make the LHS and RHS distributions equal, so we add in a correction
 $X_{\rm correction}$ which is a symmetric random variable centered at zero.
-Adding independent random variables gives an R.V. whose distribution is the
-convolution of the summands’ distributions. So finding the correction
+Adding independent random variables gives a random variable whose distribution
+is the convolution of the summands’ distributions. So finding the correction
 distribution involves “deconvolution” of a logistic and normal distribution.
 It’s not always possible to do this, and several conditions must be met (e.g.
 the tails of the normal distribution must be weaker than the logistic) but
