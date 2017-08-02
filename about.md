@@ -32,8 +32,8 @@ To contact the group, send email to `bair-blog@berkeley.edu`.
 ## Translating Posts
 
 If you wish to translate our blog posts, please contact the authors of the
-posts, as they own the copyright. If you have trouble finding contact
-information, send email to `bair-blog@berkeley.edu` and we'll put you in touch.
+posts, as they own the copyright, **and** copy the editorial board,
+`bair-blog@berkeley.edu` in your email.
 
 
 ## Bair Blog Comments Policy
