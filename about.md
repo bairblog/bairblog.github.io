@@ -29,6 +29,13 @@ The editorial board consists of the following members:
 To contact the group, send email to `bair-blog@berkeley.edu`.
 
 
+## Translating Posts
+
+If you wish to translate our blog posts, please contact the authors of the
+posts, as they own the copyright, **and** copy the editorial board,
+`bair-blog@berkeley.edu` in your email.
+
+
 ## Bair Blog Comments Policy
 
 We ask community members to remain civil and only engage in academic, professional discussions that are relevant to the blog posts. Please also observe the following guidelines when participating and posting comments:
