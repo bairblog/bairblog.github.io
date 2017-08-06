@@ -16,11 +16,11 @@ Given an image, humans can easily infer the salient entities in it, and describe
   <tr>
     <td style="text-align:center;">
 			<img src="{{site.url}}{{site.baseurl}}/assets/novel_image_captioning/bear.png"
-			alt="Brown bear in forest" height="250">
+			alt="Brown bear in forest">
 		</td>
     <td style="text-align:center;">
-			<img src="{{site.url}}{{site.baseurl}}/assets/novel_image_captioning/anteater.jpg"
-			alt="Anteater in forest" height="250">
+			<img src="{{site.url}}{{site.baseurl}}/assets/novel_image_captioning/anteater.png"
+			alt="Anteater in forest">
 		</td>
   </tr>
   <tr>
