@@ -1,8 +1,8 @@
 ---
 layout:     post
 title:      "Captioning Novel Objects in Images"
-date:       2017-08-09 9:00:00
-author:     Subhashini Venugopalan
+date:       2017-08-08 9:00:00
+author:     Subhashini Venugopalan and Lisa Anne Hendricks
 visible:    True
 excerpt_separator: <!--more-->
 show_comments: true
@@ -29,8 +29,8 @@ Given an image, humans can easily infer the salient entities in it, and describe
 			<a href="http://captionbot.ai">MS CaptionBot</a> [Tran et al. ‘16]: A large brown bear walking through a forest.
 		</p></td>
     <td><p>
-			A black <span style="color:red;">bear</span> is standing in the grass. <br>
-			A <span style="color:red;">bear</span> that is eating some grass.
+			<a href="http://jeffdonahue.com/lrcn/">LRCN</a> [Donahue et al. ‘15]: A black <span style="color:red;">bear</span> is standing in the grass. <br>
+			<a href="http://captionbot.ai">MS CaptionBot</a> [Tran et al. ‘16]: A <span style="color:red;">bear</span> that is eating some grass.
 		</p></td>
   </tr>
 </table>
