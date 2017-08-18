@@ -45,7 +45,7 @@ and optimizing a user’s intended objective.
 
 ## Faulty incentives in AI systems
 
-Open AI gave a recent example of 
+Open AI gave a recent example of the difference between 
 <a href="https://blog.openai.com/faulty-reward-functions/">stated vs. intended reward functions</a>.
 The system designers were working on reinforcement learning for racing games.
 They decided to reward the system for obtaining points; this seems reasonable as
