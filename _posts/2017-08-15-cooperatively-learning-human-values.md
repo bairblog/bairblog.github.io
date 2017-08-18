@@ -1,9 +1,9 @@
 ---
 layout:     post
 title:      "Cooperatively Learning Human Values"
-date:       2017-08-15 9:00:00
+date:       2017-08-17 9:00:00
 author:     Dylan Hadfield-Menell
-visible:    False
+visible:    True
 excerpt_separator: <!--more-->
 show_comments: true
 ---
@@ -26,7 +26,7 @@ becomes “Be careful what you _reward_!”. When we design and deploy an AI age
 for some application, we need to specify what we want it to do, and this
 typically takes the form of a _reward function_: a function that tells the agent
 what states and action combinations are good. A car reaching its destination is
-good, and a car crashing into another car is not so good. 
+good, and a car crashing into another car is not so good.
 
 AI research has made a lot of progress on algorithms for generating AI behavior
 that performs well according to the *stated* reward function, from classifiers
@@ -45,8 +45,8 @@ and optimizing a user’s intended objective.
 
 ## Faulty incentives in AI systems
 
-Open AI gave a recent example of 
-<a href="https://blog.openai.com/faulty-reward-functions/">stated vs. intended reward functions.</a>. 
+Open AI gave a recent example of
+<a href="https://blog.openai.com/faulty-reward-functions/">stated vs. intended reward functions.</a>.
 The system designers were working on reinforcement learning for racing games.
 They decided to reward the system for obtaining points; this seems reasonable as
 we expect policies that win races to get high points. Unfortunately, this lead
@@ -66,13 +66,13 @@ asked for.
 For a less light-hearted example of value misalignment, we can look back to late
 June 2015. Google had just released an image classifier feature that leveraged
 some of the recent advances in image classification. Unfortunately for one user,
-the system decided to 
+the system decided to
 <a href="https://www.theverge.com/2015/7/1/8880363/google-apologizes-photos-app-tags-two-black-people-gorillas">classify his African-American friend as a gorilla</a>.
 
 
-<blockquote class="twitter-tweet tw-align-center" data-lang="en"><p lang="en" dir="ltr">Google Photos, y&#39;all fucked up. My friend&#39;s not a gorilla. 
-<a href="http://t.co/SMkMCsNVX4">pic.twitter.com/SMkMCsNVX4</a></p>&mdash; Oluwafemi J Alciné (@jackyalcine) 
-<a href="https://twitter.com/jackyalcine/status/615329515909156865">June 29, 2015</a></blockquote> 
+<blockquote class="twitter-tweet tw-align-center" data-lang="en"><p lang="en" dir="ltr">Google Photos, y&#39;all fucked up. My friend&#39;s not a gorilla.
+<a href="http://t.co/SMkMCsNVX4">pic.twitter.com/SMkMCsNVX4</a></p>&mdash; Oluwafemi J Alciné (@jackyalcine)
+<a href="https://twitter.com/jackyalcine/status/615329515909156865">June 29, 2015</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 This didn’t happen because someone was ill-intentioned. It happened because of a
@@ -88,7 +88,7 @@ misclassifying people.
 According to the incentives it was given, the learning algorithm was willing to
 trade a reduction in the chance of, say, misclassifying a bicycle as a toaster
 for an equivalent increase in the chance of misclassifying a person as an
-animal. This is not a trade that a system designer would _knowingly_ make. 
+animal. This is not a trade that a system designer would _knowingly_ make.
 
 
 
@@ -97,14 +97,14 @@ animal. This is not a trade that a system designer would _knowingly_ make.
 We can attribute the failures above to the mistaken assumption that the reward
 function communicated to the learning system is the true reward function that
 the system designer cares about. But in reality, there is often a mismatch, and
-this mismatch eventually leads to undesired behavior. 
+this mismatch eventually leads to undesired behavior.
 
 As AI systems are deployed further into the world, the potential consequences of
 this undesired behavior grow. For example, we must be quite sure that the
 optimization behind the control policy of, e.g.,  a self-driving car is making
 the right trade-offs. However, ensuring this is hard: there are lots of ways to
 drive incorrectly. Enumerating and evaluating them is challenging, to say the
-least. 
+least.
 
 The **value alignment problem** is the problem of aligning AI objectives to
 ours. The reason this is so challenging is precisely because it is not always
@@ -116,15 +116,15 @@ in the examples above, that the objective is known and observable.
 
 ### Inverse Reinforcement Learning
 
-One area of research we can look to for inspiration is 
-<a href="http://ai.stanford.edu/~ang/papers/icml00-irl.pdf">**inverse reinforcement learning.**</a> 
+One area of research we can look to for inspiration is
+<a href="http://ai.stanford.edu/~ang/papers/icml00-irl.pdf">**inverse reinforcement learning.**</a>
 In artificial intelligence research (e.g., reinforcement learning) we usually
 focus on computing optimal (or even OK) behaviors. That is, given a reward
 function we compute an optimal policy. In inverse reinforcement learning, we do
 the opposite. We observe optimal behavior  and try to compute the reward
 function that agent is optimizing. This suggests a rough strategy for value
 alignment: the robot observes human behavior, learns the human reward function,
-and behaves according to that function. 
+and behaves according to that function.
 
 This strategy suffers from three flaws. The first is fairly simple: the robot
 needs to know that it is optimizing reward _for_ the human; if a robot learn
@@ -142,10 +142,10 @@ learning does not provide any guidance on managing this tradeoff.
 
 ### Cooperative Inverse Reinforcement Learning
 
-Our recent work within 
-<a href="http://humancompatible.ai">Center for Human-compatible AI</a> 
+Our recent work within
+<a href="http://humancompatible.ai">Center for Human-compatible AI</a>
 introduced a formalism for the value alignment problem that accounts for these
-discrepancies called 
+discrepancies called
 <a href="https://arxiv.org/abs/1606.03137">Cooperative Inverse Reinforcement Learning (CIRL)</a>.
 
 <p style="text-align:center;">
@@ -173,29 +173,29 @@ determine the best way for Rob to manage the exploration-exploitation tradeoff.
 ## What’s Next?
 
 With CIRL, we advocate that robots should have uncertainty about what the right
-reward function is. In two upcoming publications, to be presented at 
-<a href="http://ijcai-17.org">IJCAI 2017</a>, 
-we investigated the impact of this reward uncertainty on optimal behavior. 
-<a href="https://arxiv.org/abs/1611.08219">"The Off-Switch Game"</a> 
+reward function is. In two upcoming publications, to be presented at
+<a href="http://ijcai-17.org">IJCAI 2017</a>,
+we investigated the impact of this reward uncertainty on optimal behavior.
+<a href="https://arxiv.org/abs/1611.08219">"The Off-Switch Game"</a>
 analyzes robots’ incentives to accept human oversight or intervention. We look
 at a simple model where Alice can switch Rob off but Rob can disable the
 off-switch.  We find that Rob’s uncertainty about Alice’s goal is a crucial
-component of the incentive to listen to her. 
+component of the incentive to listen to her.
 
 However, as the story of King Midas illustrates, we humans are not always
 perfect at giving orders. There may be situations where we want Rob to do what
-Alice means, not what she says. In 
-<a href="https://arxiv.org/abs/1705.09990">"Should robots be obedient?"</a>, 
+Alice means, not what she says. In
+<a href="https://arxiv.org/abs/1705.09990">"Should robots be obedient?"</a>,
 we analyze the tradeoff between Rob’s obedience level (the rate at which it
 follows Alice’s orders) and the value it can generate for Alice. We show that,
 at least in theory, Rob can be more valuable if it can disobey Alice, but also
 analyze how this performance degrades if Rob’s model of the world is
-misspecified. 
+misspecified.
 
 In studying the value alignment problem, we hope to lay the groundwork for
 algorithms that can reliably determine and pursue our desired objectives. In the
-long run, we expect this to lead to 
-<a href="https://www.ted.com/talks/stuart_russell_how_ai_might_make_us_better_people/transcript?language=en">safer designs for artificial intelligence</a>. 
+long run, we expect this to lead to
+<a href="https://www.ted.com/talks/stuart_russell_how_ai_might_make_us_better_people/transcript?language=en">safer designs for artificial intelligence</a>.
 The key idea in our approach is that we must account for uncertainty about the
 true reward signal, rather than taking the reward as given. Our work shows that
 this leads to AI systems that are more willing to accept human oversight and
