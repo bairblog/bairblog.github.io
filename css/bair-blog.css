@@ -2,3 +2,7 @@ table.col-2 td {
   width: 50%;
   border-top: 0;
 }
+
+img.stretch-center {
+    min-width: 100%;
+}
