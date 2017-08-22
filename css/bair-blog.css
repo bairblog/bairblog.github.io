@@ -6,3 +6,11 @@ table.col-2 td {
 img.stretch-center {
     min-width: 100%;
 }
+
+img.stretch-75 {
+    width: 75%;
+}
+
+.img-wrapper-center {
+    text-align: center;
+}
