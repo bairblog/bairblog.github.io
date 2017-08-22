@@ -45,7 +45,7 @@ Our experiments are mainly conducted on the synthetic [ShapeNet](https://shapene
 
 I would like to thank Shubham Tulsiani and Jitendra Malik for their valuable feedback.
 
-****This blog post is based on the tech report:****
+**This blog post is based on the tech report:**
 
 * Hierarchical Surface Prediction for 3D Object Reconstruction, C. Häne, S.Tulsiani, J.Malik, ArXiv 2017
 
