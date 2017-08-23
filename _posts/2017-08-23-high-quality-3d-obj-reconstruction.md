@@ -9,9 +9,9 @@ show_comments: true
 ---
 Digitally reconstructing 3D geometry from images is a core problem in computer vision. There are various applications, such as movie productions, content generation for video games, virtual and augmented reality, 3D printing and many more. The task discussed in this blog post is reconstructing high quality 3D geometry from a single color image of an object as shown in the figure below.
 
-<div class="img-wrapper-center">
-<img src="{{site.url}}{{site.baseurl}}/assets/hsp/image_0.png" class="stretch-75">
-</div>
+<p style="text-align:center;">
+<img src="{{site.url}}{{site.baseurl}}/assets/hsp/image_0.png" width="600">
+</p>
 
 Humans have the ability to effortlessly reason about the shapes of objects and scenes even if we only see a single image. Note that the binocular arrangement of our eyes allows us to perceive depth, but it is not required to understand 3D geometry. Even if we only see a photograph of an object we have a good understanding of its shape. Moreover, we are also able to reason about the unseen parts of objects such as the back, which is an important ability for grasping objects. The question which immediately arises is how are humans able to reason about geometry from a single image? And in terms of artificial intelligence: how can we teach machines this ability?
 
