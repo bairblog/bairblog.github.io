@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "High Quality 3D Object Reconstruction from a Single Color Image"
-date:       2017-08-22 9:00:00
+date:       2017-08-23 9:00:00
 author:     Christian Häne
 visible:    True
 excerpt_separator: <!--more-->
