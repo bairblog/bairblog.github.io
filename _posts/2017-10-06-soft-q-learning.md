@@ -15,7 +15,7 @@ Deep reinforcement learning (deep RL) has achieved success in many tasks, such a
 src="{{site.url}}{{site.baseurl}}/assets/softq/figure_1_walker_two_gaits_v2.gif"
 alt="Figure 1: Trained simulated walking robots."><br>
 <i>
-Figure 1: Trained simulated walking robots.
+Figure 1: Trained simulated walking robots.<br>
 [credit: John Schulman and Patrick Coady (<a href="https://gym.openai.com/envs/Walker2d-v1/">OpenAI Gym)</a>]
 </i>
 </p>
@@ -43,11 +43,11 @@ Figure 2: A robot navigating a maze.
 </p>
 
 ### Maximum Entropy Policies and Their Energy Forms
-Let us begin with a review of RL: an agent interacts with an environment by iteratively observing the current *state* ($\mathbf{s}$), taking an *action* ($\mathbf{a}$), and receiving a *reward* ($\mathbf{r}$). It employs a (stochastic) policy ($\pi$) to select actions, and finds the best policy that maximizes the cumulative reward it collects throughout an episode of length $T$:
+Let us begin with a review of RL: an agent interacts with an environment by iteratively observing the current *state* ($\mathbf{s}$), taking an *action* ($\mathbf{a}$), and receiving a *reward* ($r$). It employs a (stochastic) policy ($\pi$) to select actions, and finds the best policy that maximizes the cumulative reward it collects throughout an episode of length $T$:
 
 $$\pi^* = \arg\!\max_{\pi} \mathbb{E}_{\pi}\left[ \sum_{t=0}^T r_t \right]$$
 
-We define the Q-function, $Q(s,a)$, as the expected cumulative reward after taking action a at state s. Consider the robot in Figure 2a again. When the robot is in the initial state, the Q-function may look like the one depicted in Figure 3a (grey curve), with two distinct modes corresponding to the two passages. A conventional RL approach is to specify a unimodal policy distribution, centered at the maximal Q-value and extending to the neighbouring actions to provide noise for exploration (red distribution). Since the exploration is biased towards the upper passage, the agent refines its policy there and ignores the lower passage completely.
+We define the Q-function, $Q(\mathbf{s},\mathbf{a})$, as the expected cumulative reward after taking action a at state s. Consider the robot in Figure 2a again. When the robot is in the initial state, the Q-function may look like the one depicted in Figure 3a (grey curve), with two distinct modes corresponding to the two passages. A conventional RL approach is to specify a unimodal policy distribution, centered at the maximal Q-value and extending to the neighbouring actions to provide noise for exploration (red distribution). Since the exploration is biased towards the upper passage, the agent refines its policy there and ignores the lower passage completely.
 
 <table class="col-2">
   <tr>
@@ -150,7 +150,8 @@ Because the maximum entropy formulation encourages agents to try all possible so
 src="{{site.url}}{{site.baseurl}}/assets/softq/figure_7_sawyer_training_white_bg.gif"
 alt="Training to stack Lego blocks with soft Q-learning."><br>
 <i>
-Figure 7: Training to stack Lego blocks with soft Q-learning. [credit: Aurick Zhou]
+Figure 7: Training to stack Lego blocks with soft Q-learning.<br>
+[credit: Aurick Zhou]
 </i>
 </p>
 
@@ -175,58 +176,57 @@ To our knowledge, only a few prior works have demonstrated successful model-free
 We would like to thank Sergey Levine, Pieter Abbeel, and Gregory Kahn for their valuable feedback when preparing this blog post.
 
 This post is based on the following paper:    
-Reinforcement Learning with Deep Energy-Based Policies    
+**Reinforcement Learning with Deep Energy-Based Policies**    
 Haarnoja T., Tang H., Abbeel P., Levine S. *ICML 2017*.  
 [paper][paper], [code][code], [videos][videos]
 
 ## References
-Related concurrent papers    
+**Related concurrent papers**    
 - Schulman, J., Abbeel, P. and Chen, X. Equivalence Between Policy Gradients and Soft Q-Learning. *arXiv preprint arXiv:1704.06440*, 2017.
 - Nachum, O., Norouzi, M., Xu, K. and Schuurmans, D. Bridging the Gap Between Value and Policy Based Reinforcement Learning. *NIPS 2017*.
 
-A similar entropy-regularization term is discussed in the following recent papers, though the “hard Q” instead of “soft Q” is learned there.    
-- O’Donoghue, B., Munos, R., Kavukcuoglu, K., and Mnih, V. PGQ: Combining policy gradient and Q-learning. *arXiv preprint arXiv:1611.01626*, 2016.
-- Mnih, V., Badia, A.P., Mirza, M., Graves, A., Lillicrap, T., Harley, T., Silver, D. and Kavukcuoglu, K. Asynchronous methods for deep reinforcement learning. In *International Conference on Machine Learning* (pp. 1928-1937), 2016.
-
-Similar thoughts about soft Q-learning and energy-based policies are mentioned in these previous work. Our unique contribution is combining them with deep neural networks to approximate Q and and to approximately sample from exp(Q).  
+**Papers leveraging the maximum entropy principle**
 - Kappen, H. J. Path integrals and symmetry breaking for optimal control theory. *Journal of Statistical Mechanics: Theory And Experiment*, 2005(11): P11011, 2005.
 - Todorov, E. Linearly-solvable Markov decision problems. In *Advances in Neural Information Processing Systems*, pp. 1369–1376. MIT Press, 2007.
-- Todorov, E. General duality between optimal control and estimation. In *IEEE Conf. on Decision and Control*, pp. 4286–4292. IEEE, 2008.
-- Todorov, E. (2009). Compositionality of optimal control laws. In Advances in *Neural Information Processing Systems* (pp. 1856-1864).
-- Ziebart, B. D., Maas, A. L., Bagnell, J. A., and Dey, A. K. Maximum entropy inverse reinforcement learning. In *AAAI Conference on Artificial Intelligence*, pp. 1433–1438, 2008.
+- Todorov, E. General duality between optimal control and estimation. In IEEE Conf. on Decision and Control, pp. 4286–4292. IEEE, 2008.
+- Todorov, E. (2009). Compositionality of optimal control laws. In *Advances in Neural Information Processing Systems* (pp. 1856-1864).
+- Ziebart, B. D., Maas, A. L., Bagnell, J. A., and Dey, A. K. Maximum entropy inverse reinforcement learning. In AAAI Conference on Artificial Intelligence, pp. 1433–1438, 2008.
 - Toussaint, M. Robot trajectory optimization using approximate inference. In *Int. Conf. on Machine Learning*, pp. 1049–1056. ACM, 2009.
 - Ziebart, B. D. Modeling purposeful adaptive behavior with the principle of maximum causal entropy. PhD thesis, 2010.
 - Rawlik, K., Toussaint, M., and Vijayakumar, S. On stochastic optimal control and reinforcement learning by approximate inference. *Proceedings of Robotics: Science and Systems VIII*, 2012.
 - Fox, R., Pakman, A., and Tishby, N. Taming the noise in reinforcement learning via soft updates. In *Conf. on Uncertainty in Artificial Intelligence*, 2016.
 
-Model-free RL in the real-world:    
-- Gu, S., Lillicrap, T., Sutskever, I., and Levine, S. Continuous deep Q-learning with model-based acceleration. In *Int. Conf. on Machine Learning*, pp. 2829–2838, 2016.
+**Model-free RL in the real-world**    
+- Gu, S., Lillicrap, T., Sutskever, I., and Levine, S. Continuous deep Q-learning with model-based acceleration. In Int. Conf. on Machine Learning, pp. 2829–2838, 2016.
 - M. Večerı́k, T. Hester, J. Scholz, F. Wang, O. Pietquin, B. Piot, N. Heess, T. Rothörl, T. Lampe, and M. Riedmiller, “Leveraging demonstrations for deep reinforcement learning on robotics problems with sparse rewards,” *arXiv preprint arXiv:1707.08817*, 2017.
 
-#### Other references  
-Jaynes, E. T. (1968). "Prior Probabilities" (PDF or PostScript). *IEEE Transactions on Systems Science and Cybernetics*. 4 (3): 227–241. doi:10.1109/TSSC.1968.300117.
+**Other references**  
+Heess, N., Silver, D., and Teh, Y.W. Actor-critic reinforcement learning with energy-based policies. In Workshop on Reinforcement Learning, pp. 43. Citeseer, 2012.
 
-Sutton, R. S. and Barto, A. G. *Reinforcement learning: An introduction*, volume 1. MIT press Cambridge, 1998.
+Jaynes, E.T. Prior probabilities. IEEE Transactions on systems science and cybernetics, 4(3), pp.227-241, 1968.
 
-Mnih, V., Kavukcuoglu, K., Silver, D., Rusu, A. A, Veness, J., Bellemare, M. G., Graves, A., Riedmiller, M., Fidjeland, A. K., Ostrovski, G., et al. Human-level control through deep reinforcement learning. *Nature*, 518 (7540):529–533, 2015.
-
-Lillicrap, T. P., Hunt, J. J., Pritzel, A., Heess, N., Erez, T., Tassa, Y., Silver, D., and Wierstra, D. Continuous control with deep reinforcement learning. *ICLR 2016*.
+Lillicrap, T. P., Hunt, J. J., Pritzel, A., Heess, N., Erez, T., Tassa, Y., Silver, D., and Wierstra, D. Continuous control with deep reinforcement learning. ICLR 2016.
 
 Liu, Q. and Wang, D. Stein variational gradient descent: A general purpose bayesian inference algorithm. In *Advances In Neural Information Processing Systems*, pp. 2370–2378, 2016.
 
-Wang, D., and Liu, Q. Learning to draw samples: With application to amortized MLE for generative adversarial learning. *arXiv preprint arXiv:1611.01722* (2016).
+Mnih, V., Kavukcuoglu, K., Silver, D., Rusu, A. A, Veness, J., Bellemare, M. G., Graves, A., Riedmiller, M., Fidjeland, A. K., Ostrovski, G., et al. Human-level control through deep reinforcement learning. *Nature*, 518 (7540):529–533, 2015.
 
-Schulman, J., Levine, S., Abbeel, P., Jordan, M., & Moritz, P. Trust region policy optimization. Proceedings of the 32nd International Conference on Machine Learning (*ICML-15*). 2015.
+Mnih, V., Badia, A.P., Mirza, M., Graves, A., Lillicrap, T., Harley, T., Silver, D. and Kavukcuoglu, K. Asynchronous methods for deep reinforcement learning. In *International Conference on Machine Learning* (pp. 1928-1937), 2016.
 
-Arulkumaran, K., Deisenroth, M. P., Brundage, M., & Bharath, A. A. (2017). A brief survey of deep reinforcement learning. *arXiv preprint arXiv:1708.05866*.
+O’Donoghue, B., Munos, R., Kavukcuoglu, K., and Mnih, V. PGQ: Combining policy gradient and Q-learning. *arXiv preprint arXiv:1611.01626*, 2016.
 
-Silver, D., Huang, A., Maddison, C. J., Guez, A., Sifre, L., Van Den Driessche, G., ... & Dieleman, S. (2016). Mastering the game of Go with deep neural networks and tree search. *Nature*, 529(7587), 484-489.
+Rusu, A. A., Vecerik, M., Rothörl, T., Heess, N., Pascanu, R. and Hadsell, R., Sim-to-real robot learning from pixels with progressive nets. *arXiv preprint arXiv:1610.04286*, 2016.
 
-Tobin, J., Fong, R., Ray, A., Schneider, J., Zaremba, W. and Abbeel, P., 2017. Domain Randomization for Transferring Deep Neural Networks from Simulation to the Real World. arXiv preprint *arXiv:1703.06907*.
+Schulman, J., Levine, S., Abbeel, P., Jordan, M., & Moritz, P. Trust region policy optimization. Proceedings of the 32nd International Conference on Machine Learning (ICML-15), 2015.
 
-Heess, N., Silver, D., and Teh, Y.W. Actor-critic reinforcement learning with energy-based policies. In *Workshop on Reinforcement Learning*, pp. 43. Citeseer, 2012.
+Silver, D., Huang, A., Maddison, C.J., Guez, A., Sifre, L., Van Den Driessche, G., Schrittwieser, J., Antonoglou, I., Panneershelvam, V., Lanctot, M. and Dieleman, S. Mastering the game of Go with deep neural networks and tree search. *Nature*, 529(7587), 484-489, 2016.
 
-Rusu, A.A., Vecerik, M., Rothörl, T., Heess, N., Pascanu, R. and Hadsell, R., 2016. Sim-to-real robot learning from pixels with progressive nets. *arXiv preprint arXiv:1610.04286*.
+Sutton, R. S. and Barto, A. G. *Reinforcement learning: An introduction*, volume 1. MIT press Cambridge, 1998.
+
+Tobin, J., Fong, R., Ray, A., Schneider, J., Zaremba, W. and Abbeel, P. Domain Randomization for Transferring Deep Neural Networks from Simulation to the Real World. *arXiv preprint arXiv:1703.06907*, 2017.
+
+Wang, D., and Liu, Q. Learning to draw samples: With application to amortized MLE for generative adversarial learning. *arXiv preprint arXiv:1611.01722*, 2016.
+
 
 <!-- [Mnih2015]:
 [Silver2016]:
