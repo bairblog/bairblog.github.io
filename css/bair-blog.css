@@ -15,12 +15,16 @@ img.stretch-75 {
     text-align: center;
 }
 
+p.center {
+  text-align: center;
+}
+
 /*
 Styles for home page logo and nav
 */
 
 .bair-logo {
-    width: 90%;    
+    width: 90%;
 }
 
 .bair-blog-site-nav {
@@ -29,7 +33,7 @@ Styles for home page logo and nav
 
 @media screen and (min-width: 32em){
     .bair-logo {
-        width: 57%;    
+        width: 57%;
     }
     .site-nav.bair-blog-site-nav {
         margin-top:-30px;

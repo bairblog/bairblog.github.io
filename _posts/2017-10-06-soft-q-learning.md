@@ -28,11 +28,11 @@ Why might finding only a single solution be undesirable? Knowing only one way to
   <tr>
     <td style="text-align:center;">
 			<img src="{{site.url}}{{site.baseurl}}/assets/softq/figure_2a_maze_one_path.png"
-			alt="maze_one_path" width="300"><p>2a</p>
+			alt="maze_one_path" width="300"><p class="center">2a</p>
 		</td>
     <td style="text-align:center;">
 			<img src="{{site.url}}{{site.baseurl}}/assets/softq/figure_2b_maze-two-paths.png"
-			alt="maze-two-paths" width="300"><p>2b</p>
+			alt="maze-two-paths" width="300"><p class="center">2b</p>
 		</td>
   </tr>
 </table>
@@ -53,11 +53,11 @@ We define the Q-function, $Q(s,a)$, as the expected cumulative reward after taki
   <tr>
     <td style="text-align:center;">
 			<img src="{{site.url}}{{site.baseurl}}/assets/softq/figure_3a_unimodal-policy.png"
-			alt="unimodal-policy" width="300"><p>3a</p>
+			alt="unimodal-policy" width="300"><p class="center">3a</p>
 		</td>
     <td style="text-align:center;">
 			<img src="{{site.url}}{{site.baseurl}}/assets/softq/figure_3b_multimodal_policy.png"
-			alt="multimodal_policy" width="300"><p>3b</p>
+			alt="multimodal_policy" width="300"><p class="center">3b</p>
 		</td>
   </tr>
 </table>
@@ -116,11 +116,11 @@ The standard practice in RL is to train an agent from scratch for each new task.
   <tr>
     <td style="text-align:center;">
 			<img src="{{site.url}}{{site.baseurl}}/assets/softq/figure_5a_pretrain_softql_small.gif"
-			alt="pretrain_softql_small" width="200"><p>5a</p>
+			alt="pretrain_softql_small" width="200"><p class="center">5a</p>
 		</td>
     <td style="text-align:center;">
 			<img src="{{site.url}}{{site.baseurl}}/assets/softq/figure_5b_finetune_ushape_2.gif"
-			alt="finetune_ushape_2" width="350"><p>5b</p>
+			alt="finetune_ushape_2" width="350"><p class="center">5b</p>
 		</td>
   </tr>
 </table>
