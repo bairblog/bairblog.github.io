@@ -6,6 +6,7 @@ author:     Christian Häne
 visible:    True
 excerpt_separator: <!--more-->
 show_comments: true
+img: /assets/hsp/image_0.png
 ---
 Digitally reconstructing 3D geometry from images is a core problem in computer vision. There are various applications, such as movie productions, content generation for video games, virtual and augmented reality, 3D printing and many more. The task discussed in this blog post is reconstructing high quality 3D geometry from a single color image of an object as shown in the figure below.
 
@@ -29,7 +30,7 @@ One of the most recent lines of work for 3D reconstruction [[Choy et al. ECCV 20
 
 <img src="{{site.url}}{{site.baseurl}}/assets/hsp/image_1.png" class="stretch-center">
 
-The main shortcoming with predicting occupancy volumes using a CNN is that the output space is three dimensional and hence has cubic growth with respect to increased resolution. This problem prevents the works mentioned above from predicting high quality geometry and is therefore restricted to coarse resolution voxel grids, e.g. 32<sup>3</sup> (c.f. figure above). In our work we argue that this is an unnecessary restriction given that surfaces are actually only two dimensional. We exploit the two dimensional nature of surfaces by hierarchically predicting fine resolution voxels only where a surface is expected judging from the low resolution prediction. The basic idea is closely related to octree representations which are often used in multi-view stereo and depth map fusion to represent high resolution geometry. 
+The main shortcoming with predicting occupancy volumes using a CNN is that the output space is three dimensional and hence has cubic growth with respect to increased resolution. This problem prevents the works mentioned above from predicting high quality geometry and is therefore restricted to coarse resolution voxel grids, e.g. 32<sup>3</sup> (c.f. figure above). In our work we argue that this is an unnecessary restriction given that surfaces are actually only two dimensional. We exploit the two dimensional nature of surfaces by hierarchically predicting fine resolution voxels only where a surface is expected judging from the low resolution prediction. The basic idea is closely related to octree representations which are often used in multi-view stereo and depth map fusion to represent high resolution geometry.
 
 ## Method
 
@@ -50,4 +51,3 @@ I would like to thank Shubham Tulsiani and Jitendra Malik for their valuable fee
 **This blog post is based on the tech report:**
 
 * Hierarchical Surface Prediction for 3D Object Reconstruction, C. Häne, S.Tulsiani, J.Malik, ArXiv 2017
-

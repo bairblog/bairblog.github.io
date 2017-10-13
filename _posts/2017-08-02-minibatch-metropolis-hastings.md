@@ -6,6 +6,7 @@ author:     Daniel Seita
 visible:    True
 excerpt_separator: <!--more-->
 show_comments: true
+img: /assets/mh_test/mhtest_example_progression.png
 ---
 
 Over the last few years we have experienced an enormous data deluge, which has
@@ -33,7 +34,7 @@ $\theta$ as a full-blown posterior inference, deriving a joint distribution
 $p(x,\theta)$ from the loss function, and computing the posterior $p(\theta|x)$.
 This is the Bayesian modeling approach, and specifically the Bayesian Neural
 Network approach when applied to deep models. This recent [tutorial by Zoubin
-Ghahramani][6] discusses some of the advantages of this approach. 
+Ghahramani][6] discusses some of the advantages of this approach.
 
 The model posterior $p(\theta|x)$ for most problems is intractable (no closed
 form). There are two methods in Machine Learning to work around intractable
@@ -46,7 +47,7 @@ have been widely used but often introduce significant error --- see [this recent
 comparison with Gibbs Sampling][9], also [Figure 3 from the Variational
 Autoencoder (VAE) paper][10].  Variational methods are also more computationally
 expensive than direct parameter SGD (it’s a small constant factor, but a small
-constant times 1-10 days can be quite important). 
+constant times 1-10 days can be quite important).
 
 MCMC methods have no such bias. You can think of MCMC particles as rather like
 quantum-mechanical particles: you only observe individual instances, but they
@@ -74,7 +75,7 @@ Hamiltonian Monte Carlo][13] (SGHMC). These methods involve minor variations to
 typical SGD updates which generate samples from a probability distribution which
 is approximately the Bayesian model posterior $p(\theta|x)$. These approaches
 turn SGD into an MCMC method, and as such require Metropolis-Hastings (MH) tests
-for accurate results, the topic of this blog post. 
+for accurate results, the topic of this blog post.
 
 Because of these developments, interest has warmed recently in scalable MCMC and
 in particular in doing the MH tests required by general MCMC models on large
@@ -104,7 +105,7 @@ about the same cost as SGD optimization. Our approach is also a potential
 substitute for variational methods and VAEs, providing unbiased posterior
 samples at lower cost.
 
-To explain the approach, we review the role of MH tests in MCMC models. 
+To explain the approach, we review the role of MH tests in MCMC models.
 
 # Markov Chain Monte Carlo Review
 
@@ -113,8 +114,8 @@ To explain the approach, we review the role of MH tests in MCMC models.
 MCMC methods are designed to sample from a target distribution which is
 difficult to compute. To generate samples, they utilize Markov Chains, which
 consist of nodes representing states of the system and probability distributions
-for transitioning from one state to another. 
-    
+for transitioning from one state to another.
+
 A key concept is the *Markovian assumption*, which states that the probability
 of being in a state at time $t+1$ can be inferred entirely based on the current
 state at time $t$.  Mathematically, letting $\theta_t$ represent the current
@@ -126,7 +127,7 @@ some large $T$.
 Since the probability of being in state $\theta_{t+1}$ directly depends on
 $\theta_t$, the samples are *correlated*. Rather surprisingly, it can be shown
 that, under mild assumptions, in the limit of many samples the distribution of
-the chain's samples approximates the target distribution. 
+the chain's samples approximates the target distribution.
 
 A full review of MCMC methods is beyond the scope of this post, but a good
 reference is the [Handbook of Markov Chain Monte Carlo (2011)][17]. Standard
@@ -255,11 +256,11 @@ $$
 This log ratio factors into a sum of per-sample terms, so when we approximate
 its value by computing on a minibatch we get an unbiased estimator of its
 full-data value plus some noise (which is asymptotically normal by the Central
-Limit Theorem). 
+Limit Theorem).
 
 The first step for applying our MH test is to use a different acceptance
 function. Expressed in terms of $\Delta$, the classical MH accepts a transition
-with probability given by the blue curve. 
+with probability given by the blue curve.
 
 <p style="text-align:center;">
 <img
@@ -294,7 +295,7 @@ Our acceptance test is now the sigmoid function. Note that the sigmoid function
 is the *cumulative distribution function* of a (standard) [Logistic random
 variable][23]; the figure above plots the density. One can show that the MH test
 under the sigmoid acceptance function reduces to determining whether $X_{\rm
-\log} + \Delta > 0$ for a sampled $X_{\rm log}$ value. 
+\log} + \Delta > 0$ for a sampled $X_{\rm log}$ value.
 
 ## New MH Test
 
@@ -337,7 +338,7 @@ It’s not always possible to do this, and several conditions must be met (e.g.
 the tails of the normal distribution must be weaker than the logistic) but
 luckily for us they are. [In our paper][22] to appear at UAI 2017 we show that
 the correction distribution can be approximated to essentially single-precision
-floating-point precision by tabulation. 
+floating-point precision by tabulation.
 
 In our paper, we also prove theoretical results bounding the error of our test,
 and present experimental results showing that our method results in accurate
@@ -345,7 +346,7 @@ posterior estimation for a Gaussian Mixture Model, and that it is also highly
 sample-efficient in Logistic Regression for classification of MNIST digits.
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/mh_test/gaussian_mixture_histogram_results_v8.png" 
+<img src="{{site.url}}{{site.baseurl}}/assets/mh_test/gaussian_mixture_histogram_results_v8.png"
 alt="paper_results"><br>
 <i>
 Histograms showing the batch sizes used for Metropolis-Hastings for the three

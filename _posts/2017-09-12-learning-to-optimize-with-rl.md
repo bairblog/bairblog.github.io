@@ -6,6 +6,7 @@ author:     Ke Li
 visible:    True
 excerpt_separator: <!--more-->
 show_comments: true
+img: /assets/lto/teaser.png
 ---
 *Since we posted our paper on "[Learning to Optimize][li2016]" last year, the area of optimizer learning has received growing attention. In this article, we provide an introduction to this line of work and share our perspective on the opportunities and challenges in this area.*
 

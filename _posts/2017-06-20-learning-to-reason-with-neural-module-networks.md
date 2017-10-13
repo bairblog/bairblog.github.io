@@ -6,6 +6,7 @@ author:     Jacob Andreas
 visible:    True
 excerpt_separator: <!--more-->
 show_comments: true
+img: /assets/nmns/tying.jpg
 ---
 
 (Joint work with Ronghang Hu, Marcus Rohrbach, Trevor Darrell, Dan Klein and

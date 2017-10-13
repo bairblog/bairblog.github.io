@@ -6,6 +6,7 @@ author:     Subhashini Venugopalan and Lisa Anne Hendricks
 visible:    True
 excerpt_separator: <!--more-->
 show_comments: true
+img: /assets/novel_image_captioning/image_3.png
 ---
 
 Given an image, humans can easily infer the salient entities in it, and describe the scene effectively, such as, where objects are located (in a forest or in a kitchen?), what attributes an object has (brown or white?), and, importantly, how objects interact with other objects in a scene (running in a field, or being held by a person etc.). The task of visual description aims to develop visual systems that generate contextual descriptions about objects in images. Visual description is challenging because it requires recognizing not only objects (bear), but other visual elements, such as actions (standing) and attributes (brown), and constructing a fluent sentence describing how objects, actions, and attributes are related in an image (such as the brown bear is standing on a rock in the forest).

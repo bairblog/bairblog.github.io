@@ -6,6 +6,7 @@ author:     Chelsea Finn
 visible:    True
 excerpt_separator: <!--more-->
 show_comments: true
+img: /assets/maml/maml.png
 ---
 
 A key aspect of intelligence is versatility -- the capability of doing many

@@ -6,6 +6,7 @@ author:     Chi Jin and Michael Jordan
 visible:    True
 excerpt_separator: <!--more-->
 show_comments: true
+img: /assets/saddle_eff/strictsaddle.png
 ---
 
 *This post was initially published on [Off the Convex Path](http://www.offconvex.org/2017/07/19/saddle-efficiency/). It is reposted here with authors' permission.*

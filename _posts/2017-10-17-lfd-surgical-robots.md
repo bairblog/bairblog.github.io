@@ -6,6 +6,7 @@ author:     Sanjay Krishnan, Roy Fox, and Ken Goldberg
 visible:    True
 excerpt_separator: <!--more-->
 show_comments: true
+img: /assets/surgical_robots/pattern-cutting-task.png
 ---
 
 Deep imitation learning and deep reinforcement learning have potential to learn
@@ -24,7 +25,7 @@ pulling up, reversing, and adjusting. Similarly, assembly tasks can often be
 decomposed into individual steps based on which parts need to be manipulated.
 These short-term skills can be parametrized more concisely, as an analogy
 consider locally linear approximations to an overall nonlinear function, and
-this reduced parametrization can be substantially easier to learn. 
+this reduced parametrization can be substantially easier to learn.
 
 This post summarizes our results from three recent papers that propose
 algorithms that learn to decompose a longer task into shorter subtasks from
@@ -39,7 +40,7 @@ a hierarchical representation of the action space. In retrospect, all of the
 three of these algorithms are special cases of the same general framework, where
 the demonstrator's behavior is generatively modeled as a sequential composition
 of unknown closed-loop policies that switch when reaching parameterized
-"transition states". 
+"transition states".
 
 <!--more-->
 
@@ -50,7 +51,7 @@ surgical procedures using local teleoperation.  Automation of surgical sub-tasks
 has the potential to reduce surgeon tedium and fatigue, operating time, and
 enable supervised tele-surgery over high-latency networks. Designing robot
 controllers in surgery is particularly difficult due to a limited field of view
-and imprecise actuation. 
+and imprecise actuation.
 
 As a concrete task, pattern cutting is one of the Fundamentals of Laparoscopic
 Surgery, a training suite required for surgical residents. In this standard
@@ -127,11 +128,11 @@ $$
 For a demonstration $d_i$, let $o_{i,t}$ denote the kinematic state, visual
 state, and time $(x,v,t)$ at time $t$. Transition States are the set of
 state-time tuples where the indicator is 1:
-  
+
 $$
 \Gamma = \bigcup_{i}^N ~\{o_{i,t} \in d_i ~: \mathbf{T}(d_i)_t = 1\}.
 $$
-  
+
 In TSC, we model the probability distribution that generates $\Gamma$ as a
 Gaussian Mixture Model and identify the mixture components.  These components
 identify regions of the state space correlated with candidate transitions. We
@@ -139,7 +140,7 @@ can take any motion-based model for detecting changes in behavior and generate
 candidates. Then, probabilistically ground these candidate transitions in
 state-space and perceptual conditions that are consistent across demonstrations.
 Intuitively, this algorithm consists of two steps first segmentation and then
-clustering the segment end-points. 
+clustering the segment end-points.
 
 There are a number of important implementation details to make this model work
 in practice on real noisy data. Since the kinematic and visual features often
@@ -189,11 +190,11 @@ overlooked this important transition.
 We next explored how the transitions learned by TSC can be used to shape rewards
 in long horizon tasks. Sequential Windowed Inverse Reinforcement Learning
 (Krishnan et al. 2016),  models a task as a sequence of quadratic reward
-functions 
+functions
 
 $$\mathbf{R}_{seq} = [R_1, \ldots ,R_k ]$$
 
-and transition regions 
+and transition regions
 
 $$G = [ \rho_1, \ldots,\rho_k ]$$
 
@@ -201,14 +202,14 @@ such that $R_1$ is the reward function until $\rho_1$ is reached, after which
 $R_2$ becomes the reward and so on. We assume that we have access to a
 supervisor that provides demonstrations that are optimal w.r.t an unknown
 $\mathbf{R}_{seq}$, and reach each $\rho \in G$ (also unknown) in the same
-sequence. 
+sequence.
 
 SWIRL is an algorithm to recover $\mathbf{R}_{seq}$ and $G$ from demonstration
 trajectories. SWIRL applies to tasks with a discrete or continuous state-space
 and a discrete action-space. The state space can represent spatial, kinematic,
 or sensory states (e.g., visual features), as long as the trajectories are
 smooth and not very high-dimensional. The discrete actions are not a fundamental
-restriction, but relaxing that constraint is deferred to future work. 
+restriction, but relaxing that constraint is deferred to future work.
 
 Finally, $\mathbf{R}_{seq}$ and $G$ can be used in an RL algorithm to find an
 optimal policy for a task.
@@ -218,7 +219,7 @@ transitions are are found, SWIRL applies Maximum Entropy Inverse Reinforcement
 Learning to find a local quadratic reward function that guides the robot to the
 transition condition. Segmentation further simplifies the estimation of dynamics
 models, which are required for inference in MaxEnt-IRL, since locally many
-complex systems can be approximated linearly in a short time horizon. 
+complex systems can be approximated linearly in a short time horizon.
 The goal of MaxEnt-IRL is to find a reward function such that an optimal policy
 w.r.t that reward function is close to the expert demonstration. The agent is
 modeled as nosily optimal, where it takes actions from a policy $\pi$:
@@ -246,7 +247,7 @@ policy could lead to an exponential overhead of additional states. SWIRL
 exploits the fact that TSC, is in a sense, a Markov and shows that the problem
 can be posed as a proper MDP in a lifted state-space that includes an indicator
 variable of the highest-index $\{1,...,k\}$ transition region that has been
-reached so far. 
+reached so far.
 
 SWIRL applies a variant of Q-Learning to optimize the policy over the sequential
 rewards. The basic change to the algorithm is to augment the state-space with
@@ -293,7 +294,7 @@ corresponds to moving to the correct grasping position, one corresponds to
 making the grasp, one lifting the gauze up again, and one corresponds to
 straightening the gauze. One of the interesting aspects of this task is that the
 segmentation requires multiple features, and segmenting any single signal may
-miss an important feature. 
+miss an important feature.
 
 Then, we tried to learn a policy from the rewards constructed by SWIRL.We define
 a Q-Network with a single-layer Multi-Layer Perceptron with 32 hidden units and
@@ -318,11 +319,11 @@ SWIRL achieves more than a 4 times higher reward than ab initio RL, 3  time
 higher than pure behavioral cloning, and a 56% higher reward than naively
 applying behavioral cloning with TSC segments.
 
-# Hierarchical Representations 
+# Hierarchical Representations
 
 We are now exploring a generalization of TSC and  SWIRL with a new algorithm:
 Deep Discovery of Continuous Options (DDCO Krishnan et al. 2017, to be presented
-at the 1st Conference on Robot Learning in November). 
+at the 1st Conference on Robot Learning in November).
 
 An option represents a low-level policy that can be invoked by a high-level
 policy to perform a certain sub-task. Formally, an option $h$ in a options set
@@ -389,7 +390,7 @@ $$
 \begin{align}
 \nabla_\theta L[\theta;\xi] = \sum_{h\in\mathcal{H}} \Biggl(& \sum_{t=0}^{T-1}
     \Biggl(v_t(h) \nabla_\theta \log \eta(h | s_t) +  u_t(h)\nabla_\theta
-    \log \pi_h(a_t | s_t)\Biggr) \\ 
+    \log \pi_h(a_t | s_t)\Biggr) \\
     & + \sum_{t=0}^{T-2} \Biggl((u_t(h)-w_t(h)) \nabla_\theta \log
     \psi_h(s_{t+1}) + w_t(h) \nabla_\theta \log (1 - \psi_h(s_{t+1}))
     \Biggr)\Biggr).
@@ -428,7 +429,7 @@ grasping due to picking either no needles or multiple needles. As the piles were
 cleared and became sparser, the robot's grasping policy became somewhat brittle.
 The grasp success rate was 66% on 99 attempted grasps. In contrast, we rarely
 observed failures at the other aspects of the task, reaching 97% successful
-recovery on 34 failed grasps. 
+recovery on 34 failed grasps.
 
 The learned options also nicely decompose on intuitive task boundaries, and are
 activated on relevant state-space features:
@@ -488,7 +489,7 @@ Richard Sutton. Temporal credit assignment in reinforcement learning. 1984.
 
 Richard Sutton, Doina Precup, and Satinder Singh. Between MDPs and semi-MDPs: A
 framework for temporal abstraction in reinforcement learning. Artificial
-intelligence. 1999. 
+intelligence. 1999.
 
 Lerrel Pinto, and Abhinav Gupta. Supersizing self-supervision: Learning to grasp
 from 50k tries and 700 robot hours. International Conference on Robotics and

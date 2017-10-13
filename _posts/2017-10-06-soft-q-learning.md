@@ -6,6 +6,7 @@ author:     Haoran Tang and Tuomas Haarnoja
 visible:    True
 excerpt_separator: <!--more-->
 show_comments: true
+img: /assets/softq/figure_3b_multimodal_policy.png
 ---
 
 Deep reinforcement learning (deep RL) has achieved success in many tasks, such as playing video games from raw pixels \(Mnih et al., 2015\), playing the game of Go \(Silver et al., 2016\), and simulated robotic locomotion (e.g. Schulman et al., 2015). Standard deep RL algorithms aim to master a single way to solve a given task, typically the first way that seems to work well. Therefore, training is sensitive to randomness in the environment, initialization of the policy, and the algorithm implementation. This phenomenon is illustrated in Figure 1, which shows two policies trained to optimize a reward function that encourages forward motion: while both policies have converged to a high-performing gait, these gaits are substantially different from each other.
