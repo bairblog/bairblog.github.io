@@ -3,7 +3,7 @@ layout:     post
 title:      "Learning Long Duration Sequential Task Structure From Demonstrations with Application in Surgical Robotics"
 date:       2017-10-17 9:00:00
 author:     Sanjay Krishnan, Roy Fox, and Ken Goldberg
-visible:    True
+visible:    False
 excerpt_separator: <!--more-->
 show_comments: True
 ---

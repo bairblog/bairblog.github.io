@@ -169,6 +169,11 @@ generated, so these comment alert emails Disqus is sending redirects to posts
 under /jacky or /jane
 ```
 
+TODO:
+
+- Need a better pipeline, secure copy is inefficient
+- See our Google Doc
+
 # Questions?
 
 Ask Daniel Seita for questions about the README.
