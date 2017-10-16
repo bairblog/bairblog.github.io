@@ -156,6 +156,19 @@ Finally, if you're satisfied with how this looks, then change the baseurl to be
 desired URL.
 
 
+# Other Important Stuff
+
+From Jacky:
+
+```
+a note for future testing posts - let's change "show_comments" to "false" in the
+.md during development until we publish to /blog. 
+
+Disqus is tracking the first instance when it sees the comments section being
+generated, so these comment alert emails Disqus is sending redirects to posts
+under /jacky or /jane
+```
+
 # Questions?
 
 Ask Daniel Seita for questions about the README.
