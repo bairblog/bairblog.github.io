@@ -5,8 +5,16 @@ date:       2017-10-17 9:00:00
 author:     Sanjay Krishnan, Roy Fox, and Ken Goldberg
 visible:    False
 excerpt_separator: <!--more-->
-show_comments: True
+show_comments: False
 ---
+
+<p style="text-align:center;">
+<!--@Daniel arrange this however you want-->
+<img src="{{site.url}}{{site.baseurl}}/assets/surgical_robots/cutting-gif.gif" height="180" style="margin: 10px;">
+<img src="{{site.url}}{{site.baseurl}}/assets/surgical_robots/binpicking-gif.gif" height="180" style="margin: 10px;"> 
+<img src="{{site.url}}{{site.baseurl}}/assets/surgical_robots/debridement-gif.gif" height="180" style="margin: 10px;">
+<br>
+</p>
 
 Deep imitation learning and deep reinforcement learning have potential to learn
 robot control policies that map high-dimensional sensor inputs to controls.
@@ -86,15 +94,7 @@ motivated us to consider the extent to which we could learn such structure from
 demonstration data. This blog post describes our efforts over the last three
 years at learning hierarchical representations from demonstrations. This
 research has helped us automate several surgical robotic tasks with minimal
-expert design of the DFA:
-
-<p style="text-align:center;">
-<!--@Daniel arrange this however you want-->
-<img src="{{site.url}}{{site.baseurl}}/assets/surgical_robots/cutting-gif.gif" height="180" style="margin: 10px;">
-<img src="{{site.url}}{{site.baseurl}}/assets/surgical_robots/binpicking-gif.gif" height="180" style="margin: 10px;"> 
-<img src="{{site.url}}{{site.baseurl}}/assets/surgical_robots/debridement-gif.gif" height="180" style="margin: 10px;">
-<br>
-</p>
+expert design of the DFA, as shown in the three GIFs at the top of the post.
 
 # Learning Transition Conditions
 
@@ -111,7 +111,7 @@ trajectory and corresponding those segments across trajectories. This involves
 finding a common set of segment-to-segment transition events.
 
 We formalized this intuition in an algorithm called Transition State Clustering
-(TSC). Let $D=\{d_i\}$ be a set of demonstrations of a robotic task. Each
+(TSC). Let $$D=\{d_i\}$$ be a set of demonstrations of a robotic task. Each
 demonstration of a task $d$ is a discrete-time sequence of $T$ state vectors in
 a feature-space $\mathcal{X}$. The feature space is a concatenation of kinematic
 features $X$ (e.g., robot position) and sensory features $V$. These were
@@ -362,26 +362,26 @@ optimizes this objective with an Expectation-Gradient algorithm:
 
 
 $$
-\nabla_\theta L[\theta;\xi] = \mathbb{E}_\theta[\nabla_\theta \log p_\theta(\zeta,\xi) | \xi],
+\nabla_\theta L[\theta;\xi] = \mathbb{E}_\theta[\nabla_\theta \log \mathbb{P}_\theta(\zeta,\xi) | \xi],
 $$
 
-where $p_\theta(\zeta,\xi)$ is the joint probability of the latent and
+where $\mathbb{P}_\theta(\zeta,\xi)$ is the joint probability of the latent and
 observable variables, given by
 
 $$
-    p_\theta(\zeta,\xi) = p_0(s_0) \delta_{b_0=1}\eta(h_0 | s_0)
-    \prod_{t=1}^{T-1} p_\theta(b_t, h_t | h_{t-1}, s_t) \prod_{t=0}^{T-1}
+    \mathbb{P}_\theta(\zeta,\xi) = p_0(s_0) \delta_{b_0=1}\eta(h_0 | s_0)
+    \prod_{t=1}^{T-1} \mathbb{P}_\theta(b_t, h_t | h_{t-1}, s_t) \prod_{t=0}^{T-1}
     \pi_{h_t}(a_t | s_t) p(s_{t+1} |s_t, a_t) ,
 $$
 
-where in the latent transition $p_\theta(b_t, h_t | h_{t-1}, s_t)$ we have
+where in the latent transition $$\mathbb{P}_\theta(b_t, h_t | h_{t-1}, s_t)$$ we have
 with probability $\psi_{h_{t-1}}(s_t)$ that $b_t=1$ and $h_t$ is drawn from
 $\eta(\cdot|s_t)$, and otherwise that $b_t=0$ and $h_t$ is unchanged, i.e.
 
 $$
 \begin{align}
-    p_\theta(b_t {=} 1, h_t | h_{t-1}, s_t) &= \psi_{h_{t-1}}(s_t) \eta(h_t | s_t) \\
-    p_\theta(b_t {=} 0, h_t | h_{t-1}, s_t) &= (1 - \psi_{h_{t-1}}(s_t)) \delta_{h_t = h_{t-1}}.
+    \mathbb{P}_\theta(b_t {=} 1, h_t | h_{t-1}, s_t) &= \psi_{h_{t-1}}(s_t) \eta(h_t | s_t) \\
+    \mathbb{P}_\theta(b_t {=} 0, h_t | h_{t-1}, s_t) &= (1 - \psi_{h_{t-1}}(s_t)) \delta_{h_t = h_{t-1}}.
 \end{align}
 $$
 
@@ -389,8 +389,8 @@ The log-likelihood gradient can be computed in two steps, an E-step where the
 marginal posteriors
 
 $$
-u_t(h) = p_\theta(h_t {=} h | \xi); \quad v_t(h) = p_\theta(b_t {=} 1,
-h_t {=} h | \xi); \quad w_t(h) = p_\theta(h_t {=} h, b_{t+1} {=} 0 | \xi)
+u_t(h) = \mathbb{P}_\theta(h_t {=} h | \xi); \quad v_t(h) = \mathbb{P}_\theta(b_t {=} 1,
+h_t {=} h | \xi); \quad w_t(h) = \mathbb{P}_\theta(h_t {=} h, b_{t+1} {=} 0 | \xi)
 $$
 
 are computed using a forward-backward algorithm similar to Baum-Welch, and a
@@ -398,7 +398,7 @@ G-step:
 
 $$
 \begin{align}
-\nabla_\theta L[\theta;\xi] = \sum_{h\in\mathcal{H}} \Biggl(& \sum_{t=0}^{T-1}
+\nabla_\theta L[\theta;\xi] &= \sum_{h\in\mathcal{H}} \Biggl( \sum_{t=0}^{T-1}
     \Biggl(v_t(h) \nabla_\theta \log \eta(h | s_t) +  u_t(h)\nabla_\theta
     \log \pi_h(a_t | s_t)\Biggr) \\ 
     & + \sum_{t=0}^{T-2} \Biggl((u_t(h)-w_t(h)) \nabla_\theta \log
@@ -513,9 +513,9 @@ Lerrel Pinto, and Abhinav Gupta. Supersizing self-supervision: Learning to grasp
 from 50k tries and 700 robot hours. International Conference on Robotics and
 Automation (ICRA). 2016.
 
-Sergey Levine, Peter Pastor, Alex Krizhevsky, Deirdre Quillen. Learning Hand-Eye
-Coordination for Robotic Grasping with Deep Learning and Large-Scale Data
-Collection. 2016.
+Sergey Levine, Peter Pastor, Alex Krizhevsky, Julian Ibarz, Deirdre Quillen.
+Learning Hand-Eye Coordination for Robotic Grasping with Deep Learning and
+Large-Scale Data Collection (International Journal of Robotics Research). 2017.
 
 Sergey Levine\*, Chelsea Finn\*, Trevor Darrell, and Pieter Abbeel. End-to-end
 training of deep visuomotor policies. Journal of Machine Learning Research
