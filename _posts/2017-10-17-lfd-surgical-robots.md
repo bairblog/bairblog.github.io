@@ -3,9 +3,9 @@ layout:     post
 title:      "Learning Long Duration Sequential Task Structure From Demonstrations with Application in Surgical Robotics"
 date:       2017-10-17 9:00:00
 author:     Sanjay Krishnan, Roy Fox, and Ken Goldberg
-visible:    False
+visible:    True
 excerpt_separator: <!--more-->
-show_comments: False
+show_comments: True
 ---
 
 <p style="text-align:center;">
@@ -18,7 +18,7 @@ show_comments: False
 
 Deep imitation learning and deep reinforcement learning have potential to learn
 robot control policies that map high-dimensional sensor inputs to controls.
-While these approaches have been very successful at learning short tasks, such
+While these approaches have been very successful at learning short duration tasks, such
 as grasping (Pinto and Gupta 2016, Levine et al. 2016) and peg insertion (Levine
 et al. 2016), scaling learning to longer time horizons can require a prohibitive
 amount of demonstration data---whether acquired from experts or self-supervised.
@@ -34,20 +34,21 @@ These short-term skills can be parametrized more concisely---as an analogy,
 consider locally linear approximations to an overall nonlinear function---and
 this reduced parametrization can be substantially easier to learn. 
 
-
-This post summarizes our results from three recent papers that propose
-algorithms that learn to decompose a longer task into shorter subtasks from
-demonstration data with a primary application to robotic surgery. We present
-three algorithms: Transition State Clustering (TSC), Sequential Windowed Inverse
-Reinforcement Learning (SWIRL), and Deep Discovery of Continuous Options (DDCO).
-TSC considers robustly learning important switching events (significant changes
-in motion) that occur across all demonstrations. SWIRL proposes an algorithm
-that approximates a value function by a sequence of shorter term quadratic
-rewards. DDCO is a general framework for imitation learning with a hierarchical
-representation of the action space. In retrospect, all three algorithms are
-special cases of the same general framework, where the demonstrator's behavior
-is generatively modeled as a sequential composition of unknown closed-loop
-policies that switch when reaching parameterized "transition states". 
+This post summarizes results from three recent papers that propose algorithms
+that learn to decompose a longer task into shorter subtasks.  We report
+experiments in the context of autonomous surgical subtasks and we believe the
+results apply to a variety of applications from manufacturing to home robotics.
+We present three algorithms: Transition State Clustering (TSC), Sequential
+Windowed Inverse Reinforcement Learning (SWIRL), and Deep Discovery of
+Continuous Options (DDCO).  TSC considers robustly learning important switching
+events (significant changes in motion) that occur across all demonstrations.
+SWIRL proposes an algorithm that approximates a value function by a sequence of
+shorter term quadratic rewards. DDCO is a general framework for imitation
+learning with a hierarchical representation of the action space. In retrospect,
+all three algorithms are special cases of the same general framework, where the
+demonstrator's behavior is generatively modeled as a sequential composition of
+unknown closed-loop policies that switch when reaching parameterized "transition
+states". 
 
 <!--more-->
 
@@ -98,17 +99,17 @@ expert design of the DFA, as shown in the three GIFs at the top of the post.
 
 # Learning Transition Conditions
 
-In our first paper, Transition State Clustering (Krishnan et al. 2015), we
-explored the initial problem of learning from demonstrations the transition
-conditions, i.e., conditions that trigger a switch or a transition between
-manipulation behaviors in a task.  In many important tasks, while the actual
-motions may vary and be noisy, each demonstration contains roughly the same
-sequence of primitive motions. This consistent, repeated structure can be
-exploited to infer global transition criteria by identifying state-space
-conditions correlated with significant changes in motion. By assuming a known
-sequential order of primitives, the problem reduces to segmenting each
-trajectory and corresponding those segments across trajectories. This involves
-finding a common set of segment-to-segment transition events.
+The first paper, Transition State Clustering (Krishnan et al. 2015), explores
+the problem of learning transition conditions from demonstrations, i.e.,
+conditions that trigger a switch or a transition between manipulation behaviors
+in a task.  In many important tasks, while the actual motions may vary and be
+noisy, each demonstration contains roughly the same sequence of primitive
+motions. This consistent, repeated structure can be exploited to infer global
+transition criteria by identifying state-space conditions correlated with
+significant changes in motion. By assuming a known sequential order of
+primitives, the problem reduces to segmenting each trajectory and corresponding
+those segments across trajectories. This involves finding a common set of
+segment-to-segment transition events.
 
 We formalized this intuition in an algorithm called Transition State Clustering
 (TSC). Let $$D=\{d_i\}$$ be a set of demonstrations of a robotic task. Each
@@ -166,13 +167,12 @@ Maximization.
 In the pattern cutting task, TSC found the following transition conditions:
 
 <p style="text-align:center;">
-<img
-src="{{site.url}}{{site.baseurl}}/assets/surgical_robots/pattern-cutting-concept.png"
-alt="Figure 3: Conceptual diagram of pattern cutting."><br>
+<img src="{{site.url}}{{site.baseurl}}/assets/surgical_robots/pattern-cutting-concept.png" height="175" style="margin: 30px;" alt="Figure 3: Conceptual diagram of pattern cutting.">
+<img src="{{site.url}}{{site.baseurl}}/assets/surgical_robots/pattern-cutting.png" height="200" alt="Figure 3: Conceptual diagram of pattern cutting."><br>
 <i>
-Left: A conceptual diagram of the pattern cutting task with manually identified
-segments, Right: compared to the the automatically discovered transition states
-(a) and transition state clusters (b).  
+Surgical pattern cutting task.  Left: manually identified transitions. Right:
+automatically discovered transition states (a) and transition state clusters
+(b).
 </i>
 </p>
 
@@ -467,14 +467,12 @@ kinematics and grasp features.
 # Conclusion
 
 To summarize, learning sequential task structure from demonstrations has many
-applications and is essential for automating sub-tasks in surgical robotics. We
-were motivated by automatically inferring transition conditions for finite state
-machine design. This work inspired us to build links to Reinforcement Learning
-and the Options Framework. We see several avenues for future work: (1)
-representations that better model rotational geometry and configuration spaces,
-(2) hybrid schemes that consider both parametrized primitives and those derived
-from analytic formulae, and (3) consideration of state-space segmentation as
-well as temporal segmentation.  
+applications in robotics such as automating surgical sub-tasks and can be
+facilitated by segmenting to learning task structure. We see several avenues for
+future work: (1) representations that better model rotational geometry and
+configuration spaces, (2) hybrid schemes that consider both parametrized
+primitives and those derived from analytic formulae, and (3) consideration of
+state-space segmentation as well as temporal segmentation.
 
 <hr>
 
