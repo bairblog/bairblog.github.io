@@ -126,7 +126,8 @@ if the `blog2` folder doesn't exist. Otherwise use
 scp -r _site/* seita@login.eecs.berkeley.edu:/project/eecs/interact/www-bair/blog2/
 ```
 
-so that the contents of `_site` go in `blog2`.
+so that the contents of `_site` go in `blog2`. (If there are any permission
+denied errors, then the cause is likely a group issue, which I explain later.)
 
 Note that you'll need permissions to push to this group (it's from Anca Dragan).
 Right now only Jane and I have permissions for this. At some point, though, we
@@ -169,7 +170,30 @@ generated, so these comment alert emails Disqus is sending redirects to posts
 under /jacky or /jane
 ```
 
-TODO:
+ALSO ... we need to ensure that permissions AND groups are set correctly. The
+permissions should be set to 775, as in:
+
+```
+chmod -R 775 blog/
+```
+
+But we also need the group to be `interact`, so please check that. My default
+group is `grad10` for some reason, which prevents others in the `interact` group
+from copying files over.
+
+Thus be sure to do 
+
+```
+chgrp -R interact blog/
+```
+
+TODO: does this work even if the owner (not the group!) of the `blog` directory
+is not me? I *think* it recursively checks, but not sure. Just check that all
+groups are `interact` and that if I do a `scp`, I should get zero permission
+denied errors.
+
+
+# TODO
 
 - Need a better pipeline, secure copy is inefficient
 - See our Google Doc
