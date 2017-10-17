@@ -6,12 +6,13 @@ author:     Sanjay Krishnan, Roy Fox, and Ken Goldberg
 visible:    True
 excerpt_separator: <!--more-->
 show_comments: True
+img: /assets/surgical_robots/tensioning-task.png
 ---
 
 <p style="text-align:center;">
 <!--@Daniel arrange this however you want-->
 <img src="{{site.url}}{{site.baseurl}}/assets/surgical_robots/cutting-gif.gif" height="180" style="margin: 10px;">
-<img src="{{site.url}}{{site.baseurl}}/assets/surgical_robots/binpicking-gif.gif" height="180" style="margin: 10px;"> 
+<img src="{{site.url}}{{site.baseurl}}/assets/surgical_robots/binpicking-gif.gif" height="180" style="margin: 10px;">
 <img src="{{site.url}}{{site.baseurl}}/assets/surgical_robots/debridement-gif.gif" height="180" style="margin: 10px;">
 <br>
 </p>
@@ -32,7 +33,7 @@ pulling up, reversing, and adjusting. Similarly, assembly tasks can often be
 decomposed into individual steps based on which parts need to be manipulated.
 These short-term skills can be parametrized more concisely---as an analogy,
 consider locally linear approximations to an overall nonlinear function---and
-this reduced parametrization can be substantially easier to learn. 
+this reduced parametrization can be substantially easier to learn.
 
 This post summarizes results from three recent papers that propose algorithms
 that learn to decompose a longer task into shorter subtasks.  We report
@@ -48,7 +49,7 @@ learning with a hierarchical representation of the action space. In retrospect,
 all three algorithms are special cases of the same general framework, where the
 demonstrator's behavior is generatively modeled as a sequential composition of
 unknown closed-loop policies that switch when reaching parameterized "transition
-states". 
+states".
 
 <!--more-->
 
@@ -59,7 +60,7 @@ surgical procedures worldwide using local teleoperation.  Automation of surgical
 sub-tasks has the potential to reduce surgeon tedium and fatigue, operating
 time, and enable supervised tele-surgery over higher-latency networks. Designing
 surgical robot controllers is particularly difficult due to a limited field of
-view and imprecise actuation. 
+view and imprecise actuation.
 
 As a concrete task, pattern cutting is one of the Fundamentals of Laparoscopic
 Surgery, a training suite required of surgical residents.   In this standard
@@ -134,11 +135,11 @@ such that $$\mathcal{T}(d)_t$$ indicates whether the demonstration switched from
 one sub-task to another after time $t$. For a demonstration $d_i$, let $o_{i,t}$
 denote the kinematic state, visual state, and time $(x,v,t)$ at time $t$.
 Transition States are the set of state-time tuples where the indicator is 1:
-  
+
 $$
 \Gamma = \bigcup_{i}^N ~\{o_{i,t} \in d_i ~: \mathbf{T}(d_i)_t = 1\}.
 $$
-  
+
 In TSC, we model the probability distribution that generates $\Gamma$ as a
 Gaussian Mixture Model and identify the mixture components.  These components
 identify regions of the state space correlated with candidate transitions. We
@@ -194,16 +195,16 @@ overlooked this important transition.
 We next explored how the transitions learned by TSC can be used to shape rewards
 in long horizon tasks. Sequential Windowed Inverse Reinforcement Learning
 (Krishnan et al. 2016),  models a task as a sequence of quadratic reward
-functions 
+functions
 
 $$\mathbf{R}_{seq} = [R_1, \ldots ,R_k ]$$
 
-and transition regions 
+and transition regions
 
 $$G = [ \rho_1, \ldots,\rho_k ]$$
 
 such that $R_1$ is the reward function until $\rho_1$ is reached, after which
-$R_2$ becomes the reward and so on. 
+$R_2$ becomes the reward and so on.
 
 We assume that we have access to a supervisor that provides demonstrations which
 are optimal w.r.t an unknown reward function $\mathbf{R}^*$ (not necessarily
@@ -248,16 +249,16 @@ policy could lead to an exponential overhead of additional states. SWIRL
 exploits the fact that TSC is in a sense a Markov process, and shows that the
 problem can be posed as a proper MDP in a lifted state-space that includes an
 indicator variable of the highest-index $\{1,...,k\}$ transition region that has
-been reached so far. 
+been reached so far.
 
 SWIRL applies a variant of Q-Learning to optimize the policy over the sequential
 rewards. The basic change to the algorithm is to augment the state-space with an
 indicator vector that indicates the transition regions that have been reached.
-Each of the rollouts now records a tuple 
+Each of the rollouts now records a tuple
 
 $$
 (s, i \in {0,...,k-1},a,r, s', i' \in {0,...,k-1})
-$$ 
+$$
 
 that additionally stores this information. The Q function is now defined over
 states, actions, and segment index--which also selects the appropriate local
@@ -301,7 +302,7 @@ segments corresponds to moving to the correct grasping position, one corresponds
 to making the grasp, one lifting the gauze up again, and one corresponds to
 straightening the gauze. One of the interesting aspects of this task is that the
 segmentation requires multiple features, and segmenting any single signal may
-miss an important feature. 
+miss an important feature.
 
 Then, we tried to learn a policy from the rewards constructed by SWIRL. We
 define a Q-Network with a single-layer Multi-Layer Perceptron with 32 hidden
@@ -327,11 +328,11 @@ SWIRL achieves more than a 4 times higher reward than ab initio RL, 3  time
 higher than pure behavioral cloning, and a 56% higher reward than naively
 applying behavioral cloning with TSC segments.
 
-# Hierarchical Representations 
+# Hierarchical Representations
 
 We are now exploring a generalization of TSC and  SWIRL with a new algorithm:
 Deep Discovery of Continuous Options (DDCO Krishnan et al. 2017, to be presented
-at the 1st Conference on Robot Learning in November). 
+at the 1st Conference on Robot Learning in November).
 
 An option represents a low-level policy that can be invoked by a high-level
 policy to perform a certain sub-task. Formally, an option $h$ in an options set
@@ -400,7 +401,7 @@ $$
 \begin{align}
 \nabla_\theta L[\theta;\xi] &= \sum_{h\in\mathcal{H}} \Biggl( \sum_{t=0}^{T-1}
     \Biggl(v_t(h) \nabla_\theta \log \eta(h | s_t) +  u_t(h)\nabla_\theta
-    \log \pi_h(a_t | s_t)\Biggr) \\ 
+    \log \pi_h(a_t | s_t)\Biggr) \\
     & + \sum_{t=0}^{T-2} \Biggl((u_t(h)-w_t(h)) \nabla_\theta \log
     \psi_h(s_{t+1}) + w_t(h) \nabla_\theta \log (1 - \psi_h(s_{t+1}))
     \Biggr)\Biggr).
@@ -440,7 +441,7 @@ grasping due to picking either no needles or multiple needles. As the piles were
 cleared and became sparser, the robot's grasping policy became somewhat brittle.
 The grasp success rate was 66% on 99 attempted grasps. In contrast, we rarely
 observed failures at the other aspects of the task, reaching 97% successful
-recovery on 34 failed grasps. 
+recovery on 34 failed grasps.
 
 The learned options are interpretable on intuitive task boundaries. For each of
 the 4 options, we plot how heavily the different inputs are weighted (image,
@@ -455,7 +456,7 @@ alt="Figure 7: DDCO Options."><br>
 <i>
 We plot the average activations of the feature layer for of each option,
 indicating which inputs (image, gripper angle, or kinematics ) are relevant to
-the policy and termination. 
+the policy and termination.
 </i>
 </p>
 
@@ -509,7 +510,7 @@ Richard Sutton. Temporal credit assignment in reinforcement learning. 1984.
 
 Richard Sutton, Doina Precup, and Satinder Singh. Between MDPs and semi-MDPs: A
 framework for temporal abstraction in reinforcement learning. Artificial
-intelligence. 1999. 
+intelligence. 1999.
 
 Lerrel Pinto, and Abhinav Gupta. Supersizing self-supervision: Learning to grasp
 from 50k tries and 700 robot hours. International Conference on Robotics and
