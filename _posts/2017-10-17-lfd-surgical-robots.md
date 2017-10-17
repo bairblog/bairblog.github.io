@@ -478,6 +478,10 @@ state-space segmentation as well as temporal segmentation.
 
 ## References
 
+(For links to papers, see the homepages of [Sanjay
+Krishnan](https://www.ocf.berkeley.edu/~sanjayk/) or [Ken
+Goldberg](http://goldberg.berkeley.edu/pubs/).)
+
 Sanjay Krishnan\*, Roy Fox\*, Ion Stoica, Ken Goldberg. DDCO: Discovery of Deep
 Continuous Options for Robot Learning from Demonstrations. Conference on Robot
 Learning (CoRL). 2017.

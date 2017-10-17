@@ -192,6 +192,10 @@ is not me? I *think* it recursively checks, but not sure. Just check that all
 groups are `interact` and that if I do a `scp`, I should get zero permission
 denied errors.
 
+It's probably best to check at minimum all the new files your commit adds, to
+ensure that the groups and permissions are set appropriately. You don't need to
+run the command at the top (at the `blog/` level).
+
 
 # TODO
 
