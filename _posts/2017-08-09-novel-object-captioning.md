@@ -41,6 +41,8 @@ Given an image, humans can easily infer the salient entities in it, and describe
 
 Current visual description or image captioning models work quite well, but they can only describe objects seen in existing image captioning training datasets, and they require a large number of training examples to generate good captions. To learn how to describe an object like "jackal" or “anteater” in context, most description models require many examples of jackal or anteater images with corresponding descriptions.  However, current visual description datasets, like [MSCOCO](mscoco.org), do not include descriptions about all objects. In contrast, recent works in object recognition through Convolutional Neural Networks (CNNs) can recognize hundreds of categories of objects. While object recognition models can recognize jackals and anteaters, description models cannot compose sentences to describe these animals correctly in context.  In our work, we overcome this problem by building visual description systems which can describe new objects without pairs of images and sentences about these objects.
 
+<!--more-->
+
 ## The Task: Describing Novel Objects
 
 Here we define our task more formally.  Given a dataset consisting of pairs of images and descriptions (paired image-sentence data, e.g. [MSCOCO](mscoco.org)) as well as images with object labels but no descriptions (unpaired image data, such as [ImageNet](http://www.image-net.org/)) we wish to learn how to describe objects unseen in paired image-sentence data. To do this we must build a model which can recognize different visual constituents (e.g., jackal, brown, standing, and field) and compose these in novel ways to form a coherent description.  Below we describe the core components of our description model.
@@ -51,8 +53,6 @@ alt="The novel visual description task">
 </p>
 
 We aim to describe diverse objects which do not have training images with captions.
-
-<!--more-->
 
 ### Using External Sources of Data
 

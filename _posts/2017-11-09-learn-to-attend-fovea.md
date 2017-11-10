@@ -30,11 +30,11 @@ A foveated image with a center of gaze on the bee (left) and butterfly (right)
 </i>
 </p>
 
-<!--more-->
-
 Despite the fact that these cells cover only a fraction of our visual field, roughly 30% of our cortex is still dedicated to processing the signal that they provide. You can imagine our brain would have to be impractically large to handle the full visual field at high resolution. Suffice it to say, the amount of neural processing dedicated to vision is rather large and it would be beneficial to survival if it were used efficiently.
 
 *Attention* is a fundamental property of many intelligent systems. Since the resources of any physical system are limited, it is important to allocate them in an effective manner. Attention involves the dynamic allocation of information processing resources to best accomplish a specific task. In nature, we find this very apparent in the design of animal visual systems. By moving gaze rapidly within the scene, limited neural resources are effectively spread over the entire visual scene.
+
+<!--more-->
 
 ## Overt Attention
 
