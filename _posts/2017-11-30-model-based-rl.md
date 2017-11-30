@@ -51,7 +51,7 @@ locomotion skills of trajectory-following using only minutes of data collected
 from the robot randomly acting in the environment. In this blog post, we’ll
 provide an overview of our approach and results. More details can be found in
 our research papers listed at the bottom of this post, including [this paper][2]
-with **TODO code here**.
+with [code here][18].
 
 <!--more-->
 
@@ -335,7 +335,7 @@ This post is based on the following papers:
 
 - **Neural Network Dynamics for Model-Based Deep Reinforcement Learning with Model-Free Fine-Tuning** <br>
   A Nagabandi, G Kahn, R Fearing, S Levine <br>
-  [Paper][17], [Website][15], **TODO Code Here**
+  [Paper][17], [Website][15], [Code][18]
 
 [1]:https://www.youtube.com/watch?v=g0TaYhjpOfo
 [2]:https://arxiv.org/pdf/1708.02596.pdf
@@ -354,3 +354,4 @@ This post is based on the following papers:
 [15]:https://sites.google.com/view/mbmf
 [16]:https://arxiv.org/abs/1711.05253
 [17]:https://arxiv.org/abs/1708.02596
+[18]:https://github.com/nagaban2/nn_dynamics
