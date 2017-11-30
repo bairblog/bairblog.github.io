@@ -60,7 +60,7 @@ with [code here][18].
 
 Learning robotic skills from experience typically falls under the umbrella of
 reinforcement learning. Reinforcement learning algorithms can generally be
-divided into categories: model-free, which learn a policy or value function, and
+divided into two categories: model-free, which learn a policy or value function, and
 model-based, which learn a dynamics model. While model-free deep reinforcement
 learning algorithms are capable of learning a wide range of robotic skills, they
 typically suffer from [very][3] [high][4] [sample][5] [complexity][6], often
