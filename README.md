@@ -1,4 +1,21 @@
-This is the repository for the BAIR blog, located at bair.berkeley.edu/blog.
+Update notes:
+
+- We now have two branches, master and production. Master is used for
+  `bairblog.github.io` which is GitHub's built-in feature for updating websites.
+  The production branch is used for copying the files over to the place where
+  the blog lives.
+- The production branch has specific `baseurls` and `urls` that shouldn't
+  change.
+- Watch out for setting comments to be False in the master branch, and for
+  making posts invisible until they're ready to be published.
+- Once things have been copied over, you're not done! Change permissions to give
+  everyone in the `interact` group writing permissions. See the bottom of this
+  RAEDME.
+- TODO: Fix README. Yeah, I know ... maybe during winter break!
+
+---
+
+This is the repository for the BAIR blog, located at `bair.berkeley.edu/blog/`.
 Write posts here in the `_posts` folder and then build locally. If you build
 locally in the correct way, you can copy the generated `_site` folder directly
 to where the BAIR website lives, and the blog is updated perfectly.
