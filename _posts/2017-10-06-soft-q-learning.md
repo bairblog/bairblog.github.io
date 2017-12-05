@@ -21,8 +21,6 @@ Figure 1: Trained simulated walking robots.<br>
 </i>
 </p>
 
-<!--more-->
-
 Why might finding only a single solution be undesirable? Knowing only one way to act makes agents vulnerable to environmental changes that are common in the real-world. For example, consider a robot (Figure 2) navigating its way to the goal (blue cross) in a simple maze. At training time (Figure 2a), there are two passages that lead to the goal. The agent will likely commit to the solution via the upper passage as it is slightly shorter. However, if we change the environment by blocking the upper passage with a wall (Figure 2b), the solution the agent has found becomes infeasible. Since the agent focused entirely on the upper passage during learning, it has almost no knowledge of the lower passage. Therefore, adapting to the new situation in Figure 2b requires the agent to relearn the entire task from scratch.
 
 <table class="col-2">
@@ -42,6 +40,8 @@ Why might finding only a single solution be undesirable? Knowing only one way to
 Figure 2: A robot navigating a maze.
 </i>
 </p>
+
+<!--more-->
 
 ### Maximum Entropy Policies and Their Energy Forms
 Let us begin with a review of RL: an agent interacts with an environment by iteratively observing the current *state* ($\mathbf{s}$), taking an *action* ($\mathbf{a}$), and receiving a *reward* ($r$). It employs a (stochastic) policy ($\pi$) to select actions, and finds the best policy that maximizes the cumulative reward it collects throughout an episode of length $T$:
