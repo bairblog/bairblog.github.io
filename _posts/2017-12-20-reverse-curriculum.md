@@ -3,13 +3,13 @@ layout:             post
 title:              "Reverse Curriculum Generation for Reinforcement Learning Agents"
 date:               2017-12-20 9:00:00
 author:             Carlos Florensa
-img:                http://bair.berkeley.edu/static/blog/reverse_curriculum/ant_maze.png
+img:                /assets/BAIR_Logo.png
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      False
 ---
 
-Reinforcement Learning (RL) is a powerful technique capable of solving complex tasks such as [locomotion][1], [Atari games][2], [racing games][3], and [robotic manipulation tasks][4], all through training an agent to optimize behaviors over a reward function. There are many tasks, however, for which it is **hard to design a reward function that is both easy to train and that yields the desired behavior once optimized**. Suppose we want a robotic arm to learn how to place a ring onto a peg. The most natural reward function would be for an agent to receive a reward of 1 at the desired end configuration and 0 everywhere else.  However, the required motion for this task--to align the ring at the top of the peg and then slide it to the bottom--is impractical to learn under such a binary reward, because the usual random exploration of our initial policy is unlikely to ever reach the goal, as seen in Video 1a. Alternatively, one can try to [shape the reward function][5] to potentially alleviate this problem, but finding a good shaping [requires considerable expertise and experimentation]. For example, directly minimizing the distance between the center of the ring and the bottom of the peg leads to an unsuccessful policy that smashes the ring against the peg, as in Video 1b. We propose a method to learn efficiently without modifying the reward function, by automatically generating a curriculum over start positions.
+Reinforcement Learning (RL) is a powerful technique capable of solving complex tasks such as [locomotion][1], [Atari games][2], [racing games][3], and [robotic manipulation tasks][4], all through training an agent to optimize behaviors over a reward function. There are many tasks, however, for which it is **hard to design a reward function that is both easy to train and that yields the desired behavior once optimized**. Suppose we want a robotic arm to learn how to place a ring onto a peg. The most natural reward function would be for an agent to receive a reward of 1 at the desired end configuration and 0 everywhere else.  However, the required motion for this task--to align the ring at the top of the peg and then slide it to the bottom--is impractical to learn under such a binary reward, because the usual random exploration of our initial policy is unlikely to ever reach the goal, as seen in Video 1a. Alternatively, one can try to [shape the reward function][5] to potentially alleviate this problem, but finding a good shaping [requires considerable expertise and experimentation][6]. For example, directly minimizing the distance between the center of the ring and the bottom of the peg leads to an unsuccessful policy that smashes the ring against the peg, as in Video 1b. We propose a method to learn efficiently without modifying the reward function, by automatically generating a curriculum over start positions.
 
 <table class="col-2">
   <tr>
@@ -43,8 +43,8 @@ We would like to train an agent to reach the goal from any starting position, wi
 In *goal-oriented* tasks the aim is to reach a desired configuration from any start state. For example, in the ring-on-peg task introduced above, we desire to place the ring on the peg starting from any configuration. From most start positions, the random exploration of our initial policy never reaches the goal and hence perceives no reward. Nevertheless, it can be seen in Video 2a how a random policy is likely to reach the bottom of the peg if it is initialized from a nearby position. Then, once we have learned how to reach the goal from around the goal, learning from further away is easier since the agent already knows how to proceed if exploratory actions drive its state nearby the goal, as in Video 2b. Eventually, the agent successfully learns to reach  the goal from a wide range of starting positions, as in Video 2c.
 
 <p style="text-align:center;">
-<img height = "200" src="http://bair.berkeley.edu/static/blog/reverse_curriculum/ring_curr1.gif" title="ring_curr1">
-<img height = "200" src="http://bair.berkeley.edu/static/blog/reverse_curriculum/ring_curr2.gif" title="ring_curr2">
+<img height = "180" src="http://bair.berkeley.edu/static/blog/reverse_curriculum/ring_curr1.gif" title="ring_curr1">
+<img height = "180" src="http://bair.berkeley.edu/static/blog/reverse_curriculum/ring_curr2.gif" title="ring_curr2">
 <img height = "200" src="http://bair.berkeley.edu/static/blog/reverse_curriculum/ring_curr3.gif" title="ring_curr3">
 <br>
 <i>
@@ -116,7 +116,7 @@ In this task we want to learn how to reach the end of the red area in the upper-
 <img width = "90%" src="http://bair.berkeley.edu/static/blog/reverse_curriculum/performance.png" title="performance">
 <br>
 <i>
-Fig 2. Snapshots of the policy performance and the starts generated by our reverse curriculum (replay buffer not depicted for clarity), always tracking the regions at an intermediate level of difficulty.
+Fig. 2: Snapshots of the policy performance and the starts generated by our reverse curriculum (replay buffer not depicted for clarity), always tracking the regions at an intermediate level of difficulty.
 </i>
 </p>
 
