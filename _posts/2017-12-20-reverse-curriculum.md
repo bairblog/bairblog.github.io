@@ -3,7 +3,7 @@ layout:             post
 title:              "Reverse Curriculum Generation for Reinforcement Learning Agents"
 date:               2017-12-20 9:00:00
 author:             Carlos Florensa
-img:                /assets/BAIR_Logo.png
+img:                /assets/reverse_curriculum/ant_maze.png
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      False
