@@ -1,7 +1,7 @@
 ---
 layout:             post
 title:              "Physical Adversarial Examples Against Deep Neural Networks"
-date:               2017-12-29 9:00:00
+date:               2017-12-30 9:00:00
 author:             Ivan Evtimov, Kevin Eykholt, Earlence Fernandes, and Bo Li 
 img:                /assets/yolo/image1.png
 excerpt_separator:  <!--more-->
@@ -91,8 +91,8 @@ take the form of sticker perturbations that we apply to a real STOP sign. The
 following image shows our example physical adversarial perturbation.
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/yolo/image1.png" height="450" style="margin: 10px;">
-<img src="{{site.url}}{{site.baseurl}}/assets/yolo/image4.png" height="450" style="margin: 10px;">
+<img src="http://bair.berkeley.edu/static/blog/yolo/image1.png" height="450" style="margin: 10px;">
+<img src="http://bair.berkeley.edu/static/blog/yolo/image4.png" height="450" style="margin: 10px;">
 <br>
 </p>
 
@@ -116,8 +116,8 @@ attacks in more detail. The image below is an example of Faster-RCNN not
 perceiving the STOP sign.
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/yolo/image3.png" height="380" style="margin: 10px;">
-<img src="{{site.url}}{{site.baseurl}}/assets/yolo/image2.png" height="380" style="margin: 10px;">
+<img src="http://bair.berkeley.edu/static/blog/yolo/image3.png" height="380" style="margin: 10px;">
+<img src="http://bair.berkeley.edu/static/blog/yolo/image2.png" height="380" style="margin: 10px;">
 <br>
 </p>
 
