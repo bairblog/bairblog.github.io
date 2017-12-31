@@ -1,3 +1,58 @@
+# BAIR Blog Instructions 
+
+TODO: transfer some stuff later in the README here ...
+
+# Writing Posts in Markdown
+
+There are a few important things to know about our specific blog format.
+
+# Images
+
+To avoid putting all images and gifs into this GitHub repository, and to avoid
+having to copy the entire `_site` folder to where the blog lives, we save the
+images inside the folder `/project/eecs/interact/www-bair/static/blog`. Each
+blog post gets its own folder of images/gifs, even if it has only one.
+
+Make sure you avoid using the `site.url` and `site.baseurl` liquid tags. That
+is, earlier we used the following code:
+
+```
+<p style="text-align:center;">
+<img 
+src="{{site.url}}{{site.baseurl}}/assets/mh_test/different_tests.png" 
+alt="different_tests" width="600"><br>
+<i>
+Functions $f$ and $g$ can serve as acceptance tests for Metropolis-Hastings.
+Given current sample $\theta$ and proposed sample $\theta'$, the vertical axis
+represents the probability of accepting $\theta'$.
+</i>
+</p>
+```
+
+But **do not use that**. Instead, use an explicit link to the static folder:
+
+```
+<p style="text-align:center;">
+<img 
+src="http://bair.berkeley.edu/static/blog/mh_test/different_tests.png" 
+alt="different_tests" width="600"><br>
+<i>
+Functions $f$ and $g$ can serve as acceptance tests for Metropolis-Hastings.
+Given current sample $\theta$ and proposed sample $\theta'$, the vertical axis
+represents the probability of accepting $\theta'$.
+</i>
+</p>
+```
+
+The above also represents how we prefer to use captions for figures, and how to
+center images, control width, etc. Note, however, that using hyperlinks in
+Jekyll format (using `[text](link)`) doesn't work, so use the explicit HTML
+code.
+
+
+# How to Update
+
+
 Update notes:
 
 - We now have two branches, master and production. Master is used for
@@ -20,7 +75,8 @@ Write posts here in the `_posts` folder and then build locally. If you build
 locally in the correct way, you can copy the generated `_site` folder directly
 to where the BAIR website lives, and the blog is updated perfectly.
 
-# For People Writing Posts
+
+
 
 The easiest way to get started is to copy one of the older posts we have and
 start from there. Please make the title informative and also to start with the

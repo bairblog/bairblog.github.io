@@ -170,7 +170,7 @@ approximate a target posterior. This example is derived from [Welling & Teh
 (2011)][12].
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/mh_test/mhtest_example_progression.png" alt="jupyter_notebook"><br>
+<img src="http://bair.berkeley.edu/static/blog/mh_test/mhtest_example_progression.png" alt="jupyter_notebook"><br>
 <i>
 A quick example of the MH test in action on a mixture of Gaussians example. The
 parameter is $\theta \in \mathbb{R}^2$ with the x and y axes representing
@@ -264,7 +264,7 @@ with probability given by the blue curve.
 
 <p style="text-align:center;">
 <img
-src="{{site.url}}{{site.baseurl}}/assets/mh_test/different_tests.png"
+src="http://bair.berkeley.edu/static/blog/mh_test/different_tests.png"
 alt="different_tests" width="600"><br>
 <i>
 Functions $f$ and $g$ can serve as acceptance tests for Metropolis-Hastings.
@@ -282,7 +282,7 @@ target distribution.
 
 <p style="text-align:center;">
 <img
-src="{{site.url}}{{site.baseurl}}/assets/mh_test/equivalent_test.png"
+src="http://bair.berkeley.edu/static/blog/mh_test/equivalent_test.png"
 alt="equivalent_test" width="500"><br>
 <i>
 The density of the standard logistic random variable, denoted $X_{\rm log}$
@@ -307,7 +307,7 @@ of $\Delta$ (approximately Gaussian) is already very close to the desired test
 distribution $X_{\rm log}$, as shown below.
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/mh_test/gaussian_logistic_cdf.png"
+<img src="http://bair.berkeley.edu/static/blog/mh_test/gaussian_logistic_cdf.png"
 alt="gaussian_logistic_cdf" width="400"><br>
 <i>
 A plot of the logistic CDF in red (as we had earlier) along with a normal CDF
@@ -319,7 +319,7 @@ Rather than resorting to tail bounds as in prior work, we directly bridge these
 two distributions using an additive correction variable $X_{\rm correction}$:
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/mh_test/our_test_visual.png"
+<img src="http://bair.berkeley.edu/static/blog/mh_test/our_test_visual.png"
 alt="test_visual"><br>
 <i>
 A diagram of our minibatch MH test. On the right we have the full data test that
@@ -346,7 +346,7 @@ posterior estimation for a Gaussian Mixture Model, and that it is also highly
 sample-efficient in Logistic Regression for classification of MNIST digits.
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/mh_test/gaussian_mixture_histogram_results_v8.png"
+<img src="http://bair.berkeley.edu/static/blog/mh_test/gaussian_mixture_histogram_results_v8.png"
 alt="paper_results"><br>
 <i>
 Histograms showing the batch sizes used for Metropolis-Hastings for the three
