@@ -1,12 +1,19 @@
 # BAIR Blog Instructions 
 
-TODO: transfer some stuff later in the README here ...
+This is the repository for the BAIR blog, located at `bair.berkeley.edu/blog/`.
+Posts are located in `_posts`. Preview locally, and then push to the master
+branch, which will generate a preview at `bairblog.github.io`. This is the link
+we give to authors to preview their posts.
+
+
+
+**TODO: transfer some stuff later in the README here ...**
 
 # Writing Posts in Markdown
 
 There are a few important things to know about our specific blog format.
 
-# Images
+## Images
 
 To avoid putting all images and gifs into this GitHub repository, and to avoid
 having to copy the entire `_site` folder to where the blog lives, we save the
@@ -46,8 +53,8 @@ represents the probability of accepting $\theta'$.
 
 The above also represents how we prefer to use captions for figures, and how to
 center images, control width, etc. Note, however, that using hyperlinks in
-Jekyll format (using `[text](link)`) doesn't work, so use the explicit HTML
-code.
+Jekyll format (using `[text](link)`) for the captions doesn't work, so use the
+explicit HTML code.
 
 
 # How to Update
@@ -69,12 +76,6 @@ Update notes:
 - TODO: Fix README. Yeah, I know ... maybe during winter break!
 
 ---
-
-This is the repository for the BAIR blog, located at `bair.berkeley.edu/blog/`.
-Write posts here in the `_posts` folder and then build locally. If you build
-locally in the correct way, you can copy the generated `_site` folder directly
-to where the BAIR website lives, and the blog is updated perfectly.
-
 
 
 
