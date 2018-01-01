@@ -16,11 +16,11 @@ Given an image, humans can easily infer the salient entities in it, and describe
 <table class="col-2">
   <tr>
     <td style="text-align:center;">
-			<img src="{{site.url}}{{site.baseurl}}/assets/novel_image_captioning/bear.png"
+			<img src="http://bair.berkeley.edu/static/blog/novel_image_captioning/bear.png"
 			alt="Brown bear in forest">
 		</td>
     <td style="text-align:center;">
-			<img src="{{site.url}}{{site.baseurl}}/assets/novel_image_captioning/anteater.png"
+			<img src="http://bair.berkeley.edu/static/blog/novel_image_captioning/anteater.png"
 			alt="Anteater in forest">
 		</td>
   </tr>
@@ -48,7 +48,7 @@ Current visual description or image captioning models work quite well, but they 
 Here we define our task more formally.  Given a dataset consisting of pairs of images and descriptions (paired image-sentence data, e.g. [MSCOCO](mscoco.org)) as well as images with object labels but no descriptions (unpaired image data, such as [ImageNet](http://www.image-net.org/)) we wish to learn how to describe objects unseen in paired image-sentence data. To do this we must build a model which can recognize different visual constituents (e.g., jackal, brown, standing, and field) and compose these in novel ways to form a coherent description.  Below we describe the core components of our description model.
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/novel_image_captioning/image_0.png"
+<img src="http://bair.berkeley.edu/static/blog/novel_image_captioning/image_0.png"
 alt="The novel visual description task">
 </p>
 
@@ -59,7 +59,7 @@ We aim to describe diverse objects which do not have training images with captio
 In order to generate captions about diverse categories of objects outside the image-caption training data, we take advantage of external data sources. Specifically, we use ImageNet images with object labels as the unpaired image data source and sentences from unannotated text corpora such as Wikipedia as our text data source. These are used to train our visual recognition CNN and language model respectively.
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/novel_image_captioning/image_1.png"
+<img src="http://bair.berkeley.edu/static/blog/novel_image_captioning/image_1.png"
 alt="Train effectively on external resources"><br>
 <i>
 Train effectively on external resources
@@ -77,7 +77,7 @@ In our previous work, called "Deep Compositional Captioning (DCC)" [1] we first 
 While the DCC model is able to describe several unseen object categories, copying parameters from one object to another can create sentences with grammatical artifacts. E.g. for the object ‘racket’ the model copies weights from ‘tennis’, which results in sentences such as "A man playing racket on court". In our more recent work [2], we incorporate the embeddings directly within our language model. Specifically, we use [GloVe embeddings](https://nlp.stanford.edu/projects/glove/) in the input and output of our language model. This implicitly enables the model to capture semantic similarity when describing unseen objects. This enables our model to generate sentences such as “A tennis player swinging a racket at a ball”. Additionally, incorporating the embeddings directly within the network makes our model end-to-end trainable.
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/novel_image_captioning/image_2.png"
+<img src="http://bair.berkeley.edu/static/blog/novel_image_captioning/image_2.png"
 alt="Dense word embeddings to capture image similarity"><br>
 <i>
 Incorporate dense word embeddings in the language model to capture semantic similarity.
@@ -89,7 +89,7 @@ Incorporate dense word embeddings in the language model to capture semantic simi
 We combine the outputs of the visual network and language model to a caption model. This model is similar to existing caption models which are also pre-trained on ImageNet. However, we observed that although the model is pre-trained on ImageNet, when the model is trained / tuned on the COCO image-caption dataset it tends to forget what it has seen before. The problem of forgetting in neural networks has also been observed by [researchers at Montreal](https://arxiv.org/abs/1312.6211) as well as [Google DeepMind](https://arxiv.org/abs/1612.00796) amongst others. In our work, we resolve this problem of forgetting using a joint training strategy.
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/novel_image_captioning/image_3.png"
+<img src="http://bair.berkeley.edu/static/blog/novel_image_captioning/image_3.png"
 alt="Joint training to overcome forgetting"><br>
 <i>
 Share parameters and train jointly on different data/tasks to overcome "forgetting"
@@ -111,7 +111,7 @@ While in this work, we proposes joint training as a strategy to overcome the pro
 ### Examples
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/novel_image_captioning/image_4.png"
+<img src="http://bair.berkeley.edu/static/blog/novel_image_captioning/image_4.png"
 alt="Examples">
 </p>
 

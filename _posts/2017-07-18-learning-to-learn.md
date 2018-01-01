@@ -48,7 +48,7 @@ recent papers, most commonly using the technique for [hyperparameter][5] and
 [fast][16] [reinforcement][17] [learning][18].
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/maml/banner.jpg" alt="maml"><br>
+<img src="http://bair.berkeley.edu/static/blog/maml/banner.jpg" alt="maml"><br>
 <i>Various recent meta-learning approaches.</i>
 </p>
 
@@ -79,7 +79,7 @@ techniques, which involve training on a single task and testing on held-out
 examples from that task.
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/maml/meta_example.png" alt="maml" width="600"><br>
+<img src="http://bair.berkeley.edu/static/blog/maml/meta_example.png" alt="maml" width="600"><br>
 <i>Example meta-learning set-up for few-shot image classification, visual
 adapted from <a href="https://openreview.net/forum?id=rJY0-Kcll">Ravi & Larochelle ‘17</a>.</i>
 </p>
@@ -99,7 +99,7 @@ pairs of a dataset sequentially, followed by new examples which must be
 classified.
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/maml/recurrent_models.png" alt="maml" width="600"><br>
+<img src="http://bair.berkeley.edu/static/blog/maml/recurrent_models.png" alt="maml" width="600"><br>
 <i>Recurrent model approach for inputs $\mathbf{x}_t$ and corresponding labels
 $y_t$, figure from <a href="http://proceedings.mlr.press/v48/santoro16.pdf">Santoro et al. '16</a>.</i>
 </p>
@@ -173,7 +173,7 @@ taken with respect to a particular task $i$ (the gray lines), the parameters are
 close to the optimal parameters $\theta_i^*$ for task $i$.
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/maml/maml.png" alt="maml" width="400"><br>
+<img src="http://bair.berkeley.edu/static/blog/maml/maml.png" alt="maml" width="400"><br>
 <i>Diagram of the MAML approach.</i>
 </p>
 
@@ -196,12 +196,12 @@ which let a simulated robot adapt its locomotion direction and speed in a single
 gradient update. See videos below:
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/maml/cheetah_direc.gif" alt="maml"><br>
+<img src="http://bair.berkeley.edu/static/blog/maml/cheetah_direc.gif" alt="maml"><br>
 <i>MAML on HalfCheetah.</i>
 </p>
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/maml/ant_maml.gif" alt="maml"><br>
+<img src="http://bair.berkeley.edu/static/blog/maml/ant_maml.gif" alt="maml"><br>
 <i>MAML on Ant.</i>
 </p>
 
