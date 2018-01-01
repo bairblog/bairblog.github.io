@@ -117,7 +117,7 @@ should have gotten confirmation from the student authors that the preview on
 
 ## Steps
 
-- We now have two branches, master and production. Use master for
+- We have two branches, master and production. Use master for
   `bairblog.github.io` which is GitHub's built-in feature for updating websites,
   and for giving previews to authors.  The production branch is used for copying
   the files over to the place where the blog lives.
@@ -159,6 +159,8 @@ should have gotten confirmation from the student authors that the preview on
   - Any images in the `assets` and/or `static/blog` folders that you added.
 
   See the [corresponding subsection on setting permissions](#setting-permissions).
+
+**TODO add instructions on how to manage potential merging issues?**
 
 
 ## Push to the Server
@@ -233,7 +235,6 @@ this ... so we need to contact the IT staff behind the server.)
 
 # TODO List
 
-- Fix this README
 - Figure out which way to handle image tags: either have one image per blog post
   stored in `assets`, or do away with that folder entirely by changing the way
   the `img` tag is interpreted.
@@ -252,11 +253,14 @@ links:
 - [Configuring for project GitHub pages][3] (this is a "project" page because we're
   putting it on bair.berkeley.edu/blog and not in a personal github website).
 - [Changing the root URL to be the correct one][5]
-- [Jekyll docs on configurations][2]
+- [Jekyll docs on configurations][6]
 
 
 [1]:https://jekyllrb.com/docs/posts/
+[2]:http://jekyllrb.com/docs/quickstart/
 [2]:https://jekyllrb.com/docs/configuration/#specifying-a-jekyll-environment-at-build-time
 [3]:http://downtothewire.io/2015/08/15/configuring-jekyll-for-user-and-project-github-pages/
 [4]:https://byparker.com/blog/2014/clearing-up-confusion-around-baseurl/
 [5]:https://github.com/jekyll/jekyll/issues/5853
+[6]:https://jekyllrb.com/docs/configuration/#specifying-a-jekyll-environment-at-build-time
+[7]:https://jekyllrb.com/docs/installation/
