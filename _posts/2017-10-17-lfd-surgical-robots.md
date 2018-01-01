@@ -10,10 +10,9 @@ img: /assets/surgical_robots/tensioning-task.png
 ---
 
 <p style="text-align:center;">
-<!--@Daniel arrange this however you want-->
-<img src="{{site.url}}{{site.baseurl}}/assets/surgical_robots/cutting-gif.gif" height="180" style="margin: 10px;">
-<img src="{{site.url}}{{site.baseurl}}/assets/surgical_robots/binpicking-gif.gif" height="180" style="margin: 10px;">
-<img src="{{site.url}}{{site.baseurl}}/assets/surgical_robots/debridement-gif.gif" height="180" style="margin: 10px;">
+<img src="http://bair.berkeley.edu/static/blog/surgical_robots/cutting-gif.gif" height="180" style="margin: 10px;">
+<img src="http://bair.berkeley.edu/static/blog/surgical_robots/binpicking-gif.gif" height="180" style="margin: 10px;">
+<img src="http://bair.berkeley.edu/static/blog/surgical_robots/debridement-gif.gif" height="180" style="margin: 10px;">
 <br>
 </p>
 
@@ -69,7 +68,7 @@ sheet of gauze, and is scored on time and accuracy:
 
 <p style="text-align:center;">
 <img
-src="{{site.url}}{{site.baseurl}}/assets/surgical_robots/pattern-cutting-task.png"
+src="http://bair.berkeley.edu/static/blog/surgical_robots/pattern-cutting-task.png"
 alt="Figure 1: Pattern Cutting Task, from the Fundamentals of Laparoscopic Surgery."><br>
 <i>
 Pattern cutting task from the Fundamentals of Laparoscopic Surgery.
@@ -82,7 +81,7 @@ manipulation primitives and two computer vision based checks:
 
 <p style="text-align:center;">
 <img
-src="{{site.url}}{{site.baseurl}}/assets/surgical_robots/dfa-pattern-cutting.png"
+src="http://bair.berkeley.edu/static/blog/surgical_robots/dfa-pattern-cutting.png"
 alt="Figure 2: DFA for Pattern Cutting." width="600"><br>
 <i>
 Deterministic finite automaton from Murali et al. 2016 to automate pattern
@@ -168,8 +167,8 @@ Maximization.
 In the pattern cutting task, TSC found the following transition conditions:
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/surgical_robots/pattern-cutting-concept.png" height="175" style="margin: 30px;" alt="Figure 3: Conceptual diagram of pattern cutting.">
-<img src="{{site.url}}{{site.baseurl}}/assets/surgical_robots/pattern-cutting.png" height="200" alt="Figure 3: Conceptual diagram of pattern cutting."><br>
+<img src="http://bair.berkeley.edu/static/blog/surgical_robots/pattern-cutting-concept.png" height="175" style="margin: 30px;" alt="Figure 3: Conceptual diagram of pattern cutting.">
+<img src="http://bair.berkeley.edu/static/blog/surgical_robots/pattern-cutting.png" height="200" alt="Figure 3: Conceptual diagram of pattern cutting."><br>
 <i>
 Surgical pattern cutting task.  Left: manually identified transitions. Right:
 automatically discovered transition states (a) and transition state clusters
@@ -287,7 +286,7 @@ flattening procedure has to be accordingly modified.
 
 <p style="text-align:center;">
 <img
-src="{{site.url}}{{site.baseurl}}/assets/surgical_robots/tensioning-task.png"
+src="http://bair.berkeley.edu/static/blog/surgical_robots/tensioning-task.png"
 alt="Figure 4: Deformable Sheet Tensioning Setup."><br>
 <i>
 Deformable sheet tensioning setup.
@@ -315,7 +314,7 @@ are depicted below:
 
 <p style="text-align:center;">
 <img
-src="{{site.url}}{{site.baseurl}}/assets/surgical_robots/swirl-tensioning.png"
+src="http://bair.berkeley.edu/static/blog/surgical_robots/swirl-tensioning.png"
 alt="Figure 5: Deformable Sheet Tensioning Demonstration."><br>
 <i>
 A representative demonstration of the deformable sheet tensioning task with
@@ -429,7 +428,7 @@ and the gripper angle.
 
 <p style="text-align:center;">
 <img
-src="{{site.url}}{{site.baseurl}}/assets/surgical_robots/dvrk-bin-picking.png"
+src="http://bair.berkeley.edu/static/blog/surgical_robots/dvrk-bin-picking.png"
 alt="Figure 6: Needle Pick and Place Task."><br>
 <i>
 Needle pick and place task on the surgical robot.
@@ -451,7 +450,7 @@ units are marked in white and indicate input relevance:
 
 <p style="text-align:center;">
 <img
-src="{{site.url}}{{site.baseurl}}/assets/surgical_robots/ddco-activations.png"
+src="http://bair.berkeley.edu/static/blog/surgical_robots/ddco-activations.png"
 alt="Figure 7: DDCO Options."><br>
 <i>
 We plot the average activations of the feature layer for of each option,
