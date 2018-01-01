@@ -5,11 +5,18 @@ Posts are located in `_posts`. Preview locally, and then push to the master
 branch, which will generate a preview at `bairblog.github.io`. This is the link
 we give to authors to preview their posts.
 
+Contents:
+
+- [Writing Posts](#writing-posts)
+    - [Images](##images)
+- [How to Update](#how-to-update)
+    - [Steps](##steps)
+    - [Setting Permissions](##setting-permissions)
+- [TODO List](#todo-list)
 
 
-**TODO: transfer some stuff later in the README here ...**
 
-# Writing Posts in Markdown
+# Writing Posts
 
 There are a few important things to know about our specific blog format.
 
@@ -57,7 +64,28 @@ Jekyll format (using `[text](link)`) for the captions doesn't work, so use the
 explicit HTML code.
 
 
-# Setting Permissions
+# How to Update
+
+
+## Steps
+
+- We now have two branches, master and production. Master is used for
+  `bairblog.github.io` which is GitHub's built-in feature for updating websites.
+  The production branch is used for copying the files over to the place where
+  the blog lives.
+
+- The production branch has specific `baseurls` and `urls` that shouldn't
+  change.
+
+- Watch out for setting comments to be False in the master branch, and for
+  making posts invisible until they're ready to be published.
+
+- Once things have been copied over, you're not done! Change permissions to give
+  everyone in the `interact` group writing permissions. See the bottom of this
+  REA0DME.
+
+
+## Setting Permissions
 
 When you copy files over to where the blog lives, you must ensure that the
 permissions are set appropriately so that other members of the blog editorial
@@ -94,27 +122,19 @@ this.)
 
 
 
-# How to Update
+# TODO List
+
+- Fix this README
+- Figure out which way to handle image tags: either have one image per blog post
+  stored in `assets`, or do away with that folder entirely by changing the way
+  the `img` tag is interpreted.
+- Remove all un-necessary images from this repository.
 
 
-Update notes:
 
-- We now have two branches, master and production. Master is used for
-  `bairblog.github.io` which is GitHub's built-in feature for updating websites.
-  The production branch is used for copying the files over to the place where
-  the blog lives.
-- The production branch has specific `baseurls` and `urls` that shouldn't
-  change.
-- Watch out for setting comments to be False in the master branch, and for
-  making posts invisible until they're ready to be published.
-- Once things have been copied over, you're not done! Change permissions to give
-  everyone in the `interact` group writing permissions. See the bottom of this
-  RAEDME.
-- TODO: Fix README. Yeah, I know ... maybe during winter break!
 
 ---
-
-
+(Stuff beyond this point needs to be merged with the above.)
 
 The easiest way to get started is to copy one of the older posts we have and
 start from there. Please make the title informative and also to start with the
