@@ -8,10 +8,10 @@ we give to authors to preview their posts.
 Contents:
 
 - [Writing Posts](#writing-posts)
-    - [Images](##images)
+    - [Images](#images)
 - [How to Update](#how-to-update)
-    - [Steps](##steps)
-    - [Setting Permissions](##setting-permissions)
+    - [Steps](#steps)
+    - [Setting Permissions](#setting-permissions)
 - [TODO List](#todo-list)
 
 
