@@ -62,4 +62,4 @@ Artificial Intelligence Research for hosting support.
 [9]:{{ site.baseurl }}/2017/06/20/welcome/
 [10]:http://bair.berkeley.edu/faculty.html
 [11]:http://bair.berkeley.edu/students.html
-[12]:https://scholar.google.com/citations?user=V0_h0C8AAAAJ
+[12]:https://scholar.google.com/citations?user=K29Sv1EAAAAJ
