@@ -15,7 +15,7 @@ audience. Posts on a variety of topics studied at BAIR will appear on
 approximately a weekly basis.
 
 
-## Bair Blog Editorial Board
+## BAIR Blog Editorial Board
 
 The editorial board consists of the following members:
 
@@ -36,7 +36,7 @@ posts, as they own the copyright, **and** copy the editorial board,
 `bair-blog@berkeley.edu` in your email.
 
 
-## Bair Blog Comments Policy
+## BAIR Blog Comments Policy
 
 We ask community members to remain civil and only engage in academic, professional discussions that are relevant to the blog posts. Please also observe the following guidelines when participating and posting comments:
 
