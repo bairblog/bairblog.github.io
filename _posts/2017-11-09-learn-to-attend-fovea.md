@@ -16,10 +16,10 @@ What we see through our eyes is only a very small part of the world around us.  
 <table class="col-2">
   <tr>
     <td style="text-align:center;">
-			<img src="{{site.url}}{{site.baseurl}}/assets/fovea/bee.png" width="500">
+			<img src="http://bair.berkeley.edu/static/blog/fovea/bee.png" width="500">
 		</td>
     <td style="text-align:center;">
-			<img src="{{site.url}}{{site.baseurl}}/assets/fovea/butterfly.png" width="500">
+			<img src="http://bair.berkeley.edu/static/blog/fovea/butterfly.png" width="500">
 		</td>
   </tr>
 </table>
@@ -42,7 +42,7 @@ In this work, we study *overt* attention mechanisms which involve the explicit m
 
 <p style="text-align:center;">
 <img
-src="{{site.url}}{{site.baseurl}}/assets/fovea/spider.gif"><br>
+src="http://bair.berkeley.edu/static/blog/fovea/spider.gif"><br>
 <i>
 An adolescent jumping spider using overt attention.
 </i>
@@ -55,10 +55,10 @@ In this work, we build a model visual system that must make saccades over a scen
 <table class="col-2">
   <tr>
     <td style="text-align:center;">
-			<img src="{{site.url}}{{site.baseurl}}/assets/fovea/translate.gif" width="500">
+			<img src="http://bair.berkeley.edu/static/blog/fovea/translate.gif" width="500">
 		</td>
     <td style="text-align:center;">
-			<img src="{{site.url}}{{site.baseurl}}/assets/fovea/nnmodel.png" width="500">
+			<img src="http://bair.berkeley.edu/static/blog/fovea/nnmodel.png" width="500">
 		</td>
   </tr>
 </table>
@@ -76,7 +76,7 @@ Most neural networks are composed of learnable feature extractors which transfor
 
 <p style="text-align:center;">
 <img
-src="{{site.url}}{{site.baseurl}}/assets/fovea/structure.png"><br>
+src="http://bair.berkeley.edu/static/blog/fovea/structure.png"><br>
 <i>
 Structural features of one cell in the lattice.
 </i>
@@ -86,7 +86,7 @@ The retinal sampling lattice of our model is learned via backpropagation. Simila
 
 <p style="text-align:center;">
 <img
-src="{{site.url}}{{site.baseurl}}/assets/fovea/learning.png" width="500"><br>
+src="http://bair.berkeley.edu/static/blog/fovea/learning.png" width="500"><br>
 <i>
 Learning structural features from initialization using gradient descent.
 </i>
@@ -96,7 +96,7 @@ Over time, this layout will converge to a configuration which is locally optimal
 
 <p style="text-align:center;">
 <img
-src="{{site.url}}{{site.baseurl}}/assets/fovea/by4.png"><br>
+src="http://bair.berkeley.edu/static/blog/fovea/by4.png"><br>
 <i>
 Retinal sampling lattice during training at initialization, 1, 10, 100 epochs respectively.
 </i>
@@ -110,7 +110,7 @@ Since our model is in-silico, we can endow our model with properties not found i
 
 <p style="text-align:center;">
 <img
-src="{{site.url}}{{site.baseurl}}/assets/fovea/rescale.gif" width="300"><br>
+src="http://bair.berkeley.edu/static/blog/fovea/rescale.gif" width="300"><br>
 <i>
 Retinal sampling lattice which also has the ability to rescale itself.
 </i>
@@ -121,10 +121,10 @@ We show the difference in the learned retinal layout below. For comparison, the 
 <table class="col-2">
   <tr>
     <td style="text-align:center;">
-			<img src="{{site.url}}{{site.baseurl}}/assets/fovea/translate_only.png" width="200">
+			<img src="http://bair.berkeley.edu/static/blog/fovea/translate_only.png" width="200">
 		</td>
     <td style="text-align:center;">
-			<img src="{{site.url}}{{site.baseurl}}/assets/fovea/translate_and_zoom.png" width="200">
+			<img src="http://bair.berkeley.edu/static/blog/fovea/translate_and_zoom.png" width="200">
 		</td>
   </tr>
 </table>
@@ -140,7 +140,7 @@ To get a better idea of the utility of our learned retinal layout, we compared t
 
 <p style="text-align:center;">
 <img
-src="{{site.url}}{{site.baseurl}}/assets/fovea/comparison.png" width="500"><br>
+src="http://bair.berkeley.edu/static/blog/fovea/comparison.png" width="500"><br>
 <i>
 Performance on two versions (Dataset 1 and Dataset 2) of the Cluttered MNIST dataset. Dataset 2 contains randomly resized MNIST digits making it more difficult than Dataset 1.
 </i>
@@ -154,7 +154,7 @@ Earlier, we described the utility of attention in efficiently utilizing limited 
 
 <p style="text-align:center;">
 <img
-src="{{site.url}}{{site.baseurl}}/assets/fovea/3by4.png" width="600"><br>
+src="http://bair.berkeley.edu/static/blog/fovea/3by4.png" width="600"><br>
 <i>
 The attention movements our model takes unrolled in time. Model with fixed lattice (top), learnable lattice (center), learnable lattice with zoom ability (bottom).
 </i>

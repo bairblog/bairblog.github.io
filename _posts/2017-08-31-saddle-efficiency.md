@@ -63,7 +63,7 @@ $$
 
 We further call the saddle points in the last category, where $\lambda_{\min}(\nabla^2 f(x)) < 0$, **strict saddle points**.
 
-<img src="{{site.url}}{{site.baseurl}}/assets/saddle_eff/strictsaddle.png" class="stretch-center">
+<img src="http://bair.berkeley.edu/static/blog/saddle_eff/strictsaddle.png" class="stretch-center">
 
 While non-strict saddle points can be flat in the valley, strict saddle points require that there is *at least one direction* along which the curvature is strictly negative. The presence of such a direction gives a gradient-based algorithm the possibility of escaping the saddle point.  In general, distinguishing local minima and non-strict saddle points is *NP-hard*; therefore, we --- and previous authors --- focus on escaping *strict* saddle points.
 
@@ -152,7 +152,7 @@ We can conclude that for the case of a constant Hessian, only when the perturbat
 Earlier attempts to analyze the dynamics around saddle points tried to the approximate stuck region by a flat set.  This results in a requirement of an extremely small step size and a correspondingly very large runtime complexity.  Our sharp rate depends on a key observation --- *although we don't know the shape of the stuck region, we know it is very thin*.
 
 
-<img src="{{site.url}}{{site.baseurl}}/assets/saddle_eff/flow.png" class="stretch-center">
+<img src="http://bair.berkeley.edu/static/blog/saddle_eff/flow.png" class="stretch-center">
 
 In order to characterize the "thinness" of this pancake, we studied pairs of hypothetical perturbation points $w, u$ separated by $O(1/\sqrt{d})$ along an escaping direction. We claim that if we run GD starting at $w$ and $u$, at least one of the resulting trajectories will escape the saddle point very quickly. This implies that the thickness of the stuck region can be at most $O(1/\sqrt{d})$, so a random perturbation has very little chance to land in the stuck region.
 
@@ -162,7 +162,7 @@ We have discussed two possible ways to modify the standard gradient descent algo
 
 To establish this result, we considered random initializations from a very general class including Gaussians and uniform distributions over the hypercube, and we constructed a smooth objective function that satisfies both Assumptions 1 and 2. This function is constructed such that, even with random initialization, with high probability both GD and PGD have to travel sequentially in the vicinity of $d$ strict saddle points before reaching a local minimum. All strict saddle points have only one direction of escape. (See the left graph for the case of $d=2$).
 
-<img src="{{site.url}}{{site.baseurl}}/assets/saddle_eff/necesperturbation.png" class="stretch-center">
+<img src="http://bair.berkeley.edu/static/blog/saddle_eff/necesperturbation.png" class="stretch-center">
 
 When GD travels in the vicinity of a sequence of saddle points, it can get closer and closer to the later saddle points, and thereby take longer and longer to escape. Indeed, the time to escape the $i$th saddle point scales as $e^{i}$. On the other hand, PGD is always able to escape any saddle point in a small number of steps independent of the history. This phenomenon is confirmed by our experiments; see, for example, an experiment with $d=10$ in the right graph.
 

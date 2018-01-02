@@ -13,7 +13,7 @@ Deep reinforcement learning (deep RL) has achieved success in many tasks, such a
 
 <p style="text-align:center;">
 <img
-src="{{site.url}}{{site.baseurl}}/assets/softq/figure_1_walker_two_gaits_v2.gif"
+src="http://bair.berkeley.edu/static/blog/softq/figure_1_walker_two_gaits_v2.gif"
 alt="Figure 1: Trained simulated walking robots."><br>
 <i>
 Figure 1: Trained simulated walking robots.<br>
@@ -26,11 +26,11 @@ Why might finding only a single solution be undesirable? Knowing only one way to
 <table class="col-2">
   <tr>
     <td style="text-align:center;">
-			<img src="{{site.url}}{{site.baseurl}}/assets/softq/figure_2a_maze_one_path.png"
+			<img src="http://bair.berkeley.edu/static/blog/softq/figure_2a_maze_one_path.png"
 			alt="maze_one_path" width="300"><p class="center">2a</p>
 		</td>
     <td style="text-align:center;">
-			<img src="{{site.url}}{{site.baseurl}}/assets/softq/figure_2b_maze-two-paths.png"
+			<img src="http://bair.berkeley.edu/static/blog/softq/figure_2b_maze-two-paths.png"
 			alt="maze-two-paths" width="300"><p class="center">2b</p>
 		</td>
   </tr>
@@ -53,11 +53,11 @@ We define the Q-function, $Q(\mathbf{s},\mathbf{a})$, as the expected cumulative
 <table class="col-2">
   <tr>
     <td style="text-align:center;">
-			<img src="{{site.url}}{{site.baseurl}}/assets/softq/figure_3a_unimodal-policy.png"
+			<img src="http://bair.berkeley.edu/static/blog/softq/figure_3a_unimodal-policy.png"
 			alt="unimodal-policy" width="300"><p class="center">3a</p>
 		</td>
     <td style="text-align:center;">
-			<img src="{{site.url}}{{site.baseurl}}/assets/softq/figure_3b_multimodal_policy.png"
+			<img src="http://bair.berkeley.edu/static/blog/softq/figure_3b_multimodal_policy.png"
 			alt="multimodal_policy" width="300"><p class="center">3b</p>
 		</td>
   </tr>
@@ -103,7 +103,7 @@ Soft Q-learning (SQL) provides us with an implicit exploration strategy by assig
 
 <p style="text-align:center;">
 <img
-src="{{site.url}}{{site.baseurl}}/assets/softq/figure_4_ant_maze.gif"
+src="http://bair.berkeley.edu/static/blog/softq/figure_4_ant_maze.gif"
 alt="A policy trained with soft Q-learning."><br>
 <i>
 Figure 4: A policy trained with soft Q-learning can explore both passages during training.
@@ -116,11 +116,11 @@ The standard practice in RL is to train an agent from scratch for each new task.
 <table class="col-2">
   <tr>
     <td style="text-align:center;">
-			<img src="{{site.url}}{{site.baseurl}}/assets/softq/figure_5a_pretrain_softql_small.gif"
+			<img src="http://bair.berkeley.edu/static/blog/softq/figure_5a_pretrain_softql_small.gif"
 			alt="pretrain_softql_small" width="200"><p class="center">5a</p>
 		</td>
     <td style="text-align:center;">
-			<img src="{{site.url}}{{site.baseurl}}/assets/softq/figure_5b_finetune_ushape_2.gif"
+			<img src="http://bair.berkeley.edu/static/blog/softq/figure_5b_finetune_ushape_2.gif"
 			alt="finetune_ushape_2" width="350"><p class="center">5b</p>
 		</td>
   </tr>
@@ -136,7 +136,7 @@ In a similar vein to general-to-specific transfer, we can compose new skills fro
 
 <p style="text-align:center;">
 <img
-src="{{site.url}}{{site.baseurl}}/assets/softq/figure_6_composition_small.gif"
+src="http://bair.berkeley.edu/static/blog/softq/figure_6_composition_small.gif"
 alt="Combining two skills into a new one"><br>
 <i>
 Figure 6: Combining two skills into a new one.
@@ -148,7 +148,7 @@ Because the maximum entropy formulation encourages agents to try all possible so
 
 <p style="text-align:center;">
 <img
-src="{{site.url}}{{site.baseurl}}/assets/softq/figure_7_sawyer_training_white_bg.gif"
+src="http://bair.berkeley.edu/static/blog/softq/figure_7_sawyer_training_white_bg.gif"
 alt="Training to stack Lego blocks with soft Q-learning."><br>
 <i>
 Figure 7: Training to stack Lego blocks with soft Q-learning.<br>
@@ -160,7 +160,7 @@ The robot succeeded for the first time after 30 minutes; after an hour, it was a
 
 <p style="text-align:center;">
 <img
-src="{{site.url}}{{site.baseurl}}/assets/softq/figure_8_sawyer_bully_policy.gif"
+src="http://bair.berkeley.edu/static/blog/softq/figure_8_sawyer_bully_policy.gif"
 alt="The trained policy is robust to perturbations"><br>
 <i>
 Figure 8: The trained policy is robust to perturbations.

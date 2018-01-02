@@ -15,7 +15,7 @@ Machine learning has enjoyed tremendous success and is being applied to a wide v
 Yet, there is a paradox in the current paradigm: the algorithms that power machine learning are still designed manually. This raises a natural question: can we *learn* these algorithms instead? This could open up exciting possibilities: we could find new algorithms that perform better than manually designed algorithms, which could in turn improve learning capability.
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/lto/teaser.png" alt="The learned optimizer could potentially pick better update steps than traditional optimizers.">
+<img src="http://bair.berkeley.edu/static/blog/lto/teaser.png" alt="The learned optimizer could potentially pick better update steps than traditional optimizers.">
 </p>
 
 <!--more-->
@@ -31,7 +31,7 @@ In our paper last year \([Li & Malik, 2016][li2016]\), we introduced a framework
 Consider how existing continuous optimization algorithms generally work. They operate in an iterative fashion and maintain some iterate, which is a point in the domain of the objective function. Initially, the iterate is some random point in the domain; in each iteration, a step vector is computed using some fixed update formula, which is then used to modify the iterate. The update formula is typically some function of the history of gradients of the objective function evaluated at the current and past iterates. For example, in gradient descent, the update formula is some scaled negative gradient; in momentum, the update formula is some scaled exponential moving average of the gradients.
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/lto/alg_structure.png" alt="Optimization algorithms start at a random point and iteratively update it with a step vector computed using a fixed update formula.">
+<img src="http://bair.berkeley.edu/static/blog/lto/alg_structure.png" alt="Optimization algorithms start at a random point and iteratively update it with a step vector computed using a fixed update formula.">
 </p>
 
 What changes from algorithm to algorithm is this update formula. So, if we can learn the update formula, we can learn an optimization algorithm. We model the update formula as a neural net. Thus, by learning the weights of the neural net, we can learn an optimization algorithm. Parameterizing the update formula as a neural net has two appealing properties mentioned earlier: first, it is expressive, as neural nets are universal function approximators and can in principle model any update formula with sufficient capacity; second, it allows for efficient search, as neural nets can be trained easily with backpropagation.
@@ -71,7 +71,7 @@ Learning of any sort requires training on a finite number of examples and genera
 Suppose for moment that we didn't care about generalization. In this case, we would evaluate the optimizer on the same objective functions that are used for training the optimizer. If we used only one objective function, then the best optimizer would be one that simply memorizes the optimum: this optimizer always converges to the optimum in one step regardless of initialization. In our context, the objective function corresponds to the loss for training a particular base-model on a particular task and so this optimizer essentially memorizes the optimal weights of the base-model. Even if we used many objective functions, the learned optimizer could still try to identify the objective function it is operating on and jump to the memorized optimum as soon as it does.
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/lto/memorization.png" alt="At training time, the optimizer can memorize the optimum. At test time, it can jump directly to the optimum.">
+<img src="http://bair.berkeley.edu/static/blog/lto/memorization.png" alt="At training time, the optimizer can memorize the optimum. At test time, it can jump directly to the optimum.">
 </p>
 
 Why is this problematic? Memorizing the optima requires finding them in the first place, and so learning an optimizer takes longer than running a traditional optimizer like gradient descent. So, for the purposes of finding the optima of the objective functions at hand, running a traditional optimizer would be faster. Consequently, it would be pointless to learn the optimizer if we didn't care about generalization.
@@ -89,7 +89,7 @@ Should we aim for an even stronger form of generalization, that is, generalizati
 It turns out that this is impossible. Given any optimizer, we consider the trajectory followed by the optimizer on a particular objective function. Because the optimizer only relies on information at the previous iterates, we can modify the objective function at the last iterate to make it arbitrarily bad while maintaining the geometry of the objective function at all previous iterates. Then, on this modified objective function, the optimizer would follow the exact same trajectory as before and end up at a point with a bad objective value. Therefore, any optimizer has objective functions that it performs poorly on and no optimizer can generalize to all possible objective functions.
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/lto/impossibility.png" alt="Take any optimizer and run it on some objective function. We can always manipulate the objective function by making the objective value at the last iteration arbitrarily high, while maintaining the geometry at all previous iterations. The same optimizer must perform poorly on this new objective function.">
+<img src="http://bair.berkeley.edu/static/blog/lto/impossibility.png" alt="Take any optimizer and run it on some objective function. We can always manipulate the objective function by making the objective value at the last iteration arbitrarily high, while maintaining the geometry at all previous iterations. The same optimizer must perform poorly on this new objective function.">
 </p>
 
 If no optimizer is universally good, can we still hope to learn optimizers that are useful? The answer is yes: since we are typically interested in optimizing functions from certain special classes in practice, it is possible to learn optimizers that work well on these classes of interest. The objective functions in a class can share regularities in their geometry, e.g.: they might have in common certain geometric properties like convexity, piecewise linearity, Lipschitz continuity or other unnamed properties. In the context of learning-*how*-to-learn, each class can correspond to a type of base-model. For example, neural nets with ReLU activation units can be one class, as they are all piecewise linear. Note that when learning the optimizer, there is no need to explicitly characterize the form of geometric regularity, as the optimizer can learn to exploit it automatically when trained on objective functions from the class.
@@ -101,7 +101,7 @@ The first approach we tried was to treat the problem of learning optimizers as a
 This seemed like a natural approach, but it did not work: despite our best efforts, we could not get any optimizer trained in this manner to generalize to unseen objective functions, even though they were drawn from the same distribution that generated the objective functions used to train the optimizer. On almost all unseen objective functions, the learned optimizer started off reasonably, but quickly diverged after a while. On the other hand, on the training objective functions, it exhibited no such issues and did quite well. Why is this?
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/lto/sl_performance.png" alt="An optimizer trained using supervised learning initially does reasonably well, but diverges in later iterations.">
+<img src="http://bair.berkeley.edu/static/blog/lto/sl_performance.png" alt="An optimizer trained using supervised learning initially does reasonably well, but diverges in later iterations.">
 </p>
 
 It turns out that optimizer learning is not as simple a learning problem as it appears. Standard supervised learning assumes all training examples are independent and identically distributed \(i.i.d.\); in our setting, the step vector the optimizer takes at any iteration affects the gradients it sees at all subsequent iterations. Furthermore, *how* the step vector affects the gradient at the subsequent iteration is not known, since this depends on the local geometry of the objective function, which is unknown at meta-test time. Supervised learning cannot operate in this setting, and must assume that the local geometry of an unseen objective function is the same as the local geometry of training objective functions at all iterations.
@@ -111,7 +111,7 @@ Consider what happens when an optimizer trained using supervised learning is use
 This phenomenon is known in the literature as the problem of *compounding errors*. It is known that the total error of a supervised learner scales quadratically in the number of iterations, rather than linearly as would be the case in the i.i.d. setting \([Ross and Bagnell, 2010][ross2010]\). In essence, an optimizer trained using supervised learning necessarily overfits to the geometry of the training objective functions. One way to solve this problem is to use reinforcement learning.
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/lto/rl_performance.png" alt="An optimizer trained using reinforcement learning does not diverge in later iterations.">
+<img src="http://bair.berkeley.edu/static/blog/lto/rl_performance.png" alt="An optimizer trained using reinforcement learning does not diverge in later iterations.">
 </p>
 
 ## Background on Reinforcement Learning
@@ -134,7 +134,7 @@ While the learning algorithm is aware of what the first five components are, it 
 Recall the [learning framework](#framework) we introduced above, where the goal is to find the update formula that minimizes the meta-loss. Intuitively, we think of the agent as an optimization algorithm and the environment as being characterized by the family of objective functions that we'd like to learn an optimizer for. The state consists of the current iterate and some features along the optimization trajectory so far, which could be some statistic of the history of gradients, iterates and objective values. The action is the step vector that is used to update the iterate.
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/lto/rl_formulation.png" alt="The state is the iterate and some statistic of the history of gradients, iterates and objective values. The action is the step vector. Under this formulation, a particular policy corresponds to a particular update formula. The cost is the objective value.">
+<img src="http://bair.berkeley.edu/static/blog/lto/rl_formulation.png" alt="The state is the iterate and some statistic of the history of gradients, iterates and objective values. The action is the step vector. Under this formulation, a particular policy corresponds to a particular update formula. The cost is the objective value.">
 </p>
 
 Under this formulation, the policy is essentially a procedure that computes the action, which is the step vector, from the state, which depends on the current iterate and the history of gradients, iterates and objective values. In other words, a particular policy represents a particular update formula. Hence, learning the policy is equivalent to learning the update formula, and hence the optimization algorithm. The initial state probability distribution is the joint distribution of the initial iterate, gradient and objective value. The state transition probability distribution characterizes what the next state is likely to be given the current state and action. Since the state contains the gradient and objective value, the state transition probability distribution captures how the gradient and objective value are likely to change for any given step vector. In other words, it encodes the likely local geometries of the objective functions of interest. Crucially, the reinforcement learning algorithm does not have direct access to this state transition probability distribution, and therefore the policy it learns avoids overfitting to the geometry of the training objective functions.
@@ -146,7 +146,7 @@ We choose a cost function of a state to be the value of the objective function e
 We trained an optimization algorithm on the problem of training a neural net on MNIST, and tested it on the problems of training different neural nets on the Toronto Faces Dataset \(TFD\), CIFAR-10 and CIFAR-100. These datasets bear little similarity to each other: MNIST consists of black-and-white images of handwritten digits, TFD consists of grayscale images of human faces, and CIFAR-10/100 consists of colour images of common objects in natural scenes. It is therefore unlikely that a learned optimization algorithm can get away with memorizing, say, the lower layer weights, on MNIST and still do well on TFD and CIFAR-10/100.
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/lto/results.png" alt="Our algorithm, which is trained on MNIST, consistently outperforms other optimization algorithms on TFD, CIFAR-10 and CIFAR-100.">
+<img src="http://bair.berkeley.edu/static/blog/lto/results.png" alt="Our algorithm, which is trained on MNIST, consistently outperforms other optimization algorithms on TFD, CIFAR-10 and CIFAR-100.">
 </p>
 
 As shown, the optimization algorithm trained using our approach on MNIST \(shown in light red\) generalizes to TFD, CIFAR-10 and CIFAR-100 and outperforms other optimization algorithms.
@@ -154,7 +154,7 @@ As shown, the optimization algorithm trained using our approach on MNIST \(shown
 To understand the behaviour of optimization algorithms learned using our approach, we trained an optimization algorithm on two-dimensional logistic regression problems and visualized its trajectory in the space of the parameters. It is worth noting that the behaviours of optimization algorithms in low dimensions and high dimensions may be different, and so the visualizations below may not be indicative of the behaviours of optimization algorithms in high dimensions. However, they provide some useful intuitions about the kinds of behaviour that can be learned.
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/lto/traj_visualizations.png" alt="Our algorithm is able to recover after overshooting without oscillating and converge quickly when gradients are small.">
+<img src="http://bair.berkeley.edu/static/blog/lto/traj_visualizations.png" alt="Our algorithm is able to recover after overshooting without oscillating and converge quickly when gradients are small.">
 </p>
 
 The plots above show the optimization trajectories followed by various algorithms on two different unseen logistic regression problems. Each arrow represents one iteration of an optimization algorithm. As shown, the algorithm learned using our approach \(shown in light red\) takes much larger steps compared to other algorithms. In the first example, because the learned algorithm takes large steps, it overshoots after two iterations, but does not oscillate and instead takes smaller steps to recover. In the second example, due to vanishing gradients, traditional optimization algorithms take small steps and therefore converge slowly. On the other hand, the learned algorithm takes much larger steps and converges faster.

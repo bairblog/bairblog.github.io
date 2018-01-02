@@ -10,8 +10,8 @@ show_comments: True
 ---
 
 <p style="text-align:center;">
-<img src="https://people.eecs.berkeley.edu/~nagaban2/misc/bair_blog_figs/fig_1a.png" height="240" style="margin: 10px;" alt="fig1a">
-<img src="https://people.eecs.berkeley.edu/~nagaban2/misc/bair_blog_figs/fig_1b.gif" height="240" style="margin: 10px;" alt="fig1b">
+<img src="http://bair.berkeley.edu/static/blog/model-rl/fig_1a.png" height="240" style="margin: 10px;" alt="fig1a">
+<img src="http://bair.berkeley.edu/static/blog/model-rl/fig_1b.gif" height="240" style="margin: 10px;" alt="fig1b">
 <br>
 <i>
 Fig 1. A learned neural network dynamics model enables a hexapod robot to learn
@@ -112,7 +112,7 @@ trajectories to aggregate onto the dataset. We discuss these two components
 below.
 
 <p style="text-align:center;">
-<img src="https://people.eecs.berkeley.edu/~nagaban2/misc/bair_blog_figs/fig_2.png" width="600" alt="fig2">
+<img src="http://bair.berkeley.edu/static/blog/model-rl/fig_2.png" width="600" alt="fig2">
 <br>
 <i>
 Fig 2. Overview of our model-based reinforcement learning algorithm.
@@ -152,7 +152,7 @@ planning process at the next time step. This replanning makes the approach
 robust to inaccuracies in the learned dynamics model.
 
 <p style="text-align:center;">
-<img src="https://people.eecs.berkeley.edu/~nagaban2/misc/bair_blog_figs/fig_3.png" width="500" alt="fig3">
+<img src="http://bair.berkeley.edu/static/blog/model-rl/fig_3.png" width="500" alt="fig3">
 <br>
 <i>
 Fig 3. Illustration of the process of simulating multiple candidate action
@@ -177,12 +177,12 @@ variety of different desired trajectories, without a need for separate
 task-specific training.
 
 <p style="text-align:center;">
-<img src="https://people.eecs.berkeley.edu/~nagaban2/misc/bair_blog_figs/fig_4a.gif" height="140" style="margin: 6px;" alt="fig4a">
-<img src="https://people.eecs.berkeley.edu/~nagaban2/misc/bair_blog_figs/fig_4b.gif" height="140" style="margin: 6px;" alt="fig4b">
-<img src="https://people.eecs.berkeley.edu/~nagaban2/misc/bair_blog_figs/fig_4c.gif" height="140" style="margin: 6px;" alt="fig4c"> <br>
-<img src="https://people.eecs.berkeley.edu/~nagaban2/misc/bair_blog_figs/fig_4d.gif" height="140" style="margin: 6px;" alt="fig4d">
-<img src="https://people.eecs.berkeley.edu/~nagaban2/misc/bair_blog_figs/fig_4e.gif" height="140" style="margin: 6px;" alt="fig4e">
-<img src="https://people.eecs.berkeley.edu/~nagaban2/misc/bair_blog_figs/fig_4f.gif" height="140" style="margin: 6px;" alt="fig4f">
+<img src="http://bair.berkeley.edu/static/blog/model-rl/fig_4a.gif" height="140" style="margin: 6px;" alt="fig4a">
+<img src="http://bair.berkeley.edu/static/blog/model-rl/fig_4b.gif" height="140" style="margin: 6px;" alt="fig4b">
+<img src="http://bair.berkeley.edu/static/blog/model-rl/fig_4c.gif" height="140" style="margin: 6px;" alt="fig4c"> <br>
+<img src="http://bair.berkeley.edu/static/blog/model-rl/fig_4d.gif" height="140" style="margin: 6px;" alt="fig4d">
+<img src="http://bair.berkeley.edu/static/blog/model-rl/fig_4e.gif" height="140" style="margin: 6px;" alt="fig4e">
+<img src="http://bair.berkeley.edu/static/blog/model-rl/fig_4f.gif" height="140" style="margin: 6px;" alt="fig4f">
 <br>
 <i>
 Fig 4: Trajectory following results with ant, swimmer, and half-cheetah. The
@@ -202,7 +202,7 @@ the ground truth. Therefore, an intermediate planning horizon is best to avoid
 greedy behavior while minimizing the detrimental effects of an inaccurate model.
 
 <p style="text-align:center;">
-<img src="https://people.eecs.berkeley.edu/~nagaban2/misc/bair_blog_figs/fig_5.png" alt="fig5">
+<img src="http://bair.berkeley.edu/static/blog/model-rl/fig_5.png" alt="fig5">
 <br>
 <i>
 Fig 5: Plot of task performance achieved by controllers using different horizon
@@ -213,7 +213,7 @@ of a horizon.
 
 <p style="text-align:center;">
 <img
-src="https://people.eecs.berkeley.edu/~nagaban2/misc/bair_blog_figs/fig_6.png" width="600" alt="fig6">
+src="http://bair.berkeley.edu/static/blog/model-rl/fig_6.png" width="600" alt="fig6">
 <br>
 <i>
 Fig 6: A 100-step forward simulation (open-loop) of the dynamics model, showing
@@ -230,7 +230,7 @@ highlights how on-policy data from reinforcement learning can improve sample
 efficiency. 
 
 <p style="text-align:center;">
-<img src="https://people.eecs.berkeley.edu/~nagaban2/misc/bair_blog_figs/fig_7.png" alt="fig7">
+<img src="http://bair.berkeley.edu/static/blog/model-rl/fig_7.png" alt="fig7">
 <br>
 <i>
 Fig 7: Plot of task performance achieved by dynamics models that were trained
@@ -252,7 +252,7 @@ paper.
 
 <p style="text-align:center;">
 <img
-src="https://people.eecs.berkeley.edu/~nagaban2/misc/bair_blog_figs/fig_8.png" width="400" alt="fig8">
+src="http://bair.berkeley.edu/static/blog/model-rl/fig_8.png" width="400" alt="fig8">
 <br>
 <i>
 Fig 8: The VelociRoACH is 10 cm in length, approximately 30 grams in weight, can
@@ -278,10 +278,10 @@ model-based controller can accurately follow trajectories at high speeds, after
 having been trained using only 17 minutes of random data.
 
 <p style="text-align:center;">
-<img src="https://people.eecs.berkeley.edu/~nagaban2/misc/bair_blog_figs/fig_9a.gif" height="200" style="margin: 10px;" alt="fig9a">
-<img src="https://people.eecs.berkeley.edu/~nagaban2/misc/bair_blog_figs/fig_9b.gif" height="200" style="margin: 10px;" alt="fig9b"> <br>
-<img src="https://people.eecs.berkeley.edu/~nagaban2/misc/bair_blog_figs/fig_9c.gif" height="200" style="margin: 10px;" alt="fig9c">
-<img src="https://people.eecs.berkeley.edu/~nagaban2/misc/bair_blog_figs/fig_9d.gif" height="200" style="margin: 10px;" alt="fig9d">
+<img src="http://bair.berkeley.edu/static/blog/model-rl/fig_9a.gif" height="200" style="margin: 10px;" alt="fig9a">
+<img src="http://bair.berkeley.edu/static/blog/model-rl/fig_9b.gif" height="200" style="margin: 10px;" alt="fig9b"> <br>
+<img src="http://bair.berkeley.edu/static/blog/model-rl/fig_9c.gif" height="200" style="margin: 10px;" alt="fig9c">
+<img src="http://bair.berkeley.edu/static/blog/model-rl/fig_9d.gif" height="200" style="margin: 10px;" alt="fig9d">
 <br>
 <i>
 Fig 9: The VelociRoACH following various desired trajectories, using our
@@ -302,7 +302,7 @@ indication that our approach will continue to improve over time (unlike
 hand-engineered solutions).
 
 <p style="text-align:center;">
-<img src="https://people.eecs.berkeley.edu/~nagaban2/misc/bair_blog_figs/table_1.png" width="600" alt="table1">
+<img src="http://bair.berkeley.edu/static/blog/model-rl/table_1.png" width="600" alt="table1">
 <br>
 <i>
 Table 1: Trajectory following costs incurred for models trained with different
@@ -311,7 +311,7 @@ types of data and for trajectories executed on different surfaces.
 </p>
 
 <p style="text-align:center;">
-<img src="https://people.eecs.berkeley.edu/~nagaban2/misc/bair_blog_figs/table_2.png" width="600" alt="table2">
+<img src="http://bair.berkeley.edu/static/blog/model-rl/table_2.png" width="600" alt="table2">
 <br>
 <i>
 Table 2: Trajectory following costs incurred during the use of dynamics

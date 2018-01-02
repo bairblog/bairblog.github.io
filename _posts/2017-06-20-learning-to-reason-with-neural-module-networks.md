@@ -16,7 +16,7 @@ Kate Saenko.)
 questions about its surroundings. We might ask questions like these:</p>
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/nmns/examples.jpg" width="600">
+<img src="http://bair.berkeley.edu/static/blog/nmns/examples.jpg" width="600">
 </p>
 
 <p>How can we ensure that the robot can answer these questions correctly? The
@@ -27,14 +27,14 @@ left, we have a familiar image recognition problem, and these kinds of
 monolithic approaches are quite effective:</p>
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/nmns/cat_pred.jpg" width="600">
+<img src="http://bair.berkeley.edu/static/blog/nmns/cat_pred.jpg" width="600">
 </p>
 
 <p>But things don’t work quite so well for questions like the one on the
 right:</p>
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/nmns/clevr_pred.jpg" width="600">
+<img src="http://bair.berkeley.edu/static/blog/nmns/clevr_pred.jpg" width="600">
 </p>
 
 <p>Here the network we trained has given up and guessed the most common color in
@@ -69,14 +69,14 @@ the question above: finding a blue cylinder, finding something else the same
 size, and determining its color. We can draw this schematically like:</p>
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/nmns/layout1.jpg" width="600">
+<img src="http://bair.berkeley.edu/static/blog/nmns/layout1.jpg" width="600">
 </p>
 
 <p>A different question might involve a different series of steps. If we ask "how
 many things are the same size as the ball?", we might have something like:</p>
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/nmns/layout2.jpg" width="600">
+<img src="http://bair.berkeley.edu/static/blog/nmns/layout2.jpg" width="600">
 </p>
 
 <p>Basic operations like "compare size" are shared between questions, but they
@@ -86,7 +86,7 @@ above, but we share weights between pieces of networks that involve the same
 basic operations:</p>
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/nmns/tying.jpg" width="600">
+<img src="http://bair.berkeley.edu/static/blog/nmns/tying.jpg" width="600">
 </p>
 
 <p>How do we learn a model like this? Rather than training a single large network
@@ -95,7 +95,7 @@ networks at the same time, while tying their parameters together where
 appropriate:</p>
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/nmns/training.jpg" width="600">
+<img src="http://bair.berkeley.edu/static/blog/nmns/training.jpg" width="600">
 </p>
 
 <p>(Several recent deep learning frameworks, including DyNet and TensorFlow Fold,
@@ -116,7 +116,7 @@ correct relationship between pieces of structure and the computations they’re
 responsible for:</p>
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/nmns/exploded.jpg" width="600">
+<img src="http://bair.berkeley.edu/static/blog/nmns/exploded.jpg" width="600">
 </p>
 
 This same process works for answering questions about more realistic
@@ -126,10 +126,10 @@ photographs, and even other knowledge sources like databases:
 <table>
 <tr>
 <td style="border: 0; text-align: center">
-<img src="{{site.url}}{{site.baseurl}}/assets/nmns/vqa.jpg" width="300">
+<img src="http://bair.berkeley.edu/static/blog/nmns/vqa.jpg" width="300">
 </td>
 <td style="border: 0; text-align: center">
-<img src="{{site.url}}{{site.baseurl}}/assets/nmns/geo.jpg" width="320">
+<img src="http://bair.berkeley.edu/static/blog/nmns/geo.jpg" width="320">
 </td>
 </tr>
 </table>

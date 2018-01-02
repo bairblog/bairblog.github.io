@@ -19,7 +19,7 @@ Initially, this is fun and he walks around turning items to gold. But his
 happiness is short lived. Midas realizes the downsides of his wish when he hugs
 his daughter and she turns into a golden statue.
 
-<img src="{{site.url}}{{site.baseurl}}/assets/coop_irl/midas.png" alt="midas" width="240" hspace="30" align="right">
+<img src="http://bair.berkeley.edu/static/blog/coop_irl/midas.png" alt="midas" width="240" hspace="30" align="right">
 
 We, humans, have a notoriously difficult time specifying what we actually want,
 and the AI systems we build suffer from it. With AI, this warning actually
@@ -150,7 +150,7 @@ discrepancies called
 <a href="https://arxiv.org/abs/1606.03137">Cooperative Inverse Reinforcement Learning (CIRL)</a>.
 
 <p style="text-align:center;">
-<img src="{{site.url}}{{site.baseurl}}/assets/coop_irl/cirl.png" width="600" alt="cirl">
+<img src="http://bair.berkeley.edu/static/blog/coop_irl/cirl.png" width="600" alt="cirl">
 </p>
 
 CIRL formalizes value alignment as a game with two players. A human player -

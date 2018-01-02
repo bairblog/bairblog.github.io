@@ -1,35 +1,84 @@
-Update notes:
-
-- We now have two branches, master and production. Master is used for
-  `bairblog.github.io` which is GitHub's built-in feature for updating websites.
-  The production branch is used for copying the files over to the place where
-  the blog lives.
-- The production branch has specific `baseurls` and `urls` that shouldn't
-  change.
-- Watch out for setting comments to be False in the master branch, and for
-  making posts invisible until they're ready to be published.
-- Once things have been copied over, you're not done! Change permissions to give
-  everyone in the `interact` group writing permissions. See the bottom of this
-  RAEDME.
-- TODO: Fix README. Yeah, I know ... maybe during winter break!
-
----
+# BAIR Blog Instructions 
 
 This is the repository for the BAIR blog, located at `bair.berkeley.edu/blog/`.
-Write posts here in the `_posts` folder and then build locally. If you build
-locally in the correct way, you can copy the generated `_site` folder directly
-to where the BAIR website lives, and the blog is updated perfectly.
+Posts are located in `_posts`. Preview locally, and then push to the master
+branch, which will generate a preview at `bairblog.github.io`. This is the link
+we give to authors to preview their posts.
 
-# For People Writing Posts
+Contents:
 
-The easiest way to get started is to copy one of the older posts we have and
-start from there. Please make the title informative and also to start with the
-date first and then the title.  You can also start from another Markdown
-"starter file" and the editors here can fix it.
+- [Writing Posts](#writing-posts)
+    - [Images](#images)
+    - [YouTube Videos](#youtube-videos)
+    - [Previewing Locally](#previewing-locally)
+- [How to Update](#how-to-update)
+    - [Steps](#steps)
+    - [Push to the Server](#push-to-the-server)
+    - [Setting Permissions](#setting-permissions)
+- [TODO List](#todo-list)
+- [References](#references)
 
-We strongly recommend you preview locally. To do so, run `bundle exec jekyll
-serve` as described in [the Jekyll starter guide][2]. If all goes well, and you
-[have jekyll installed][7], you should see the following output:
+
+
+# Writing Posts
+
+There are a few important things to know about our specific blog format. This
+section is intended as a guide for members of the blog editorial board when they
+have to convert posts in Google Doc form (from the student/postdoc/faculty
+authors) to Markdown.
+
+## Images
+
+To avoid putting all images and gifs into this GitHub repository, and to avoid
+having to copy the entire `_site` folder to where the blog lives, we save the
+images inside the folder `/project/eecs/interact/www-bair/static/blog`. Each
+blog post gets its own folder of images/gifs, even if it has only one.
+
+Make sure you avoid using the `site.url` and `site.baseurl` liquid tags. That
+is, earlier we used the following code:
+
+```
+<p style="text-align:center;">
+<img 
+src="{{site.url}}{{site.baseurl}}/assets/mh_test/different_tests.png" 
+alt="different_tests" width="600"><br>
+<i>
+Functions $f$ and $g$ can serve as acceptance tests for Metropolis-Hastings.
+Given current sample $\theta$ and proposed sample $\theta'$, the vertical axis
+represents the probability of accepting $\theta'$.
+</i>
+</p>
+```
+
+But **do not use that**. Instead, use an explicit link to the static folder:
+
+```
+<p style="text-align:center;">
+<img 
+src="http://bair.berkeley.edu/static/blog/mh_test/different_tests.png" 
+alt="different_tests" width="600"><br>
+<i>
+Functions $f$ and $g$ can serve as acceptance tests for Metropolis-Hastings.
+Given current sample $\theta$ and proposed sample $\theta'$, the vertical axis
+represents the probability of accepting $\theta'$.
+</i>
+</p>
+```
+
+The above also represents how we prefer to use captions for figures, and how to
+center images, control width, etc. Note, however, that using hyperlinks in
+Jekyll format (using `[text](link)`) for the captions doesn't work, so use the
+explicit HTML code.
+
+## YouTube Videos
+
+**TODO**
+
+## Previewing Locally
+
+To preview locally, run `bundle exec jekyll serve` as described in [the Jekyll
+starter guide][2]. If all goes well, and you [have jekyll installed][7], you
+should see the following output:
 
 ```
 danielseita$ bundle exec jekyll serve
@@ -47,7 +96,9 @@ Configuration file: /Users/danielseita/bairblog/_config.yml
 ```
 
 Note that this may not work for outdated Jekyll versions. I'm using version
-3.4.4. here.
+3.4.4. here. Also, this would correspond to the production branch, not the
+master (and for converting posts, you should generally be working with the
+master branch).
 
 Once you did that, copy the URL `http://127.0.0.1:4000/blog/` to your web
 browser and you should see your post there. Double check that all links are
@@ -55,69 +106,73 @@ working and that all images are showing up. Oh, and if you modify your post and
 save it, Jekyll automatically refreshes the website, so just refresh it in your
 browser.
 
-Tips:
 
-- Make sure that `visible: True` is set in the header when previewing.
 
-- When hyperlinking to other posts that have **not yet been released**, (e.g. if
-  your post builds upon an earlier one) please use the `site.baseurl` feature.
-  See Sergey's welcome post for an example of how to do this. You can do it
-  with:
-  
-  ```
-  [1]:{{ site.baseurl }}/2017/06/20/learning-to-reason-with-neural-module-networks/
-  ```
+# How to Update
 
-  This is useful for when we adjust `site.baseurl` during local tests, so that
-  links automatically work. Then in the main text of your blog, do something
-  like:
+This section of the README explains the process of how to update the official
+BAIR Blog at `bair.berkeley.edu/blog`. At this point, the person pushing it
+should have gotten confirmation from the student authors that the preview on
+`bairblog.github.io` looks good.
 
-  ```
-  Hi everyone! In [this earlier post][1], we discussed how to reason.
-  ```
+## Steps
 
-  The text here will automatically form a hyperlink to the URL described with
-  `[1]`. If you're linking a post which already has been released, you can just
-  use the full URL since that won't change.
+- We have two branches, master and production. Use master for
+  `bairblog.github.io` which is GitHub's built-in feature for updating websites,
+  and for giving previews to authors.  The production branch is used for copying
+  the files over to the place where the blog lives.
 
-- For images and GIFs, please store them in the `assets` folder (an online link
-  also works, see Jeff's post for examples of how to do this). You can put an
-  image with code similar to the following (from Jacob's post):
+- The production branch has specific `baseurls` and `urls` that shouldn't
+  change. This will be different from the master branch, so watch out!  The
+  master branch uses:
 
   ```
-  <p style="text-align:center;">
-  <img src="{{site.url}}{{site.baseurl}}/assets/nmns/exploded.jpg" width="400">
-  </p>
+  baseurl:     ""
+  url:         "https://bairblog.github.io/"
   ```
 
-  This centers the image, puts it as a fixed width (in case it's too small to be
-  the full page width) and learns to prepend the site URL and then base URL.
+  But the production branch needs to use:
 
-For additional information about writing posts, [see Jekyll's instructions][1].
+  ```
+  baseurl:     "/blog"
+  url:         "http://bair.berkeley.edu"
+  ```
+
+- Set comments to be False (by setting `show_comments: False`) on the master
+  branch, and during any development. Set it to be True only when we first
+  publish it live. Disqus is tracking the first instance when it sees the
+  comments section being generated, so these comment alert emails Disqus is
+  sending redirects to posts under /jacky or /jane. (Note: this was before when
+  we had separate folders for previewing the BAIR Blog.)
+
+- Make posts invisible (by setting `visible: False`) until we are ready for them
+  to be pushed live. This isn't a problem if it's the master branch, but if it's
+  production, and we copy things over, then people will see future posts ...
+
+- Once things have been [deployed to the server](#push-to-the-server), you're
+  not done! You have to change permissions of any file you may have created. For
+  this, check:
+
+  - Any new directories created. Every new month, for instance, starts a new
+    directory, and then the day within that month, etc., and all these need to
+    have their permissions set to be more generic.
+  - Any images in the `assets` and/or `static/blog` folders that you added.
+
+  See the [corresponding subsection on setting permissions](#setting-permissions).
+
+**TODO add instructions on how to manage potential merging issues?**
 
 
-# For People Deploying the Blog Live
+## Push to the Server
 
-Be careful when doing this. You can get it online without it becoming the
-official blog by modifying `_config.yml` so that 
-
-`baseurl:     "/blog"`
-
-becomes
-
-`baseurl:     "/blog2"`
-
-Or change the baseurl to be something else you want. This, by the way, is why we
-encourage post authors to use `{{ site.baseurl }}` when hyperlinking posts,
-because then changing the baseurl automatically means hyperlinks will work.
-When previewing locally, I told writers to use 
+For previewing locally, you should use:
 
 ```
 bundle exec jekyll serve
 ```
 
-to preview. However, if you want to get this actually deployed online, you need
-to run it in **production mode**:
+However, if you want to get this actually deployed online, you need to run it in
+**production mode**:
 
 ```
 JEKYLL_ENV=production bundle exec jekyll serve
@@ -130,115 +185,80 @@ in it (bair.berkeley.edu and whatever your baseurl was). If you didn't add the
 production environment, the `_site` folder would contain a bunch of
 `http://localhost:4000` links.
 
-Let's suppose we've set the baseurl to be `blog2` in the configuration file.
-Then we can securely copy:
+Then, copy over the files to the server:
 
 ```
-scp -r _site seita@login.eecs.berkeley.edu:/project/eecs/interact/www-bair/blog2
+scp -r _site/* seita@login.eecs.berkeley.edu:/project/eecs/interact/www-bair/blog/
 ```
 
-if the `blog2` folder doesn't exist. Otherwise use
+so that the contents of `_site` go in `blog`.  **There should be no permission
+denied errors here (including files not relevant to the current update). If
+there are, then we made a mistake with permissions somewhere**.
+
+
+## Setting Permissions
+
+When you copy files over to where the blog lives, you must ensure that the
+permissions are set appropriately so that other members of the blog editorial
+board can edit the files, and that viewers can see it.
+
+This requires changing the **group** to be `interact` and the permissions set to
+775. Here's an example, assuming that I've created a folder called `confluence`
+to put the corresponding blog post images/gifs here. After copying to the
+folder, the permissions are correctly adjusted:
 
 ```
-scp -r _site/* seita@login.eecs.berkeley.edu:/project/eecs/interact/www-bair/blog2/
+[seita@login:/project/eecs/interact/www-bair/static/blog]$ chgrp -R interact confluence
+[seita@login:/project/eecs/interact/www-bair/static/blog]$ chmod -R 775 confluence
+[seita@login:/project/eecs/interact/www-bair/static/blog]$ ls -lh confluence/
+total 15736
+-rwxrwxr-x   1 seita    interact    5.9M Dec 31 16:02 cityscapes_sample_results.gif
+-rwxrwxr-x   1 seita    interact     94K Dec 31 16:02 csVis.png
+-rwxrwxr-x   1 seita    interact     98K Dec 31 16:02 dpe8C7u.png
+-rwxrwxr-x   1 seita    interact    316K Dec 31 16:02 NQaMdTl.png
+-rwxrwxr-x   1 seita    interact    173K Dec 31 16:02 pascalVis.png
+-rwxrwxr-x   1 seita    interact     65K Dec 31 16:02 pipeline.jpg
+-rwxrwxr-x   1 seita    interact    126K Dec 31 16:02 sample_result.png
+-rwxrwxr-x   1 seita    interact     71K Dec 31 16:02 sinha.png
+-rwxrwxr-x   1 seita    interact    217K Dec 31 16:02 sNetColorVis.png
+-rwxrwxr-x   1 seita    interact     91K Dec 31 16:02 sNetVis.png
+-rwxrwxr-x   1 seita    interact    352K Dec 31 16:02 st1Ia9i.png
+-rwxrwxr-x   1 seita    interact    107K Dec 31 16:02 teaser_h.jpg
 ```
 
-so that the contents of `_site` go in `blog2`. (If there are any permission
-denied errors, then the cause is likely a group issue, which I explain later.)
+The parent directory (`confluence`) should also have permissions set at `drwxrwxr-x`.
 
-Note that you'll need permissions to push to this group (it's from Anca Dragan).
-Right now only Jane and I have permissions for this. At some point, though, we
-should probably figure out a way to copy only the new files we need, but this
-likely won't be a problem until we get maybe 40 posts.
-
-This will generate a blog preview on an actual, live website (and not
-localhost). When doing this: 
-
-- Be *very careful* that all links are working correctly, and that their
-  baseurls are correct.
-
-- Before actual deployment, **make sure `visible: False` is set for posts
-  which are not yet released**! Future posts should only be set to visible for the
-  purposes of previewing them.
-
-- Make sure permissions are set correctly, otherwise people will not be able to
-  view the `.html` files, or they may see them but the output will look awful
-  (think normal HTML text without the Jekyll beautification). Run `ls -lh` and
-  check that files have permissions shown as `drwxrwxr-x` for directories and
-  `-rwxrwxr-x` for non-directories. This can be done recursively inside a blog
-  directory with `chmod -R 775 *`.
-
-Finally, if you're satisfied with how this looks, then change the baseurl to be
-`blog`, re-bundle in production mode using the same command above, and copy the
-`_site` folder over to the `blog` folder. This will make the blog live in the
-desired URL.
+(By the way, you obviously need to be a member of the `interact` group to do
+this ... so we need to contact the IT staff behind the server.)
 
 
-# Other Important Stuff
 
-From Jacky:
+# TODO List
 
-```
-a note for future testing posts - let's change "show_comments" to "false" in the
-.md during development until we publish to /blog. 
-
-Disqus is tracking the first instance when it sees the comments section being
-generated, so these comment alert emails Disqus is sending redirects to posts
-under /jacky or /jane
-```
-
-ALSO ... we need to ensure that permissions AND groups are set correctly. The
-permissions should be set to 775, as in:
-
-```
-chmod -R 775 blog/
-```
-
-But we also need the group to be `interact`, so please check that. My default
-group is `grad10` for some reason, which prevents others in the `interact` group
-from copying files over.
-
-Thus be sure to do 
-
-```
-chgrp -R interact blog/
-```
-
-TODO: does this work even if the owner (not the group!) of the `blog` directory
-is not me? I *think* it recursively checks, but not sure. Just check that all
-groups are `interact` and that if I do a `scp`, I should get zero permission
-denied errors.
-
-(Update: I don't think this works, but we shouldn't have to do this each time.
-Just go into the directory corresponding to the post that was just published and
-change the group to `interact`. Do the same thing for the `assets` folder for
-that post. Those two things should be the only modifications needed.)
-
-It's probably best to check at minimum all the new files your commit adds, to
-ensure that the groups and permissions are set appropriately. You don't need to
-run the command at the top (at the `blog/` level).
+- Figure out which way to handle image tags: either have one image per blog post
+  stored in `assets`, or do away with that folder entirely by changing the way
+  the `img` tag is interpreted.
+- Remove all un-necessary images from this repository. This should make it much
+  faster to copy `_site/` to the server.
 
 
-# TODO
 
-- Need a better pipeline, secure copy is inefficient
-- See our Google Doc
-
-# Questions?
-
-Ask Daniel Seita for questions about the README.
+# References
 
 Important references for understanding Jekyll, particularly with regards to
 links:
 
+- [Jekyll's instructions][1].
 - [Understanding baseurl][4]
 - [Configuring for project GitHub pages][3] (this is a "project" page because we're
   putting it on bair.berkeley.edu/blog and not in a personal github website).
 - [Changing the root URL to be the correct one][5]
 - [Jekyll docs on configurations][6]
 
+
 [1]:https://jekyllrb.com/docs/posts/
 [2]:http://jekyllrb.com/docs/quickstart/
+[2]:https://jekyllrb.com/docs/configuration/#specifying-a-jekyll-environment-at-build-time
 [3]:http://downtothewire.io/2015/08/15/configuring-jekyll-for-user-and-project-github-pages/
 [4]:https://byparker.com/blog/2014/clearing-up-confusion-around-baseurl/
 [5]:https://github.com/jekyll/jekyll/issues/5853
