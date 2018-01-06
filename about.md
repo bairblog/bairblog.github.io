@@ -15,7 +15,7 @@ audience. Posts on a variety of topics studied at BAIR will appear on
 approximately a weekly basis.
 
 
-## Bair Blog Editorial Board
+## BAIR Blog Editorial Board
 
 The editorial board consists of the following members:
 
@@ -36,7 +36,7 @@ posts, as they own the copyright, **and** copy the editorial board,
 `bair-blog@berkeley.edu` in your email.
 
 
-## Bair Blog Comments Policy
+## BAIR Blog Comments Policy
 
 We ask community members to remain civil and only engage in academic, professional discussions that are relevant to the blog posts. Please also observe the following guidelines when participating and posting comments:
 
@@ -62,4 +62,4 @@ Artificial Intelligence Research for hosting support.
 [9]:{{ site.baseurl }}/2017/06/20/welcome/
 [10]:http://bair.berkeley.edu/faculty.html
 [11]:http://bair.berkeley.edu/students.html
-[12]:https://scholar.google.com/citations?user=V0_h0C8AAAAJ
+[12]:https://scholar.google.com/citations?user=K29Sv1EAAAAJ
