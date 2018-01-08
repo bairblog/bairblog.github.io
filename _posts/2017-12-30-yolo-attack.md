@@ -6,7 +6,7 @@ author:             Ivan Evtimov, Kevin Eykholt, Earlence Fernandes, and Bo Li
 img:                /assets/yolo/image1.png
 excerpt_separator:  <!--more-->
 visible:            True
-show_comments:      False
+show_comments:      True
 ---
 
 *This post is based on recent research by Ivan Evtimov, Kevin Eykholt, Earlence
@@ -78,12 +78,15 @@ understanding of physical examples in stable environments.
 
 Our recent work “[Robust physical-world attacks on deep learning models][6]” has
 shown physical attacks on **classifiers**. (Check out the [videos][7]
-[here][8].) As the next logical step, we show attacks on object **detectors**.
-These computer vision algorithms identify relevant objects in a scene and
-predict bounding boxes indicating objects’ position and kind. Compared with
-classifiers, detectors are more challenging to fool as they process the entire
-image and can use contextual information (e.g. the orientation and position of
-the target object in the scene) in their predictions.
+[here][8].) Concurrent to our work, [Athalye et al][14] showed that digitally
+optimizing over the transformations, which adversarial inputs would undergo in
+the physical world, can yield effective adversarial examples for 3D Objects
+against classifiers. As the next logical step, we show attacks on object
+**detectors**.  These computer vision algorithms identify relevant objects in a
+scene and predict bounding boxes indicating objects’ position and kind. Compared
+with classifiers, detectors are more challenging to fool as they process the
+entire image and can use contextual information (e.g. the orientation and
+position of the target object in the scene) in their predictions.
  
 We demonstrate *physical* adversarial examples against the [YOLO][9] detector, a
 popular state-of-the-art algorithm with good real-time performance. Our examples
@@ -190,3 +193,4 @@ exciting research area.
 [11]:https://arxiv.org/abs/1705.07204
 [12]:https://pdfs.semanticscholar.org/bcf1/1c7b9f4e155c0437958332507b0eaa44a12a.pdf
 [13]:http://nicholas.carlini.com/papers/2017_aisec_breakingdetection.pdf
+[14]:https://arxiv.org/pdf/1707.07397.pdf

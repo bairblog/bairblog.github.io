@@ -1,4 +1,4 @@
-# BAIR Blog Instructions 
+# BAIR Blog Instructions
 
 This is the repository for the BAIR blog, located at `bair.berkeley.edu/blog/`.
 Posts are located in `_posts`. Preview locally, and then push to the master
@@ -31,16 +31,17 @@ authors) to Markdown.
 
 To avoid putting all images and gifs into this GitHub repository, and to avoid
 having to copy the entire `_site` folder to where the blog lives, we save the
-images inside the folder `/project/eecs/interact/www-bair/static/blog`. Each
-blog post gets its own folder of images/gifs, even if it has only one.
+images inside the folder `/project/eecs/interact/www-bair/static/blog`. To upload
+images to the server, see instructions [here](#push-to-the-server) and [here](#setting-permissions).
+Each blog post gets its own folder of images/gifs, even if it has only one.
 
 Make sure you avoid using the `site.url` and `site.baseurl` liquid tags. That
 is, earlier we used the following code:
 
 ```
 <p style="text-align:center;">
-<img 
-src="{{site.url}}{{site.baseurl}}/assets/mh_test/different_tests.png" 
+<img
+src="{{site.url}}{{site.baseurl}}/assets/mh_test/different_tests.png"
 alt="different_tests" width="600"><br>
 <i>
 Functions $f$ and $g$ can serve as acceptance tests for Metropolis-Hastings.
@@ -54,8 +55,8 @@ But **do not use that**. Instead, use an explicit link to the static folder:
 
 ```
 <p style="text-align:center;">
-<img 
-src="http://bair.berkeley.edu/static/blog/mh_test/different_tests.png" 
+<img
+src="http://bair.berkeley.edu/static/blog/mh_test/different_tests.png"
 alt="different_tests" width="600"><br>
 <i>
 Functions $f$ and $g$ can serve as acceptance tests for Metropolis-Hastings.
@@ -72,7 +73,11 @@ explicit HTML code.
 
 ## YouTube Videos
 
-**TODO**
+To insert YouTube videos, use
+
+```
+{% include youtubePlayer.html id="yourVideoID" %}
+```
 
 ## Previewing Locally
 
@@ -87,7 +92,7 @@ Configuration file: /Users/danielseita/bairblog/_config.yml
             Source: /Users/danielseita/bairblog
        Destination: /Users/danielseita/bairblog/_site
  Incremental build: disabled. Enable with --incremental
-     Generating... 
+     Generating...
                     done in 0.434 seconds.
  Auto-regeneration: enabled for '/Users/danielseita/bairblog'
 Configuration file: /Users/danielseita/bairblog/_config.yml
