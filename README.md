@@ -236,15 +236,19 @@ The parent directory (`confluence`) should also have permissions set at `drwxrwx
 (By the way, you obviously need to be a member of the `interact` group to do
 this ... so we need to contact the IT staff behind the server.)
 
+Don't forget to also change permissions of the folders that start with
+`year/month/day/title/...`.
 
 
 # TODO List
 
+- Clarify README?
 - Figure out which way to handle image tags: either have one image per blog post
   stored in `assets`, or do away with that folder entirely by changing the way
-  the `img` tag is interpreted.
+  the `img` tag is interpreted. [UPDATE: done! We have one image per blog post
+  stored.]
 - Remove all un-necessary images from this repository. This should make it much
-  faster to copy `_site/` to the server.
+  faster to copy `_site/` to the server. [UPDATE: done!]
 
 
 
