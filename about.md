@@ -19,12 +19,16 @@ approximately a weekly basis.
 
 The editorial board consists of the following members:
 
-* [Harry Huazhe Xu][7]
 * [Daniel Seita][5]
-* [Dequan Wang][6]
-* [Jane Liang][8]
+* [Harry Huazhe Xu][7]
+
+with faculty advisor [Sergey Levine][4]. 
+
+We gratefully acknowledge the contributions of former board members:
+
 * [Jacky Liang][12]
-* [Sergey Levine][4]
+* [Jane Liang][8]
+* [Dequan Wang][6]
 
 To contact the group, send email to `bair-blog@berkeley.edu`.
 
