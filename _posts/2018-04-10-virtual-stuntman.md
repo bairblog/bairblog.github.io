@@ -3,7 +3,7 @@ layout:             post
 title:              "Towards a Virtual Stuntman"
 date:               2018-04-10 9:00:00
 author:             <a href="https://xbpeng.github.io/">Xue Bin (Jason) Peng</a>
-img:                /assets/mcgan/humanoid_speed_vault.gif
+img:                /assets/mcgan/teaser.png
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      False
