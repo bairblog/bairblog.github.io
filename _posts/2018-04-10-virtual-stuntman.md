@@ -91,10 +91,10 @@ faithfully reproduce a wide variety of motions.
 In this work, our policies will be trained through a motion imitation task,
 where the goal of the character is to reproduce a given kinematic reference
 motion. Each reference motion is represented by a sequence of target poses
-$\{\hat{q}_0, \hat{q}_1,\ldots,\hat{q}_T\}$, where qtis the the target pose at
-timestep $t$. The reward function is to minimize the least squares pose error
-between the target pose $\hat{q}_t$ and the pose of the simulated character
-$q_t$,
+$\{\hat{q}_0, \hat{q}_1,\ldots,\hat{q}_T\}$, where $\hat{q}_t$ is the target
+pose at timestep $t$. The reward function is to minimize the least squares pose
+error between the target pose $\hat{q}_t$ and the pose of the simulated
+character $q_t$,
 
 $$r_t = {\rm exp}\Big[-2 \|\hat{q}_t - q_t \|^2 \Big]$$
 
