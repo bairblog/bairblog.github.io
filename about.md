@@ -11,8 +11,8 @@ researchers to communicate research findings, perspectives on the field, and
 various updates. Posts are written by [students][11], [post-docs][11], and
 [faculty][10] in BAIR, and are intended to provide relevant and timely
 discussion of research findings and results, both to experts and the general
-audience. Posts on a variety of topics studied at BAIR will appear on
-approximately a weekly basis.
+audience. Posts on a variety of topics studied at BAIR will appear approximately
+once every two weeks.
 
 
 ## BAIR Blog Editorial Board
@@ -43,7 +43,9 @@ posts, as they own the copyright, **and** copy the editorial board,
 
 ## BAIR Blog Comments Policy
 
-We ask community members to remain civil and only engage in academic, professional discussions that are relevant to the blog posts. Please also observe the following guidelines when participating and posting comments:
+We ask community members to remain civil and only engage in academic,
+professional discussions that are relevant to the blog posts. Please also
+observe the following guidelines when participating and posting comments:
 
 * Etiquette - Be polite and stay on topic.
 * Expectations - Your comment will be removed if it contains malicious content.
