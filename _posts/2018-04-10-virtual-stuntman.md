@@ -124,9 +124,9 @@ right: speed vault.
 Next, we compare our method with previous results that used (e.g. <a
 href="https://arxiv.org/abs/1707.02201">generative adversarial imitation
 learning (GAIL)</a>) to imitate mocap clips. Our method is substantially simpler
-than GAIL, it is able to better reproduce the reference motions. The resulting
-policy avoids many of the artifacts commonly exhibited by deep RL methods, and
-enables the character to produce a fluid life-like running gait.
+than GAIL and it is able to better reproduce the reference motions. The
+resulting policy avoids many of the artifacts commonly exhibited by deep RL
+methods, and enables the character to produce a fluid life-like running gait.
 
 <p style="text-align:center;">
 <img src="http://bair.berkeley.edu/static/blog/stuntman/humanoid_run.gif" height="250" style="margin: 10px;">
@@ -229,7 +229,7 @@ Policies trained to kick and throw a ball to a random target.
 We can also train a simulated Atlas robot to imitate mocap clips from a human.
 Though the Atlas has a very different morphology and mass distribution, it is
 still able to reproduce the desired motions. Not only can the policies imitate
-the reference motions, they can also recovery from pretty significant
+the reference motions, they can also recover from pretty significant
 perturbations.
 
 <p style="text-align:center;">
