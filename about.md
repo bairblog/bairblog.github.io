@@ -19,6 +19,7 @@ approximately a weekly basis.
 
 The editorial board consists of the following members:
 
+* [Erin Grant][13]
 * [Daniel Seita][5]
 * [Harry Huazhe Xu][7]
 
@@ -67,3 +68,4 @@ Artificial Intelligence Research for hosting support.
 [10]:http://bair.berkeley.edu/faculty.html
 [11]:http://bair.berkeley.edu/students.html
 [12]:https://scholar.google.com/citations?user=K29Sv1EAAAAJ
+[13]:https://people.eecs.berkeley.edu/~eringrant/

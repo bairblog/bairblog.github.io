@@ -7,6 +7,7 @@ we give to authors to preview their posts.
 
 Contents:
 
+- [Quick Pipeline](#quick-pipeline)
 - [Writing Posts](#writing-posts)
     - [Images](#images)
     - [YouTube Videos](#youtube-videos)
@@ -15,9 +16,27 @@ Contents:
     - [Steps](#steps)
     - [Push to the Server](#push-to-the-server)
     - [Setting Permissions](#setting-permissions)
-- [TODO List](#todo-list)
 - [References](#references)
 
+
+# Quick Pipeline
+
+A quick TL;DR for the entire pipeline:
+
+- Download all the images and GIFs that the author gave and copy over to the
+  blog's `static` folder on the server, *and adjust permissions* (don't
+  forget!).
+- Pick one representative image for the blog post and add that to the GitHub (so
+  it's in the `assets` folder).
+- Copy and paste stuff from the Google Doc to a new post in the `_posts` folder
+  write and refer to figures on the server.
+- Send the draft to the authors, get feedback, revise, etc.
+- Publish live to the server by pushing to the `production` branch.  Adjust
+  permissions of all new folders created.
+- Send MailChimp campaign, being sure to adjust the links to the new blog post
+  in the three designated areas.
+
+See the following sections for details.
 
 
 # Writing Posts
@@ -238,18 +257,6 @@ this ... so we need to contact the IT staff behind the server.)
 
 Don't forget to also change permissions of the folders that start with
 `year/month/day/title/...`.
-
-
-# TODO List
-
-- Clarify README?
-- Figure out which way to handle image tags: either have one image per blog post
-  stored in `assets`, or do away with that folder entirely by changing the way
-  the `img` tag is interpreted. [UPDATE: done! We have one image per blog post
-  stored.]
-- Remove all un-necessary images from this repository. This should make it much
-  faster to copy `_site/` to the server. [UPDATE: done!]
-
 
 
 # References
