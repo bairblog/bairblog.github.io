@@ -12,7 +12,6 @@ show_comments:      False
 **TODO before official publication**:
 
 - **See the two TODO statements in this post later.**
-- **Figure out what to do with links to papers.**
 - **Figure out exact release date.**
 
 <p style="text-align:center;">
@@ -82,13 +81,12 @@ be unnatural.
 An alternative is to take a data-driven approach, where reference motion capture
 of humans provides examples of natural motions. The character can then be
 trained to produce more natural behaviours by imitating the reference motions.
-Imitating motion data in simulation has a long history in computer animation <a
-href="http://graphics.cs.cmu.edu/?p=671">1,</a> <a
-href="https://dl.acm.org/citation.cfm?id=2422388">2</a>, and has seen some
-recent <a
-href="https://xbpeng.github.io/projects/DeepLoco/index.html">demonstrations with
-deep RL</a>. While the results do appear more natural, they are still far from
-being able to faithfully reproduce a wide variety of motions.
+Imitating motion data in simulation has a 
+<a href="http://graphics.cs.cmu.edu/?p=671">long</a> <a href="https://dl.acm.org/citation.cfm?id=2422388">history</a> in 
+computer animation and has seen some recent 
+<a href="https://xbpeng.github.io/projects/DeepLoco/index.html">demonstrations with deep RL</a>. 
+While the results do appear more natural, they are still far from being able to
+faithfully reproduce a wide variety of motions.
 
 In this work, our policies will be trained through a motion imitation task,
 where the goal of the character is to reproduce a given kinematic reference

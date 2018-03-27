@@ -165,8 +165,6 @@ GEM
       jekyll (~> 3.3)
     jekyll-watch (1.5.0)
       listen (~> 3.0, < 3.1)
-    jekyll-youtube (1.0.0)
-      jekyll
     jemoji (0.8.1)
       activesupport (~> 4.0, >= 4.2.9)
       gemoji (~> 3.0)
@@ -226,12 +224,11 @@ DEPENDENCIES
   jekyll-feed (~> 0.6)
   jekyll-paginate
   jekyll-sitemap
-  jekyll-youtube
   minima (~> 2.0)
   tzinfo-data
 
 RUBY VERSION
-   ruby 2.2.1p85
+   ruby 2.4.1p111
 
 BUNDLED WITH
    1.16.0
