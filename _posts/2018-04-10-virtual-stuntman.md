@@ -5,7 +5,7 @@ date:               2018-04-10 9:00:00
 author:             <a href="https://xbpeng.github.io/">Xue Bin (Jason) Peng</a>
 img:                /assets/stuntman/teaser.png
 excerpt_separator:  <!--more-->
-visible:            True
+visible:            False
 show_comments:      False
 ---
 
