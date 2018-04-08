@@ -9,11 +9,6 @@ visible:            False
 show_comments:      False
 ---
 
-**TODO before official publication**:
-
-- **See the two TODO statements in this post later.**
-- **Figure out exact release date.**
-
 <p style="text-align:center;">
 <img width="750" src="http://bair.berkeley.edu/static/blog/stuntman/teaser.gif">
 <br>
@@ -63,8 +58,7 @@ spin-kick or a backflip, our character is able to learn a robust policy to
 imitate the skill in simulation. Our policies produce motions that are nearly
 indistinguishable from mocap.
 
-**TODO youtube video?**
-
+{% include youtubePlayer.html id="vppFvq2quQ0" %}
 
 # Motion Imitation
 
@@ -256,7 +250,17 @@ Simulated T-Rex trained to imitate artist-authored keyframes.
 </i>
 </p>
 
-By why stop at a T-Rex? Let’s train a dragon:
+By why stop at a T-Rex? Let's train a lion:
+
+<p style="text-align:center;">
+<img width="750" src="http://bair.berkeley.edu/static/blog/stuntman/lion3d_run.gif">
+<br>
+<i>
+Simulated lion.
+</i>
+</p>
+
+and a dragon:
 
 <p style="text-align:center;">
 <img width="750" src="http://bair.berkeley.edu/static/blog/stuntman/dragon.gif">
@@ -274,8 +278,10 @@ robots in the real world. Exploring methods for imitating motions from more
 prevalent sources such as video is also an exciting avenue for scenarios that
 are challenging to mocap, such as animals and cluttered environments. 
 
-To learn more, check out our paper: **[todo: url for paper]**
+To learn more, [check out our paper][1].
 
 We would like to thank the co-authors of this work: Pieter Abbeel, Sergey
 Levine, and Michiel van de Panne. This project was done in collaboration with
 the University of British Columbia.
+
+[1]:https://xbpeng.github.io/projects/DeepMimic/index.html
