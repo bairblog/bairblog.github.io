@@ -58,7 +58,7 @@ spin-kick or a backflip, our character is able to learn a robust policy to
 imitate the skill in simulation. Our policies produce motions that are nearly
 indistinguishable from mocap.
 
-{% include youtubePlayer.html id="lPdXtR8Ar-E" %}
+{% include youtubePlayer.html id="vppFvq2quQ0" %}
 
 # Motion Imitation
 
