@@ -256,7 +256,7 @@ By why stop at a T-Rex? Let's train a lion:
 <img width="750" src="http://bair.berkeley.edu/static/blog/stuntman/lion3d_run.gif">
 <br>
 <i>
-Simulated lion.
+Simulated lion. Reference motion courtesy of <a href="https://zivadynamics.com/lion-project">Ziva Dynamics</a>.
 </i>
 </p>
 
