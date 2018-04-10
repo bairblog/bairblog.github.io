@@ -6,7 +6,7 @@ author:             <a href="https://xbpeng.github.io/">Xue Bin (Jason) Peng</a>
 img:                /assets/stuntman/teaser.png
 excerpt_separator:  <!--more-->
 visible:            True
-show_comments:      False
+show_comments:      True
 ---
 
 <p style="text-align:center;">
