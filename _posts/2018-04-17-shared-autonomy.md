@@ -10,7 +10,7 @@ show_comments:      False
 ---
 
 <p style="text-align:center;">
-<img width="100%" src="http://bair.berkeley.edu/static/blog/shared-autonomy/small-cat-gapped.gif">
+<img width="100%" src="http://bair.berkeley.edu/static/blog/shared-autonomy/small-cat-gapped-opt.gif">
 <br>
 <i>
 A blind, autonomous pilot (left), suboptimal human pilot (center), and combined
@@ -241,10 +241,10 @@ velocity, but not the position of the flags.
 <table class="col-2">
   <tbody><tr>
     <td style="text-align:center;">
-      <img width="100%" src="http://bair.berkeley.edu/static/blog/shared-autonomy/human-solo-lander.gif">
+      <img width="100%" src="http://bair.berkeley.edu/static/blog/shared-autonomy/human-solo-lander-opt.gif">
     </td>
     <td style="text-align:center;">
-      <img width="100%" src="http://bair.berkeley.edu/static/blog/shared-autonomy/human-assisted-lander.gif">
+      <img width="100%" src="http://bair.berkeley.edu/static/blog/shared-autonomy/human-assisted-lander-opt.gif">
     </td>
   </tr>
    <td><p>
@@ -297,10 +297,10 @@ know which object the pilot wanted to look at.
 <table class="col-2">
   <tbody><tr>
     <td style="text-align:center;">
-			<img width="100%" src="http://bair.berkeley.edu/static/blog/shared-autonomy/human-solo-quad.gif">
+			<img width="100%" src="http://bair.berkeley.edu/static/blog/shared-autonomy/human-solo-quad-opt.gif">
 		</td>
     <td style="text-align:center;">
-      <img width="100%" src="http://bair.berkeley.edu/static/blog/shared-autonomy/human-assisted-quad.gif">
+      <img width="100%" src="http://bair.berkeley.edu/static/blog/shared-autonomy/human-assisted-quad-opt.gif">
 		</td>
   </tr>
   <tr>
