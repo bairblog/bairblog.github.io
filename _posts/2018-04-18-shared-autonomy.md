@@ -6,7 +6,7 @@ author:             <a href="https://people.eecs.berkeley.edu/~reddy/">Siddharth
 img:                /assets/shared-autonomy/javdani.png
 excerpt_separator:  <!--more-->
 visible:            True
-show_comments:      False
+show_comments:      True
 ---
 
 
