@@ -12,6 +12,161 @@ jsarr:
                    - fairness_visualization/d3.min.js
 ---
 
+<style type="text/css">
+  td {
+    font-size: 10pt;
+  }
+  ul {
+    line-height: 180%;
+  }
+  .thin {
+    width: 170px;
+  }
+  .annotation {
+    color: #a00;
+    font-size: 10pt;
+    visibility: hidden;
+    stroke: #d00;
+    stroke-width: 5;
+    fill:none;
+  }
+  .prose {
+    width: 800px;
+    margin-bottom: 60px;
+    font: 14pt Roboto;
+    font-weight: 250;
+    color: #000;
+  }
+  .demo {
+    font: 10pt;
+    color: #fff;
+    padding: 6px;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: none;
+    margin-bottom: 6px;
+    width: 140px;
+    background: #555;
+    opacity: .5
+  }
+  .broken {
+    color: #f00;
+  }
+  .readout {
+    font-weight: 700;
+  }
+  .title {
+    font-weight: 700;
+  }
+  .big-label {
+    font-size: 16pt;
+  }
+  .figure-title {
+    font-size: 24px;
+    font-weight: 400;
+  }
+  .figure-caption {
+    font-weight:100;
+    margin-bottom: 20px;
+  }
+  .histogram-axis text {
+    font: 9pt Roboto;
+    font-weight: 100;
+    color: #000;
+  }
+  .histogram-legend {
+    margin-top: 16px;
+  }
+  .instructions {
+    font-weight: 700;
+  }
+  .correctness-label {
+    font-size: 9pt;
+    font-weight: 700;
+    color: #000;
+  }
+  .explanation {
+    font-size: 9pt;
+    font-weight: 100;
+    color: #ccc;
+  }
+  .pie-label {
+    font-size: 9pt;
+    font-weight: 700;
+    color: #000;
+  }
+  .pie-label1 {
+    font-size: 12pt;
+    font-weight: 700;
+    color: #000;
+  }
+  .pie-number {
+    font-size: 9pt;
+    font-weight: 300;
+    color: #000;
+  }
+  .line {
+    fill: none;
+    stroke: darkgrey;
+    stroke-width: 2px;
+  }
+  .line_maxprof {
+    fill: none;
+    stroke: orange;
+    stroke-width: 2px;
+  }
+  .line_dempar {
+    fill: none;
+    stroke: teal;
+    stroke-width: 2px;
+  }
+  .line_eqop {
+    fill: none;
+    stroke: magenta;
+    stroke-width: 2px;
+  }
+  .tick line{
+    stroke: lightgrey;
+    stroke-opacity: 0.7;
+    shape-rendering: crispEdges;
+  }
+  .legend-label {
+    font-size: 8pt;
+    font-weight: 300;
+    color: #666;
+  }
+  .bold-label {
+    font-size: 10pt;
+    font-weight: 700;
+  }
+  .margin-text {
+    font-size: 9pt;
+    font-weight: 300;
+    color: #666;
+  }
+  .margin-bold {
+    font-size: 9pt;
+    font-weight: 700;
+  }
+  .domain {
+    display: none;
+  }
+  .profit-readout {
+    margin-left: 10px;
+  }
+
+  #profit-title {
+    font-size: 18pt;
+  }
+  #total-profit {
+    font-size: 18pt;
+    font-weight: 700;
+  }
+  #top-sidebar {
+    font-size: 10pt;
+    color: #555
+  }
+</style>
 
 Machine learning systems trained to minimize prediction error may often exhibit discriminatory behavior based on sensitive characteristics such as race and gender. One reason could be due to historical bias in the data. In various application domains including lending, hiring, criminal justice, and advertising, machine learning has been criticized for its potential to harm historically underrepresented or disadvantaged groups.
 
