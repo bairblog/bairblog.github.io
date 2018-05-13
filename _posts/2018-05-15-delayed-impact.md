@@ -15,9 +15,12 @@ jsarr:
 <style type="text/css">
   td {
     font-size: 10pt;
+    font-family: Roboto;
+    border: none !important;
   }
   ul {
     line-height: 180%;
+    font-family: Roboto;
   }
   .thin {
     width: 170px;
@@ -29,13 +32,7 @@ jsarr:
     stroke: #d00;
     stroke-width: 5;
     fill:none;
-  }
-  .prose {
-    width: 800px;
-    margin-bottom: 60px;
-    font: 14pt Roboto;
-    font-weight: 250;
-    color: #000;
+    font-family: Roboto;
   }
   .demo {
     font: 10pt;
@@ -45,9 +42,10 @@ jsarr:
     border-radius: 4px;
     box-shadow: none;
     margin-bottom: 6px;
-    width: 140px;
+    width: 100%;
     background: #555;
-    opacity: .5
+    opacity: .5;
+    font-family: Roboto;
   }
   .broken {
     color: #f00;
@@ -57,17 +55,21 @@ jsarr:
   }
   .title {
     font-weight: 700;
+    font-family: Roboto;
   }
   .big-label {
     font-size: 16pt;
+    font-family: Roboto;
   }
   .figure-title {
     font-size: 24px;
     font-weight: 400;
+    font-family: Roboto;
   }
   .figure-caption {
     font-weight:100;
     margin-bottom: 20px;
+    font-family: Roboto;
   }
   .histogram-axis text {
     font: 9pt Roboto;
@@ -76,34 +78,41 @@ jsarr:
   }
   .histogram-legend {
     margin-top: 16px;
+    font-family: Roboto;
   }
   .instructions {
     font-weight: 700;
+    font-family: Roboto;
   }
   .correctness-label {
     font-size: 9pt;
     font-weight: 700;
     color: #000;
+    font-family: Roboto;
   }
   .explanation {
     font-size: 9pt;
     font-weight: 100;
     color: #ccc;
+    font-family: Roboto;
   }
   .pie-label {
     font-size: 9pt;
     font-weight: 700;
     color: #000;
+    font-family: Roboto;
   }
   .pie-label1 {
     font-size: 12pt;
     font-weight: 700;
     color: #000;
+    font-family: Roboto;
   }
   .pie-number {
     font-size: 9pt;
     font-weight: 300;
     color: #000;
+    font-family: Roboto;
   }
   .line {
     fill: none;
@@ -134,37 +143,47 @@ jsarr:
     font-size: 8pt;
     font-weight: 300;
     color: #666;
+    font-family: Roboto;
   }
   .bold-label {
     font-size: 10pt;
     font-weight: 700;
+    font-family: Roboto;
   }
   .margin-text {
     font-size: 9pt;
     font-weight: 300;
     color: #666;
+    font-family: Roboto;
   }
   .margin-bold {
     font-size: 9pt;
     font-weight: 700;
+    font-family: Roboto;
   }
   .domain {
     display: none;
   }
   .profit-readout {
     margin-left: 10px;
+    font-family: Roboto;
   }
-
   #profit-title {
     font-size: 18pt;
+    font-family: Roboto;
   }
   #total-profit {
     font-size: 18pt;
     font-weight: 700;
+    font-family: Roboto;
   }
   #top-sidebar {
     font-size: 10pt;
-    color: #555
+    color: #555;
+    font-family: Roboto;
+  }
+  #single-histogram-table {
+    font-family: Roboto;
   }
 </style>
 

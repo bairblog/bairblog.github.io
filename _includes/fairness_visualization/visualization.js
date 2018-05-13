@@ -13,7 +13,7 @@ function main() {
   var tprOutcome = 75;
   var fprOutcome = -150;
 
-  var group_ratio = 0.25;
+  var group_ratio = 0.24;
   var base_pop_size = 700;
 
   // // Parameters for main model comparison.
@@ -49,10 +49,24 @@ function main() {
   var num_items0 = base_pop_size * group_ratio;
   var num_items1 = base_pop_size * (1-group_ratio);
 
-  var comparisonExample0_nocurves = new GroupModel(makeItems(0, pi0, repay_prob0, num_items0), tprValue, fprValue, tprOutcome, fprOutcome);
+   
+  var items0 = makeItems(0, pi0, repay_prob0, num_items0)
+  items0.push(new Item(0, 0, 54))
+  items0.push(new Item(0, 1, 60))
+  var comparisonExample0_nocurves = new GroupModel(items0, tprValue, fprValue, tprOutcome, fprOutcome);
   var comparisonExample1_nocurves = new GroupModel(makeItems(1, pi1, repay_prob1, num_items1), tprValue, fprValue, tprOutcome, fprOutcome);
-  var comparisonExample0 = new GroupModel(makeItems(0, pi0, repay_prob0, num_items0), tprValue, fprValue, tprOutcome, fprOutcome);
-  var comparisonExample1 = new GroupModel(makeItems(1, pi1, repay_prob1, num_items1), tprValue, fprValue, tprOutcome, fprOutcome);
+  
+  var items1 = makeItems(1, pi1, repay_prob1, num_items1)
+  //items1.splice(items1.length-19, 1)
+  //items1.splice(items1.length-19, 1)
+
+  var items0 = makeItems(0, pi0, repay_prob0, num_items0)
+  items0.push(new Item(0, 0, 54))
+  items0.push(new Item(0, 1, 60))
+
+  //items0.push(new Item(0, 0, 54))
+  var comparisonExample0 = new GroupModel(items0, tprValue, fprValue, tprOutcome, fprOutcome);
+  var comparisonExample1 = new GroupModel(items1, tprValue, fprValue, tprOutcome, fprOutcome);
 
   comparisonExample0.link_setting = 'max-profit'
   comparisonExample1.link_setting = 'max-profit'
@@ -461,8 +475,6 @@ function makeItems(category, pi, repay_prob, total_items) {
       items_default.push(new Item(category, 0, score));
     }
   }
-  console.log(num_repay_by_score)
-  console.log(num_default_by_score)
   return items_repay.concat(items_default);
 }
 
@@ -865,13 +877,14 @@ function getTranslatedThresh(linked_model, match_list, match) {
   [threshold_list, accrate_list, tpr_list] = linked_model.maps;
   var translated_threshold = linked_model.threshold;
   var translated_index = 0;
+  console.log(match, match_list)
 
   // for (var i = 0; i < threshold_list.length; i += 1) {
   for (var i = threshold_list.length-1; i >= 0; i -= 1) {
     // if (approximatelyEqual(1, match, 1000)) {
     //   break;
     // }
-    if (approximatelyEqual(match_list[i], match, 100)) { 
+    if (approximatelyEqual(match_list[i], match, 75)) { 
       translated_threshold = threshold_list[i]; 
       translated_index = i;
       break;
@@ -1088,35 +1101,6 @@ function createLoanMatrix(id, model) {
 }
 
 
-
-function computeCurvesNew(model, tprVal, fprVal, linked_model) {
-  [threshold_list, accrate_list, tpr_list] = model.maps;
-  
-  var values = []; var selection_rates = [];
-  var values_dempar = []; var values_eqop = [];
-
-  for (var i = 0; i < threshold_list.length; i += 1){
-    selection_rates.push(accrate_list[i])
-    var value = (tprVal * tpr_list[i] + fprVal * (accrate_list[i] - tpr_list[i]))
-    values.push(model.items.length * value);
-
-    if (!(typeof linked_model == "undefined")) {
-      var t1, t2, idx, idx2, threshold_list_linked, accrate_list_linked, tpr_list_linked;
-      [threshold_list_linked, accrate_list_linked, tpr_list_linked] = linked_model.maps;
-
-      [t1, idx] = getTranslatedThresh(linked_model, accrate_list, accrate_list[i]);
-      
-      linked_value = tprVal * tpr_list_linked[idx] + fprVal * (tpr_list_linked[idx] - tpr_list_linked[idx])
-      values_dempar.push(value + linked_model.items.length * linked_value)
-
-      [t2, idx2] = getTranslatedThresh(linked_model, tpr_list, tpr_list[i])
-      linked_value2 = tprVal * tpr_list_linked[idx2] + fprVal * (tpr_list_linked[idx2] - tpr_list_linked[idx2])
-      values_eqop.push(value + linked_model.items.length * linked_value2)
-    }
-  }
-  return [selection_rates, values, values_dempar, values_eqop]
-}
-
 function computeCurves(model, tprVal, fprVal, linked_model, stepSize = 1) {
   //if (!(typeof linked_model == "undefined"))
   var values = []; var selection_rates = [];
@@ -1306,11 +1290,12 @@ function displayCurves(id, model, tprVal, fprVal, linked_model) {
     // if event...
   });
 }
+
  function singleHistogramTable() {
   document.getElementById('single-histogram-table').innerHTML = '<table>\
     <tr>\
       <td>&nbsp;</td>\
-      <td colspan=4>\
+      <td colspan=4 >\
           <div class="figure-title">\
           Credit score and repayment distribution\
           </div>\
@@ -1328,7 +1313,7 @@ function displayCurves(id, model, tprVal, fprVal, linked_model) {
             </div>\
           </td></tr>\
           <tr><td width="200" valign="bottom" align="right">\
-            <div style="margin-top:140px">\
+            <div style="margin-top:130px">\
             <span class="margin-text">\
             each circle represents a person,\
             with dark circles showing people who pay back their\
@@ -1337,7 +1322,7 @@ function displayCurves(id, model, tprVal, fprVal, linked_model) {
             </div>\
           </td></tr>\
           <tr><td width="200" valign="bottom" align="right">\
-            <div style="margin-top:30px">\
+            <div style="margin-top:0px">\
             <span class="margin-bold">Color</span>\
             </div>\
           </td></tr>\
@@ -1351,6 +1336,7 @@ function displayCurves(id, model, tprVal, fprVal, linked_model) {
     </tr>\
   </table>';
  }
+
 function singleHistogramInteractiveTable() {
   document.getElementById('single-histogram-interactive-table').innerHTML = '<table>\
     <tr>\
@@ -1371,22 +1357,20 @@ function singleHistogramInteractiveTable() {
             <div style="margin-top:44px">\
             <span class="margin-bold">Credit Score</span><br>\
             <span class="margin-text">\
-            higher scores represent higher likelihood of payback\
+            \
             </span>\
             </div>\
           </td></tr>\
           <tr><td width="200" valign="bottom" align="right">\
             <div style="margin-top:160px">\
             <span class="margin-text">\
-            each circle represents a person,\
-            with dark circles showing people who pay back their\
-            loans and light circles showing people who default\
+            \
             </span>\
             </div>\
           </td></tr>\
           <tr><td width="200" valign="bottom" align="right">\
-            <div style="margin-top:30px">\
-            <span class="margin-bold">Color</span>\
+            <div style="margin-top:20px">\
+            <span class="margin-bold"></span>\
             </div>\
           </td></tr>\
 \
@@ -1466,6 +1450,7 @@ function singleHistogramInteractiveTable() {
       </td>\
     </tr>\
   </table>'; }
+
 function comparisonCurvesTable() {
   document.getElementById('comparison-curves-table').innerHTML = '  <div class="figure-title">\
     Simulating loan decisions for different groups\
@@ -1476,29 +1461,27 @@ function comparisonCurvesTable() {
   </div>\
   <table>\
     <tr>\
-      <td rowspan=4 width=200 valign="top">\
-        <div class="big-label" style="margin-top:3px">Loan Strategy</div>\
-        <span class="margin-text">\
-          Maximize profit with:\
-          <br><br><br>\
-          <button class="demo" id="max-profit">MAX PROFIT</button>\
-          <br>No constraints\
-          <p><br>\
+      <td colspan=3 valign="top">\
+        <table> <tr>\
+          <td width=25%><div class="big-label" style="margin-top:3px">Loan Strategy</div>\
+              <span class="margin-text">\
+              Maximize profit with:</span></td>\
+          <td width=25%><span class="margin-text"><center>\
+            <button class="demo" id="max-profit">MAX PROFIT</button>\
+            <br>No constraints</center> </span></td>\
+          <td  width=25%><span class="margin-text"><center>\
           <button class="demo" id="demographic-parity">DEMOGRAPHIC PARITY</button>\
           <br>\
-          Same fractions blue / red loans\
-          <p><br>\
+          Same fractions blue / orange loans</center></span></td>\
+          <td  width=25%><span class="margin-text"><center>\
           <button class="demo" id="equal-opportunity">EQUAL OPPORTUNITY</button>\
           <br>\
-          Same fractions blue / red loans<br>\
-          to people who can pay them off\
-          <br><br><br>\
-\
+          Same fractions blue / orange loans<br>\
+          to people who can pay them off</center></span></td>\
+          </tr>\
+          </table>\
           \
-        </span>\
-      </td>\
-      <td colspan=3>\
-\
+        \
       </td>\
     </tr>\
     <tr>\
@@ -1566,7 +1549,6 @@ function comparisonCurvesTable() {
 function singleCurvesTable() {
   document.getElementById('single-curves-table').innerHTML = '  <table>\
     <tr>\
-      <td>&nbsp;</td>\
       <td colspan=4>\
           <div class="figure-title">\
           Loan thresholds and outcomes\
@@ -1577,34 +1559,6 @@ function singleCurvesTable() {
       </td>\
     </tr>\
     <tr>\
-      <td valign="top">\
-        <table>\
-          <tr><td width="200" valign="top" align="right">\
-            <div style="margin-top:44px">\
-            <span class="margin-bold">Credit Score</span><br>\
-            <span class="margin-text">\
-            higher scores represent higher likelihood of payback\
-            </span>\
-            </div>\
-          </td></tr>\
-          <tr><td width="200" valign="bottom" align="right">\
-            <div style="margin-top:160px">\
-            <span class="margin-text">\
-            each circle represents a person,\
-            with dark circles showing people who pay back their\
-            loans and light circles showing people who default\
-            </span>\
-            </div>\
-          </td></tr>\
-          <tr><td width="200" valign="bottom" align="right">\
-            <div style="margin-top:30px">\
-            <span class="margin-bold">Color</span>\
-            </div>\
-          </td></tr>\
-\
-        </table>\
-      </td>\
-\
       <td valign="top">\
         <div class="big-label" style="margin-bottom:50px">Threshold Decision</div>\
         <div id="single-histogram1"></div>\
@@ -1619,8 +1573,6 @@ function singleCurvesTable() {
       </td>\
     </tr>\
     <tr>\
-      <td valign="bottom">&nbsp;\
-      </td>\
       <td valign="top" width=400>\
         <div class="big-label" style="margin-bottom:20px;margin-left:10px">Average Credit Score Change</div>\
         <div id="single-outcomes">\
@@ -1634,11 +1586,12 @@ function singleCurvesTable() {
         </div>\
       </td>\
       <td></td>\
-      <td width=100 valign="bottom">\
-        <span class="margin-bold">Selection Rate</span><br>\
+      <td width=100>\
+            <div style="margin-top:360px">\
+            <span class="margin-bold">Selection Rate</span><br>\
             <span class="margin-text">\
             loan thresholds are equivalent to selection rates\
-            </span>\
+            </span></div>\
       </td>\
     </tr>\
   </table>'; }
