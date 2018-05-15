@@ -203,7 +203,7 @@ In this post, we talk about our recent work on aligning decisions made by
 machine learning with long term social welfare goals. Commonly, machine learning
 models produce a **score** that summarizes information about an individual in
 order to make decisions about them. For example, a *credit score* summarizes an
-individual’s credit history and financial activities in way that informs the
+individual’s credit history and financial activities in a way that informs the
 bank about their creditworthiness. Let us continue to use the lending setting as
 a running example.
 
@@ -371,8 +371,8 @@ point of causing relative harm in the blue population.
 If the goal of employing fairness criteria is to increase or equalize long term
 well-being over all populations, we’ve just shown that there are scenarios where
 fairness criteria actually act against this objective. In other words, fairness
-constraints aren’t always a reasonable way to equalize decisions made over
-diverse populations. Constructing an accurate model to forecast the effects that
+constraints could also reduce welfare in already disadvantaged populations.
+Constructing an accurate model to forecast the effects that
 decisions have on population outcomes may help to mitigate possible
 unanticipated harms of applying fairness constraints.
 
@@ -400,8 +400,8 @@ algorithms affect the lives of more people.
 
 
 *Acknowledgements*. The authors would like to thank Martin Wattenberg and
-Fernanda Viégas for the [interactive visualizations][2] on which those in this
-blog post were based.
+Fernanda Viégas for the [interactive visualizations][2] that were used as references
+for this post.
 
 
 [1]:https://arxiv.org/abs/1803.04383
