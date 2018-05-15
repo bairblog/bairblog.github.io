@@ -371,7 +371,7 @@ point of causing relative harm in the blue population.
 If the goal of employing fairness criteria is to increase or equalize long term
 well-being over all populations, we’ve just shown that there are scenarios where
 fairness criteria actually act against this objective. In other words, fairness
-constraints could also reduce welfare in already disadvantaged populations.
+constraints can also reduce welfare in already disadvantaged populations.
 Constructing an accurate model to forecast the effects that
 decisions have on population outcomes may help to mitigate possible
 unanticipated harms of applying fairness constraints.
@@ -390,7 +390,7 @@ An outcome model is a concrete way to incorporate domain knowledge into the
 classification process. This aligns well with much scholarship that points to
 the context-sensitive nature of fairness in machine learning. The outcome curve
 provides an interpretable visual device to highlight application-specific
-trade-offs.
+tradeoffs.
 
 For more details, please check out [the full version of our paper][1]. Our work
 is only a start in exploring how outcome models can mitigate undesirable society
@@ -400,8 +400,8 @@ algorithms affect the lives of more people.
 
 
 *Acknowledgements*. The authors would like to thank Martin Wattenberg and
-Fernanda Viégas for the [interactive visualizations][2] that were used as references
-for this post.
+Fernanda Viégas for the [interactive visualizations][2] that were used as reference
+for those in this post.
 
 
 [1]:https://arxiv.org/abs/1803.04383
