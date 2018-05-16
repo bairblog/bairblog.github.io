@@ -1146,8 +1146,8 @@ function displayCurves(id, model, tprVal, fprVal, linked_model) {
   }
   
   var margin = {top: 10, right: 10, bottom: 20, left: 50},
-    width = 400 - margin.left - margin.right,
-    height = 150 - margin.top - margin.bottom;
+    width = 350 - margin.left - margin.right,
+    height = 110 - margin.top - margin.bottom;
       // set the ranges
   var x = d3.scaleLinear().range([0, width]);
   var y = d3.scaleLinear().range([0, height]);
@@ -1196,7 +1196,7 @@ function displayCurves(id, model, tprVal, fprVal, linked_model) {
   // gridlines in y axis function
   function make_y_gridlines() {   
       return d3.axisLeft(y)
-          .ticks(5)
+          .ticks(4)
   }
 
   // add the X gridlines
@@ -1274,7 +1274,7 @@ function displayCurves(id, model, tprVal, fprVal, linked_model) {
   // Add the Y Axis
   svg.append("g")
         .attr('class', 'histogram-axis')
-        .call(d3.axisLeft(y).ticks(5));
+        .call(d3.axisLeft(y).ticks(4));
 
 
   function updateThreshold(t) {
@@ -1294,26 +1294,31 @@ function displayCurves(id, model, tprVal, fprVal, linked_model) {
  function singleHistogramTable() {
   document.getElementById('single-histogram-table').innerHTML = '<table>\
     <tr>\
-      <td>&nbsp;</td>\
-      <td colspan=4 >\
+      <td colspan=2 align="left">\
           <div class="figure-title">\
-          Credit score and repayment distribution\
+          1. Credit score and repayment distribution\
           </div>\
       </td>\
+      <td>&nbsp;</td>\
     </tr>\
     <tr>\
+      <td valign="top" align="right", width="400">\
+        <div class="big-label" style="margin-bottom:20px"> </div>\
+        <div id="single-histogram"></div>\
+        <div id="single-histogram-legend" class="histogram-legend"></div>\
+      </td>\
       <td valign="top">\
         <table>\
-          <tr><td width="200" valign="top" align="right">\
-            <div style="margin-top:14px">\
+          <tr><td width="200" valign="top" align="left">\
+            <div style="margin-top:15px;margin-left:10px">\
             <span class="margin-bold">Credit Score</span><br>\
             <span class="margin-text">\
             higher scores represent higher likelihood of payback\
             </span>\
             </div>\
           </td></tr>\
-          <tr><td width="200" valign="bottom" align="right">\
-            <div style="margin-top:130px">\
+          <tr><td width="200" valign="bottom" align="left">\
+            <div style="margin-top:200px; margin-left:10px">\
             <span class="margin-text">\
             each circle represents a person,\
             with dark circles showing people who pay back their\
@@ -1321,17 +1326,12 @@ function displayCurves(id, model, tprVal, fprVal, linked_model) {
             </span>\
             </div>\
           </td></tr>\
-          <tr><td width="200" valign="bottom" align="right">\
-            <div style="margin-top:0px">\
+          <tr><td width="200" valign="bottom" align="left">\
+            <div style="margin-top:10px;margin-left:10px">\
             <span class="margin-bold">Color</span>\
             </div>\
           </td></tr>\
           </table>\
-      </td>\
-      <td valign="top">\
-        <div class="big-label" style="margin-bottom:50px"> </div>\
-        <div id="single-histogram"></div>\
-        <div id="single-histogram-legend" class="histogram-legend"></div>\
       </td>\
     </tr>\
   </table>';
@@ -1340,10 +1340,9 @@ function displayCurves(id, model, tprVal, fprVal, linked_model) {
 function singleHistogramInteractiveTable() {
   document.getElementById('single-histogram-interactive-table').innerHTML = '<table>\
     <tr>\
-      <td>&nbsp;</td>\
       <td colspan=4>\
           <div class="figure-title">\
-          Loan thresholds and outcomes\
+          2. Loan thresholds and outcomes\
           </div>\
           <div class="figure-caption">\
           Drag the black threshold bars left or right to change the cut-offs for loans.<br>\
@@ -1351,31 +1350,6 @@ function singleHistogramInteractiveTable() {
       </td>\
     </tr>\
     <tr>\
-      <td valign="top">\
-        <table>\
-          <tr><td width="200" valign="top" align="right">\
-            <div style="margin-top:44px">\
-            <span class="margin-bold">Credit Score</span><br>\
-            <span class="margin-text">\
-            \
-            </span>\
-            </div>\
-          </td></tr>\
-          <tr><td width="200" valign="bottom" align="right">\
-            <div style="margin-top:160px">\
-            <span class="margin-text">\
-            \
-            </span>\
-            </div>\
-          </td></tr>\
-          <tr><td width="200" valign="bottom" align="right">\
-            <div style="margin-top:20px">\
-            <span class="margin-bold"></span>\
-            </div>\
-          </td></tr>\
-\
-        </table>\
-      </td>\
 \
       <td valign="top">\
         <div class="big-label" style="margin-bottom:50px">Threshold Decision</div>\
@@ -1399,7 +1373,7 @@ function singleHistogramInteractiveTable() {
 
  function comparisonTable() {
   document.getElementById('comparison-histogram-table').innerHTML = '<div class="figure-title">\
-    Simulating loan decisions for different groups\
+    4. Loan decisions for different groups\
   </div>\
   <div class="figure-caption">\
     Drag the black threshold bars left or right to change the cut-offs for loans.\
@@ -1418,10 +1392,10 @@ function singleHistogramInteractiveTable() {
         <div id="histogram-legend0_nocurves" class="histogram-legend"></div>\
         <div class="profit-readout"> Average Credit Score Change: <span class="readout" id="comparison0_chg"></div>\
       </td>\
-      <td width=20>&nbsp;</td>\
+      <td width=10>&nbsp;</td>\
       <td valign="top">\
         <!-- start upper right content label -->\
-        <div class="big-label" style="margin-left:10px">Red Population</div>\
+        <div class="big-label" style="margin-left:0px">Orange Population</div>\
         <!-- end upper right content label -->\
         <br><br>\
         <!-- start upper right content -->\
@@ -1434,7 +1408,7 @@ function singleHistogramInteractiveTable() {
     <tr>\
       <td valign="top">\
 \
-         <div id="profit-title" style="position:relative">\
+         <div id="profit-title" style="position:relative;margin:10px">\
            Total profit = <span id="total-profit_nocurves"></span>\
             <div style="position:absolute;left:-20;top:-20">\
             <svg>\
@@ -1445,7 +1419,7 @@ function singleHistogramInteractiveTable() {
             </div>\
           </div>\
       </td>\
-      <td width=20>&nbsp;</td>\
+      <td width=10>&nbsp;</td>\
       <td valign="top">\
       </td>\
     </tr>\
@@ -1453,11 +1427,11 @@ function singleHistogramInteractiveTable() {
 
 function comparisonCurvesTable() {
   document.getElementById('comparison-curves-table').innerHTML = '  <div class="figure-title">\
-    Simulating loan decisions for different groups\
+    6. Simulating loan decisions with constraints\
   </div>\
   <div class="figure-caption">\
-    Drag the black threshold bars left or right to change the cut-offs for loans.<br>\
-    Click on different preset loan strategies.\
+    Drag the black threshold bars left or right to change the cut-offs for loans.\
+    Click on preset loan strategies to seen fairness constraints in action.\
   </div>\
   <table>\
     <tr>\
@@ -1486,17 +1460,15 @@ function comparisonCurvesTable() {
     </tr>\
     <tr>\
       <td valign="top">\
-        <div class="big-label">Blue Population</div>\
-        <br><br>\
+        <div class="medium-label" style="margin-bottom:10px">Blue Population</div>\
         <div id="histogram0"></div>\
         <div id="histogram-legend0" class="histogram-legend"></div>\
       </td>\
-      <td width=20>&nbsp;</td>\
+      <td width=10>&nbsp;</td>\
       <td valign="top">\
         <!-- start upper right content label -->\
-        <div class="big-label" style="margin-left:10px">Red Population</div>\
+        <div class="medium-label" style="margin-left:0px;margin-bottom:10px">Orange Population</div>\
         <!-- end upper right content label -->\
-        <br><br>\
         <!-- start upper right content -->\
         <div id="histogram1"></div>\
         <div id="histogram-legend1" class="histogram-legend"></div>\
@@ -1504,40 +1476,41 @@ function comparisonCurvesTable() {
       </td>\
     </tr>\
     <tr>\
-      <td valign="top">\
+      <td colspan=3 valign="top" align="center">\
          <div id="profit-title" style="position:relative">\
-           Total profit = <span id="total-profit"></span>\
-            <div style="position:absolute;left:-20;top:-20">\
-            <svg>\
-            <rect class="annotation max-profit-annotation"\
-             x="10" y="10" width="230" height="50" rx="20" ry="20"\
-            />\
-            </svg>\
-            </div>\
+           Average credit score changes by group\
           </div>\
-      </td>\
-      <td width=20>&nbsp;</td>\
-      <td valign="top">\
       </td>\
     </tr>\
     <tr>\
-      <td valign="top" width=400>\
-        <div class="big-label" style="margin-bottom:20px;margin-left:10px">Average Credit Score Change</div>\
+      <td valign="top" width=400 align="right">\
         <div id="outcomes0">\
         \
         </div>\
-        <div class="big-label" style="margin-bottom:20px;margin-left:10px">Bank Profit</div>\
-        <div id="profits0">\
-                      \
-        </div>\
       </td>\
-      <td width=20>&nbsp;</td>\
-      <td valign="top" width=400>\
-        <div class="big-label" style="margin-bottom:20px;margin-left:10px">Average Credit Score Change</div>\
+      <td width=10>&nbsp;</td>\
+      <td valign="top" width=400 align="left">\
         <div id="outcomes1">\
         \
         </div>\
-        <div class="big-label" style="margin-bottom:20px;margin-left:10px">Bank Profit</div>\
+      </td>\
+\
+    </tr>\
+    <tr>\
+      <td colspan=3 valign="top" align="center">\
+         <div id="profit-title" style="position:relative;margin-top=10px">\
+           Bank profit by group (total = <span id="total-profit"></span>)\
+          </div>\
+      </td>\
+    </tr>\
+    <tr>\
+      <td valign="top" width=400 align="right">\
+        <div id="profits0" style="margin-bottom:20px">\
+                      \
+        </div>\
+      </td>\
+      <td width=10>&nbsp;</td>\
+      <td valign="top" width=400 align="left">\
         <div id="profits1">\
                       \
         </div>\
@@ -1551,7 +1524,7 @@ function singleCurvesTable() {
     <tr>\
       <td colspan=4>\
           <div class="figure-title">\
-          Loan thresholds and outcomes\
+          3. Loan thresholds and outcome curves\
           </div>\
           <div class="figure-caption">\
           Drag the black threshold bars left or right to change the cut-offs for loans.<br>\
@@ -1560,7 +1533,7 @@ function singleCurvesTable() {
     </tr>\
     <tr>\
       <td valign="top">\
-        <div class="big-label" style="margin-bottom:50px">Threshold Decision</div>\
+        <div class="big-label" style="margin-bottom:20px">Threshold Decision</div>\
         <div id="single-histogram1"></div>\
         <div id="single-histogram-legend1" class="histogram-legend"></div>\
       </td>\
@@ -1568,30 +1541,25 @@ function singleCurvesTable() {
       <td valign="top">\
         <div class="big-label" style="margin-bottom:20px;margin-left:10px">Outcome</div>\
         <div id="single-loans1"></div>\
-        <div class="profit-readout">Profit: <span class="readout" id="single-profit1"></span><br>\
-          Average Credit Score Change: <span class="readout" id="single-scorechange1"></div>\
       </td>\
     </tr>\
     <tr>\
       <td valign="top" width=400>\
-        <div class="big-label" style="margin-bottom:20px;margin-left:10px">Average Credit Score Change</div>\
+        <div class="big-label" style="margin-bottom:20px;margin-left:10px">\
+        Average Credit Score Change: \
+        <span class="readout" id="single-scorechange1"></div>\
         <div id="single-outcomes">\
           \
 \
         </div>\
-        <div class="big-label" style="margin-bottom:20px;margin-left:10px">Bank Profit</div>\
-        <div id="single-profits">\
-                        \
-        \
-        </div>\
       </td>\
-      <td></td>\
-      <td width=100>\
-            <div style="margin-top:360px">\
-            <span class="margin-bold">Selection Rate</span><br>\
-            <span class="margin-text">\
-            loan thresholds are equivalent to selection rates\
-            </span></div>\
+      <td colspan=2 width=100>\
+            <div class="big-label" style="margin-bottom:20px;margin-left:10px">\
+            Bank Profit:\
+            <span class="readout" id="single-profit1"></span></div>\
+              <div id="single-profits">\
+              \
+              </div>\
       </td>\
     </tr>\
   </table>'; }
