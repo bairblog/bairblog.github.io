@@ -10,7 +10,7 @@ author:             <a href="http://lydiatliu.github.io/">Lydia T. Liu</a>,
 img:                /assets/delayed_impact/outcome_curve_blog.png
 excerpt_separator:  <!--more-->
 visible:            True
-show_comments:      False
+show_comments:      True
 jsarr:
                    - fairness_visualization/visualization.js
                    - fairness_visualization/d3.min.js
