@@ -15,16 +15,16 @@ jsarr:
                    - fairness_visualization/visualization.js
                    - fairness_visualization/d3.min.js
 ---
-
 <style type="text/css">
   td {
     font-size: 10pt;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
     border: none !important;
+    padding: 0 !important;
   }
   ul {
     line-height: 180%;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
   }
   .thin {
     width: 170px;
@@ -36,7 +36,7 @@ jsarr:
     stroke: #d00;
     stroke-width: 5;
     fill:none;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
   }
   .demo {
     font: 10pt;
@@ -49,7 +49,7 @@ jsarr:
     width: 100%;
     background: #555;
     opacity: .5;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
   }
   .broken {
     color: #f00;
@@ -59,64 +59,69 @@ jsarr:
   }
   .title {
     font-weight: 700;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
   }
   .big-label {
     font-size: 16pt;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
+  }
+  .medium-label {
+    font-size: 12pt;
+    font-family: 'Roboto', sans-serif;
   }
   .figure-title {
     font-size: 24px;
     font-weight: 400;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
   }
   .figure-caption {
     font-weight:100;
-    margin-bottom: 20px;
-    font-family: Roboto;
+    font-size: 12pt;
+    margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
   }
   .histogram-axis text {
-    font: 9pt Roboto;
+    font: 9pt 'Roboto', sans-serif;
     font-weight: 100;
     color: #000;
   }
   .histogram-legend {
     margin-top: 16px;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
   }
   .instructions {
     font-weight: 700;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
   }
   .correctness-label {
     font-size: 9pt;
     font-weight: 700;
     color: #000;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
   }
   .explanation {
     font-size: 9pt;
     font-weight: 100;
     color: #ccc;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
   }
   .pie-label {
     font-size: 9pt;
     font-weight: 700;
     color: #000;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
   }
   .pie-label1 {
     font-size: 12pt;
     font-weight: 700;
     color: #000;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
   }
   .pie-number {
     font-size: 9pt;
     font-weight: 300;
     color: #000;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
   }
   .line {
     fill: none;
@@ -147,47 +152,47 @@ jsarr:
     font-size: 8pt;
     font-weight: 300;
     color: #666;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
   }
   .bold-label {
     font-size: 10pt;
     font-weight: 700;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
   }
   .margin-text {
     font-size: 9pt;
     font-weight: 300;
     color: #666;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
   }
   .margin-bold {
     font-size: 9pt;
     font-weight: 700;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
   }
   .domain {
     display: none;
   }
   .profit-readout {
     margin-left: 10px;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
   }
   #profit-title {
     font-size: 18pt;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
   }
   #total-profit {
     font-size: 18pt;
     font-weight: 700;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
   }
   #top-sidebar {
     font-size: 10pt;
     color: #555;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
   }
   #single-histogram-table {
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
   }
 </style>
 
@@ -216,9 +221,6 @@ visualized below.
 <div id="single-histogram-table">
 </div>
 
-<p style="text-align:center;">
-<i>Figure 1.</i>
-</p>
 
 Scores can be turned into decisions by defining a threshold. For example,
 individuals above the threshold score are granted loans, and individuals below
@@ -236,9 +238,6 @@ any given threshold.
 
 <div id="single-histogram-interactive-table">
 </div>
-<p style="text-align:center;">
-<i>Figure 2.</i>
-</p>
 
 
 Without other considerations, a bank will attempt to maximize its total profit.
@@ -269,9 +268,6 @@ and benefit of the loaning decision to the individual.
 <center>
   <img src="/assets/delayed_impact/outcome_curve_blog.png" alt="drawing" style="width: 500px;"/>
 </center>
-<p style="text-align:center;">
-<i>Figure 3.</i>
-</p>
 
 
 The above figure shows the outcome curve for a typical population. When enough
@@ -291,9 +287,6 @@ the case in the red striped region.
 
 <div id="single-curves-table">
 </div>
-<p style="text-align:center;">
-<i>Figure 4.</i>
-</p>
 
 
 
@@ -317,16 +310,13 @@ avoiding the differential outcomes that a fixed-threshold decision could invoke.
 
 <div id="comparison-histogram-table">
 </div>
-<p style="text-align:center;">
-<i>Figure 5.</i>
-</p>
 
 
 It makes sense to ask what choices of thresholds lead to an expected improvement
 in the score distribution within the blue group. As we mentioned before, an
 unconstrained bank policy would maximize profit, choosing thresholds that meet a
 break-even point above which it is profitable to give out loans. In fact, the
-profit-maximizing threshold (a credit score of **XXX TODO**) is the same for
+profit-maximizing threshold (a credit score of 580) is the same for
 both groups.
 
 
@@ -363,9 +353,6 @@ point of causing relative harm in the blue population.
 
 <div id="comparison-curves-table">
 </div>
-<p style="text-align:center;">
-<i>Figure 6.</i>
-</p>
 
 
 If the goal of employing fairness criteria is to increase or equalize long term
