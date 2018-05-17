@@ -231,7 +231,7 @@ Scores can be interpreted as encoding estimated probabilities of defaulting on a
 loan. For example, 90% of people with a credit score of 650 may be expected to
 repay a loan granted to them. This allows the bank to forecast the profit they
 would expect to make by providing identical loans to individuals with credit
-score 800. In the same fashion, the bank can predict the profit they would
+score 650. In the same fashion, the bank can predict the profit they would
 expect by loaning to all individuals with a credit above 650, or indeed above
 any given threshold.
 
