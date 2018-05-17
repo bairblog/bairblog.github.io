@@ -381,10 +381,10 @@ tradeoffs.
 
 For more details, please check out [the full version of our paper][1], which will 
 also appear at the 35th International Conference on Machine learning in Stockholm, Sweden. Our work
-is only a start in exploring how outcome models can mitigate undesirable society
+is only a start in exploring how outcome models can mitigate undesirable societal
 impacts of machine learning algorithms. We believe there is much more work to be
 done in order to ensure the long-term fairness of machine learning, as
-algorithms affect the lives of more people.
+algorithms impact the lives of more people.
 
 
 *Acknowledgements*. The authors would like to thank Martin Wattenberg and
