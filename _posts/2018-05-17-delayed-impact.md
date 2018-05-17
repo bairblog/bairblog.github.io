@@ -388,7 +388,7 @@ algorithms impact the lives of more people.
 
 
 *Acknowledgements*. The authors would like to thank Martin Wattenberg and
-Fernanda Viégas for the [interactive visualizations][2] that inspired and were used as reference
+Fernanda Viégas for the [interactive visualizations][2] that inspired us and were used as reference
 for those in this post.
 
 
