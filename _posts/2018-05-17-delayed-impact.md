@@ -267,7 +267,7 @@ and benefit of the loaning decision to the individual.
 
 <center>
   <img src="/assets/delayed_impact/outcome_curve_blog.png" alt="drawing" style="width: 500px;"/>
-  <p>
+  <p style="text-align:center;">
   <i>
   Figure 3
   </i>
