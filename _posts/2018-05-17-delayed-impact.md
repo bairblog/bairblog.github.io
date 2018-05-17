@@ -379,7 +379,8 @@ the context-sensitive nature of fairness in machine learning. The outcome curve
 provides an interpretable visual device to highlight application-specific
 tradeoffs.
 
-For more details, please check out [the full version of our paper][1]. Our work
+For more details, please check out [the full version of our paper][1], which will 
+also appear at the 35th International Conference on Machine learning in Stockholm, Sweden. Our work
 is only a start in exploring how outcome models can mitigate undesirable society
 impacts of machine learning algorithms. We believe there is much more work to be
 done in order to ensure the long-term fairness of machine learning, as
