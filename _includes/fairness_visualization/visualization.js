@@ -1255,7 +1255,7 @@ function singleHistogramInteractiveTable() {
 
  function comparisonTable() {
   document.getElementById('comparison-histogram-table').innerHTML = '<div class="figure-title">\
-    4. Loan decisions for different groups\
+    5. Loan decisions for different groups\
   </div>\
   <div class="figure-caption">\
     Drag the black threshold bars left or right to change the cut-offs for loans.\
@@ -1406,7 +1406,7 @@ function singleCurvesTable() {
     <tr>\
       <td colspan=4>\
           <div class="figure-title">\
-          3. Loan thresholds and outcome curves\
+          4. Loan thresholds and outcome curves\
           </div>\
           <div class="figure-caption">\
           Drag the black threshold bars left or right to change the cut-offs for loans.<br>\
