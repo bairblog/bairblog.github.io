@@ -1,4 +1,3 @@
-// Entry point for interactive diagrams.
 function main() {
 
   // Put interactive diagrams in their places
@@ -7,6 +6,7 @@ function main() {
   comparisonTable();
   comparisonCurvesTable();
   singleCurvesTable();
+  
   // Set values of true positives vs. false positives.
   var tprValue = 1;
   var fprValue = -4;
@@ -16,35 +16,11 @@ function main() {
   var group_ratio = 0.24;
   var base_pop_size = 700;
 
-  // // Parameters for main model comparison.
-  // var s0 = 10; // standard deviations of defaulters/payers.
-  // var s1 = 10;
-  // var d0 = 8;  // differences from means of defaulters/payers
-  // var d1 = 12;
-  // var m0 = 55; // means of overall distributions
-  // var m1 = 45;
-
   // distributions from pi and rho
   dist0 = getNormalPis(45, 20)
   pi0 = dist0[0], repay_prob0 = dist0[1]
   dist1 = getNormalPis(65, 20)
   pi1 = dist1[0], repay_prob1 = dist1[1]
-
-  // [pi0, pi1, repay_prob0, repay_prob1] = getFICOEmpPis();
-  // repay_prob1 = repay_prob0
-  // [pi0, pi1, repay_prob0] = getFICOPis();
-  // repay_prob1 = repay_prob0;
-
-  // Create items to classify: two groups with different
-  // distributions of positive/negative examples.
-  // comparisonExample0_nocurves = new GroupModel(makeNormalItems(0, 1, 100, m0 + d0, s0)
-  //    .concat(makeNormalItems(0, 0, 100, m0 - d0, s0)), tprValue, fprValue, tprOutcome, fprOutcome);
-  // comparisonExample1_nocurves = new GroupModel(makeNormalItems(1, 1, 100, m1 + d1, s1)
-  //    .concat(makeNormalItems(1, 0, 100, m1 - d1, s1)), tprValue, fprValue, tprOutcome, fprOutcome);
-  // comparisonExample0 = new GroupModel(makeNormalItems(0, 1, 100, m0 + d0, s0)
-  //    .concat(makeNormalItems(0, 0, 100, m0 - d0, s0)), tprValue, fprValue, tprOutcome, fprOutcome);
-  // comparisonExample1 = new GroupModel(makeNormalItems(1, 1, 100, m1 + d1, s1)
-  //    .concat(makeNormalItems(1, 0, 100, m1 - d1, s1)), tprValue, fprValue, tprOutcome, fprOutcome);
 
   var num_items0 = base_pop_size * group_ratio;
   var num_items1 = base_pop_size * (1-group_ratio);
@@ -57,14 +33,9 @@ function main() {
   var comparisonExample1_nocurves = new GroupModel(makeItems(1, pi1, repay_prob1, num_items1), tprValue, fprValue, tprOutcome, fprOutcome);
   
   var items1 = makeItems(1, pi1, repay_prob1, num_items1)
-  //items1.splice(items1.length-19, 1)
-  //items1.splice(items1.length-19, 1)
-
   var items0 = makeItems(0, pi0, repay_prob0, num_items0)
   items0.push(new Item(0, 0, 54))
   items0.push(new Item(0, 1, 60))
-
-  //items0.push(new Item(0, 0, 54))
   var comparisonExample0 = new GroupModel(items0, tprValue, fprValue, tprOutcome, fprOutcome);
   var comparisonExample1 = new GroupModel(items1, tprValue, fprValue, tprOutcome, fprOutcome);
 
@@ -74,33 +45,17 @@ function main() {
   comparisonExample0.setMaps();
   comparisonExample1.setMaps();
 
-  
-
-  // var singleModel = new GroupModel(makeNormalItems(0, 1, 100, 60, 10)
-  //     .concat(makeNormalItems(0, 0, 100, 40, 10)), tprValue, fprValue, tprOutcome, fprOutcome);
-  // dist = getNormalPis(45, 20)
   var pi = []; var repay_prob = [];
   for (var i in pi0) { 
-    // pi.push(group_ratio * pi0[i] + (1-group_ratio) * pi1[i]); 
     pi.push(pi0[i]); 
-    // repay_prob.push(group_ratio * repay_prob1[i] + (1-group_ratio) * repay_prob0[i]);
     repay_prob.push(repay_prob0[i]);
   }
   
   var singleModel = new GroupModel(makeItems(2, pi, repay_prob, 0.75 * base_pop_size), tprValue, fprValue, tprOutcome, fprOutcome);
-  //var singleModel = new GroupModel(getHardcodedSingleModel(2), tprValue, fprValue, tprOutcome, fprOutcome);
   var singleModel_nocurves = new GroupModel(makeItems(2, pi, repay_prob, 0.75 * base_pop_size), tprValue, fprValue, tprOutcome, fprOutcome);
-  //var singleModel_nocurves = new GroupModel(getHardcodedSingleModel(2), tprValue, fprValue, tprOutcome, fprOutcome);
   var singleModel_interactive = new GroupModel(makeItems(2, pi, repay_prob, 0.75 * base_pop_size), tprValue, fprValue, tprOutcome, fprOutcome);
-  //var singleModel_interactive = new GroupModel(getHardcodedSingleModel(2), tprValue, fprValue, tprOutcome, fprOutcome);
   singleModel_interactive.setMaps();
 
-  // Make models to represent different distributions.
-  //var distributionExample0 = new GroupModel(makeNormalItems(0, 1, 150, 70, 7)
-  //    .concat(makeNormalItems(0, 0, 150, 30, 7)), tprValue, fprValue);
-  
-
-  // Need to classify to get colors to look right on histogram.
   singleModel.classify(0);
 
   // Create optimizer for models.
@@ -128,7 +83,6 @@ function main() {
   createHistogram('histogram0', comparisonExample0, false, true, comparisonExample1);
   createHistogram('histogram1', comparisonExample1, false, true, comparisonExample0);
 
-
   createHistogram('histogram0_nocurves', comparisonExample0_nocurves, false, true);
   createHistogram('histogram1_nocurves', comparisonExample1_nocurves, false, true);
 
@@ -141,10 +95,6 @@ function main() {
 
   createHistogramLegend('histogram-legend0_nocurves', 0);
   createHistogramLegend('histogram-legend1_nocurves', 1);
-
-
-  
-  
 
   // Create outcome and profit curves
   displayCurves('single-outcomes', singleModel_interactive, tprOutcome / singleModel_interactive.items.length, fprOutcome / singleModel_interactive.items.length)
@@ -176,20 +126,6 @@ function main() {
         comparisonExample1.profit);
     display('total-profit_nocurves', comparisonExample0_nocurves.profit +
         comparisonExample1_nocurves.profit);
-
-    // Update micro-story annotations.
-    function annotate(id) {
-      var annotations = document.getElementsByClassName(id + '-annotation');
-      for (var i = 0; i < annotations.length; i++) {
-        annotations[i].style.visibility = id == event ? 'visible' : 'hidden';
-        annotations[i].style.display = id == event ? 'block' : 'none';
-      }
-    }
-    // Annotate each of the criteria defined by our optimizer.
-    //annotate(MAX_PROFIT);
-    // annotate(GROUP_UNAWARE);
-    // annotate(DEMOGRAPHIC_PARITY);
-    // annotate(EQUAL_OPPORTUNITY);
   }
 
   // Update text whenever any of the interactive models change.
@@ -269,11 +205,6 @@ GroupModel.prototype.classify = function(threshold, newTpr = false, newFpr = fal
       numEqual += 1;
     }
   });
-  // this.items.forEach(function(item) {
-  //   if (item.score == threshold){
-
-  //   }
-  // });
   this.tpr = tpr(this.items);
   this.positiveRate = positiveRate(this.items);
 
@@ -308,25 +239,6 @@ GroupModel.prototype.notifyListeners = function(event) {
   this.listeners.forEach(function(listener) {listener(event);});
 };
 
-// Create items whose scores have a
-// "deterministic normal" distribution. That is, the items track
-// a Gaussian curve. This not the same as actually choosing scores
-// normally, but for expository purposes it's useful to have
-// deterministic, smooth distributions of values.
-function makeNormalItems(category, value, n, mean, std) {
-  var items = [];
-  var error = 0;
-  for (var score = 0; score < 100; score++) {
-    var e = error + n * Math.exp(-(score - mean) * (score - mean) / (2 * std * std)) /
-            (std * Math.sqrt(2 * Math.PI));
-    var m = Math.floor(e);
-    error = e - m;
-    for (var j = 0; j < m; j++) {
-      items.push(new Item(category, value, score));
-    }
-  }
-  return items;
-}
 
 function getNormalPis(mean, std) {
   var pi = [];
@@ -543,16 +455,11 @@ function positiveRate(items) {
   return totalGood / items.length;
 }
 
-// Given our set-up, we can't always hope for exact equality
-// of various ratios.
 // We test for two numbers to be close enough that they look
 // the same when formatted for display.
-// This is not technically optimal mathematically but definitely
-// optimal pedagogically!
 function approximatelyEqual(x, y, scale = 100) {
   return Math.round(scale * x) == Math.round(scale * y);
 }
-
 function approximatelyEqualAcc(x, y, tol = 1e-1) {
   return Math.abs(x-y) < tol; // Math.round(scale * x) == Math.round(scale * y);
 }
@@ -667,10 +574,6 @@ function setButtonColor(button_name) {
   } 
   //'max-profit'
 }
-
-// Interactive diagrams for fairness demo.
-// These are lightweight components customized
-// for this demo.
 
 // Side of grid in histograms and correctness matrices.
 var SIDE = 7;
@@ -866,8 +769,6 @@ function createHistogram(id, model, noThreshold, includeAnnotation, linked_model
     }
     if (!(typeof linked_model == "undefined") && event == 'histogram-drag') {
       translateThresh(model, linked_model, model.link_setting) 
-      //linked_model.classify(model.threshold);
-      //linked_model.notifyListeners('linked-model')// update other model with model.threshold
     }
     setThreshold(model.threshold, event == 'histogram-drag');
   });
@@ -879,18 +780,13 @@ function getTranslatedThresh(linked_model, match_list, match) {
   var translated_index = 0;
   console.log(match, match_list)
 
-  // for (var i = 0; i < threshold_list.length; i += 1) {
   for (var i = threshold_list.length-1; i >= 0; i -= 1) {
-    // if (approximatelyEqual(1, match, 1000)) {
-    //   break;
-    // }
     if (approximatelyEqual(match_list[i], match, 75)) { 
       translated_threshold = threshold_list[i]; 
       translated_index = i;
       break;
     }
   }
-  // var translated_index = threshold_list.length-1;
   return [translated_threshold, translated_index]
 }
 
@@ -907,7 +803,7 @@ function translateThresh(model, linked_model, link_type) {
   }
   [translated_threshold, idx] = getTranslatedThresh(linked_model, match_list, match)
   linked_model.classify(translated_threshold);
-  linked_model.notifyListeners('linked-model')// update other model with model.threshold
+  linked_model.notifyListeners('linked-model') // update other model with model.threshold
 }
 
 // Draw full legend for histogram, with all four possible
@@ -1036,12 +932,6 @@ function explanation(svg, lines, x, y) {
   });
 }
 
-// Create two pie charts: 1. for all classification rates
-// and 2. true positive rates.
-
-// Creates matrix view of dots representing correct and
-// incorrect items.
-
 // Creates matrix view of dots representing no loans
 function createLoanMatrix(id, model) {
   var width = 300;
@@ -1102,7 +992,6 @@ function createLoanMatrix(id, model) {
 
 
 function computeCurves(model, tprVal, fprVal, linked_model, stepSize = 1) {
-  //if (!(typeof linked_model == "undefined"))
   var values = []; var selection_rates = [];
   var values_dempar = []; var values_eqop = [];
   for (var t = 0; t <= 100; t += stepSize){
@@ -1259,11 +1148,6 @@ function displayCurves(id, model, tprVal, fprVal, linked_model) {
                             .attr('cx', x(selection_rates[50]))
                             .attr('cy', y(values[50])).
       attr('r', 6)
-
-  // var thresholdLabel = svg.append('text').text(values[50])
-  //     .attr('x', x(selection_rates[50])+12)
-  //     .attr('y', y(values[50]))
-  //     .attr('text-anchor', 'left').attr('class', 'bold-label');
       
   // Add the X Axis
   svg.append("g")
@@ -1281,13 +1165,11 @@ function displayCurves(id, model, tprVal, fprVal, linked_model) {
     t = Math.max(0, Math.min(t, 99));
     t = Math.round(t);
 
-    //thresholdLabel.attr('x', x(selection_rates[t])+12).attr('y', y(values[t])).text(Math.round(values[t]));
     selection_point.attr('cx', x(selection_rates[t])).attr('cy', y(values[t]));
     svg.selectAll('.icon').call(defineIcon);
   }
   model.addListener(function(event) {
     updateThreshold(model.threshold);
-    // if event...
   });
 }
 
