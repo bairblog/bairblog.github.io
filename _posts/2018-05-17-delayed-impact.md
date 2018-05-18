@@ -266,7 +266,7 @@ depend both on the probability of repayment (as encoded by the score), and cost
 and benefit of the loaning decision to the individual.
 
 <center>
-  <img src="/assets/delayed_impact/outcome_curve_blog.png" alt="drawing" style="width: 500px;"/>
+  <img src="http://bair.berkeley.edu/static/blog/delayed_impact/outcome_curve_blog.png" alt="drawing" style="width: 500px;"/>
   <p style="text-align:center;">
   <i>
   Figure 3
