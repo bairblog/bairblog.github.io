@@ -354,7 +354,9 @@ profit compared to max profit. But do they improve the outcome of the blue
 population over max profit? While the max profit strategy underloans to the blue
 population relative to the altruistic optimum, equal opportunity overloans
 relative to the altruistic optimum, and demographic parity overloans to the
-point of causing relative harm in the blue population.
+point of causing relative harm in the blue population.  Can you find the
+thresholds that lead to the altruistic optimum? Try it out in the interactive
+visualization!
 
 <div id="comparison-curves-table">
 </div>
