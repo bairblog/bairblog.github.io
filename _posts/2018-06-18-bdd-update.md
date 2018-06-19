@@ -46,8 +46,8 @@ including actuation channels. (The dataset from Mapillary is also notable, and
 similar to ours in being diverse, crowd-sourced, and densely annotated, but
 differs in that we include video and dynamic metadata relevant to driving
 control.) We look forward to projects at Berkeley and elsewhere that leverage
-both BDD100K and these other datasets as these as the research community brings
-the potential of autonomous driving to reality.
+both BDD100K and these other datasets as the research community brings the
+potential of autonomous driving to reality.
 
 <!--more-->
 
