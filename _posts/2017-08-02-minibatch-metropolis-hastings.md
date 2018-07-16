@@ -2,11 +2,11 @@
 layout:     post
 title:      "Minibatch Metropolis-Hastings"
 date:       2017-08-02 9:00:00
-author:     Daniel Seita
+author:     <a href="https://people.eecs.berkeley.edu/~seita/">Daniel Seita</a>
 visible:    True
 excerpt_separator: <!--more-->
 show_comments: true
-img: /assets/mh_test/mhtest_example_progression.png
+img:        /assets/mh_test/mhtest_example_progression.png
 ---
 
 Over the last few years we have experienced an enormous data deluge, which has
