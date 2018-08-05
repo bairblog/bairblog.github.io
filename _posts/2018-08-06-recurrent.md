@@ -1,7 +1,7 @@
 ---
 layout:             post
 title:              "When Recurrent Models Don't Need to be Recurrent"
-date:               2018-08-03 10:00:00
+date:               2018-08-06 08:00:00
 author:             <a href="https://people.eecs.berkeley.edu/~miller_john/">John Miller</a>
 visible:            True
 excerpt_separator:  <!--more-->
@@ -9,7 +9,7 @@ show_comments:      False
 img:                /assets/recurrent/recurrent_net.png
 ---
 
-*This post was initially published on [Off the Convex
+*An earlier version of this post was published on [Off the Convex
 Path](http://www.offconvex.org/2018/07/27/approximating-recurrent/). It is reposted here with the
 author's permission.*
 
@@ -72,7 +72,6 @@ Recurrent models are fit to data using backpropagation. However, backpropagating
 gradients from time step $T$ to time step $0$ often requires infeasibly large
 amounts of memory, so essentially every implementation of a recurrent model
 _truncates_ the model and only backpropagates gradient $k$ times steps.
-
 <figure>
     <p style="text-align:center;">
         <img src="http://bair.berkeley.edu/static/blog/recurrent/truncated_backprop.png"/>
@@ -221,9 +220,9 @@ $n=13$ words of memory is as good as an LSTM with arbitrary context.
 
 This evidence leads us to conjecture: **Recurrent models *trained in practice*
 are effectively feed-forward.** This could happen either because truncated
-backpropagation time cannot learn patterns significantly longer than $k$ steps,
-or, more provocatively, because models *trainable by gradient descent* cannot
-have long-term memory.
+backpropagation through time cannot learn patterns significantly longer than $k$
+steps, or, more provocatively, because models *trainable by gradient descent*
+cannot have long-term memory.
 
 In [our recent paper](https://arxiv.org/abs/1805.10369), we study the gap
 between recurrent and feed-forward models trained using gradient descent. We
@@ -231,10 +230,27 @@ show if the recurrent model is *stable* (meaning the gradients can not explode),
 then the model can be well-approximated by a feed-forward network for the
 purposes of both *inference and training.* In other words, we show feed-forward
 and stable recurrent models trained by gradient descent are *equivalent* in the
-sense of making identical predictions at test-time. Of course, not all models
-trained in practice are stable. We also give empirical evidence the stability
-condition can be imposed on certain recurrent models without loss in
-performance.
+sense of making identical predictions at test-time. 
+
+Stability is a natural criterion for learnability of recurrent models. Outside
+of the stable regime, gradient descent cannot be expected to work. Indeed, even
+for very simple unstable models, gradient descent fails to converge to a
+stationary point. While models trained in practice are not necessarily stable,
+the performance of unstable models is likely in spite of, not due to, their
+instability. 
+
+Using the [Wikitext-2 language modeling
+benchmark](https://einstein.ai/research/the-wikitext-long-term-dependency-language-modeling-dataset),
+we show stability can be imposed on benchmark models without a loss in
+performance. Concretely, we conducted a hyperparameter search to find the
+best-performing unstable RNN and LSTM. Then, we re-trained both models while
+enforcing the stability conditions derived in our paper. **In both cases, the
+unstable and stable models have the same test performance!**
+
+| Recurrent Model | Unstable (perplexity) | Stable  (perplexity)|
+|:--------|:-------:|:--------:|
+| Tanh-RNN  | 146.7   | 143.5   |
+| LSTM   | 92.3   | 95.1   |
 
 # Conclusion
 Despite some initial attempts, there is still much to do to understand
@@ -242,12 +258,11 @@ why feed-forward models are competitive with recurrent ones and
 shed light onto the trade-offs between sequence models. How much memory is
 really needed to perform well on common sequence benchmarks? What are the
 expressivity trade-offs between truncated RNNs (which can be considered
-feed-forward) and the convolutional models that are in popular use? Why can
-feed-forward networks perform as well as unstable RNNs in practice?
+feed-forward) and the widely-used convolutional models?
 
 Answering these questions is a step towards building a theory that can both
 explain the strengths and limitations of our current methods and give guidance
 about how to choose between different classes of models in concrete settings.
 
-[^1]: The Transformer isn't strictly a feed-forward model in the style described above (since it doesn't make the $k$ step conditional independence assumption), but it is not really a recurrent model because it doesn't maintain a hidden state.
+[^1]: The Transformer isn't strictly a feed-forward model in the style described above (since it doesn't make the $k$ step conditional independence assumption), but is not really a recurrent model because it doesn't maintain a hidden state.
 
