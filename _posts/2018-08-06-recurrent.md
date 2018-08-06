@@ -5,7 +5,7 @@ date:               2018-08-06 08:00:00
 author:             <a href="https://people.eecs.berkeley.edu/~miller_john/">John Miller</a>
 visible:            True
 excerpt_separator:  <!--more-->
-show_comments:      False
+show_comments:      True
 img:                /assets/recurrent/recurrent_net.png
 ---
 
