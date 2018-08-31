@@ -2,7 +2,7 @@
 layout:             post
 title:              "Dexterous Manipulation with Reinforcement Learning: Efficient, General, and Low-Cost"
 date:               2018-08-30 12:00:00
-author:             <a href="https://people.eecs.berkeley.edu/~abhigupta/">Abhishek Gupta</a>, <a href="https://www.linkedin.com/in/henry-zhu-711a1411a/">Henry Zhu</a>, <a href="https://homes.cs.washington.edu/~aravraj/">Aravind Rajeswaran</a>, <a href="https://vikashplus.github.io/index.html">Vikash Kumar</a>, and <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a>
+author:             <a href="https://www.linkedin.com/in/henry-zhu-711a1411a/">Henry Zhu</a>, <a href="https://people.eecs.berkeley.edu/~abhigupta/">Abhishek Gupta</a>, <a href="https://vikashplus.github.io/index.html">Vikash Kumar</a>, <a href="https://homes.cs.washington.edu/~aravraj/">Aravind Rajeswaran</a>, and <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a>
 img:                /assets/dex_manip/dex_manip_img.png
 excerpt_separator:  <!--more-->
 visible:            True
@@ -47,9 +47,8 @@ their use. High-end hands can also be extremely expensive, due to delicate
 sensing and actuation. Deep reinforcement learning offers the promise of
 automating complex control tasks even with cheap hardware, but many applications
 of deep RL use huge amounts of simulated data, making them expensive to deploy
-in terms of both cost and engineering effort. Humans can learn motor skills
-efficiently, without a simulator and without the computational power of a data
-center.
+in terms of both cost and engineering effort.  Humans can learn motor skills
+efficiently, without a simulator and millions of simulations.
 
 We will first show that deep RL can in fact be used to learn complex
 manipulation behaviors by training directly in the real world, with modest
@@ -92,15 +91,15 @@ and desired valve orientation, and the hand must figure out on its own how to
 move to rotate it. A central challenge in deep RL is in using this weak reward
 signal to find a complex and coordinated behavior strategy (a *policy*) that
 succeeds at the task. The policy is represented by a multilayer neural network.
-This typically requires a large number of trials, which has led some researchers
-to consider deep RL methods to only be suitable in simulation. However, this
-imposes major limitations on their applicability: learning directly in the real
-world makes it possible to learn any task from experience, while using
-simulators requires designing a suitable simulation, modeling the task and the
-robot, and carefully adjusting their parameters to achieve good results. We will
-show later that simulation can accelerate learning substantially, but we first
-demonstrate that existing RL algorithms can in fact learn this task directly on
-real hardware.
+This typically requires a large number of trials, so much so that the community
+is split on whether deep RL methods can be used for training outside of
+simulation.  However, this imposes major limitations on their applicability:
+learning directly in the real world makes it possible to learn any task from
+experience, while using simulators requires designing a suitable simulation,
+modeling the task and the robot, and carefully adjusting their parameters to
+achieve good results. We will show later that simulation can accelerate learning
+substantially, but we first demonstrate that existing RL algorithms can in fact
+learn this task directly on real hardware.
 
 A variety of algorithms should be suitable. We use [Truncated Natural Policy
 Gradient][1] to learn the task, which requires about 9 hours on real hardware.
@@ -209,7 +208,9 @@ often ineffective in training successful policies due to distribution drift and
 limited data support. RL is crucial for robustness and generalization and use of
 demonstrations can substantially accelerate the learning process.  We previously
 validated this algorithm in simulation on a variety of tasks, shown below, where
-each task used only 25 human demonstrations collected in virtual reality.  
+each task used only 25 human demonstrations collected in virtual reality.  DAPG
+enables a speedup of up to 30x on these tasks, while also learning natural and
+robust behaviors.
 
 <p style="text-align:center;">
     <img src="http://bair.berkeley.edu/static/blog/dex_manip/task_relocate.gif"
@@ -233,24 +234,17 @@ each task used only 25 human demonstrations collected in virtual reality.
 
 <p style="text-align:center;">
     <img src="http://bair.berkeley.edu/static/blog/dex_manip/dapg_robustness.gif"
-         height="350"
+         height="230"
          alt="..."/>
     <img src="http://bair.berkeley.edu/static/blog/dex_manip/pure_rl_robustness.gif"
-         height="350"
+         height="230"
          alt="..."/>
-    <br/>
-    <i>
-    Behaviors robust to size and shape variations.
-    </i>
-</p>
-
-<p style="text-align:center;">
     <img src="http://bair.berkeley.edu/static/blog/dex_manip/natural_motion_dapg.gif"
-         height="350"
+         height="230"
          alt="..."/>
     <br/>
     <i>
-    Natural and smooth behavior.
+    Behaviors robust to size and shape variations; natural and smooth behavior.
     </i>
 </p>
 
@@ -258,7 +252,7 @@ In the real world, we can use this algorithm with the dynamixel claw to
 significantly accelerate learning. The demonstrations are collected with
 kinesthetic teaching, where a human teacher moves the fingers of the robots
 directly in the real world. This brings down the training time on both tasks to
-under 3 hours.
+under 4 hours.
 
 <p style="text-align:center;">
     <img src="http://bair.berkeley.edu/static/blog/dex_manip/dapg_valve.gif"
@@ -298,7 +292,8 @@ data to be representative of the complexities of the real world, randomization
 of various simulation parameters is often necessitated. This kind of
 randomization has previously been observed to produce [robust][6] policies, and
 can facilitate transfer in the face of both [visual][7] and [physical][8]
-[discrepancies][9].
+[discrepancies][9].  Our experiments also suggest that simulation to reality
+transfer with randomization can be effective.
 
 <p style="text-align:center;">
     <img src="http://bair.berkeley.edu/static/blog/dex_manip/sim2real.gif"
@@ -327,9 +322,9 @@ training in 50 hours on thousands of CPU cores). Directly training in the real
 world may be more efficient and lead to better policies. Finally, and perhaps
 most importantly, an accurate simulator must be constructed manually, with each
 new task modeled by hand in the simulation, which requires substantial time and
-expertise. However, leveraging simulations appropriately can tremendously
-accelerate the learning, and more systematic transfer methods are an important
-direction for future work.
+expertise. However, leveraging simulations appropriately can accelerate the
+learning, and more systematic transfer methods are an important direction for
+future work.
 
 ## Accelerating Learning with Learned Models
 
@@ -365,7 +360,8 @@ learning is a promising research direction.
 
 ## Takeaways and Challenges
 
-While training in the real world is general and broadly applicable, it has several challenges of its own.
+While training in the real world is general and broadly applicable, it has
+several challenges of its own.
 
 1. Due to the requirement to take a large number of exploratory actions, we
 observed that the hands often heat up quickly, which requires pauses to avoid
