@@ -6,7 +6,7 @@ author:             <a href="https://www.linkedin.com/in/henry-zhu-711a1411a/">H
 img:                /assets/dex_manip/dex_manip_img.png
 excerpt_separator:  <!--more-->
 visible:            True
-show_comments:      False
+show_comments:      True
 ---
 
 <p style="text-align:center;">
