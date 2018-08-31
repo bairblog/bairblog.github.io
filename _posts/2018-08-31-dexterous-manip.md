@@ -1,7 +1,7 @@
 ---
 layout:             post
 title:              "Dexterous Manipulation with Reinforcement Learning: Efficient, General, and Low-Cost"
-date:               2018-08-30 12:00:00
+date:               2018-08-31 12:00:00
 author:             <a href="https://www.linkedin.com/in/henry-zhu-711a1411a/">Henry Zhu</a>, <a href="https://people.eecs.berkeley.edu/~abhigupta/">Abhishek Gupta</a>, <a href="https://vikashplus.github.io/index.html">Vikash Kumar</a>, <a href="https://homes.cs.washington.edu/~aravraj/">Aravind Rajeswaran</a>, and <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a>
 img:                /assets/dex_manip/dex_manip_img.png
 excerpt_separator:  <!--more-->
@@ -291,7 +291,7 @@ amounts of simulated data to accelerate the learning process. For the simulated
 data to be representative of the complexities of the real world, randomization
 of various simulation parameters is often necessitated. This kind of
 randomization has previously been observed to produce [robust][6] policies, and
-can facilitate transfer in the face of both [visual][7] and [physical][8]
+can facilitate transfer in the face of both [visual][21] and [physical][8]
 [discrepancies][9].  Our experiments also suggest that simulation to reality
 transfer with randomization can be effective.
 
@@ -307,7 +307,7 @@ transfer with randomization can be effective.
 
 
 Transfer from simulation has also been explored in [concurrent work][10] for
-dexterous manipulation, and in a number of prior works for tasks such as
+dexterous manipulation to learn impressive behaviors, and in a number of prior works for tasks such as
 [picking and placing][11], [visual servoing][12], and [locomotion][13]. While
 simulation to real transfer enabled by randomization is an appealing option,
 especially for fragile robots, it has a number of limitations. First, the
@@ -416,3 +416,4 @@ Todorov, John Schulman, Giulia Vezzani, Pieter Abbeel, Clemens Eppner.*
 [18]:https://homes.cs.washington.edu/~todorov/papers/KumarICRA16.pdf
 [19]:https://arxiv.org/abs/1603.06348
 [20]:https://arxiv.org/abs/1709.10087
+[21]:https://arxiv.org/abs/1611.04201
