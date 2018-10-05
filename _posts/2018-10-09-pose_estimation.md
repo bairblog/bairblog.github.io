@@ -9,7 +9,6 @@ visible:            True
 show_comments:      False
 ---
 
-
 <p style="text-align:center;">
     <img src="http://bair.berkeley.edu/static/blog/pose_estimation/teaser.gif"
          alt="..."/>
@@ -47,6 +46,8 @@ without requiring any manual pose annotations.
 
 {% include youtubePlayer.html id="vppFvq2quQ0" %}
 <br>
+
+<!--more-->
 
 The problem of learning full-body motion skills from videos have received some
 attention in computer graphics. Previous <a
