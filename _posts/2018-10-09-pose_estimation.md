@@ -49,7 +49,7 @@ without requiring any manual pose annotations.
 
 <!--more-->
 
-The problem of learning full-body motion skills from videos have received some
+The problem of learning full-body motion skills from videos has received some
 attention in computer graphics. Previous <a
 href="http://graphics.cs.cmu.edu/projects/controllerCapture/">techniques</a>
 often rely on manually-crafted control structures that impose strong
@@ -189,7 +189,7 @@ skills, where each skill is learned from a single video demonstration.
          alt="..."/>
     <br/>
 <i>
-Simulated humanoid learns to perform a diverse array of skills by imitating video clips.
+Simulated humanoids learn to perform a diverse array of skills by imitating video clips.
 </i>
 </p>
 
