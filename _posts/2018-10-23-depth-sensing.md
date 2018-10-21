@@ -1,7 +1,7 @@
 ---
 layout:             post
 title:              "Drilling Down on Depth Sensing and Deep Learning"
-date:               2018-10-24 9:00:00
+date:               2018-10-23 9:00:00
 author:             <a href="https://people.eecs.berkeley.edu/~seita/">Daniel Seita</a>,
                     <a href="https://jeff-mahler.com/">Jeff Mahler</a>, 
                     Mike Danielczuk, 
