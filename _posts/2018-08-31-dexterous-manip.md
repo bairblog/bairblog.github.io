@@ -2,7 +2,7 @@
 layout:             post
 title:              "Dexterous Manipulation with Reinforcement Learning: Efficient, General, and Low-Cost"
 date:               2018-08-31 12:00:00
-author:             <a href="https://www.linkedin.com/in/henry-zhu-711a1411a/">Henry Zhu</a>, <a href="https://people.eecs.berkeley.edu/~abhigupta/">Abhishek Gupta</a>, <a href="https://vikashplus.github.io/index.html">Vikash Kumar</a>, <a href="https://homes.cs.washington.edu/~aravraj/">Aravind Rajeswaran</a>, and <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a>
+author:             <a href="https://www.linkedin.com/in/henry-zhu-711a1411a/">Henry Zhu</a>, <a href="https://people.eecs.berkeley.edu/~abhigupta/">Abhishek Gupta</a>, <a href="https://vikashplus.github.io/index.html">Vikash Kumar</a>, <a href="https://homes.cs.washington.edu/~aravraj/">Aravind Rajeswaran</a>, and <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a><br>
 img:                /assets/dex_manip/dex_manip_img.png
 excerpt_separator:  <!--more-->
 visible:            True
