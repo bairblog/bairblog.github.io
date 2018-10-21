@@ -126,7 +126,8 @@ cheaper (without sacrificing too much accuracy) than prior solutions. Nowadays,
 many robots available today for research and industrial purposes, such as the
 [Fetch Robot][15] and the [Toyota Human Support Robot][16], come equipped with
 similar built-in depth sensing cameras. Future advancements in depth sensing for
-robots may come from new technologies introduced by companies such as
+robots may come from improvements in existing cameras such as [Intel's
+RealSense][40], or from newer technologies introduced by companies such as
 [PhotoNeo][14].
 
 ## Prior Research Using Depth Images
@@ -503,3 +504,4 @@ Additional papers and projects can be found at [the AUTOLab website][11].
 [37]:https://berkeleyautomation.github.io/dex-net/#dexnet_2
 [38]:https://berkeleyautomation.github.io/dex-net/#dexnet_21
 [39]:https://new.abb.com/products/robotics/industrial-robots/yumi
+[40]:https://www.intel.com/content/www/us/en/architecture-and-technology/realsense-overview.html
