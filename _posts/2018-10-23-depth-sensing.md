@@ -18,7 +18,17 @@ show_comments:      False
          width="500"
          alt="..."/>
     <br/>
+    <!--
     <img src="http://bair.berkeley.edu/static/blog/depth_sensing/ms_mike.png"
+         width="700"
+         alt="..."/>
+    <br/>
+    -->
+    <img src="http://bair.berkeley.edu/static/blog/depth_sensing/Dex-Net-Depth-v2.jpg"
+         width="700"
+         alt="..."/>
+    <br/>
+    <img src="http://bair.berkeley.edu/static/blog/depth_sensing/dex-net-rgb-v2.png"
          width="700"
          alt="..."/>
     <br/>
@@ -38,7 +48,7 @@ two rows: similar examples for bed-making.
 This post explores two independent innovations and the potential for combining
 them in robotics. Two years before the [AlexNet results][1] on [ImageNet][2]
 were released in 2012, Microsoft rolled out the Kinect for the X-Box. This class
-of low-cost time-of-flight depth sensors emerged just as Deep Learning boosted
+of low-cost depth sensors emerged just as Deep Learning boosted
 Artificial Intelligence by accelerating performance of hyper-parametric function
 approximators leading to surprising advances in [image classification][1],
 [speech recognition][3], and [language translation][4]. Today, Deep Learning is
@@ -412,20 +422,19 @@ grasping policies, but these did not perform well since the original RGB trained
 policy was only on white blankets, and we would need far more blankets and
 training data to generalize across blanket colors.
 
-# Shallow  Thoughts
 
-Depth images are lower dimensional than RGB (one vs three 8-bit channels) and
-CNNs appear to learn filters for edges and spatial patterns.  For some robot
-tasks that rely on geometry more than color or texture, Depth Sensing may be
-superior to RGB. Advantages include that it is far easier to synthesize training
-examples with depth images, that color-invariance naturally occurs, and that
-background noise can be filtered (as we demonstrate in robot bed-making).
+# Depth Matters
 
 Our results in these projects suggest that depth maps contain sufficient clues
 for the tasks of determining grasp points, segmenting images, and detecting
 corners of deformable objects. We conjecture that, as the quality of depth
 cameras improves in tandem with reduction in costs, depth images will be an
-increasingly  important modality  for robotics.
+increasingly important modality for robotics.   It is far easier to synthesize
+training examples with depth images, color-invariance results naturally, and
+background noise can be easily filtered (as we demonstrate in robot bed-making).
+Depth images are lower dimensional than RGB (one vs three 8-bit channels) and
+CNNs appear to learn filters for edges and spatial patterns in both. 
+
 
 ### Paper References
 
