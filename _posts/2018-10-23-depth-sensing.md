@@ -4,7 +4,7 @@ title:              "Drilling Down on Depth Sensing and Deep Learning"
 date:               2018-10-23 9:00:00
 author:             <a href="https://people.eecs.berkeley.edu/~seita/">Daniel Seita</a>,
                     <a href="https://jeff-mahler.com/">Jeff Mahler</a>, 
-                    Mike Danielczuk, 
+                    <a href="https://mjd3.github.io/">Mike Danielczuk</a>,
                     <a href="https://mmatl.github.io/">Matthew Matl</a>, and 
                     <a href="http://goldberg.berkeley.edu/">Ken Goldberg</a><br>
 img:                /assets/depth_sensing/two_cubes_side_by_side_v01.png
