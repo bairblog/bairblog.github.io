@@ -128,7 +128,7 @@ many robots available today for research and industrial purposes, such as the
 similar built-in depth sensing cameras. Future advancements in depth sensing for
 robots may come from improvements in existing cameras such as [Intel's
 RealSense][40], or from newer technologies introduced by companies such as
-[PhotoNeo][14].
+[Photoneo][14].
 
 ## Prior Research Using Depth Images
 
