@@ -10,7 +10,7 @@ author:             <a href="https://people.eecs.berkeley.edu/~seita/">Daniel Se
 img:                /assets/depth_sensing/two_cubes_side_by_side_v01.png
 excerpt_separator:  <!--more-->
 visible:            True
-show_comments:      False
+show_comments:      True
 ---
 
 <p style="text-align:center;">
