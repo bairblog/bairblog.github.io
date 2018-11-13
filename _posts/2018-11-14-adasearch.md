@@ -1,7 +1,7 @@
 ---
 layout:             post
 title:              "AdaSearch: A Successive Elimination Approach to Adaptive Search"
-date:               2018-11-08 9:00:00
+date:               2018-11-14 9:00:00
 author:             <a href="https://people.eecs.berkeley.edu/~erolf/">Esther Rolf</a>$^*$,
                     <a href="https://people.eecs.berkeley.edu/~dfk/">David Fridovich-Keil</a>$^*$, and
                     <a href="http://people.eecs.berkeley.edu/~msimchow/index.html">Max Simchowitz</a><br>
@@ -90,7 +90,7 @@ for product B is greater than the UCB for product A, then we can conclude that
 with high probability, B is prefered to A, on average._
 
 <p style="text-align:center;">
-    <img src="http://bair.berkeley.edu/static/blog/adasearch/abtesting.gif"
+    <img src="http://bair.berkeley.edu/static/blog/adasearch/abtesting_cropped.gif"
          width="600"
          alt="..."/>
     <br/>
