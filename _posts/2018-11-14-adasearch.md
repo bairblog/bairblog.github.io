@@ -8,7 +8,7 @@ author:             <a href="https://people.eecs.berkeley.edu/~erolf/">Esther Ro
 img:                /assets/adasearch/adasearch.png
 excerpt_separator:  <!--more-->
 visible:            True
-show_comments:      False
+show_comments:      True
 ---
 
 {% include youtubePlayer.html id="a4SPB3VugFI" %}
