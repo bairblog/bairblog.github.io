@@ -14,7 +14,8 @@ show_comments:      False
 <p style="text-align:center;">
     <img src="http://bair.berkeley.edu/static/blog/physics/figure1_left.JPG" height="270" style="margin: 10px;">
     <img src="http://bair.berkeley.edu/static/blog/physics/figure1_middle.JPG" height="270" style="margin: 10px;">
-    <img src="http://bair.berkeley.edu/static/blog/physics/figure1_right.gif" height="180" style="margin: 10px;">
+    <!-- <img src="http://bair.berkeley.edu/static/blog/physics/figure1_right.gif" height="180" style="margin: 10px;"> -->
+    <img src="http://bair.berkeley.edu/static/blog/physics/figure1_right.gif" height="270" style="margin: 10px;">
     <br/>
 <i>
 <b>Figure 1</b>: (left) LED Array Microscope constructed using a standard
