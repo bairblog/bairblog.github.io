@@ -27,12 +27,12 @@ mounted on the microscope. (right) LED array displaying patterns at 100Hz.
 Computational imaging systems marry the design of hardware and image
 reconstruction. For example, in optical microscopy, [tomographic][5],
 [super-resolution][3], and [phase imaging][4] systems can be constructed from
-simple hardware modifications to a commercial hardware (Fig. 1) and
-computational reconstruction. For live cell imaging applications, where a high
-temporal resolution is required, we are limited in the number of measurements we
-can acquire. Naturally, we want to know what are the best measurements to
-acquire. In this post, we highlight our latest work that pushes away from
-classic optimal design and towards learned design for a
+simple hardware modifications to a commercial microscope (Fig. 1) and
+computational reconstruction. Traditionally, we require a large number of
+measurements to recover the above quantities; however, for live cell imaging 
+applications, we are limited in the number of measurements we can acquire due 
+to motion. Naturally, we want to know what are the best measurements to acquire. 
+In this post, we highlight our latest work that learns the experiment design for a
 non-linear computational imaging system.
 
 <!--more-->
@@ -43,7 +43,7 @@ Standard microscopes usually image the absorption contrast of the sample;
 however, most biological cells are weakly absorbing. Stains or dyes can be used
 to observe contrast, but this may be prohibitively invasive for live cell
 biology. With a computational imaging system it is possible to image other
-intrinsic optical properties of the sample such as phase (ie. refractive index)
+intrinsic optical properties of the sample such as phase (i.e. refractive index)
 to provide that strong mechanism for contrast (Fig. 2) and quantitative
 information about the sample.
 
@@ -90,34 +90,31 @@ solved for image reconstruction.
 Designing the LED array patterns for a set of measurements is complicated. Many
 computational imaging systems, including this one, are non-linear in how the
 hardware encodes information, how the computation reconstructs information, or
-both. Traditional design methods, (e.g. [optimal design][10], 
-[spectral analysis][4]) almost all consider design for linear models and linear reconstructions, thus
-will not necessarily improve performance for systems when the processes are non-linear. 
+both. Conventional design methods, (e.g. [optimal design][10], 
+[spectral analysis][4]) almost all consider design for linear system models and linear 
+reconstructions, thus will not necessarily improve performance for systems when the 
+processes are non-linear. 
 
 In this post, we consider a new computational imaging framework, [Physics-based Learned Design][7] [1], 
-that optimizes the hardware system design for the overall
-performance of the system given a system model, a computational reconstruction,
-and a dataset. Here, we consider using the LED array microscope as the hardware system
-and regularized inverse problems as the computational reconstruction for our
-computational imaging system. In this setting, the hardware and software of this
-system are both non-linear and thus are difficult to design using traditional
-criteria. In this work, we learn a measurement design to
-reconstruct Quantitative Phase Imaging using fewer measurements than traditional
-methods and using very few training examples.
+that learns the experimental design to maximize the overall
+performance of the microscope given a system model, a computational reconstruction,
+and a dataset. Here, we consider using the LED array microscope as our hardware system and regularized phase retrieval as our computational reconstruction (Fig. 3). Both of these systems are non-linear and thus are difficult to design using conventional methods.
+To demonstrate our method, we learn a measurement design for Quantitative Phase Imaging using a small simulated dataset and show
+similar reconstruction quality to a more sophisticated method using only a fraction of the measurements in experiment.
 
-## Traditional Design and Phase Retrieval
+## Optimal Experiment Design and Phase Retrieval
 
-Traditional optimal design methods consider minimizing the variance (mean
+Optimal experiment design methods consider minimizing the variance (mean
 square error) of an unbiased estimator or equivalently maximizing its
 information (the reciprocal of the variance). Usually, methods optimize 
 real-valued summary statistic (e.g. trace, determinant) of the variance, especially when estimating several parameters. However, such design methods are only optimal for linear unbiased estimators (e.g.
 least squares) and will not necessarily be optimal for non-linear biased
 estimators. In our setting, we want to estimate the phase image by solving a regularized
-phase retrieval problem (both non-linear and biased).
+phase retrieval problem (both a non-linear and biased estimator).
 
 We want to retrieve the sample’s optical properties, $\mathbf{x}$, from the
-non-linear measurements, $\mathbf{y}_k$, by minimizing several data consistency
-terms and a prior term, $\mathcal{P}$, (e.g. sparsity, total-variation).
+non-linear measurements, $\mathbf{y}_k$, by minimizing a data consistency
+term, $\mathcal{D}$, and a prior term, $\mathcal{P}$, (e.g. sparsity, total-variation).
 
 <p style="text-align:center;">
     <img src="http://bair.berkeley.edu/static/blog/physics/equation1.png"
@@ -126,8 +123,7 @@ terms and a prior term, $\mathcal{P}$, (e.g. sparsity, total-variation).
     <br/>
 </p>
 
-This type of cost function can be efficiently minimized via gradient-based
-iterative optimization (eg. accelerated proximal gradient descent or
+This type of cost function can be iteratively minimized via gradient-based optimization (e.g. accelerated proximal gradient descent or
 alternating direction method of multipliers). Here we choose accelerated
 proximal gradient descent.
 
@@ -140,7 +136,7 @@ proximal gradient descent.
 <b>Algorithm 1</b>: Accelerated Proximal Gradient Descent, $\mathbf{x}$ is the
 current estimate, $\mu$ is the acceleration term, $\mathbf{w},\mathbf{z}$ are
 intermediate variables, and $N$ is the number of iterations. Each iteration
-consists of a gradient update (green), proximal update (purple), and an
+consists of a gradient update (green), proximal update (pink), and an
 acceleration update (orange).
 </i>
 </p>
@@ -148,15 +144,14 @@ acceleration update (orange).
 
 ## Physics-based Network
 
-Our goal is to learn the design (ie. how to best encode information) for the
-non-linear system outlined in figure 3. However, as we discussed traditional
-design methods will not work, so let us rethink the problem. Consider unrolling
+Our goal is to learn the experimental design (i.e. how to best encode information) for the
+non-linear computational imaging system outlined in figure 3. However, as we discussed conventional
+design methods will not work, so let us rethink the problem. Consider *unrolling*
 the iterations of the optimizer in Alg. 1 into a network where each layer of the network
 is an iteration of the optimizer. Within each layer we have operations which
 perform a gradient update, a proximal update, and an acceleration update. Now, 
 we have a network, which includes specific operations that
-incorporate the non-linear image formation process as well as the sparsity-based
-non-linearities in the reconstruction.
+incorporate the non-linear image formation process and the prior information from the reconstruction.
 
 <p style="text-align:center;">
     <img src="http://bair.berkeley.edu/static/blog/physics/figure4.png"
@@ -165,10 +160,10 @@ non-linearities in the reconstruction.
 <i>
 <b>Figure 4</b>: Unrolled Physics-based Network: (left) takes several camera
 measurements parameterized by the hardware design, $C$, as input and (right)
-outputs the reconstructed phase image, $\mathbf{x}^*$, which is compared to the
+outputs the reconstructed phase image, $\mathbf{x}^{(N)}$, which is compared to the
 ground through, $\mathbf{x}'$. Each layer of the network corresponds to an
 iteration of the gradient-based image reconstruction. Within each layer, there is a
-gradient update (green), a proximal update (purple), and an acceleration update (orange).
+gradient update (green), a proximal update (pink), and an acceleration update (orange).
 </i>
 </p>
 
@@ -183,7 +178,7 @@ has rapidly grown in popularity.
 
 For our context, we want to learn how to turn on the LEDs during each
 measurement. Specifically, we learn the brightness of each LED, such that the
-image reconstruction error is minimized. Now, the design problem can be posed
+image reconstruction error is minimized. Now, the experimental design can be posed
 as a supervised learning problem,
 
 <p style="text-align:center;">
@@ -194,11 +189,12 @@ as a supervised learning problem,
 </p>
 
 Where, our loss function is the $L_2$ distance between the reconstructed image,
-$\mathbf{x}^*$, with the ground truth, $\mathbf{x}'$, for a dataset of images
+$\mathbf{x}^{(N)}$, with the ground truth, $\mathbf{x}'$, for a dataset of images
 over positive LED brightnesses, $C \in \mathbb{R}^{M,N}$ for $N$ LED
 brightnesses for $M$ measurements.  Because we incorporate the system physics
-model and sparsifying nonlinearities, we only have to learn a few parameters. This enables us to efficiently learn the design using a relatively
-small dataset ($100$ examples)! We consider minimizing the loss function using standard
+model and prior information, we only have to learn a few parameters. This enables us to efficiently 
+learn the design using a small dataset ($100$ examples)! We minimize
+the loss function using standard
 gradient-based methods with a non-negativity constraint and backpropagation to
 compute the gradient with respect to the design parameters.
 
@@ -206,8 +202,8 @@ compute the gradient with respect to the design parameters.
 
 Our experimental context is cell imaging, so we use 100 cell images (100px by
 100px) as our dataset (90 training examples / 10 testing examples). We learn the
-design parameters for acquiring only two measurements. In figure 5, we compare
-the phase image reconstructions using our learned design and the [traditional design][4]
+experimental design parameters for acquiring only two measurements. In figure 5, we compare
+the phase image reconstructions using our learned design [1] and the [traditional design][4]
 against phase image reconstructed using a [validation method][3]. Using only a fraction of the measurements,
 our learned designs can reconstruct a phase image with a similar quality to that of the
 validation method, while the traditional design's phase image is degraded in quality.
@@ -228,7 +224,7 @@ cell.
 
 ## Conclusion
 
-Optimal design methods are useful when the system is linear, however, their
+Optimal experimental design methods are useful when the system is linear; however, their
 design will not necessarily improve the performance when the system is non-linear. We
 have shown we can learn the design for a non-linear computational imaging system using supervised learning 
 by unrolling the image reconstruction to make a network. Looking forward, we will consider
