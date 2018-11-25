@@ -32,7 +32,7 @@ computational reconstruction. Traditionally, we require a large number of
 measurements to recover the above quantities; however, for live cell imaging 
 applications, we are limited in the number of measurements we can acquire due 
 to motion. Naturally, we want to know what are the best measurements to acquire. 
-In this post, we highlight our latest work that learns the experiment design for a
+In this post, we highlight our latest work that learns the experimental design to maximize the performance of a
 non-linear computational imaging system.
 
 <!--more-->
@@ -44,7 +44,7 @@ however, most biological cells are weakly absorbing. Stains or dyes can be used
 to observe contrast, but this may be prohibitively invasive for live cell
 biology. With a computational imaging system it is possible to image other
 intrinsic optical properties of the sample such as phase (i.e. refractive index)
-to provide that strong mechanism for contrast (Fig. 2) and quantitative
+to provide us with a strong mechanism for contrast (Fig. 2) and quantitative
 information about the sample.
 
 <p style="text-align:center;">
@@ -53,7 +53,7 @@ information about the sample.
          alt="..."/>
     <br/>
 <i>
-<b>Figure 2</b>: Mouse Fibroblast Cells: (left) absorption contrast image shows poor
+<b>Figure 2</b>: Mouse Fibroblast Cells: (left) absorption contrast image has poor
 contrast, (right) quantitative phase image has strong structural contrast.
 </i>
 </p>
@@ -61,7 +61,7 @@ contrast, (right) quantitative phase image has strong structural contrast.
 Using a standard microscope, the illumination source can be replaced with a
 programmable LED array to construct an LED array microscope (Fig 1.). Images
 taken under different LED’s illumination will encode information about the
-sample’s phase information (specifically, different parts of the sample’s
+sample’s phase (specifically, different parts of the sample’s
 spatial spectrum) into the intensity measurements. A large set of measurements (10s to
 100s) can then be combined by solving an inverse problem to quantitatively
 reconstruct the phase of the sample, possibly with higher resolution than the
@@ -82,7 +82,7 @@ What is the most efficient way to encode information?
     <br/>
 <i>
 <b>Figure 3</b>: LED Array Microscope System: (top) Measurement formation
-processing using LED array microscope. (bottom) Regularized inverse problem
+process using a LED array microscope. (bottom) Regularized inverse problem
 solved for image reconstruction.
 </i>
 </p>
@@ -99,20 +99,22 @@ In this post, we consider a new computational imaging framework, [Physics-based 
 that learns the experimental design to maximize the overall
 performance of the microscope given a system model, a computational reconstruction,
 and a dataset. Here, we consider using the LED array microscope as our hardware system and regularized phase retrieval as our computational reconstruction (Fig. 3). Both of these systems are non-linear and thus are difficult to design using conventional methods.
-To demonstrate our method, we learn a measurement design for Quantitative Phase Imaging using a small simulated dataset and show
-similar reconstruction quality to a more sophisticated method using only a fraction of the measurements in experiment.
+To demonstrate our method, we learn an experimental design for Quantitative 
+Phase Imaging using a small simulated dataset and in experiment show
+similar reconstruction quality to a more sophisticated method using only a fraction of the measurements.
 
 ## Optimal Experiment Design and Phase Retrieval
 
 Optimal experiment design methods consider minimizing the variance (mean
 square error) of an unbiased estimator or equivalently maximizing its
 information (the reciprocal of the variance). Usually, methods optimize 
-real-valued summary statistic (e.g. trace, determinant) of the variance, especially when estimating several parameters. However, such design methods are only optimal for linear unbiased estimators (e.g.
+real-valued summary statistic (e.g. trace, determinant) of the variance, 
+especially when estimating several parameters. However, such design methods are only optimal for linear unbiased estimators (e.g.
 least squares) and will not necessarily be optimal for non-linear biased
 estimators. In our setting, we want to estimate the phase image by solving a regularized
 phase retrieval problem (both a non-linear and biased estimator).
 
-We want to retrieve the sample’s optical properties, $\mathbf{x}$, from the
+We want to retrieve the sample’s optical properties, $\mathbf{x}$, from several
 non-linear measurements, $\mathbf{y}_k$, by minimizing a data consistency
 term, $\mathcal{D}$, and a prior term, $\mathcal{P}$, (e.g. sparsity, total-variation).
 
@@ -150,8 +152,8 @@ design methods will not work, so let us rethink the problem. Consider *unrolling
 the iterations of the optimizer in Alg. 1 into a network where each layer of the network
 is an iteration of the optimizer. Within each layer we have operations which
 perform a gradient update, a proximal update, and an acceleration update. Now, 
-we have a network, which includes specific operations that
-incorporate the non-linear image formation process and the prior information from the reconstruction.
+we have a network that incorporates the non-linear image formation process 
+and the prior information from the reconstruction.
 
 <p style="text-align:center;">
     <img src="http://bair.berkeley.edu/static/blog/physics/figure4.png"
@@ -161,7 +163,7 @@ incorporate the non-linear image formation process and the prior information fro
 <b>Figure 4</b>: Unrolled Physics-based Network: (left) takes several camera
 measurements parameterized by the hardware design, $C$, as input and (right)
 outputs the reconstructed phase image, $\mathbf{x}^{(N)}$, which is compared to the
-ground through, $\mathbf{x}'$. Each layer of the network corresponds to an
+ground truth, $\mathbf{x}'$. Each layer of the network corresponds to an
 iteration of the gradient-based image reconstruction. Within each layer, there is a
 gradient update (green), a proximal update (pink), and an acceleration update (orange).
 </i>
@@ -170,9 +172,9 @@ gradient update (green), a proximal update (pink), and an acceleration update (o
 We are not the first to consider unrolled physics-based networks. A work in
 another imaging field considers unrolling the iterations of their image
 reconstruction to form a network and then learns quantities in the
-reconstruction which replace the proximal update [2]. The past year, the
+reconstruction that replace the proximal update [2]. In the past year, the
 mechanics of unrolling the iterations of an image reconstruction pipeline 
-has rapidly grown in popularity.
+have rapidly grown in popularity.
 
 ## Physics-based Learned Design
 
@@ -188,15 +190,14 @@ as a supervised learning problem,
     <br/>
 </p>
 
-Where, our loss function is the $L_2$ distance between the reconstructed image,
-$\mathbf{x}^{(N)}$, with the ground truth, $\mathbf{x}'$, for a dataset of images
-over positive LED brightnesses, $C \in \mathbb{R}^{M,N}$ for $N$ LED
-brightnesses for $M$ measurements.  Because we incorporate the system physics
-model and prior information, we only have to learn a few parameters. This enables us to efficiently 
-learn the design using a small dataset ($100$ examples)! We minimize
-the loss function using standard
-gradient-based methods with a non-negativity constraint and backpropagation to
-compute the gradient with respect to the design parameters.
+where, our loss function is the $L_2$ distance between the reconstructed phase image,
+$\mathbf{x}^{(N)}$, and the ground truth, $\mathbf{x}'$, over a small simulated dataset.
+The LED brightnesses, $C \in \mathbb{R}^{M \times T}$ for $M$ measurements and $T$ LEDs, are
+constrained to be positive so that our learned designs can 
+be feasibly implemented in hardware. Finally, because the network is only parameterized by 
+a few variables, we can efficiently 
+learn them using a small dataset ($100$ examples)! We minimize
+the loss function using projected gradient descent.
 
 ## Experiments
 
@@ -204,7 +205,7 @@ Our experimental context is cell imaging, so we use 100 cell images (100px by
 100px) as our dataset (90 training examples / 10 testing examples). We learn the
 experimental design parameters for acquiring only two measurements. In figure 5, we compare
 the phase image reconstructions using our learned design [1] and the [traditional design][4]
-against phase image reconstructed using a [validation method][3]. Using only a fraction of the measurements,
+against the phase image reconstructed using a [validation method][3]. Using only a fraction of the measurements,
 our learned designs can reconstruct a phase image with a similar quality to that of the
 validation method, while the traditional design's phase image is degraded in quality.
 
@@ -215,7 +216,7 @@ validation method, while the traditional design's phase image is degraded in qua
 <i>
 <b>Figure 5</b>: Result Comparison: Quantitative Phase Images of Mouse
 Fibroblast Cells reconstructed using (left) traditional design, (middle) our
-Physics-based Learned Design, (right) validation using many measurements. Below,
+learned design, and (right) a validation method using many more measurements. Below is
 a cross section comparison of the three reconstructions through the nucleus of a
 cell.
 </i>
@@ -226,8 +227,8 @@ cell.
 
 Optimal experimental design methods are useful when the system is linear; however, their
 design will not necessarily improve the performance when the system is non-linear. We
-have shown we can learn the design for a non-linear computational imaging system using supervised learning 
-by unrolling the image reconstruction to make a network. Looking forward, we will consider
+have shown we can optimize the experimental design for a non-linear computational imaging system 
+using supervised learning and an unrolling physics-based network. Looking forward, we will consider
 analyzing larger more complex systems with different measurement constraints, as
 well as, structured ways to learn parts of the image reconstruction.
 
