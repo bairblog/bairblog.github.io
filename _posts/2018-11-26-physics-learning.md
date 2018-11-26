@@ -8,7 +8,7 @@ author:             <a href="http://people.eecs.berkeley.edu/~kellman/">Michael 
 img:                /assets/physics/figure4.png
 excerpt_separator:  <!--more-->
 visible:            True
-show_comments:      False
+show_comments:      True
 ---
 
 <p style="text-align:center;">
