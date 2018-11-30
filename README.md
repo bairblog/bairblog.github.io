@@ -189,6 +189,10 @@ should have gotten confirmation from the student authors that the preview on
 
   See the [corresponding subsection on setting permissions](#setting-permissions).
 
+- For the next post, switch back to the master branch and merge production
+  there. You will need to update `_config.yml` again. Unfortunately I don't know
+  of a better way around it.
+
 **TODO add instructions on how to manage potential merging issues?**
 
 
