@@ -146,7 +146,10 @@ should have gotten confirmation from the student authors that the preview on
   and for giving previews to authors.  The production branch is used for copying
   the files over to the place where the blog lives.
 
-- The production branch has specific `baseurls` and `urls` that shouldn't
+- When you're ready to deploy, do `git checkout production` and then `git merge
+  master` to get the production branch updated. However ...
+
+- ... that production branch has specific `baseurls` and `urls` that shouldn't
   change. This will be different from the master branch, so watch out!  The
   master branch uses:
 
@@ -161,6 +164,8 @@ should have gotten confirmation from the student authors that the preview on
   baseurl:     "/blog"
   url:         "http://bair.berkeley.edu"
   ```
+
+  Don't forget to also deal with comments! See next bullet point.
 
 - Set comments to be False (by setting `show_comments: False`) on the master
   branch, and during any development. Set it to be True only when we first
