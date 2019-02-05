@@ -242,8 +242,8 @@ of today? Modern testing calls for an intermediate notion of dependence, called
 sequence are independent, while any two close enough are likely to depend on
 each other.
 
-In a recent manuscript [1], we developed FDR methods that confront both of these
-difficulties of large-scale testing. Our methods control FDR in sequential
+In a recent manuscript \[1\], we developed FDR methods that confront both of
+these difficulties of large-scale testing. Our methods control FDR in sequential
 settings that are arbitrarily asynchronous, and/or yield p-values that are
 locally dependent. Interestingly, from the point of view of our analysis, both
 local dependence and asynchrony are solved via the same technical instrument,
@@ -282,7 +282,7 @@ false discoveries, and with minimal explicit coordination between tests.
 
 ## References
 
-[1] Zrnic, T., Ramdas, A., & Jordan, M. I. (2018). [Asynchronous Online Testing
+\[1\] Zrnic, T., Ramdas, A., & Jordan, M. I. (2018). [Asynchronous Online Testing
 of Multiple Hypotheses][1]. arXiv preprint arXiv:1812.05068.
 
 <hr>
