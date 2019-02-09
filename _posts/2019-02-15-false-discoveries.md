@@ -1,12 +1,12 @@
 ---
 layout:             post
 title:              "Controlling False Discoveries in Large-Scale Experimentation: Challenges and Solutions"
-date:               2019-02-08 9:00:00
+date:               2019-02-15 9:00:00
 author:             <a href="https://people.eecs.berkeley.edu/~tijana/">Tijana Zrnic</a>
 img:                /assets/false-discoveries/pvalue.jpg
 excerpt_separator:  <!--more-->
 visible:            True
-show_comments:      True
+show_comments:      False
 ---
 
 > "Scientific research has changed the world. Now it needs to change itself."
