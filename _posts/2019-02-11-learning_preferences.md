@@ -2,7 +2,8 @@
 layout:             post
 title:              "Learning Preferences by Looking at the World"
 date:               2019-02-11 9:00:00
-author:             <a href="https://rohinshah.com/">Rohin Shah</a>
+author:             <a href="https://rohinshah.com/">Rohin Shah</a> and 
+                    <a href="https://krasheninnikov.github.io/about/">Dmitrii Krasheninnikov</a>
 img:                /assets/preferences/room.png
 excerpt_separator:  <!--more-->
 visible:            True
@@ -19,8 +20,10 @@ desirable:
     <img src="http://bair.berkeley.edu/static/blog/preferences/different.png"
     >
 <br>
-<i><a href="http://webcomicname.com/post/152958755984">Source</a></i>
 </p>
+<!--
+<i><a href="http://webcomicname.com/post/152958755984">Source</a></i>
+-->
 
 Surely our robot wouldn’t be so dumb as to go around breaking stuff when we ask
 it to clean our house? Unfortunately, **AI systems trained with [reinforcement
@@ -91,7 +94,7 @@ done that ourselves. We also can’t be indifferent to dirty floors, because the
 at some point we would have walked around the room with dirty shoes and gotten a
 dirty floor. The only explanation is that we want the floor to be clean.
 
-## A simple setting
+# A simple setting
 
 Let’s see if we can apply this insight in the simplest possible setting:
 gridworlds with a small number of states, a small number of actions, a known
@@ -106,7 +109,7 @@ this is infeasible in a real, complex environment.
 <p style="text-align:center;">
     <img src="http://bair.berkeley.edu/static/blog/preferences/room.png"
     hspace="30" align="right" width="240">
-<br>
+<!-- <br> -->
 </p>
 
 For example, consider the room to the right, where Alice asks her robot to
@@ -182,7 +185,7 @@ state-action value function Q, computed using soft value iteration. Given these
 assumptions, we can calculate $p(\tau \mid \theta_A)$, the distribution over the
 possible trajectories $\tau = s_{-T} a_{-T} \dots s_{-1} a_{-1} s_0$ under the
 assumption that Alice’s reward was $\theta_A$. MCEIRL then finds the $\theta_A$
-that maximizes the probability of a set of trajectories $\{ \tau_i \}$.
+that maximizes the probability of a set of trajectories $$\{\tau_i\}$$.
 
 Rather than considering all possible trajectories and running MCEIRL on all of
 them to maximize each of their probabilities individually, we instead maximize
