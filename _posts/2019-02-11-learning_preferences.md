@@ -266,8 +266,8 @@ could have one human whose task change over time. Another direction would be to
 assume a different structure for what Alice prefers to keep unchanged, such as
 constraints, and learn them separately.
 
-You can learn more about this research by reading our paper, or by checking out
-our poster at ICLR 2019. The code is available here.
+You can learn more about this research by reading [our paper][8], or by checking
+out our poster at ICLR 2019. The code is available [here][7].
 
 
 [1]:https://en.wikipedia.org/wiki/Reinforcement_learning
@@ -276,3 +276,5 @@ our poster at ICLR 2019. The code is available here.
 [4]:https://www.alignmentforum.org/posts/yEa7kwoMpsBgaBCgb/towards-a-new-impact-measure
 [5]:https://people.eecs.berkeley.edu/~russell/papers/colt98-uncertainty.pdf
 [6]:http://www.cs.cmu.edu/~bziebart/publications/maximum-causal-entropy.pdf
+[7]:https://github.com/HumanCompatibleAI/rlsp
+[8]:https://openreview.net/forum?id=rkevMnRqYQ&noteId=r1eINIUbe4
