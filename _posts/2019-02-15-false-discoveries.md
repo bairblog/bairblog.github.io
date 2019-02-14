@@ -103,12 +103,12 @@ For example, in clinical trials, it is common to test several different treatmen
 
 This circumstance is a problem for standard online FDR methodology. Namely, all existing online FDR algorithms assume tests are run synchronously, with **no overlap in time**; in other words, in order to determine a false positive rate for an upcoming test, online FDR methods need to know the outcomes of all previously started tests. The figure below depicts the difference between synchronous and asynchronous online testing.
 
-<p style="text-align:center;">
+<p style="text-align:left;">
     <img src="http://bair.berkeley.edu/static/blog/false-discoveries/retreatsync.png">
 <br>
 </p>
 
-<p style="text-align:center;">
+<p style="text-align:left;">
     <img src="http://bair.berkeley.edu/static/blog/false-discoveries/retreatasync.png"
     width="600">
 <br>
