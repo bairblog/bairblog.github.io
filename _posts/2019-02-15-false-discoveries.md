@@ -6,7 +6,7 @@ author:             <a href="https://people.eecs.berkeley.edu/~tijana/">Tijana Z
 img:                /assets/false-discoveries/pvalue.jpg
 excerpt_separator:  <!--more-->
 visible:            True
-show_comments:      False
+show_comments:      True
 ---
 
 > "Scientific research has changed the world. Now it needs to change itself."<br><center>- The Economist, 2013</center>

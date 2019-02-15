@@ -7,7 +7,7 @@ author:             <a href="https://rohinshah.com/">Rohin Shah</a> and
 img:                /assets/preferences/room.png
 excerpt_separator:  <!--more-->
 visible:            True
-show_comments:      False
+show_comments:      True
 ---
 
 It would be great if we could all have household robots do our chores for us.
