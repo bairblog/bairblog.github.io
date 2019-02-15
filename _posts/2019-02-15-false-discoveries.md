@@ -9,7 +9,7 @@ visible:            True
 show_comments:      False
 ---
 
-> "Scientific research has changed the world. Now it needs to change itself." - The Economist, 2013
+> "Scientific research has changed the world. Now it needs to change itself."<br><center>- The Economist, 2013</center>
 
 There has been a growing concern about the validity of scientific findings. A multitude of journals, papers and reports have recognized the ever smaller number of replicable scientific studies. In 2016, one of the giants of scientific publishing, Nature, surveyed about 1,500 researchers across many different disciplines, asking for their stand on the status of reproducibility in their area of research. One of the many takeaways to the worrisome results of this survey is the following: 90% of the respondents agreed that there is a reproducibility crisis, and the overall top answer to boosting reproducibility was “better understanding of statistics”. Indeed, many factors contributing to the explosion of irreproducible research stem from the neglect of the fact that statistics is no longer as static as it was in the first half of the 20th century, when statistical hypothesis testing came into prominence as a theoretically rigorous proposal for making valid discoveries with high confidence.
 
@@ -52,6 +52,10 @@ everything “right of” the observed data point. The smaller the p-value, the 
     <img src="http://bair.berkeley.edu/static/blog/false-discoveries/pvalue.jpg"
     width="600">
 <br>
+<i>
+<!-- [source: https://ottawacitizen.com/technology/science/science-worlds-p-value-controversy-little-number-big-problem] -->
+<a href="https://ottawacitizen.com/technology/science/science-worlds-p-value-controversy-little-number-big-problem">[Source]</a>
+</i>
 </p>
 
 The last step is validation. If the calculated p-value is smaller than the FPR, the null hypothesis is *rejected*, and a discovery is proclaimed. In our running example, if the red shaded area is less than 0.05, we say that jelly beans cause acne.
@@ -70,6 +74,9 @@ And this is how science goes wrong.
 <p style="text-align:center;">
     <img src="http://bair.berkeley.edu/static/blog/false-discoveries/significant.png">
 <br>
+<i>
+<a href="https://xkcd.com/882/">[Source]</a>
+</i>
 </p>
 
 To recap, around 5% of the tested *true null hypotheses* unfortunately have to be discovered either way, simply by laws of probability. This wouldn’t really be an issue if most of the tested hypotheses were legitimate potential discoveries, i.e. non-nulls. Then, 5% of a small-ish number of true nulls would be negligible. Typically, however, this is not the case. We test loads of crazy, out-there hypotheses, which would attract a lot of attention if confirmed, and we do so simply because we can. In many areas, both observations and computational resources are abundant, so there is little incentive to stay on the “safe side”.
