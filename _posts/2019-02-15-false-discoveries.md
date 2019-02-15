@@ -5,7 +5,7 @@ date:               2019-02-15 9:00:00
 author:             <a href="https://people.eecs.berkeley.edu/~tijana/">Tijana Zrnic</a>
 img:                /assets/false-discoveries/pvalue.jpg
 excerpt_separator:  <!--more-->
-visible:            True
+visible:            False
 show_comments:      False
 ---
 
