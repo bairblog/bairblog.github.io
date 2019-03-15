@@ -103,8 +103,7 @@ affect the dynamics. For example, for the two locomotion environments
 and joint friction.
 
 <p style="text-align:center;">
-    <img src="http://bair.berkeley.edu/static/blog/rl_gen/cheetah friction.mp4.gif"
-    width="600"><br>
+    <img src="http://bair.berkeley.edu/static/blog/rl_gen/cheetah friction.mp4" width="600"><br>
 <i>
 HalfCheetah under varying joint frictions.
 </i>
