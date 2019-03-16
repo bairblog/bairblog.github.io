@@ -2,7 +2,7 @@
 layout:             post
 title:              "Assessing Generalization in Deep Reinforcement Learning"
 date:               2019-03-18 9:00:00
-author:             Charles Packer and Katelyn Gao
+author:             <a href="http://cseweb.ucsd.edu/~cpacker/">Charles Packer</a> and Katelyn Gao
 img:                /assets/rl_gen/DRE_figure.png
 excerpt_separator:  <!--more-->
 visible:            True
@@ -10,7 +10,11 @@ show_comments:      False
 ---
 
 <p style="text-align:center;">
+    <!--
     <img src="http://bair.berkeley.edu/static/blog/rl_gen/6_panel.mp4.gif">
+    -->
+    <img src="http://bair.berkeley.edu/static/blog/rl_gen/6_panel_1080_24.gif"
+    width="600">
 <i>
 </i>
 </p>
@@ -224,8 +228,14 @@ candidate for a case study. We look at EPOpt-PPO with the feed-forward
 architecture, the best-performing algorithm on this environment, and compare it
 to PPO with the feed-forward architecture.
 
+
+
 <p style="text-align:center;">
+    <!--
     <img src="http://bair.berkeley.edu/static/blog/rl_gen/4_panel_5s.mp4"
+    width="600">
+    -->
+    <img src="http://bair.berkeley.edu/static/blog/rl_gen/4_panel_5s_1080_24.gif"
     width="600">
 <i>
 </i>
