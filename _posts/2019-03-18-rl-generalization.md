@@ -6,7 +6,7 @@ author:             <a href="http://cseweb.ucsd.edu/~cpacker/">Charles Packer</a
 img:                /assets/rl_gen/DRE_figure.png
 excerpt_separator:  <!--more-->
 visible:            True
-show_comments:      False
+show_comments:      True
 ---
 
 <p style="text-align:center;">
