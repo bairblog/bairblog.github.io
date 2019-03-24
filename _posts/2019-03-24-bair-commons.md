@@ -46,3 +46,8 @@ research efforts.  Over 30 faculty and 200 graduate students and postdocs at
 Berkeley are affiliated with BAIR. For more information about BAIR or the
 Commons program please contact `bair-admin@berkeley.edu`.
 
+<p style="text-align:center;">
+    <img src="http://bair.berkeley.edu/static/blog/bair-commons/berkeley_way-west_web_1.jpg"
+    width=""><br>
+<i>
+BAIR will occupy the top floor of Berkeley Way West.
