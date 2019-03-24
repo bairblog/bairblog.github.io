@@ -2,7 +2,7 @@
 layout:             post
 title:              "Announcing the BAIR Open Research Commons"
 date:               2019-03-24 9:00:00
-author:              BAIR
+author:             ""
 img:                assets/bair-commons/berkeley_way-west_web_1.jpg
 excerpt_separator:  <!--more-->
 visible:            True
@@ -47,7 +47,15 @@ Berkeley are affiliated with BAIR. For more information about BAIR or the
 Commons program please contact `bair-admin@berkeley.edu`.
 
 <p style="text-align:center;">
+    <img src="http://bair.berkeley.edu/static/blog/bair-commons/bair_sponsors.png"
+    width="">
+</p>
+
+<p style="text-align:center;">
     <img src="http://bair.berkeley.edu/static/blog/bair-commons/berkeley_way-west_web_1.jpg"
     width=""><br>
 <i>
 BAIR will occupy the top floor of Berkeley Way West.
+</i>
+</p>
+
