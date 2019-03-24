@@ -2,7 +2,7 @@
 layout:             post
 title:              "Assessing Generalization in Deep Reinforcement Learning"
 date:               2019-03-18 9:00:00
-author:             <a href="http://cseweb.ucsd.edu/~cpacker/">Charles Packer</a>$^*$ and Katelyn Gao$^*$
+author:             <a href="http://cseweb.ucsd.edu/~cpacker/">Charles Packer</a>$^*$ and Katelyn Gao$^*$<br>
 img:                /assets/rl_gen/DRE_figure.png
 excerpt_separator:  <!--more-->
 visible:            True

@@ -2,7 +2,7 @@
 layout:             post
 title:              "Announcing the BAIR Open Research Commons"
 date:               2019-03-24 9:00:00
-author:              BAIR<br>
+author:              BAIR
 img:                /assets/BAIR_Logo.png
 excerpt_separator:  <!--more-->
 visible:            True
