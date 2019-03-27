@@ -6,7 +6,7 @@ author:             <a href="https://www.yf.io/">Fisher Yu</a>
 img:                assets/bair-commons/berkeley_way-west_web_1.jpg
 excerpt_separator:  <!--more-->
 visible:            True
-show_comments:      False
+show_comments:      True
 ---
 
 
