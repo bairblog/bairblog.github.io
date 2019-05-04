@@ -134,7 +134,7 @@ be good at predicting the state transitions for the next K time steps. This
 newly formulated loss function represents prediction error on the future K
 points, after adapting the weights using information from the past K points:
 
-$$ L = \sum_{\text{tasks}} \| f_{\theta’}(s, a) - s’ \| ^ 2 |_{\text{data_K}}$$
+$$ L = \sum_{\text{tasks}} \| f_{\theta’}(s, a) - s’ \| ^ 2 |_{\text{data}_K}$$
 
 where
 
