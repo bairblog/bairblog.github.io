@@ -136,7 +136,9 @@ points, after adapting the weights using information from the past K points:
 
 $$ L = \sum_{\text{tasks}} \| f_{\theta’}(s, a) - s’ \| ^ 2 |_{\text{data_K}}$$
 
-where $$ \theta’ = u(\theta, \text{data}_M) $$
+where
+
+$$ \theta’ = u(\theta, \text{data}_M) $$
 
 In other words, $$\theta$$ does not need to result in good dynamics
 predictions. Instead, $$\theta$$ needs to be such that it can use task-specific
@@ -336,9 +338,8 @@ following paper:
   International Conference on Learning Representations (ICLR) 2019<br>
   [Arxiv][1], [Code][2], [Project Page][3]
 
-For more information, check out the following links, and come see us at our
-poster presentation at ICLR 2019 in New Orleans!
-
+For more information, check out the links above, and come see us at our poster
+presentation at ICLR 2019 in New Orleans!
 
 
 [1]:https://arxiv.org/abs/1803.11347
