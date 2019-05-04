@@ -29,6 +29,8 @@ children who can walk on flat ground can quickly adapt their gait to walk
 uphill without having to relearn how to walk. This adaptation is critical for
 functioning in the real world.
 
+<!--more-->
+
 Robots, on the other hand, are typically deployed with a fixed behavior (be it
 hard-coded or learned), allowing them succeed in specific settings, but leading
 to failure in others: experiencing a system malfunction, encountering a new
