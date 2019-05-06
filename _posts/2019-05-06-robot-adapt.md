@@ -7,7 +7,7 @@ author:             <a href="https://people.eecs.berkeley.edu/~nagaban2/">Anusha
 img:                assets/adapt/teaser.png
 excerpt_separator:  <!--more-->
 visible:            True
-show_comments:      False
+show_comments:      True
 ---
 
 <p style="text-align:center;">
