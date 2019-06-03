@@ -45,7 +45,7 @@ times, can potentially coordinate over long distances, and most importantly,
 companies can simply modify their braking and acceleration patterns in ways
 that are congestion reducing. Even though only a small percentage of vehicles
 are currently semi-autonomous, [existing
-research](citehttps://www.sciencedirect.com/science/article/pii/S0968090X18301517)
+research](https://www.sciencedirect.com/science/article/pii/S0968090X18301517)
 indicates that even a small penetration rate, 3-4%, is sufficient to begin
 easing congestion. The essential question is: will we capture the potential
 gains, or will AVs simply reproduce and further the growing gridlock?
@@ -144,11 +144,15 @@ suggesting that even at very low penetration rates, AVs can have an incredible
 impact on congestion.
 
 <p style="text-align:center;">
+    <img src="https://bair.berkeley.edu/static/blog/benchmarks/learning_curves.png"
+    >
+    <br>
+</p>
+<p style="text-align:center;">
     <img src="https://bair.berkeley.edu/static/blog/benchmarks/table_traffic_metrics.png"
     >
     <br>
 </p>
-
 
 So how do the AVs actually work to ease congestion? As an example of one
 possible mechanism, the video below compares an on-ramp merge for a fully human
@@ -191,7 +195,7 @@ benchmarks.
 
 <p style="text-align:center;">
     <img src="https://bair.berkeley.edu/static/blog/benchmarks/bottleneck_unfair.gif"
-    width="600">
+    width="800">
     <br>
 </p>
 
@@ -199,6 +203,11 @@ If you’re interested in contributing to these new benchmarks, trying to beat
 our old benchmarks, or working towards improving the mixed-autonomy future, get
 in touch via [our GitHub page](https://github.com/flow-project/flow) or [our
 website](https://flow-project.github.io)!
+
+Thanks to Jonathan Liu, Prastuti Singh, Yashar Farid, and Richard Liaw for
+edits and discussions. Thanks to Aboudy Kriedieh for helping prepare some of
+the videos.
+
 
 [1]:http://proceedings.mlr.press/v87/vinitsky18a.html
 [2]:https://github.com/flow-project/flow
