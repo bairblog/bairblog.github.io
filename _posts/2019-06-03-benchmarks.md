@@ -95,8 +95,8 @@ settings:
   causes a shockwave that lowers the average speed of the system.
 
 - A toy model of the San-Francisco to Oakland Bay Bridge where four lanes merge
-  to two and then to one. The goal is to prevent congestion from forming to
-  maximize the number of existing vehicles.
+  to two and then to one.  The goal is to prevent congestion from forming so to
+  maximize the number of exiting vehicles.
 
 As an example of an exciting and helpful emergent behavior that was discovered
 in these benchmarks, the following GIF shows a segment of the *bottleneck
