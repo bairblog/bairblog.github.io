@@ -6,7 +6,7 @@ author:             Eugene Vinitsky
 img:                assets/benchmarks/figure_eight.png
 excerpt_separator:  <!--more-->
 visible:            True
-show_comments:      False
+show_comments:      True
 ---
 
 
