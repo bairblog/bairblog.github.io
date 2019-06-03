@@ -44,10 +44,11 @@ On the other hand, AVs are free of these constraints: they have low reaction
 times, can potentially coordinate over long distances, and most importantly,
 companies can simply modify their braking and acceleration patterns in ways
 that are congestion reducing. Even though only a small percentage of vehicles
-are currently semi-autonomous, existing research (cite) indicates that even a
-small penetration rate, 3-4%, is sufficient to begin easing congestion. The
-essential question is: will we capture the potential gains, or will AVs simply
-reproduce and further the growing gridlock?
+are currently semi-autonomous, [existing
+research](citehttps://www.sciencedirect.com/science/article/pii/S0968090X18301517)
+indicates that even a small penetration rate, 3-4%, is sufficient to begin
+easing congestion. The essential question is: will we capture the potential
+gains, or will AVs simply reproduce and further the growing gridlock?
 
 Given the unique capabilities of AVs, we want to ensure that their driving
 patterns are designed for maximum impact on roadways. The proper deployment of
@@ -69,13 +70,16 @@ In an attempt to fill this gap, [our CORL paper][1] proposes 11 new benchmarks
 in centralized mixed-autonomy traffic control: traffic control where a small
 fraction of the vehicles and traffic lights are controlled by a single
 computer. We’ve released these benchmarks as a part of [*Flow*][2], a tool
-we’ve developed for applying control and reinforcement learning (via RLlib and
-rllab) to autonomous vehicles and traffic lights in the traffic simulators SUMO
-and AIMSUN.  A high score in these benchmarks means an improvement in
-real-world congestion metrics such as average speed, total system delay, and
-roadway throughput. By making progress on these benchmarks, we hope to answer
-fundamental questions about AV usage and provide a roadmap for deploying
-congestion improving AVs in the real world.
+we’ve developed for applying control and reinforcement learning (via using <a
+href="https://github.com/ray-project/ray/tree/master/python/ray/rllib">RLlib</a>
+and <a href="https://github.com/rll/rllab">rllab</a> as the reinforcement
+learning libraries) to autonomous vehicles and traffic lights in the traffic
+simulators <a href="https://github.com/eclipse/sumo">SUMO</a> and <a
+href="https://www.aimsun.com/">AIMSUN</a>.  A high score in these benchmarks
+means an improvement in real-world congestion metrics such as average speed,
+total system delay, and roadway throughput. By making progress on these
+benchmarks, we hope to answer fundamental questions about AV usage and provide
+a roadmap for deploying congestion improving AVs in the real world.
 
 The benchmark scenarios, depicted at the top of this post, cover the following
 settings:
@@ -139,7 +143,12 @@ The congestion metrics in the fully human column are all sharply worse,
 suggesting that even at very low penetration rates, AVs can have an incredible
 impact on congestion.
 
-**TODO FIGURES**
+<p style="text-align:center;">
+    <img src="https://bair.berkeley.edu/static/blog/benchmarks/table_traffic_metrics.png"
+    >
+    <br>
+</p>
+
 
 So how do the AVs actually work to ease congestion? As an example of one
 possible mechanism, the video below compares an on-ramp merge for a fully human
@@ -180,7 +189,11 @@ find one single controller that works across different types of transportation
 networks? We aim to address all of these questions in a future set of
 benchmarks.
 
-**TODO insert video of cars blocking a lane of traffic**
+<p style="text-align:center;">
+    <img src="https://bair.berkeley.edu/static/blog/benchmarks/bottleneck_unfair.gif"
+    width="600">
+    <br>
+</p>
 
 If you’re interested in contributing to these new benchmarks, trying to beat
 our old benchmarks, or working towards improving the mixed-autonomy future, get
