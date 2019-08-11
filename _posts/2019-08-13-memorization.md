@@ -225,17 +225,20 @@ Instead, we introduce a more refined attack approach that relies on the fact
 that not only can we compute the perplexity of a completed secret, but we can
 also compute the perplexity of prefixes of secrets. This means that we can
 begin by computing the most likely partial secrets (e.g., “the random number is
-218…”) and then slowly increase their length.
+281…”) and then slowly increase their length.
 
 The exact algorithm we apply can be seen as a combination of [beam
 search](https://en.wikipedia.org/wiki/Beam_search) and [Dijkstra’s
 algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm); the details
 are in our paper. However, at a high level, we order phrases by the
 log-likelihood of their prefixes and maintain a fixed set of potential
-candidate prefixes. We “expand” nodes by increasing their By using an improved
-search algorithm, we are able to extract 16-digit credit card numbers and
-8-character passwords with only tens of thousands of queries. We leave the
-details of this attack to our paper.
+candidate prefixes. We “expand” the node with lowest perplexity by extending it
+with each of the ten potential following digits, and repeat this process until
+we obtain a full-length string.  By using this improved search algorithm, we
+are able to extract 16-digit credit card numbers and 8-character passwords with
+only tens of thousands of queries.  We leave the details of this attack to our
+paper.
+
 
 
 # Empirically Validating Differential Privacy
@@ -255,7 +258,7 @@ only proved it correct, not tried it.”---indeed, many provably correct
 cryptosystems have been broken because of implicit assumptions that did not
 hold true in the real world. Second, whereas the proofs in differential privacy
 give an upper bound for how much information could be leaked in theory, the
-attacks here give a lower bound.
+exposure metric presented here gives a lower bound.
 
 Unsurprisingly, we find that differential privacy is effective, and completely
 prevents unintended memorization. When the guarantees it gives are strong, the
@@ -302,4 +305,5 @@ This work was done while the author was a student at UC Berkeley. We refer the
 reader to the following paper for details:
 
 - <b><a href="https://arxiv.org/abs/1802.08232">The Secret Sharer: Evaluating and Testing Unintended Memorization in Neural Networks</a></b><br>
-  Nicholas Carlini, Chang Liu, Úlfar Erlingsson, Jernej Kos, Dawn Song
+  Nicholas Carlini, Chang Liu, Úlfar Erlingsson, Jernej Kos, Dawn Song<br>
+  USENIX Security 2019
