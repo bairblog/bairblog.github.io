@@ -219,15 +219,15 @@ interactions but also require carefully coordinated and planned movements.
 <img src="https://bair.berkeley.edu/static/blog/deep-dynamics/image6.gif" width="200" height="200">
 <br>
 <i>
-Figure 5: Result of PDDM solving simulated dexterous manipulation tasks.
-From left to right: 9 DOF D'Claw turning valve to random (green) targets, 16
-dof D'Hand pulling a weight via the manipulation of a flexible rope, 24 DOF
-ShadowHand performing in-hand reorientation of a free-floating cube to random
-(shown) targets, 24 DOF ShadowHand following desired trajectories with tip of a
-free-floating pencil. From left to right, the amount of data: ~20 min, ~1 hour,
-~1 hour, 1-2 hours. The amount of data is measured in terms of the real-world
-equivalent of that amount of data (e.g., 100 data points where each step
-represents 0.1 seconds would represent 10 seconds worth of data).
+Figure 5: Result of PDDM solving simulated dexterous manipulation tasks. From
+left to right: 9 DOF D'Claw turning valve to random (green) targets (~20 min of
+data), 16 dof D'Hand pulling a weight via the manipulation of a flexible rope
+(~1 hour of data), 24 DOF ShadowHand performing in-hand reorientation of a
+free-floating cube to random (shown) targets (~1 hour of data), 24 DOF
+ShadowHand following desired trajectories with tip of a free-floating pencil
+(~1-2 hours of data). Note that the amount of data is measured in terms of the
+real-world equivalent (e.g., 100 data points where each step represents 0.1
+seconds would represent 10 seconds worth of data).
 </i>
 </p>
 
@@ -248,10 +248,9 @@ learned counterclockwise ones.
 <img src="https://bair.berkeley.edu/static/blog/deep-dynamics/image11.gif" height="230" width="270">
 <br>
 <i>
-Figure 6: Model reuse on simulated tasks.
-Left: trained on CCW Baoding.
-Middle: reuse model for go-to single location
-Right: reuse model for CW Baoding
+Figure 6: Model reuse on simulated tasks. Left: train model on CCW Baoding
+task. Middle: reuse that model for go-to single location task. Right: reuse
+that same model for CW Baoding task.
 </i>
 </p>
 
@@ -305,11 +304,11 @@ of these questions will become ‘yes.’
 
 ## Acknowledgements
 
-This work was done during an internship at Google Brain, and the authors of
-this [work][9] are Anusha Nagabandi, Kurt Konoglie, Sergey Levine, and Vikash
-Kumar.  The authors would also like to thank Michael Ahn for his frequent
-software and hardware assistance, and Sherry Moore for her work on setting up
-the drivers and code for working with our ShadowHand.
+This [work][9] was done at Google Brain, and the authors are Anusha Nagabandi,
+Kurt Konoglie, Sergey Levine, and Vikash Kumar.  The authors would also like to
+thank Michael Ahn for his frequent software and hardware assistance, and Sherry
+Moore for her work on setting up the drivers and code for working with our
+ShadowHand.
 
 
 [1]:http://www-cdr.stanford.edu/Touch/publications/okamura_icra00.pdf
