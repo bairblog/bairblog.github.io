@@ -6,7 +6,7 @@ author:             <a href="https://people.eecs.berkeley.edu/~nagaban2/">Anusha
 img:                assets/deep-dynamics/image10.png
 excerpt_separator:  <!--more-->
 visible:            True
-show_comments:      False
+show_comments:      True
 ---
 
 <!--
