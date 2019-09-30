@@ -214,7 +214,7 @@ interactions but also require carefully coordinated and planned movements.
 
 <p style="text-align:center;">
 <img src="https://bair.berkeley.edu/static/blog/deep-dynamics/image2.gif" width="200" height="200">
-<img src="https://bair.berkeley.edu/static/blog/deep-dynamics/image7.gif" width="200" height="200">
+<img src="https://bair.berkeley.edu/static/blog/deep-dynamics/rope_green.gif" width="200" height="200">
 <img src="https://bair.berkeley.edu/static/blog/deep-dynamics/image4.gif" width="200" height="200">
 <img src="https://bair.berkeley.edu/static/blog/deep-dynamics/image6.gif" width="200" height="200">
 <br>
@@ -305,7 +305,7 @@ of these questions will become ‘yes.’
 ## Acknowledgements
 
 This [work][9] was done at Google Brain, and the authors are Anusha Nagabandi,
-Kurt Konoglie, Sergey Levine, and Vikash Kumar.  The authors would also like to
+Kurt Konolige, Sergey Levine, and Vikash Kumar.  The authors would also like to
 thank Michael Ahn for his frequent software and hardware assistance, and Sherry
 Moore for her work on setting up the drivers and code for working with our
 ShadowHand.
