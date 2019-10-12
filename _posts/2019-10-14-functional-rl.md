@@ -24,7 +24,10 @@ and [TensorFlow
 2.0](https://ray.readthedocs.io/en/latest/rllib-concepts.html#building-policies-in-tensorflow-eager).
 
 <p style="text-align:center;">
+<!--
 <img src="https://cdn-images-1.medium.com/max/800/1*1EwDu6skRrPkNPx_fzpVbg.png">
+-->
+<img src="https://bair.berkeley.edu/static/blog/functional/img01.png">
 <br>
 </p>
 
@@ -39,7 +42,10 @@ functions can do, we gain the ability to more easily reason about and
 manipulate their execution.
 
 <p style="text-align:center;">
+<!--
 <img src="https://cdn-images-1.medium.com/max/800/0*D11A8FaF53k76olV">
+-->
+<img src="https://bair.berkeley.edu/static/blog/functional/img02.png">
 <br>
 </p>
 
@@ -64,7 +70,10 @@ algorithms. As we will see, defining the loss is almost all you need to start
 training a RL policy in RLlib.
 
 <p style="text-align:center;">
+<!--
 <img src="https://cdn-images-1.medium.com/max/800/0*C410k6WuEQY9ChMF">
+-->
+<img src="https://bair.berkeley.edu/static/blog/functional/img03.png">
 <br>
 <i>
 Given a set of rollouts, the <a href="https://spinningup.openai.com/en/latest/spinningup/rl_intro3.html">policy gradient</a>
@@ -92,7 +101,10 @@ implementations. Second, since it doesn’t mutate external state, it is
 compatible with both TF graph and eager mode execution.
 
 <p style="text-align:center;">
+<!--
 <img src="https://cdn-images-1.medium.com/max/800/0*GTmsc5AQZbE4f9qY">
+-->
+<img src="https://bair.berkeley.edu/static/blog/functional/img04.png">
 <br>
 <i>
 In contrast to a class-based API, in which class methods can access arbitrary
@@ -115,7 +127,10 @@ unified API for a variety of applications. It offers a [wide range of scalable
 RL algorithms](https://ray.readthedocs.io/en/latest/rllib-algorithms.html).
 
 <p style="text-align:center;">
+<!--
 <img src="https://cdn-images-1.medium.com/max/800/0*2wpxKQ_TBBQW7Lhe">
+-->
+<img src="https://bair.berkeley.edu/static/blog/functional/img05.png">
 <br>
 <i>
 Example of how RLlib scales algorithms, in this case with distributed
@@ -159,7 +174,10 @@ into a
 that can be queried for actions and improved over time given experiences:
 
 <p style="text-align:center;">
+<!--
 <img src="https://cdn-images-1.medium.com/max/800/0*IFYYtLJg-FyGEI77">
+-->
+<img src="https://bair.berkeley.edu/static/blog/functional/img06.png">
 <br>
 </p>
 
@@ -168,7 +186,10 @@ training in RLlib, which calls on them to determine how to interact with
 environments:
 
 <p style="text-align:center;">
+<!--
 <img src="https://cdn-images-1.medium.com/max/800/0*nVuy28pbOkgNygaD">
+-->
+<img src="https://bair.berkeley.edu/static/blog/functional/img07.png">
 <br>
 </p>
 
@@ -177,7 +198,10 @@ We’ve found the policy builder pattern general enough to port almost all of RL
 ### Vanilla Policy Gradients Example
 
 <p style="text-align:center;">
+<!--
 <img src="https://cdn-images-1.medium.com/max/800/0*I7SuZh-u1rl3Emfb">
+-->
+<img src="https://bair.berkeley.edu/static/blog/functional/img08.png">
 <br>
 <i>
 Visualization of the vanilla policy gradient loss function in RLlib.
@@ -256,7 +280,10 @@ policies in RLlib using TF placeholders, **the** **functional API uses ~3x
 fewer lines of code (23 vs 81 lines),** and also works in eager:
 
 <p style="text-align:center;">
+<!--
 <img src="https://cdn-images-1.medium.com/max/800/1*hrzYi0u3I6uARF-XvfcLTQ.png">
+-->
+<img src="https://bair.berkeley.edu/static/blog/functional/img09.png">
 <br>
 <i>
 Comparing the <a href="https://github.com/ray-project/ray/blob/75ac016e2bd39060d14a302292546d9dbc49f6a2/python/ray/rllib/agents/pg/pg_policy_graph.py">legacy class-based API</a>
@@ -286,12 +313,18 @@ figures we show how these operations work together in blue and orange:
 
 
 <p style="text-align:center;">
+<!--
 <img src="https://cdn-images-1.medium.com/max/800/1*4RKNH6Zt4-P82ZeoETKVog.png">
+-->
+<img src="https://bair.berkeley.edu/static/blog/functional/img10.png">
 <br>
 </p>
 
 <p style="text-align:center;">
+<!--
 <img src="https://cdn-images-1.medium.com/max/800/0*1vTJnByqwRvPoyBV">
+-->
+<img src="https://bair.berkeley.edu/static/blog/functional/img11.png">
 <br>
 <i>
 Overview of a generated EagerTFPolicy. The policy passes the environment state
@@ -313,7 +346,10 @@ we are computing rollouts or trying to improve the policy given a batch of
 rollout data:
 
 <p style="text-align:center;">
+<!--
 <img src="https://cdn-images-1.medium.com/max/800/0*-35jGBA7Gha9WnOA">
+-->
+<img src="https://bair.berkeley.edu/static/blog/functional/img12.gif">
 <br>
 <i>
 <b>Inference:</b> Forward pass to compute a single action. This only involves
@@ -328,7 +364,10 @@ sampled from.
 
 
 <p style="text-align:center;">
+<!--
 <img src="https://cdn-images-1.medium.com/max/800/0*w4cJ0KPTM8QPX5Ex">
+-->
+<img src="https://bair.berkeley.edu/static/blog/functional/img13.gif">
 <br>
 <i>
 <b>Training:</b> Forward and backward pass to learn on a batch of experiences.
@@ -378,12 +417,15 @@ enabled with “eager\_tracing”: True. In addition, you can also set
 inference:
 
 <p style="text-align:center;">
+<!--
 <img src="https://cdn-images-1.medium.com/max/800/0*YvplJKQocQXjclg5">
+-->
+<img src="https://bair.berkeley.edu/static/blog/functional/img14.png">
 <br>
 </p>
 
-Eager inference and gradient overheads measured using `rllib train -run=PG
--env=<env> [ -eager [ -trace]]` on a laptop processor. With tracing off, eager
+Eager inference and gradient overheads measured using `rllib train --run=PG
+--env=<env> [ --eager [ --trace]]` on a laptop processor. With tracing off, eager
 imposes a significant overhead for small batch operations. However it is often
 as fast or faster than graph mode when tracing is enabled.
 
