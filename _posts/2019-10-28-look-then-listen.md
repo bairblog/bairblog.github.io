@@ -151,13 +151,13 @@ passed between the encoder and decoder as our learned abstraction.
 
 One thing that this autoencoder will learn is which type of transitions tend to
 happen, because the model will learn to only output transitions like the ones
-it sees during training.  In addition, this model will learn to group different
-transitions.  This grouping happens because the representation between the
-encoder and decoder acts as an information bottleneck, and its limited capacity
-forces the model to reuse the same representation vector for multiple different
-transitions.  We find that often the groupings it chooses tend to be
-semantically meaningful because representations that align with the semantics
-of the environment tend to be the most compact.
+it sees during training.  In addition, this model will learn to *group*
+different transitions.  This grouping happens because the representation
+between the encoder and decoder acts as an information bottleneck, and its
+limited capacity forces the model to reuse the same representation vector for
+multiple different transitions.  We find that often the groupings it chooses
+tend to be semantically meaningful because representations that align with the
+semantics of the environment tend to be the most compact.
 
 After environment learning pre-training, we are ready to move on to learning
 language.  For the language learning phase, we will start with the decoder that
