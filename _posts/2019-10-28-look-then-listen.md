@@ -185,8 +185,8 @@ language learning model but without any environment learning pre-training of
 the decoder.  First we test on the [SHURDLURN block stacking task][1], a task
 that is especially challenging for neural models because it requires learning
 with just tens of examples.  A baseline neural model gets an accuracy of 18% on
-the task, but with our environment learning pre-training, the model reaches 28%
-- an improvement of ten absolute percentage points.
+the task, but with our environment learning pre-training, the model reaches
+28%, an improvement of ten absolute percentage points.
 
 We also tested our method on a string manipulation task where we learn to
 execute instructions like “insert the letters vw after every vowel” on a string
