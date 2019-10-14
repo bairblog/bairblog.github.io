@@ -75,7 +75,7 @@ blocks, or it could be telling us to stack a red block on the leftmost
 position.
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/look-then-listen/limited_options.PNG">
+<img width="750" src="https://bair.berkeley.edu/static/blog/look-then-listen/limited_options.PNG">
 <br>
 </p>
 
@@ -135,7 +135,7 @@ create a type of autoencoder of the state transitions (actions) that we see,
 shown below:
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/look-then-listen/environment_learning.PNG">
+<img src="https://bair.berkeley.edu/static/blog/look-then-listen/environment_learning_serif.PNG">
 <br>
 </p>
 
@@ -169,7 +169,7 @@ and train it by backpropagating through the decoder.  The model structure is
 shown in the figure below.
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/look-then-listen/language_learning.PNG">
+<img src="https://bair.berkeley.edu/static/blog/look-then-listen/language_learning_serif.PNG">
 <br>
 </p>
 
@@ -195,7 +195,7 @@ for both the baseline end-to-end model and the model with our pre-training
 procedure.
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/look-then-listen/string_chart.PNG">
+<img src="https://bair.berkeley.edu/static/blog/look-then-listen/string_chart_serif.PNG">
 <br>
 </p>
 
