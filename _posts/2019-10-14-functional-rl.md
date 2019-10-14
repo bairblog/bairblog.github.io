@@ -8,7 +8,7 @@ author:             <a href="https://www.linkedin.com/in/eric-liang-31308019/">E
 img:                assets/functional/rl_lib.png
 excerpt_separator:  <!--more-->
 visible:            True
-show_comments:      False
+show_comments:      True
 ---
 
 In this blog post, we explore a functional paradigm for implementing
