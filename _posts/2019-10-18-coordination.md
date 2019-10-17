@@ -300,9 +300,6 @@ self-play agents when paired with H$$_{proxy}$$.
 <p style="text-align:center;">
 <img src="https://bair.berkeley.edu/static/blog/coordination/10 SP Performances.png">
 <br>
-<i>
-TODO
-</i>
 </p>
 
 # Qualitative results
