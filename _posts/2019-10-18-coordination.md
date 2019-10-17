@@ -97,9 +97,6 @@ planner can only solve two of our five layouts in a reasonable amount of time.
 <p style="text-align:center;">
 <img src="https://bair.berkeley.edu/static/blog/coordination/1 Game Dynamics.png">
 <br>
-<i>
-TODO
-</i>
 </p>
 
 Let’s suppose you and your friend Alice are playing on the layout above, and
@@ -110,8 +107,6 @@ glance over at Bob and Charlie, you notice that they haven’t figured out this
 strategy: they pick up each onion separately, and make a long trudge around the
 layout to put the onion in the pot. Well, all the better for you; it looks like
 you’re going to beat them even more soundly than you thought:
-
-**TODO BELOW**
 
 <!--
 <p style="text-align:center;">
