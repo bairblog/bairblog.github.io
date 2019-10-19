@@ -1,9 +1,9 @@
 ---
 layout:             post
 title:              "Collaborating with Humans Requires Understanding Them"
-date:               2019-10-18 9:00:00
+date:               2019-10-21 9:00:00
 author:             <a href="https://rohinshah.com">Rohin Shah</a> and
-                    <a href="https://micahcarroll.github.io/">Micah Carrol</a> and
+                    <a href="https://micahcarroll.github.io/">Micah Carroll</a> and
 img:                assets/coordination/8_Training_Diagram.png
 excerpt_separator:  <!--more-->
 visible:            True
@@ -44,8 +44,12 @@ the 2.5 minute discussion after the [OpenAI Five cooperative game][2] (see
 > Christy: They are perfectly selfless.<br><br>
 > Sheever: Yeah, they are.<br><br>
 > Michael: They also expect you to be.<br><br>
-> Sheever: Yeah. (laughing) Didn’t work out that way.<br><br>
+> Sheever: Yeah. (laughing) Didn’t work out that way.
+
+<!--
 > [...]<br><br>
+-->
+
 > Blitz: It was interesting because I could tell that we were doing something
 > wrong, because they weren’t coming with us. I was like, “this is clearly an
 > ‘us’ issue”, and I didn’t really know how to fix that. Regardless of what lane
@@ -268,6 +272,11 @@ agent that plays well with this (fixed) human model using deep RL
 we discuss in the Future Work section, but we expect that even this will be
 enough to outperform self-play in our Overcooked environment.
 
+# Experiments
+
+To test our hypotheses, we created five different Overcooked layouts, shown
+below.
+
 <p style="text-align:center;">
 <img src="https://bair.berkeley.edu/static/blog/coordination/9 All Layouts.png">
 <br>
@@ -280,21 +289,21 @@ Forced Coordination, Counter Circuit.
 Since the agent can play either of the two players, this creates ten scenarios.
 We first test in simulation: we train a human model using behavior cloning on a
 dataset of human-human gameplay. This model will stand in for our test-time
-human, and so is called H$$_{proxy}$$.  We manipulate the agent that must play
-alongside H$$_{proxy}$$, where the options are an agent trained via self-play
+human, and so is called $$H_{proxy}$$.  We manipulate the agent that must play
+alongside $$H_{proxy}$$, where the options are an agent trained via self-play
 (SP), an agent trained to imitate (BC), and a human-aware agent trained to play
-well alongside a human model (PPO$$_{BC}$$). Note that the human-human gameplay
-used to train BC is entirely separate from that used to train H$$_{proxy}$$.
+well alongside a human model ($$PPO_{BC}$$). Note that the human-human gameplay
+used to train BC is entirely separate from that used to train $$H_{proxy}$$.
 
 We also report the performance of self-play with itself (SP + SP), which serves
 as a rough upper bound on the optimal team performance, as well as a
 human-aware agent that is given access to the test-time human model
-(PPO$$_{H_{proxy}}$$ + H$$_{proxy}$$), which serves as a rough upper bound on
+($$PPO_{H_{proxy}}$$ + $$H_{proxy}$$), which serves as a rough upper bound on
 the optimal performance when the agent must play with the test-time human.
 
 The results are shown below. We see that all three hypotheses are supported. It
 is interesting to note that even vanilla behavioral cloning often outperforms
-self-play agents when paired with H$$_{proxy}$$.
+self-play agents when paired with $$H_{proxy}$$.
 
 
 <p style="text-align:center;">
@@ -302,7 +311,7 @@ self-play agents when paired with H$$_{proxy}$$.
 <br>
 </p>
 
-# Qualitative results
+## Qualitative results
 
 How exactly is the human-aware agent getting better results? One reason is that
 it is more robust to different plans the human could have. In Coordination
@@ -312,14 +321,23 @@ contrast, the human-aware agent simply chooses whichever path the human isn’t
 taking.
 
 
+<!--
 <img src="https://bair.berkeley.edu/static/blog/coordination/11 SP failure.gif" width="200" hspace="30" align="left">
 <img src="https://bair.berkeley.edu/static/blog/coordination/12 PPO_BC success.gif" width="200" hspace="30" align="right">
 <img src="https://bair.berkeley.edu/static/blog/coordination/13 PPO_BC success other way.gif" width="200" hspace="30" align="right">
+-->
 
-
-**TODO caption:  Self-play agent “stubbornly” colliding with the human (left),
-Human-aware agent taking the appropriate route depending on the human’s
-direction (middle and right).**
+<p style="text-align:center;">
+<img width="200" hspace="100" src="https://bair.berkeley.edu/static/blog/coordination/11 SP failure.gif">
+<img width="200" hspace="0" src="https://bair.berkeley.edu/static/blog/coordination/12 PPO_BC success.gif">
+<img width="200" hspace="0" src="https://bair.berkeley.edu/static/blog/coordination/13 PPO_BC success other way.gif">
+<br>
+<i>
+Self-play agent “stubbornly” colliding with the human (left), Human-aware agent
+taking the appropriate route depending on the human’s direction (middle and
+right).
+</i>
+</p>
 
 Consider the gif with the self-play agent above. In the initial state, the
 human is holding an onion and is facing up. What does the SP agent think the
@@ -338,15 +356,20 @@ deliver the soup (even though that route is longer). It adaptively chooses the
 route depending on the position and direction of the human.
 
 
-# Could the agent just be fragile?
+## Could the agent just be fragile?
 
 There is one other salient explanation for our quantitative and qualitative
 results: perhaps the self-play agent is being forced off-distribution when it
-plays with H$$_{proxy}$$, and the problem is not just that it doesn’t know
+plays with $$H_{proxy}$$, and the problem is not just that it doesn’t know
 about its partner: it just doesn’t know how to play *at all* (even with itself)
 in these new states it hasn’t encountered before. Meanwhile, playing with BC
 causes the human-aware agent to be trained on such states. This is at least
 part of the explanation for our results.
+
+<!--
+Stupid markdown.
+$_$
+-->
 
 This fragility to distributional shift argument would suggest that
 population-based training (PBT) would perform much better, since it involves a
@@ -365,12 +388,12 @@ similar results, though only the version that gets access to the test-time
 human does well.
 
 
-# User study
+## User study
 
 Of course, the true test is whether these results will hold with actual humans.
 By and large, they do, but not as clearly or strongly. H1 is clearly supported:
 self-play agents perform worse with humans than with themselves. H2 is also
-supported: PPO$_{BC}$ is statistically significantly better than SP or PBT,
+supported: $$PPO_{BC}$$ is statistically significantly better than SP or PBT,
 though the effect is much less pronounced than before. Since our method only
 beats teams of humans in 5/10 configurations, the data is inconclusive about
 H3.
@@ -384,10 +407,10 @@ We speculate that there are two main reasons why the results are different with
 real humans:
 
 1.  The difference between real humans and BC is much larger than the
-difference between H$$_{proxy}$$ and BC (both of which are trained on human-human
-gameplay). As a result, PPO$$_{BC}$$ doesn’t generalize to real humans as well as
-it generalizes to H$$_{proxy}$$. This is particularly true on the fourth and
-fifth layouts, where the BC-trained human model is quite bad.
+difference between $$H_{proxy}$$ and BC (both of which are trained on
+human-human gameplay). As a result, $$PPO_{BC}$$ doesn’t generalize to real
+humans as well as it generalizes to $$H_{proxy}$$. This is particularly true on
+the fourth and fifth layouts, where the BC-trained human model is quite bad.
 
 2. Humans are able to figure out the coordination mechanisms that SP and PBT
 use, and adapt to use those mechanisms themselves. In contrast, the BC model is
@@ -413,11 +436,11 @@ improved.
 
 You might also think that our results are primarily explained by analyzing how
 many states an algorithm has been trained on: SP and PBT fall into
-near-deterministic patterns, while PPO$_{BC}$ must cope with the stochasticity
-of BC, and so it is trained on a wider variety of states, which makes it work
-better with humans. However, we saw approximately the same pattern with the
-planning agent, which is robust on all states. In addition, the entropy bonus
-in PPO keeps SP and PBT at least somewhat stochastic.
+near-deterministic patterns, while $$PPO_{BC}$$ must cope with the
+stochasticity of BC, and so it is trained on a wider variety of states, which
+makes it work better with humans. However, we saw approximately the same
+pattern with the planning agent, which is robust on all states. In addition,
+the entropy bonus in PPO keeps SP and PBT at least somewhat stochastic.
 
 One way to view the problem we have outlined is that AI systems trained via
 self-play end up using coordination protocols that humans do not use. However,
@@ -445,7 +468,7 @@ sophisticated methods than behavior cloning to learn the human model
 2. While the human model is trained on human-human gameplay, it is used in the
 context of human-AI gameplay, which may be very different and cause the BC
 model to suffer from distributional shift. We could alternate between training
-PPO$_{BC}$ and collecting new human-AI gameplay to improve the BC model.
+$$PPO_{BC}$$ and collecting new human-AI gameplay to improve the BC model.
 
 3. Alternatively, we could try to use models that are more robust to
 distributional shift, such as models based on Theory of Mind, where the human
@@ -476,7 +499,7 @@ Another aspect to investigate further is the extent to which these problems are
 caused by a lack of robustness to *states* as opposed to *partners*. Currently,
 when a self-play agent is forced off distribution, it behaves in a clearly
 suboptimal way (such that the agent wouldn’t coordinate well even with itself).
-If we had agents that at least played coherently with respect to some partner
+If we had agents that at least played coherently with respect to *some* partner
 on all states, that could potentially fix most of the problem. (However, our
 planning experiments show that some problems will remain.) With deep RL,
 perhaps this could be done by incentivizing exploration via intrinsic
