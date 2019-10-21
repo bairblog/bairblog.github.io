@@ -7,7 +7,7 @@ author:             <a href="https://rohinshah.com">Rohin Shah</a> and
 img:                assets/coordination/8_Training_Diagram.png
 excerpt_separator:  <!--more-->
 visible:            True
-show_comments:      False
+show_comments:      True
 ---
 
 AI agents have learned to play Dota, StarCraft, and Go, by training to beat an
