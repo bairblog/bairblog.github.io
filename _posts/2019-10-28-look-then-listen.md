@@ -5,8 +5,8 @@ date:               2019-10-28 9:00:00
 author:             <a href="https://dgaddy.github.io/">David Gaddy</a>
 img:                assets/look-then-listen/training_example.PNG
 excerpt_separator:  <!--more-->
-visible:            False
-show_comments:      False
+visible:            True
+show_comments:      True
 ---
 
 When learning to follow natural language instructions, neural networks tend to
