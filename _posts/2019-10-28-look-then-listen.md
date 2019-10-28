@@ -20,6 +20,8 @@ from the learning of language.  Empirically, we find that pre-learning of
 patterns in the environment can help us learn grounded language with much less
 data.
 
+<!--more-->
+
 Before we dive into the details, let’s look at an example to see why neural
 networks struggle to learn from smaller amounts of data.  For now, we’ll use
 examples from the [SHRDLURN block stacking task][1], but later we’ll look at
