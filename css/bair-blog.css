@@ -54,3 +54,36 @@ Styles for home page logo and nav
 	width: 100%;
 	height: 100%;
 }
+
+
+
+
+/*
+Daniel: added by following:
+https://stackoverflow.com/questions/54633409/how-to-align-images-horizontally-side-by-side-with-captions-underneath
+For Sudeep's post (Nov 2019) with horizontally aligned figures and figure captions.
+*/
+
+.containerWide {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.photosWide {
+   display:flex;
+   justify-content:center;
+   flex-direction: column;
+   flex-grow: 1;
+}
+
+.imageWide {
+    display: block;
+    width: 98%;
+}
+
+.wordWide {
+    display:block;
+    width: 98%;
+    text-align:center;
+}
