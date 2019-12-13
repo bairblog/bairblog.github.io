@@ -7,7 +7,7 @@ author:             <a href="https://lauramsmith.github.io/">Laura Smith</a> and
 img:                assets/humans-cyclegan/setup.png
 excerpt_separator:  <!--more-->
 visible:            True
-show_comments:      False
+show_comments:      True
 ---
 
 <p style="text-align:center;">
