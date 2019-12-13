@@ -88,8 +88,8 @@ components.
 
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/humans-cyclegan/horsezebra.gif" height="200">
-<img src="https://bair.berkeley.edu/static/blog/humans-cyclegan/humanrobot.gif" height="200">
+<img src="https://bair.berkeley.edu/static/blog/humans-cyclegan/horsezebra.gif" height="140">
+<img src="https://bair.berkeley.edu/static/blog/humans-cyclegan/humanrobot.gif" height="140">
 <br />
 <i>
 Left: CycleGAN has been successful for tasks such as translating from videos of
@@ -265,7 +265,6 @@ https://youtu.be/dhJfFqQmZ1c
 -->
 
 {% include youtubePlayer.html id="dhJfFqQmZ1c" %}
-<br>
 
 The table and video above summarize the results of running AVID and the
 comparisons on the coffee making and cup retrieval tasks. AVID exhibits strong
