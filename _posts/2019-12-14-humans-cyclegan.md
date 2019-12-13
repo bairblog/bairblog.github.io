@@ -39,8 +39,8 @@ a video of a human demonstration?
 
 <!--more-->
 
-This work presents [AVID](https://arxiv.org/abs/1912.04443), a method that
-enables robotic imitation learning from human videos through a strategy,
+This work presents [AVID](https://sites.google.com/view/icra20avid), a method
+that enables robotic imitation learning from human videos through a strategy,
 similar to humans, of imagination and practice. Given human demonstration
 videos, AVID first translates these demonstrations into videos of the robot
 performing the task, by means of image-to-image translation. In order to
