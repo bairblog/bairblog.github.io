@@ -88,8 +88,8 @@ components.
 
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/humans-cyclegan/horsezebra.gif" height="300">
-<img src="https://bair.berkeley.edu/static/blog/humans-cyclegan/humanrobot.gif" height="300">
+<img src="https://bair.berkeley.edu/static/blog/humans-cyclegan/horsezebra.gif" height="200">
+<img src="https://bair.berkeley.edu/static/blog/humans-cyclegan/humanrobot.gif" height="200">
 <br />
 <i>
 Left: CycleGAN has been successful for tasks such as translating from videos of
@@ -260,7 +260,12 @@ on the robot itself.
 </i>
 </p>
 
-<https://youtu.be/dhJfFqQmZ1c>
+<!--
+https://youtu.be/dhJfFqQmZ1c
+-->
+
+{% include youtubePlayer.html id="dhJfFqQmZ1c" %}
+<br>
 
 The table and video above summarize the results of running AVID and the
 comparisons on the coffee making and cup retrieval tasks. AVID exhibits strong
@@ -295,7 +300,7 @@ learning directly from human videos. However, learning from humans videos has
 also been studied, through various methods such as
 [pose](https://www.sciencedirect.com/science/article/pii/S0921889013001449) and
 [object](https://www.ias.informatik.tu-darmstadt.de/uploads/ALR2014/Yang_ALR2014.pdf)
-detection](https://www.sciencedirect.com/science/article/pii/S0004370215001320),
+[detection](https://www.sciencedirect.com/science/article/pii/S0004370215001320),
 [predictive](https://arxiv.org/abs/1612.07796)
 [modeling](https://arxiv.org/abs/1703.02658),
 [context](https://arxiv.org/abs/1707.03374)
@@ -337,7 +342,7 @@ capable and useful robots that can truly learn by watching humans.
 This post is based on the following paper:
 
 - Laura Smith, Nikita Dhawan, Marvin Zhang, Pieter Abbeel, Sergey Levine.<br>
-  [**AVID: : Learning Multi-Stage Tasks via\\Pixel-Level Translation of Human Videos**](https://arxiv.org/abs/1912.04443) <br>
+  [**AVID : Learning Multi-Stage Tasks via  Pixel-Level Translation of Human Videos**](https://arxiv.org/abs/1912.04443) <br>
   [Project webpage](https://sites.google.com/view/icra20avid)
 
 
