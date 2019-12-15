@@ -1,13 +1,22 @@
 ---
 layout:             post
 title:              "What is My Data Worth?"
-date:               2019-12-14 9:00:00
+date:               2019-12-16 9:00:00
 author:             <a href="https://ruoxijia.github.io/">Ruoxi Jia</a>
 img:                assets/data-worth/1.png
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      False
 ---
+
+
+
+
+
+
+
+
+
 
 People give massive amounts of their personal data to companies every day,
 which use these data to generate tremendous business values. Some
