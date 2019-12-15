@@ -1,3 +1,5 @@
+**TODO for Daniel**: get twitter card instructions written (See Michael Janner's post)
+
 # BAIR Blog Instructions
 
 This is the repository for the BAIR blog, located at `bair.berkeley.edu/blog/`.
