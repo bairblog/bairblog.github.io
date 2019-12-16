@@ -9,6 +9,10 @@ visible:            True
 show_comments:      False
 ---
 
+<meta name="twitter:title" content="What is My Data Worth?">
+<meta name="twitter:card" content="summary_image">
+<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/data-worth/1.png">
+
 People give massive amounts of their personal data to companies every day and
 these data are used to generate tremendous business values. Some
 [economists](https://www.gsb.stanford.edu/insights/how-much-your-private-data-worth-who-should-own-it)
@@ -100,7 +104,7 @@ Relating these game theoretic concepts to the problem of data valuation, one
 can think of the players as training data sources, and accordingly, the utility
 function $U(S)$ as a performance measure of the model trained on the subset S
 of training data. Thus, the Shapley value can be used to determine the value of
-each data source. The Shapley value is appealing because it is the \emph{only}
+each data source. The Shapley value is appealing because it is the *only*
 profit allocation scheme that satisfies the following properties:
 
 - **Group rationality**: the total utility of the machine learning model is
@@ -143,7 +147,7 @@ is completely determined by the nearest neighbor in this set to the test point.
 Thus, the contribution of the point $i$ to a subset $S$ is zero if the nearest
 neighbor in S is closer to the test point than $i$. When we re-examine the
 Shapley value, we observe that for many $S$, $U(S\cup\{i\})-U(S)=0$.
-Figure 1 illustrates an example of such an S. This simple example shows the
+Figure 1 illustrates an example of such an $S$. This simple example shows the
 computational requirement of the Shapley value can be significantly reduced for
 KNN.
 
@@ -218,7 +222,7 @@ baseline approximation later). To assess the performance of an approximation
 algorithm, we can look at the number of utility evaluations needed to achieve
 some guarantees of the approximation error. Using Hoeffding’s bound, it can be
 proved that the baseline approximation algorithm above needs
-$\mathcal{O}(N^2\log N)$ so that the squared error between the estimated and
+$\mathcal{O}(N^2\log N)$ utility evaluations so that the squared error between the estimated and
 the ground truth Shapley value is bounded with high probability. Can we reduce
 the number of utility evaluations while maintaining the same approximation
 error guarantee?
@@ -303,7 +307,7 @@ magnitude for a large number of data points.
 <img src="https://bair.berkeley.edu/static/blog/data-worth/figure_4.png" width="">
 <br />
 <i>
-Figure 4:  The Shapley value produced by our proposed group-test based
+Figure 4:  The Shapley value produced by our proposed group testing-based
 approximation and the baseline approximation algorithm for a logistic
 regression classifier trained on the Iris dataset. (b) Runtime comparison of
 the two approaches.
@@ -338,15 +342,16 @@ dataset become more valuable as more adversarial examples are added into the
 test dataset. Based on the MNIST, we construct a training dataset that contains
 both benign and adversarial examples and synthesize test datasets with
 different adversarial-benign mixing ratios. Two popular attack algorithms,
-namely, the fast gradient sign method (FGSM) and the iterative attack (CW) are
-used to generate adversarial examples. Figure 6(a) and (b) compare the average
-Shapley value for adversarial examples and for benign examples in the training
-dataset. The negative test loss for logistic regression is used as the utility
-function. We see that the Shapley value of adversarial examples increases as
-the test data becomes more adversarial; in contrast, the Shapley value of
-benign examples decreases. In addition, the adversarial examples in the
-training set are more valuable if they are generated from the same attack
-algorithm during test time.
+namely, the [fast gradient sign method](https://arxiv.org/abs/1412.6572) (FGSM)
+and the [iterative attack](https://arxiv.org/abs/1705.07263) (CW) are used to
+generate adversarial examples. Figure 6(a) and (b) compare the average Shapley
+value for adversarial examples and for benign examples in the training dataset.
+The negative test loss for logistic regression is used as the utility function.
+We see that the Shapley value of adversarial examples increases as the test
+data becomes more adversarial; in contrast, the Shapley value of benign
+examples decreases. In addition, the adversarial examples in the training set
+are more valuable if they are generated from the same attack algorithm during
+test time.
 
 <p style="text-align:center;">
 <img src="https://bair.berkeley.edu/static/blog/data-worth/6.png" width="">
