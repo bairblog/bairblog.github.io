@@ -6,7 +6,7 @@ author:             <a href="https://ruoxijia.github.io/">Ruoxi Jia</a>
 img:                assets/data-worth/1.png
 excerpt_separator:  <!--more-->
 visible:            True
-show_comments:      False
+show_comments:      True
 ---
 
 <meta name="twitter:title" content="What is My Data Worth?">
