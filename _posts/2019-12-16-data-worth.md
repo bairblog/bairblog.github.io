@@ -227,9 +227,10 @@ the ground truth Shapley value is bounded with high probability. Can we reduce
 the number of utility evaluations while maintaining the same approximation
 error guarantee?
 
-We developed an approximation algorithm that requires only sublinear
-$\mathcal{O}(\sqrt{N}(\log N)^2)$ utility evaluations by utilizing the
-information sharing between different random samples. The key idea is that if a
+We developed an approximation algorithm that requires only $\mathcal{O}(N(\log
+N)^2)$ utility evaluations by utilizing the information sharing between
+different random samples.
+The key idea is that if a
 data point has a high value, it tends to boost the utility of all subsets
 containing it. This inspires us to draw some random subsets and record the
 presence of each training point in these randomly selected subsets. Denoting
