@@ -32,6 +32,8 @@ A quick TL;DR for the entire pipeline:
   it's in the `assets` folder).
 - Copy and paste stuff from the Google Doc to a new post in the `_posts` folder
   write and refer to figures on the server.
+- Copy the three lines of code that have the Twitter card, taking care to ensure
+  that the title and images change based on each post.
 - Send the draft to the authors, get feedback, revise, etc.
 - Publish live to the server by pushing to the `production` branch.  Adjust
   permissions of all new folders created.
