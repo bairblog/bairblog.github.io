@@ -1,4 +1,3 @@
-**TODO for Daniel**: get twitter card instructions written (See Michael Janner's post)
 
 # BAIR Blog Instructions
 
