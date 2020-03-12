@@ -1,4 +1,3 @@
-
 # BAIR Blog Instructions
 
 This is the repository for the BAIR blog, located at `bair.berkeley.edu/blog/`.
