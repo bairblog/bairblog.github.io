@@ -2,7 +2,7 @@
 layout:     post
 title:      "Minibatch Metropolis-Hastings"
 date:       2017-08-02 9:00:00
-author:     <a href="https://people.eecs.berkeley.edu/~seita/">Daniel Seita</a>
+author:     <a href="https://people.eecs.berkeley.edu/~seita/">Daniel Seita</a> and <a href="https://people.eecs.berkeley.edu/~jfc/">John Canny</a>
 visible:    True
 excerpt_separator: <!--more-->
 show_comments: true
@@ -170,7 +170,7 @@ approximate a target posterior. This example is derived from [Welling & Teh
 (2011)][12].
 
 <p style="text-align:center;">
-<img src="http://bair.berkeley.edu/static/blog/mh_test/mhtest_example_progression.png" alt="jupyter_notebook"><br>
+<img src="https://bair.berkeley.edu/static/blog/mh_test/mhtest_example_progression.png" alt="jupyter_notebook"><br>
 <i>
 A quick example of the MH test in action on a mixture of Gaussians example. The
 parameter is $\theta \in \mathbb{R}^2$ with the x and y axes representing
@@ -263,9 +263,7 @@ function. Expressed in terms of $\Delta$, the classical MH accepts a transition
 with probability given by the blue curve.
 
 <p style="text-align:center;">
-<img
-src="http://bair.berkeley.edu/static/blog/mh_test/different_tests.png"
-alt="different_tests" width="600"><br>
+<img src="https://bair.berkeley.edu/static/blog/mh_test/different_tests.png" alt="different_tests" width="600"><br>
 <i>
 Functions $f$ and $g$ can serve as acceptance tests for Metropolis-Hastings.
 Given current sample $\theta$ and proposed sample $\theta'$, the vertical axis
@@ -281,9 +279,7 @@ assumptions, the distribution of samples $(\theta_i)_{i=1}^T$ approaches the
 target distribution.
 
 <p style="text-align:center;">
-<img
-src="http://bair.berkeley.edu/static/blog/mh_test/equivalent_test.png"
-alt="equivalent_test" width="500"><br>
+<img src="https://bair.berkeley.edu/static/blog/mh_test/equivalent_test.png" alt="equivalent_test" width="500"><br>
 <i>
 The density of the standard logistic random variable, denoted $X_{\rm log}$
 along with the equivalent MH test expression ($X_{\rm log}+\Delta > 0$) with the
@@ -307,8 +303,7 @@ of $\Delta$ (approximately Gaussian) is already very close to the desired test
 distribution $X_{\rm log}$, as shown below.
 
 <p style="text-align:center;">
-<img src="http://bair.berkeley.edu/static/blog/mh_test/gaussian_logistic_cdf.png"
-alt="gaussian_logistic_cdf" width="400"><br>
+<img src="https://bair.berkeley.edu/static/blog/mh_test/gaussian_logistic_cdf.png" alt="gaussian_logistic_cdf" width="400"><br>
 <i>
 A plot of the logistic CDF in red (as we had earlier) along with a normal CDF
 curve, colored in lime, which corresponds to a standard deviation of 1.7.
@@ -319,8 +314,7 @@ Rather than resorting to tail bounds as in prior work, we directly bridge these
 two distributions using an additive correction variable $X_{\rm correction}$:
 
 <p style="text-align:center;">
-<img src="http://bair.berkeley.edu/static/blog/mh_test/our_test_visual.png"
-alt="test_visual"><br>
+<img src="https://bair.berkeley.edu/static/blog/mh_test/our_test_visual.png" alt="test_visual"><br>
 <i>
 A diagram of our minibatch MH test. On the right we have the full data test that
 we want, but we can't use it since $\Delta$ is intractable.  Instead, we have
@@ -346,8 +340,7 @@ posterior estimation for a Gaussian Mixture Model, and that it is also highly
 sample-efficient in Logistic Regression for classification of MNIST digits.
 
 <p style="text-align:center;">
-<img src="http://bair.berkeley.edu/static/blog/mh_test/gaussian_mixture_histogram_results_v8.png"
-alt="paper_results"><br>
+<img src="https://bair.berkeley.edu/static/blog/mh_test/gaussian_mixture_histogram_results_v8.png" alt="paper_results"><br>
 <i>
 Histograms showing the batch sizes used for Metropolis-Hastings for the three
 algorithms benchmarked in our paper. The posterior is similar to the earlier
@@ -367,8 +360,7 @@ Berkeley.
 
 <hr>
 
-I thank co-authors Xinlei Pan, Haoyu Chen, and especially, John "The Edge" Canny
-for their help on this project.
+We thank co-authors Xinlei Pan and Haoyu Chen for their help on this project.
 
 - [An Efficient Minibatch Acceptance Test for Metropolis-Hastings][22].<br>
   Daniel Seita, Xinlei Pan, Haoyu Chen, John Canny.<br>

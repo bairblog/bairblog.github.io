@@ -28,8 +28,8 @@ A quick TL;DR for the entire pipeline:
   forget!).
 - Pick one representative image for the blog post and add that to the GitHub (so
   it's in the `assets` folder).
-- Copy and paste stuff from the Google Doc to a new post in the `_posts` folder
-  write and refer to figures on the server.
+- Copy and paste stuff from the Google Doc to a new post in the `_posts` folder.
+  When writing, refer to figures on the blog server.
 - Copy the three lines of code that have the Twitter card, taking care to ensure
   that the title and images change based on each post.
 - Send the draft to the authors, get feedback, revise, etc.
@@ -72,13 +72,12 @@ represents the probability of accepting $\theta'$.
 </p>
 ```
 
-But **do not use that**. Instead, use an explicit link to the static folder:
+But **do not use that**. Instead, use an explicit link to the static folder
+(and please use `https` instead of `http`):
 
 ```
 <p style="text-align:center;">
-<img
-src="http://bair.berkeley.edu/static/blog/mh_test/different_tests.png"
-alt="different_tests" width="600"><br>
+<img src="https://bair.berkeley.edu/static/blog/mh_test/different_tests.png" alt="different_tests" width="600"><br>
 <i>
 Functions $f$ and $g$ can serve as acceptance tests for Metropolis-Hastings.
 Given current sample $\theta$ and proposed sample $\theta'$, the vertical axis
