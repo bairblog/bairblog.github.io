@@ -61,9 +61,7 @@ is, earlier we used the following code:
 
 ```
 <p style="text-align:center;">
-<img
-src="{{site.url}}{{site.baseurl}}/assets/mh_test/different_tests.png"
-alt="different_tests" width="600"><br>
+<img src="{{site.url}}{{site.baseurl}}/assets/mh_test/different_tests.png" alt="different_tests" width="600"><br>
 <i>
 Functions $f$ and $g$ can serve as acceptance tests for Metropolis-Hastings.
 Given current sample $\theta$ and proposed sample $\theta'$, the vertical axis
@@ -98,6 +96,9 @@ To insert YouTube videos, use
 ```
 {% include youtubePlayer.html id="yourVideoID" %}
 ```
+
+For example, if the video is `https://www.youtube.com/watch?v=XPFQ9TBvtCE`,
+then the ID would be `XPFQ9TBvtCE`.
 
 ## Previewing Locally
 
