@@ -89,6 +89,11 @@ center images, control width, etc. Note, however, that using hyperlinks in
 Jekyll format (using `[text](link)`) for the captions doesn't work, so use the
 explicit HTML code.
 
+Set `width=""` for images that should span the full column width.
+
+Remove the italics if there is no figure caption.
+
+
 ## YouTube Videos
 
 To insert YouTube videos, use
