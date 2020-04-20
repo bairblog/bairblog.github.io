@@ -338,16 +338,10 @@ equal contribution.
 [^data]: This 40% gap between decision tree and neural network accuracy shows
     up on TinyImageNet200.
 
-[3] The three datasets in particular are CIFAR10, CIFAR100, TinyImageNet200.
-
-[4] This ImageNet accuracy gain is significant: for *non-interpretable* neural networks, a similar 14% gain on ImageNet [took 3 years](https://paperswithcode.com/sota/image-classification-on-imagenet) of research. To make this comparison, we examine a similar accuracy gain which took 3 years, from AlexNet in 2013 (63.3%) to Inception V3 (78.8%). The NBDT improves on previously state-of-the-art results by ~14% at around the same range, from NofE (61.29%) to our NBDTs (75.30%). There are other factors at play, however: One obvious one is that compute and deep learning libraries were not as readily available in 2013. A fairer comparison may to be use the latest the latest 14%-gain on ImageNet. The latest 14% gain took 5 years, starting from VGG-19 in 2015 (74.5%) and leading up to FixEfficientNet-L2 in 2020 (88.5%). However, this technically isn’t comparable either since large gains are harder at higher accuracies. Despite this lack of perfectly comparable benchmark progress, we just took the minimum of the two ranges in time, to try and illustrate how large of a gap 14% is.
-
 [^wordnet]: WordNet is a lexical hierarchy of various words. A large majority
     of words are nouns, but other parts of speech are included as well. For
     more information, see the [official
     website](https://wordnet.princeton.edu/).
-
-[7] To understand the basic idea for a Tree Supervision Loss: *Horse* is just one class. However, it is also an *Ungulate* and an *Animal*. (See the figure in “Justifications for Individual Predictions”.) At the root node, the *Horse* sample thus needs to be passed to the child node *Animal*. Furthermore, the node *Animal* needs to pass the sample to *Ungulate*. Finally, the node *Ungulate* must pass the sample to *Horse*. Train each node to predict the correct child node. We call the loss that enforces this the Tree Supervision Loss.
 
 [^images]: In general, decision trees perform best with low-dimensional data.
     Images are the antithesis of this best-case scenario, being extremely
