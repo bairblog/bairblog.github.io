@@ -2,7 +2,7 @@
 layout:             post
 title:              "Making Decision Trees Accurate Again: Explaining What Explainable AI Did Not"
 date:               2020-04-23 9:00:00
-author:             <a href="alvinwan.com">Alvin Wan</a>
+author:             <a href="https://alvinwan.com">Alvin Wan</a>
 img:                assets/decisions/decision_Trees.jpeg
 excerpt_separator:  <!--more-->
 visible:            True
@@ -18,8 +18,13 @@ Edit: done
 <meta name="twitter:card" content="summary_image">
 <meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/decisions/decision_Trees.jpeg">
 
-
+<!--
 ![](https://paper-attachments.dropbox.com/s_BA6CF1E0C7002B59FE18648452A87A9807AAD32A0C81C7DB875B31DB25865507_1587079680844_Artboard+23x-100-min.jpg)
+-->
+<p style="text-align:center;">
+<img src="https://paper-attachments.dropbox.com/s_BA6CF1E0C7002B59FE18648452A87A9807AAD32A0C81C7DB875B31DB25865507_1587079680844_Artboard+23x-100-min.jpg" width="600">
+<br />
+</p>
 
 The interpretability of neural networks is becoming increasingly necessary, as
 deep learning is being adopted in settings where accurate *and* justifiable
@@ -28,6 +33,8 @@ imaging. However, deep neural networks are notorious for a lack of
 justification. Explainable AI (XAI) attempts to bridge this divide between
 accuracy and interpretability, but as we explain below, *XAI justifies
 decisions without interpreting the model directly*.
+
+<!--more-->
 
 # What is “Interpretable”?
 
@@ -50,9 +57,26 @@ maps, see
 and [Github](https://github.com/utkuozbulak/pytorch-cnn-visualizations)
 [repositories](https://github.com/PAIR-code/saliency).
 
+<!--
 ![Picturing the original image (left), saliency map using a method called Grad-CAM (middle), and another using Guided Backpropagation (right). The picture above is the canonical example for “class-discrimination”. The above saliency maps are taken from https://github.com/kazuto1011/grad-cam-pytorch.](https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1586745832086_cat_dog.png)
 ![](https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1586745800570_0-resnet152-gradcam-layer4-boxer.png)
 ![](https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1586745848620_0-resnet152-guided-boxer.png)
+-->
+
+<p style="text-align:center;">
+<img src="https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1586745832086_cat_dog.png">
+<img src="https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1586745800570_0-resnet152-gradcam-layer4-boxer.png">
+<img src="https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1586745848620_0-resnet152-guided-boxer.png">
+<br />
+<i>
+Picturing the original image (left), saliency map using a method called
+Grad-CAM (middle), and another using Guided Backpropagation (right). The
+picture above is the canonical example for “class-discrimination”. The above
+saliency maps are taken from
+<a href="https://github.com/kazuto1011/grad-cam-pytorch">https://github.com/kazuto1011/grad-cam-pytorch</a>.
+</i>
+</p>
+
 
 ## What Saliency Maps Fail to Explain
 
@@ -63,8 +87,24 @@ object, one prediction is incorrect. How? Answering this could help us improve
 the model, but as shown below, saliency maps fail to explain the model’s
 decision process.
 
+<!--
 ![(Left) The model predicts Eared Grebe. (Right) The model predicts Horned Grebe. These are Grad-CAM results for a ResNet18 model trained on Caltech-UCSD Birds-200–2011, or CUB 2011 for short. Although the saliency maps look extremely similar, the model predictions differ. As a result, saliency maps do not explain how the model reached its final prediction.](https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1586474513136_92505169_559847128069778_9067506750264967168_n.png)
 ![](https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1586474509213_92523788_505242710353640_1499929015010459648_n.png)
+-->
+
+<p style="text-align:center;">
+<img src="https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1586474513136_92505169_559847128069778_9067506750264967168_n.png" width="200">
+<img src="https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1586474509213_92523788_505242710353640_1499929015010459648_n.png" width="200">
+<br />
+<i>
+(Left) The model predicts Eared Grebe. (Right) The model predicts Horned Grebe.
+These are Grad-CAM results for a ResNet18 model trained on Caltech-UCSD
+Birds-200–2011, or CUB 2011 for short. Although the saliency maps look
+extremely similar, the model predictions differ. As a result, saliency maps do
+not explain how the model reached its final prediction.
+</i>
+</p>
+
 
 ## Decision Trees
 
@@ -72,7 +112,19 @@ Another approach is to **replace neural networks with interpretable models**.
 Before deep learning, decision trees were the gold standard for accuracy and
 interpretability. Below, we illustrate the interpretability of decision trees.
 
+<!--
 ![Instead of only predicting “Super Burger” or “Waffle fries”, the above decision tree will output a sequence of decisions that lead up to a final prediction. These intermediate decisions can then be verified or challenged separately.](https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1586766191312_decision_tree_example_blog.jpg)
+-->
+
+<p style="text-align:center;">
+<img src="https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1586766191312_decision_tree_example_blog.jpg" width="600">
+<br />
+<i>
+Instead of only predicting “Super Burger” or “Waffle fries”, the above decision
+tree will output a sequence of decisions that lead up to a final prediction.
+These intermediate decisions can then be verified or challenged separately.
+</i>
+</p>
 
 For accuracy, however, **decision trees lag behind neural networks by up to 40%
 accuracy** on image classification datasets[^data].
@@ -80,7 +132,14 @@ Neural-network-and-decision-tree hybrids also underperform, failing to match
 neural networks on even the dataset CIFAR10, which features tiny 32x32 images
 like the one below.
 
+<!--
 ![](https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1586476074969_dog7.png)
+-->
+
+<p style="text-align:center;">
+<img src="https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1586476074969_dog7.png">
+<br />
+</p>
 
 As we show in our [paper](https://arxiv.org/abs/2004.00221) (Sec 5.2), this
 accuracy gap damages interpretability: *high-accuracy, interpretable models are
@@ -96,15 +155,45 @@ networks for low-level decisions, as shown below. We call these models
 they can **match neural network accuracy while preserving the interpretability
 of a decision tree.**
 
+<!--
 ![In this figure, each node contains a neural network. The figure only highlights one such node and the neural network inside. In a neural-backed decision tree, predictions are made via a decision tree, preserving high-level interpretability. However, each node in decision tree is a neural network making low-level decisions. The “low-level” decision made by the neural network above is “Has sausage” or “no sausage”.](https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1586768596294_blog_nbdt.jpg)
+-->
 
-**NBDTs** **are** **as i****nterpretable** **as** **decision trees****.**
-Unlike neural networks today, NBDTs can output intermediate decisions for a
-prediction. For example, given an image, a neural network may output *Dog*.
-However, an NBDT can output both *Dog* and *Animal*, *Chordate*, *Carnivore*
-(below).
+<p style="text-align:center;">
+<img src="https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1586768596294_blog_nbdt.jpg" width="600">
+<br />
+<i>
+In this figure, each node contains a neural network. The figure only highlights
+one such node and the neural network inside. In a neural-backed decision tree,
+predictions are made via a decision tree, preserving high-level
+interpretability. However, each node in decision tree is a neural network
+making low-level decisions. The “low-level” decision made by the neural network
+above is “Has sausage” or “no sausage”.
+</i>
+</p>
 
+
+**NBDTs are as interpretable as decision trees.** Unlike neural networks today,
+NBDTs can output intermediate decisions for a prediction. For example, given an
+image, a neural network may output *Dog*.  However, an NBDT can output both
+*Dog* and *Animal*, *Chordate*, *Carnivore* (below).
+
+<!--
 ![Instead of outputting only a prediction “Dog”, Neural-Backed Decision Trees (NBDT) output a series of decisions that lead up to the prediction. Pictured above, the demo NBDT outputs “Animal”, “Chordate”, “Carnivore”, and then “Dog”. The trajectory through the hierarchy is also visualized, to illustrate which possibilities were rejected. The photos above are taken from pexels.com, under the Pexels License.](https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1586382243983_Screen+Shot+2020-04-08+at+2.43.59+PM.png)
+-->
+
+<p style="text-align:center;">
+<img src="https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1586382243983_Screen+Shot+2020-04-08+at+2.43.59+PM.png">
+<br />
+<i>
+Instead of outputting only a prediction “Dog”, Neural-Backed Decision Trees
+(NBDT) output a series of decisions that lead up to the prediction. Pictured
+above, the demo NBDT outputs “Animal”, “Chordate”, “Carnivore”, and then “Dog”.
+The trajectory through the hierarchy is also visualized, to illustrate which
+possibilities were rejected. The photos above are taken from pexels.com, under
+the Pexels License.
+</i>
+</p>
 
 **NBDTs achieve neural network accuracy.** Unlike any other decision-tree-based
 method, NBDTs match neural network accuracy (< 1% difference) on CIFAR10,
@@ -124,7 +213,23 @@ below are correct — *Zebras* are both *Animals* and *Ungulates* (hoofed
 animal). The ability to see justification for individual predictions is
 quintessential for unseen objects.
 
+<!--
 ![NBDTs make accurate intermediate decisions even for unseen objects. Here, the model was trained on CIFAR10 and has never seen zebras before. Despite that, the NBDT correctly identifies the Zebra as both an Animal and an Ungulate (hoofed animal). The photos above are taken from pexels.com, under the Pexels License.](https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1586429228954_Screen+Shot+2020-04-09+at+3.47.02+AM.png)
+-->
+
+<p style="text-align:center;">
+<img src="https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1586429228954_Screen+Shot+2020-04-09+at+3.47.02+AM.png">
+<br />
+<i>
+NBDTs make accurate intermediate decisions even for unseen objects. Here, the
+model was trained on CIFAR10 and has never seen zebras before. Despite that,
+the NBDT correctly identifies the Zebra as both an Animal and an Ungulate
+(hoofed animal). The photos above are taken from pexels.com, under the Pexels
+License.
+</i>
+</p>
+
+
 
 ## Justifications for Model Behavior
 
@@ -133,8 +238,23 @@ accuracy. This is contrary to the dichotomy in the introduction: NBDTs not only
 have both accuracy and interpretability; they also make both accuracy and
 interpretability the same objective.
 
+<!--
 ![The ResNet10 hierarchy (above) makes less sense than the WideResNet hierarchy (right). In this hierarchy, Cat, Frog, and Airplane are placed under the same subtree.](https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1586431141394_CIFAR10-induced-ResNet10.jpg)
 ![The WideResNet hierarchy (above) makes more sense than the ResNet10 hierarchy (left). The WideResNet hierarchy cleanly splits Animals and Vehicles, on each side of the hierarchy.](https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1586473205530_CIFAR10-induced-wrn28_10_cifar10+1.jpg)
+-->
+
+<p style="text-align:center;">
+<img src="https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1586431141394_CIFAR10-induced-ResNet10.jpg" width="330">
+<img src="https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1586473205530_CIFAR10-induced-wrn28_10_cifar10+1.jpg" width="330">
+<br />
+<i>
+The ResNet10 hierarchy (left) makes less sense than the WideResNet hierarchy
+(right). In this hierarchy, Cat, Frog, and Airplane are placed under the same
+subtree.  The WideResNet hierarchy (right) makes more sense than the ResNet10
+hierarchy (left). The WideResNet hierarchy cleanly splits Animals and Vehicles,
+on each side of the hierarchy.
+</i>
+</p>
 
 For example, ResNet10 achieves 4% lower accuracy than WideResNet28x10 on
 CIFAR10. Correspondingly, the lower-accuracy ResNet^6 hierarchy (left) makes
@@ -153,7 +273,22 @@ high-dimensional images.  As we *qualitatively* find in the
 [paper](https://arxiv.org/abs/2004.00221) (Sec 5.3), the model’s decision rules
 are based not only on object type but also on context, shape, and color.
 
+<!--
 ![This example demonstrates how decision rules are easy to interpret with low-dimensional, tabular data. To the right is example tabular data for several items. To the left is a decision tree we trained on this data. In this case, the decision rule (blue) is “Has bun or not?” All items with a bun (orange) are sent to the top child, and all items without a bun (green) are sent to the bottom child.](https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1587072198036_blog_tabular+1.jpg)
+-->
+
+<p style="text-align:center;">
+<img src="https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1587072198036_blog_tabular+1.jpg">
+<br />
+<i>
+This example demonstrates how decision rules are easy to interpret with
+low-dimensional, tabular data. To the right is example tabular data for several
+items. To the left is a decision tree we trained on this data. In this case,
+the decision rule (blue) is “Has bun or not?” All items with a bun (orange) are
+sent to the top child, and all items without a bun (green) are sent to the
+bottom child.
+</i>
+</p>
 
 To interpret decision rules *quantitatively*, we leverage an existing hierarchy
 of nouns called WordNet[^wordnet]; with this hierarchy, we can find the most
@@ -162,8 +297,29 @@ and *Dog*, WordNet would provide *Mammal*. In our
 [paper](https://arxiv.org/pdf/2004.00221.pdf) (Sec 5.2) and pictured below, we
 quantitatively verify these WordNet hypotheses.
 
+<!--
 ![The WordNet hypothesis for the left subtree (red arrow) is Vehicle. The WordNet hypothesis for the right (blue arrow) is Animal. To validate these meanings qualitatively, we tested the NBDT against unseen classes of objects: 1. Find images that were not seen during training. 2. Given the hypothesis, determine which child each image belongs to. For example, we know that Elephant is an Animal so is *supposed to go the right subtree. 3. We can now evaluate the hypothesis, by checking how many images are passed to the correct child. For example, check how many Elephant images are sent to the Animal subtree. These accuracies per-class are shown to the right, with unseen Animals (blue) and unseen Vehicles (red) both showing high accuracies.](https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1587067002530_CIFAR10_WRN_Tree-5.jpg)
 ![](https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1587067006203_ood_both.jpg)
+-->
+
+<p style="text-align:center;">
+<img src="https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1587067002530_CIFAR10_WRN_Tree-5.jpg" height="300">
+<img src="https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1587067006203_ood_both.jpg" height="300">
+<br />
+<i>
+The WordNet hypothesis for the left subtree (red arrow) is Vehicle. The WordNet
+hypothesis for the right (blue arrow) is Animal. To validate these meanings
+qualitatively, we tested the NBDT against unseen classes of objects: 1. Find
+images that were not seen during training. 2. Given the hypothesis, determine
+which child each image belongs to. For example, we know that Elephant is an
+Animal so is *supposed* to go the right subtree. 3. We can now evaluate the
+hypothesis, by checking how many images are passed to the correct child. For
+example, check how many Elephant images are sent to the Animal subtree. These
+accuracies per-class are shown to the right, with unseen Animals (blue) and
+unseen Vehicles (red) both showing high accuracies.
+</i>
+</p>
+
 
 Note that in small datasets with 10 classes i.e., CIFAR10, we can find WordNet
 hypotheses for all nodes. However, in large datasets with 1000 classes i.e.,
@@ -174,7 +330,23 @@ ImageNet, we can only find WordNet hypotheses for a subset of nodes.
 The training and inference process for a Neural-Backed Decision Tree can be
 broken down into four steps.
 
+<!--
 ![Training an NBDT occurs in 2 phases: First, construct the hierarchy for the decision tree. Second, train the neural network with a special loss term. To run inference, pass the sample through the neural network backbone. Finally, run the final fully-connected layer as a sequence of decision rules.](https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1586430067027_pipeline.jpg)
+-->
+
+<p style="text-align:center;">
+<img src="https://paper-attachments.dropbox.com/s_BFFE4A09F6DC2B1D4283B10174F1A42E9AD08F8A70233F89DED078AA81384775_1586430067027_pipeline.jpg">
+<br />
+<i>
+Training an NBDT occurs in 2 phases: First, construct the hierarchy for the
+decision tree. Second, train the neural network with a special loss term. To
+run inference, pass the sample through the neural network backbone. Finally,
+run the final fully-connected layer as a sequence of decision rules.
+</i>
+</p>
+
+
+
 
 1. Construct a hierarchy for the decision tree, called the **Induced
 Hierarchy**.
