@@ -6,7 +6,7 @@ author:             <a href="https://alvinwan.com">Alvin Wan</a>
 img:                assets/decisions/decision_Trees.jpeg
 excerpt_separator:  <!--more-->
 visible:            True
-show_comments:      False
+show_comments:      True
 ---
 
 <!--
