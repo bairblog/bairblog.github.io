@@ -2,7 +2,7 @@
 layout:             post
 title:              "The Ingredients of Real World Robotic Reinforcement Learning"
 date:               2020-04-27 9:00:00
-author:             <a href="https://people.eecs.berkeley.edu/~abhigupta/">Abhishek Gupta</a>, <a href="https://henryzhu.xyz/">Henry Zhu</a>, <a href="https://justinvyu.github.io/about/">Justin Yu</a>, <a href="https://vikashplus.github.io/">Vikash Kumar</a>, <a href="https://people.eecs.berkeley.edu/~shah/">Dhruv Shah</a><br>
+author:             <a href="https://people.eecs.berkeley.edu/~abhigupta/">Abhishek Gupta</a>, <a href="https://henryzhu.xyz/">Henry Zhu</a>, <a href="https://justinvyu.github.io/about/">Justin Yu</a>, <a href="https://vikashplus.github.io/">Vikash Kumar</a>, <a href="https://people.eecs.berkeley.edu/~shah/">Dhruv Shah</a>, <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a><br>
 img:                assets/ingredients/03_ingredients_fig.png
 excerpt_separator:  <!--more-->
 visible:            True
@@ -51,7 +51,9 @@ substantial human intervention or engineering.
 An alternative paradigm for robotic learning is *simulation to real-world
 transfer* where first, a simulation of the robot and its environment is
 constructed, then the robot learns the desired behaviors in simulation, and
-finally the learned behaviors are transferred to the real world [cite].
+finally the learned behaviors are transferred to the real world
+([Sadeghi et al., 2016](https://arxiv.org/abs/1611.04201), [Tobin et al., 2017](https://arxiv.org/abs/1703.06907)).
+
 However, this approach has some fundamental drawbacks. The simulation will
 never exactly match the real world, which means that improvements in simulation
 performance may not translate to improvements in the real world. Additionally,
@@ -173,8 +175,8 @@ difficult and slow. To address this, we utilize unsupervised representation
 learning techniques to condense images into latent features. Ideally, the
 latent features contain key information, while making the learning problem much
 easier. While many representation learning methods could be used, we explored
-the use of a variational encoder ([Kingma et al.
-2013](https://arxiv.org/abs/1312.6114)) for feature learning.
+the use of a variational encoder ([Kingma et al., 2013](https://arxiv.org/abs/1312.6114))
+for feature learning.
 
 ## (3) Reward Inference: Classifier Based Rewards
 
@@ -216,8 +218,15 @@ dexterous manipulation, we note that we did not need **any** special mechanisms
 for resetting the environment or providing reward and state estimates to the
 agent.
 
+<!--
 - Beads: [https://www.youtube.com/watch?v=O4WV1WP6bTk](https://www.youtube.com/watch?v=O4WV1WP6bTk)
 - Valve: [https://www.youtube.com/watch?v=WCfKBzbxDPo](https://www.youtube.com/watch?v=WCfKBzbxDPo)
+-->
+
+{% include youtubePlayer.html id="O4WV1WP6bTk" %}
+<br>
+{% include youtubePlayer.html id="WCfKBzbxDPo" %}
+<br>
 
 The time-lapses for the bead manipulation and valve rotation tasks show the
 three steps of (1) goal image collection, (2) unattended training for several
@@ -247,6 +256,3 @@ address. Here are a few that we think are important:
   learning and be able to effectively share knowledge across a variety of tasks
   and robots. A shift to more data-driven reinforcement learning methods would
   make RL more economically practical.
-
-We would like to thank Sergey Levine for his valuable feedback on this blog
-post.
