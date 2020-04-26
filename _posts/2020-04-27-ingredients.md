@@ -19,7 +19,7 @@ Edit: done
 <meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/ingredients/03_ingredients_fig.png">
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/ingredients/00_teaser_fig.gif" width="">
+<img src="https://bair.berkeley.edu/static/blog/ingredients/00_teaser_fig_fixed.gif" width="">
 <br />
 </p>
 
