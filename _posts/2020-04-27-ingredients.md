@@ -256,3 +256,9 @@ address. Here are a few that we think are important:
   learning and be able to effectively share knowledge across a variety of tasks
   and robots. A shift to more data-driven reinforcement learning methods would
   make RL more economically practical.
+
+This blog post is based on our paper:
+
+- **The Ingredients of Real World Robotic Reinforcement Learning**<br>
+  Henry Zhu\*, Justin Yu\*, Abhishek Gupta\*, Dhruv Shah, Kristian Hartikainen, Avi Singh, Vikash Kumar, Sergey Levine<br>
+  ICLR 2020 [https://openreview.net/forum?id=rJe2syrtvS&noteId=rJe2syrtvS](https://openreview.net/forum?id=rJe2syrtvS&noteId=rJe2syrtvS)
