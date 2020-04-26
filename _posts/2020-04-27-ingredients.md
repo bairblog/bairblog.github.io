@@ -6,7 +6,7 @@ author:             <a href="https://people.eecs.berkeley.edu/~abhigupta/">Abhis
 img:                assets/ingredients/03_ingredients_fig.png
 excerpt_separator:  <!--more-->
 visible:            True
-show_comments:      False
+show_comments:      True
 ---
 
 <!--
