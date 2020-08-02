@@ -45,17 +45,16 @@ estimator "**the naive estimator**", or simply **deaths/cases**, and denote it a
 
 # Why are (all) CFR estimators biased?
 
-<p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/cfr/graphical-model.png" width="80%">
-<br />
-<i>
-<b>Fig. 1</b>
-Dozens of biases can corrupt the estimation of the CFR. Surveillance data
-gives partial information within the ‘sampling frame’ (light blue rectangle). Edges on
-the graph correspond roughly to conditional probabilities; e.g., the edge from D to DF
-is the probability a person dies if they are diagnosed with COVID-19.
-</i>
-</p>
+<figure>
+    <img src="https://bair.berkeley.edu/static/blog/cfr/graphical-model.png" alt="Graphical model." style="display: block; width=80">
+    <figcaption>
+        <b>Fig. 1</b> 
+            Dozens of biases can corrupt the estimation of the CFR. Surveillance data
+            gives partial information within the ‘sampling frame’ (light blue rectangle). Edges on
+            the graph correspond roughly to conditional probabilities; e.g., the edge from D to DF
+            is the probability a person dies if they are diagnosed with COVID-19.
+    </figcaption>
+</figure>
 
 In short, because the data is biased, [we are losing at least 99.8% of our sample efficiency][1].
 There’s a well known "butterfly effect" in statistics: a tiny correlation between your
@@ -93,16 +92,15 @@ Correcting for biases is sometimes possible using outside data sources, but can 
 estimator overall due to partial bias cancellation. This is easier to see through example than it is to explain.
 Assume the true CFR is some value $p$ in the range 0 to 1 (i.e., deaths/infections is equal to $p$). Then,
 assume that because of under-ascertainment of mild cases, there are too many fatal cases being reported, which
-means $E_{\rm naive}$ converges to $bp > p$ (in other words, it is higher than it should be by a factor of $b$). But
-at the same time, assume that because of the time-lag between diagnosis and death causes the proportion of
-deaths to diagnoses to be too low by the same factor, $b$. Then, the deaths/cases $E_{\rm naive}$ converges to $b(p/b)=p$,
+means $E_{\rm naive}$ converges to $bp > p$ (in other words, it is higher than it should be by a factor of $b$). Also assume the time-lag between diagnosis and death causes the proportion of
+deaths to diagnoses to decrease by the same factor $b$. Then, $E_{\rm naive}$ converges to $b(p/b)=p$,
 the correct value. So, even though it might seem to be an objectively good idea to correct for time-lag between
 diagnosis and death, it would actually result in a worse estimator in this case, since time-lag is helping us out
 by cancelling out under-ascertainment.
 
 The mathematical form of the naive estimator $E_{\rm naive}$ allows us to see easily what we need to do to make it unbiased.
 With $p$ being the true CFR, $q$ being the reporting rate, and $r$ being the covariance between death and diagnosis,
-the mean of deaths/cases is:
+the mean of $E_{\rm naive}$ is:
 
 <!--
 <p style="text-align:center;">
