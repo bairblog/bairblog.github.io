@@ -138,9 +138,9 @@ In particular, data should be collected via a procedure like the following:
 6. For committed contacts who didn’t get tested, call and note if they are asymptomatic.
 
 This protocol is meant to decrease the covariance between fatality and diagnosis. If patients commit to
-testing before they develop symptoms, there cannot be a covariance between disease severity and diagnosis.
+testing before they develop symptoms, this covariance simply cannot exist.
 However, there may still be issues with people dropping out of the study; if this is a problem in practice,
-it can be mitigated by a combination of incentives (payments) and post-stratification.
+it can be mitigated by a combination of incentives (payments) and consistent follow-ups.
 
 <figure>
     <img src="https://bair.berkeley.edu/static/blog/cfr/histograms.png" alt="A figure." style="display: block; background-color:#fff;width:100%;height:60%">
@@ -154,11 +154,11 @@ it can be mitigated by a combination of incentives (payments) and post-stratific
 </figure>
 
 **Figure 2** represents an idealized version of this study. In the best case scenario, there is no
-covariance between death and diagnosis. In that case, we only need $N=66$ samples for our
+covariance between death and diagnosis. Then, we only need $N=66$ samples for our
 estimator of the CFR to be approximately unbiased, even if $p=0.001$ ($1/1000$ cases die). Problems
 remain in the case that $p$ is small; namely, death is so rare that we need tons of samples to
 decrease the variance of our estimator. This will require lots of samples. But even if no deaths
-are observed, that gives us lots of information about $p$; specifically, if $N=1000$ and we
+are observed, we get a lot of information about $p$; for example, if $N=1000$ and we
 have not observed a single death, then we can confidently say that $p<0.01$ within the
 population we are sampling. This is simply because in the second panel of **Figure 2**,
 there is nearly zero mass in the $N=1000$ histogram at $E_{\rm naive} = 0$. With this in mind, we could
@@ -170,24 +170,23 @@ under-ascertainment of mild cases and time-lags. However, there will still be lo
 improvement, like understanding the dependency of CFR on age, sex, and race. (In other words,
 the CFR is a random quantity itself, depending on the population being sampled.) Distinctions
 between CFRs of these strata may be quite small, requiring a lot of high-quality data to
-analyze. If $p$ is extremely low, like 0.001, and we take a purely frequentist approach as
-in **Figure 2**, this may require collecting $N=100,000$ or $N=1,000,000$ samples *per group*. Perhaps
-there are ways to lower that number with Bayesian hierarchical modeling. Even though making
+analyze. If $p$ is extremely low, like 0.001, 
+this may require collecting $N=100,000$ or $N=1,000,000$ samples *per group*. Perhaps
+there are ways to lower that number by pooling samples. Even though making
 correct inferences will require careful thought (as always), this data collection strategy
 will make it much simpler.
 
 I’d like to re-emphasize a point here: collecting data as above will make the naive estimator $E_{\rm naive}$
 *unbiased for the sampled population*. But the sampled population may not be the population
 we care about. However, there is a set of statistical techniques collectively called
-‘post-stratification’ that can help deal with this problem effectively — though not perfectly.
+‘post-stratification’ that can help deal with this problem effectively — see [Mr. P][3].
 
 If you read our academic article, we provide some thoughts on how to use time-series data
 and outside information to correct time-lags and relative reporting rates. Our work was very
-heavily based on one of [Nick Reich][3]’s papers. However, as I claimed earlier, even fancy
+heavily based on one of [Nick Reich][4]’s papers. However, as I claimed earlier, even fancy
 estimators cannot overcome fundamental problems with data collection. I’ll defer discussion of
-that estimator, and the results we got from it, to the article. It’s best parsed by experts
-looking for a perspective on how to perform these estimations honestly. I’d love to hear
-your thoughts.
+that estimator, and the results we got from it, to the article. I’d love to hear
+your thoughts on it.
 
 CFR estimation is clearly a difficult problem — but with proper data collection and
 estimation guided by data scientists, I still believe that we can get a useful CFR estimate.
@@ -197,11 +196,12 @@ This will help guide public policy decisions about this urgent and ongoing pande
 
 This blog post is based on the following paper:
 
-- **[On Identifying and Mitigating Bias in the Estimation of the COVID-19 Case Fatality Rate][4]**.<br>
+- **[On Identifying and Mitigating Bias in the Estimation of the COVID-19 Case Fatality Rate][5]**.<br>
   Anastasios Angelopoulos, Reese Pathak, Rohit Varma, Michael I. Jordan<br>
   Harvard Data Science Review Special Issue 1 — COVID-19: Unprecedented Challenges and Chances. 2020.
 
 [1]:https://hdsr.mitpress.mit.edu/pub/l7a2t45s/release/1
 [2]:https://statistics.fas.harvard.edu/files/statistics-2/files/statistical_paradises_and_paradoxes.pdf
-[3]:https://www.umass.edu/sphhs/person/faculty/nicholas-g-reich
-[4]:"https://hdsr.mitpress.mit.edu/pub/y9vc2u36/release/6"
+[3]:http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=08B82F2D1BB0D1C5EEDE33856D698AF5?doi=10.1.1.44.5270&rep=rep1&type=pdf
+[4]:https://www.umass.edu/sphhs/person/faculty/nicholas-g-reich
+[5]:"https://hdsr.mitpress.mit.edu/pub/y9vc2u36/release/6"
