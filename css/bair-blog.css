@@ -99,6 +99,7 @@ For Sudeep's post (Nov 2019) with horizontally aligned figures and figure captio
     .halffigure{
         margin-bottom: 2em;
         padding-bottom: 2em;
+        border-bottom: 20px;
     }
 }
 @media only screen and (min-width: 1000px) {
