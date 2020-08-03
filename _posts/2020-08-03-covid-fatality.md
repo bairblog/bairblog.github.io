@@ -142,7 +142,7 @@ testing before they develop symptoms, this covariance simply cannot exist.
 However, there may still be issues with people dropping out of the study; if this is a problem in practice,
 it can be mitigated by a combination of incentives (payments) and consistent follow-ups.
 
-<figure style="float:right; vertical-align:right; width:45%">
+<div class="halffigure">
     <img src="https://bair.berkeley.edu/static/blog/cfr/histograms.png" alt="A figure." style="float:right; background-color:#fff; width:100%; height:50%; vertical-align:right; align: right">
     <figcaption style="float:right ; width:100%; vertical-align:right; position:relative">
         <b>Fig. 2</b> <b>V6</b> Assuming data collection induces no correlation between disease severity and diagnosis, as the true CFR decreases,
@@ -151,7 +151,7 @@ it can be mitigated by a combination of incentives (payments) and consistent fol
         values of <i>N</i>). The three stacked plots correspond to different values of <i>p</i>; the smaller <i>p</i> is, the harder it is to estimate,
         since death becomes an extremely rare event.
     </figcaption>
-</figure>
+</div>
 
 **Figure 2** represents an idealized version of this study. In the best case scenario, there is no
 covariance between death and diagnosis. Then, we only need $N=66$ samples for our
