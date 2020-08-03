@@ -92,12 +92,13 @@ For Sudeep's post (Nov 2019) with horizontally aligned figures and figure captio
  * Anastasios: Create a figure which is half-width on desktop but not on mobile.
  *
  */
-
+.halffigure{
+    padding: 1em;
+}
 @media only screen and (min-width: 1000px) {
     .halffigure {
         width: 45%;
         vertical-align: right;
         float:right;
-        padding: 1em;
     }
 }

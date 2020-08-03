@@ -145,7 +145,7 @@ it can be mitigated by a combination of incentives (payments) and consistent fol
 <div class="halffigure">
     <img src="https://bair.berkeley.edu/static/blog/cfr/histograms.png" alt="A figure." style="float:right; background-color:#fff; width:100%; height:50%; vertical-align:right; align: right">
     <figcaption style="float:right ; width:100%; vertical-align:right; position:relative">
-        <b>Fig. 2</b> <b>V7</b> Assuming data collection induces no correlation between disease severity and diagnosis, as the true CFR decreases,
+        <b>Fig. 2</b> Assuming data collection induces no correlation between disease severity and diagnosis, as the true CFR decreases,
         it requires more samples to estimate. The variable <i>p</i> is the true CFR, and <i>q</i> is the response rate. Each histogram represents
         the probability the naive estimator will take on a certain value, given <i>N</i> samples of data (different colors correspond to different
         values of <i>N</i>). The three stacked plots correspond to different values of <i>p</i>; the smaller <i>p</i> is, the harder it is to estimate,
