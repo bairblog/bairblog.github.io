@@ -142,10 +142,10 @@ testing before they develop symptoms, this covariance simply cannot exist.
 However, there may still be issues with people dropping out of the study; if this is a problem in practice,
 it can be mitigated by a combination of incentives (payments) and consistent follow-ups.
 
-<figure>
+<figure style="width:50%, display:block, vertical-align:right">
     <img src="https://bair.berkeley.edu/static/blog/cfr/histograms.png" alt="A figure." style="display: block; background-color:#fff;width:100%;height:60%">
     <figcaption>
-        <b>Fig. 2</b> Assuming data collection induces no correlation between disease severity and diagnosis, as the true CFR decreases,
+        <b>Fig. 2</b> <b>V1</b> Assuming data collection induces no correlation between disease severity and diagnosis, as the true CFR decreases,
         it requires more samples to estimate. The variable <i>p</i> is the true CFR, and <i>q</i> is the response rate. Each histogram represents
         the probability the naive estimator will take on a certain value, given <i>N</i> samples of data (different colors correspond to different
         values of <i>N</i>). The three stacked plots correspond to different values of <i>p</i>; the smaller <i>p</i> is, the harder it is to estimate,
