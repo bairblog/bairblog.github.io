@@ -59,10 +59,10 @@ Styles for home page logo and nav
 
 
 /*
-Daniel: added by following:
-https://stackoverflow.com/questions/54633409/how-to-align-images-horizontally-side-by-side-with-captions-underneath
-For Sudeep's post (Nov 2019) with horizontally aligned figures and figure captions.
-*/
+ * Daniel Seita: added by following:
+ * https://stackoverflow.com/questions/54633409/how-to-align-images-horizontally-side-by-side-with-captions-underneath
+ * For Sudeep's post (Nov 2019) with horizontally aligned figures and figure captions.
+ */
 
 .containerWide {
   display: flex;
@@ -108,4 +108,16 @@ For Sudeep's post (Nov 2019) with horizontally aligned figures and figure captio
         vertical-align: right;
         float:right;
     }
+}
+
+
+
+/*
+ * Daniel Seita: added for Ashvin Nair's AWAC post.
+ */
+.vertical-line-170p {
+    display: inline-block;
+    border-left: 1px solid #ccc;
+    margin: 0 10px;
+    height: 170px;
 }
