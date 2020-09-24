@@ -1,11 +1,11 @@
 ---
 layout:             post
 title:              "Plan2Explore: Active Model-Building for Self-Supervised Visual Reinforcement Learning"
-date:               2020-09-28 9:00:00
-author:             <a href="https://www.seas.upenn.edu/~oleh/">Oleh Rybkin</a>
+date:               2020-10-01 9:00:00
+author:             <a href="https://www.seas.upenn.edu/~oleh/">Oleh Rybkin</a> and <a href="https://danijar.com/">Danijar Hafner</a> and <a href="https://www.cs.cmu.edu/~dpathak/">Deepak Pathak</a>
 img:                assets/plan2explore/figure5_gif6.gif
 excerpt_separator:  <!--more-->
-visible:            True
+visible:            False
 show_comments:      False
 ---
 
@@ -160,14 +160,14 @@ after that.
 <br />
 </p>
 
-Plan2Explore is able to solve most of the tasks we benchmarked. Since prior
+Plan2Explore (<font color="green"><strong>—</strong></font>) is able to solve most of the tasks we benchmarked. Since prior
 work on self-supervised reinforcement learning used model-free agents that are
-not able to adapt in a zero-shot manner (<a href="https://pathak22.github.io/noreward-rl/">ICM</a>, ––– ), or did not use
+not able to adapt in a zero-shot manner (<a href="https://pathak22.github.io/noreward-rl/">ICM</a>, <font color="blue"><strong>—</strong></font>), or did not use
 image observations, we compare by adapting this prior work to our model-based
 plan2explore setup. Our latent disagreement objective outperforms other
 previously proposed objectives. More interestingly, the final performance of
 Plan2Explore is comparable to the state-of-the-art  <a href="https://ai.googleblog.com/2020/03/introducing-dreamer-scalable.html">oracle</a>
-agent that requires task rewards throughout training ( ––– ). In our <a href="https://arxiv.org/abs/2005.05960">paper</a>, we further report
+agent that requires task rewards throughout training (<font color="yellow"><strong>—</strong></font>). In our <a href="https://arxiv.org/abs/2005.05960">paper</a>, we further report
 performance of Plan2Explore in the zero-shot setting where the agent needs to
 solve the task before any task-oriented practice.
 
@@ -198,6 +198,8 @@ with visual observations, Plan2Explore provides an important step toward
 self-supervised intelligent machines.
 
 <hr>
+
+We would like to thank Georgios Georgakis for the useful feedback.
 
 This post is based on the following paper:
 
