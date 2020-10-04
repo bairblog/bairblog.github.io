@@ -3,10 +3,10 @@ layout:             post
 title:              "Plan2Explore: Active Model-Building for Self-Supervised Visual Reinforcement Learning"
 date:               2020-10-05 9:00:00
 author:             <a href="https://www.seas.upenn.edu/~oleh/">Oleh Rybkin</a> and <a href="https://danijar.com/">Danijar Hafner</a> and <a href="https://www.cs.cmu.edu/~dpathak/">Deepak Pathak</a>
-img:                assets/plan2explore/figure5_gif6.gif
+img:                assets/plan2explore/plan2explore.png
 excerpt_separator:  <!--more-->
 visible:            True
-show_comments:      False
+show_comments:      True
 ---
 
 <meta name="twitter:title" content="Plan2Explore: Active Model-Building for Self-Supervised Visual Reinforcement Learning">
