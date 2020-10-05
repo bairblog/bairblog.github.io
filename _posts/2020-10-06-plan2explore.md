@@ -13,6 +13,11 @@ show_comments:      True
 <meta name="twitter:card" content="summary_image">
 <meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/plan2explore/figure1_teaser.gif">
 
+<p style="text-align:center;">
+<img src="https://bair.berkeley.edu/static/blog/plan2explore/figure1_teaser.gif" height="" width="90%">
+<br />
+</p>
+
 To operate successfully in unstructured open-world environments, autonomous
 intelligent agents need to solve many different tasks and learn new tasks
 quickly. Reinforcement learning has enabled artificial agents to solve complex
@@ -25,11 +30,6 @@ analogously to <a href=" https://youtu.be/VsnQf7exv5I">unsupervised representati
 After acquiring general and reusable knowledge about the environment through
 self-supervision, the agent can adapt to specific downstream tasks more
 efficiently.
-
-<p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/plan2explore/figure1_teaser.gif" height="" width="90%">
-<br />
-</p>
 
 In this post, we explain our recent publication that develops <a href="https://ramanans1.github.io/plan2explore/">Plan2Explore</a>.
 While many recent papers on self-supervised reinforcement learning have focused on
