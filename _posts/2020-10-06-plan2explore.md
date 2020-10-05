@@ -1,12 +1,12 @@
 ---
 layout:             post
 title:              "Plan2Explore: Active Model-Building for Self-Supervised Visual Reinforcement Learning"
-date:               2020-10-01 9:00:00
+date:               2020-10-06 9:00:00
 author:             <a href="https://www.seas.upenn.edu/~oleh/">Oleh Rybkin</a> and <a href="https://danijar.com/">Danijar Hafner</a> and <a href="https://www.cs.cmu.edu/~dpathak/">Deepak Pathak</a>
-img:                assets/plan2explore/figure5_gif6.gif
+img:                assets/plan2explore/plan2explore.png
 excerpt_separator:  <!--more-->
-visible:            False
-show_comments:      False
+visible:            True
+show_comments:      True
 ---
 
 <meta name="twitter:title" content="Plan2Explore: Active Model-Building for Self-Supervised Visual Reinforcement Learning">
@@ -149,7 +149,7 @@ downstream task. This optimization uses only predictions imagined by the model,
 enabling Plan2Explore to solve new downstream tasks in a zero-shot manner
 without any additional interaction with the world.
 
-The following plot shows the performance of Plan2Explore  ( ––– ) on tasks from
+The following plot shows the performance of Plan2Explore on tasks from
 DM Control Suite. Before 1 million environment steps, the agent doesn’t know
 the task and simply explores. The agent solves the task as soon as it is
 provided at 1 million steps, and keeps improving fast in a few-shot regime
