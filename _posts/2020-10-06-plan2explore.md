@@ -18,27 +18,9 @@ show_comments:      True
 <br />
 </p>
 
-To operate successfully in unstructured open-world environments, autonomous
-intelligent agents need to solve many different tasks and learn new tasks
-quickly. Reinforcement learning has enabled artificial agents to solve complex
-tasks both in <a href="https://deepmind.com/research/case-studies/alphago-the-story-so-far">simulation</a>
-and <a href="https://ai.googleblog.com/2018/06/scalable-deep-reinforcement-learning.html">real-world</a>.
-However, it requires collecting large amounts of experience in the environment for each individual task. Self-supervised reinforcement learning has emerged
-<a href="https://pathak22.github.io/noreward-rl/">as</a> <a href="https://arxiv.org/abs/1903.03698">an</a>  <a href="https://arxiv.org/abs/1907.01657">alternative</a>,
-where the agent only follows an intrinsic objective that is independent of any individual task,
-analogously to <a href=" https://youtu.be/VsnQf7exv5I">unsupervised representation learning</a>.
-After acquiring general and reusable knowledge about the environment through
-self-supervision, the agent can adapt to specific downstream tasks more
-efficiently.
+To operate successfully in unstructured open-world environments, autonomous intelligent agents need to solve many different tasks and learn new tasks quickly. Reinforcement learning has enabled artificial agents to solve complex tasks both in <a href="https://deepmind.com/research/case-studies/alphago-the-story-so-far">simulation</a> and <a href="https://ai.googleblog.com/2018/06/scalable-deep-reinforcement-learning.html"> real-world</a>. However, it requires collecting large amounts of experience in the environment , and the agent learns only that particular task, much like a student memorizing a lecture without understanding. Self-supervised reinforcement learning has emerged <a href="https://pathak22.github.io/noreward-rl/">as</a> <a href="https://arxiv.org/abs/1903.03698">an</a> <a href="https://arxiv.org/abs/1907.01657">alternative</a>, where the agent only follows an intrinsic objective that is independent of any individual task, analogously to <a href=" https://www.youtube.com/watch?v=SaJL4SLfrcY&ab_channel=InriaChannel">unsupervised representation learning</a>. After experimenting with the environment without supervision, the agent builds an understanding of the environment, which enables it to adapt to specific downstream tasks more efficiently.
 
-In this post, we explain our recent publication that develops <a href="https://ramanans1.github.io/plan2explore/">Plan2Explore</a>.
-While many recent papers on self-supervised reinforcement learning have focused on
-<a href="https://spinningup.openai.com/en/latest/spinningup/rl_intro2.html">model-free</a>  agents, our agent learns an internal
-<a href="https://bair.berkeley.edu/blog/2019/12/12/mbpo/">world model</a>  that predicts the future outcomes of potential actions.
-The world model captures general knowledge, allowing Plan2Explore to quickly solve new tasks through planning in its own imagination.
-The world model further enables the agent to explore what it expects to be novel, rather than repeating what it found novel in the past.
-Plan2Explore obtains state-of-the-art zero-shot and few-shot performance on continuous control benchmarks with high-dimensional input images.
-To make it easy to experiment with our agent, we are open-sourcing the complete <a href="https://github.com/ramanans1/plan2explore">source code</a> .
+In this post, we explain our recent publication that develops <a href="https://ramanans1.github.io/plan2explore/">Plan2Explore</a>. While many recent papers on self-supervised reinforcement learning have focused on <a href="https://spinningup.openai.com/en/latest/spinningup/rl_intro2.html">model-free</a>  agents that can only capture knowledge by remembering behaviors practiced during self-supervision, our agent learns an internal <a href="https://bair.berkeley.edu/blog/2019/12/12/mbpo/">world model</a> that lets it extrapolate beyond memorized facts by predicting what will happen as a consequence of different potential actions. The world model captures general knowledge, allowing Plan2Explore to quickly solve new tasks through planning in its own imagination. In contrast to the model-free prior work, the world model further enables the agent to explore what it expects to be novel, rather than repeating what it found novel in the past. Plan2Explore obtains state-of-the-art zero-shot and few-shot performance on continuous control benchmarks with high-dimensional input images. To make it easy to experiment with our agent, we are open-sourcing the complete <a href="https://github.com/ramanans1/plan2explore">source code</a>.
 
 <!--more-->
 
@@ -50,21 +32,21 @@ test time to solve new tasks (see figure above). Thanks to effective
 exploration, the learned world model is general and captures information that
 can be used to solve multiple new tasks with no or few additional environment
 interactions. We discuss each part of the Plan2Explore algorithm individually
-below. We assume a basic understanding of reinforcement learning in this post
-and otherwise recommend <a href="https://spinningup.openai.com/en/latest/">these</a>
-<a href="http://rail.eecs.berkeley.edu/deeprlcourse/">materials</a>  as an
-introduction.
+below. We assume a basic understanding of <a href="https://en.wikipedia.org/wiki/Reinforcement_learning">reinforcement
+learning</a> in this post.
 
 # Learning the world model
 
 Plan2Explore learns a world model that predicts future outcomes given past
-observations $o_{1:t}$ and actions $a_{1:t}$ (see figure below). To handle
-high-dimensional image observations, we encode them into lower-dimensional
-features $h$ and use an <a href="https://ai.googleblog.com/2019/02/introducing-planet-deep-planning.html">RSSM</a>
-model that predicts forward in a compact latent state-space $s$, from which the
-observations can be decoded. The latent state aggregates information from past
-observations that is helpful for future prediction, and is learned end-to-end
-using a variational objective.
+observations $o_{1:t}$ and actions $a_{1:t}$. To handle high-dimensional image
+observations, we encode them into lower-dimensional features $h$ and use an <a href="https://ai.googleblog.com/2019/02/introducing-planet-deep-planning.html">RSSM</a>
+model that predicts forward in a compact latent state-space $s$. The latent
+state aggregates information from past observations and is trained for future
+prediction, using a variational objective that reconstructs future
+observations. Since the latent state learns to represent the observations,
+during planning we can predict entirely in the latent state without decoding
+the images themselves. The figure below shows our latent prediction
+architecture.
 
 <p style="text-align:center;">
 <img src="https://bair.berkeley.edu/static/blog/plan2explore/figure2_model.gif" height="" width="90%">
@@ -78,11 +60,12 @@ that collects new and informative data. To achieve this, Plan2Explore uses a
 novelty metric derived from the model itself. The novelty metric measures the
 expected information gained about the environment upon observing the new data.
 As the figure below shows, this is approximated by the disagreement <a href="https://arxiv.org/abs/1612.01474">of</a>
-<a href="https://pathak22.github.io/exploration-by-disagreement/">an</a>  <a href="https://arxiv.org/abs/2002.08791">ensemble</a>  of $K$ latent models.
+<a href="https://pathak22.github.io/exploration-by-disagreement/">an</a>  <a href="https://arxiv.org/abs/2002.08791">ensemble</a> of $K$ latent models.
 Intuitively, large latent disagreement reflects high model uncertainty, and
 obtaining the data point would reduce this uncertainty. By maximizing latent
 disagreement, Plan2Explore selects actions that lead to the largest information
 gain, therefore improving the model as quickly as possible.
+
 
 <p style="text-align:center;">
 <img src="https://bair.berkeley.edu/static/blog/plan2explore/figure3_disagreement.gif" height="" width="65%">
@@ -110,23 +93,25 @@ agent, which learns a policy $\pi_\phi$ using a value function and analytic
 gradients through the model. The policy is learned completely inside the
 imagination of the world model. During exploration, this imagination training
 ensures that our exploration policy is always up-to-date with the current world
-model and collects data that are still novel.
+model and collects data that are still novel. The figure below shows the
+imagination training process.
 
 <p style="text-align:center;">
 <img src="https://bair.berkeley.edu/static/blog/plan2explore/figure4_policy.gif" height="" width="90%">
 <br />
 </p>
 
-# Curiosity-driven exploration behavior
+# Evaluation of curiosity-driven exploration behavior
 
-We evaluate Plan2Explore on 20 continuous control tasks from the
-<a href="https://github.com/deepmind/dm_control">DeepMind Control Suite</a>.
-The agent only has access to image observations and no proprioceptive
-information.  Instead of random exploration, which fails to take the agent far
-from the initial position, Plan2Explore leads to diverse movement strategies
-like jumping, running, and flipping. Later, we will see that these are
-effective practice episodes that enable the agent to quickly learn to solve
-various continuous control tasks.
+We evaluate Plan2Explore on the <a href="https://github.com/deepmind/dm_control">DeepMind Control Suite</a>, which
+features 20 tasks requiring different control skills, such as locomotion,
+balancing, and simple object manipulation. The agent only has access to image
+observations and no proprioceptive information. Instead of random exploration,
+which fails to take the agent far from the initial position, Plan2Explore leads
+to diverse movement strategies like jumping, running, and flipping, as shown in
+the figure below. Later, we will see that these are effective practice episodes
+that enable the agent to quickly learn to solve various continuous control
+tasks.
 
 <p style="text-align:center;">
 <img src="https://bair.berkeley.edu/static/blog/plan2explore/figure5_gif1.gif" height="190" width="">
@@ -139,7 +124,7 @@ various continuous control tasks.
 </p>
 
 
-# Solving tasks with the world model
+# Evaluation of downstream task performance
 
 Once an accurate and general world model is learned, we test Plan2Explore on
 previously unseen tasks. Given a task specified with a reward function, we use
@@ -149,11 +134,10 @@ downstream task. This optimization uses only predictions imagined by the model,
 enabling Plan2Explore to solve new downstream tasks in a zero-shot manner
 without any additional interaction with the world.
 
-The following plot shows the performance of Plan2Explore on tasks from
-DM Control Suite. Before 1 million environment steps, the agent doesn’t know
-the task and simply explores. The agent solves the task as soon as it is
-provided at 1 million steps, and keeps improving fast in a few-shot regime
-after that.
+The following plot shows the performance of Plan2Explore on tasks from DM
+Control Suite. Before 1 million environment steps, the agent doesn’t know the
+task and simply explores. The agent solves the task as soon as it is provided
+at 1 million steps, and keeps improving fast in a few-shot regime after that.
 
 <p style="text-align:center;">
 <img src="https://bair.berkeley.edu/static/blog/plan2explore/figure6_plot.png" height="" width="">
@@ -164,7 +148,7 @@ Plan2Explore (<font color="green"><strong>—</strong></font>) is able to solve 
 work on self-supervised reinforcement learning used model-free agents that are
 not able to adapt in a zero-shot manner (<a href="https://pathak22.github.io/noreward-rl/">ICM</a>, <font color="blue"><strong>—</strong></font>), or did not use
 image observations, we compare by adapting this prior work to our model-based
-plan2explore setup. Our latent disagreement objective outperforms other
+Plan2Explore setup. Our latent disagreement objective outperforms other
 previously proposed objectives. More interestingly, the final performance of
 Plan2Explore is comparable to the state-of-the-art  <a href="https://ai.googleblog.com/2020/03/introducing-dreamer-scalable.html">oracle</a>
 agent that requires task rewards throughout training (<font color="yellow"><strong>—</strong></font>). In our <a href="https://arxiv.org/abs/2005.05960">paper</a>, we further report

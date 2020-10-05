@@ -5,7 +5,7 @@ date:               2020-11-01 9:00:00
 author:             ORDER TBD: <a href="https://ben-eysenbach.github.io/">Ben Eysenbach</a> and <a href="https://aviralkumar2907.github.io/">Aviral Kumar</a> and <a href="https://people.eecs.berkeley.edu/~abhigupta/">Abhishek Gupta</a>
 img:                assets/supervised_rl/teaser.png
 excerpt_separator:  <!--more-->
-visible:            True
+visible:            False
 show_comments:      False
 ---
 
