@@ -5,7 +5,7 @@ date:               2020-11-01 9:00:00
 author:             ORDER TBD: <a href="https://ben-eysenbach.github.io/">Ben Eysenbach</a> and <a href="https://aviralkumar2907.github.io/">Aviral Kumar</a> and <a href="https://people.eecs.berkeley.edu/~abhigupta/">Abhishek Gupta</a>
 img:                assets/supervised_rl/teaser.png
 excerpt_separator:  <!--more-->
-visible:            False
+visible:            True
 show_comments:      False
 ---
 
@@ -50,7 +50,10 @@ We now discuss another mental model for RL. The main idea is to view RL as a *jo
 <img
 src="https://bair.berkeley.edu/static/blog/supervised_rl/supervised_perspective.png" width="90%">
 <br />
-<i>Figure 1: CAPTION</i>
+<i>Figure 1: Many old and new reinforcement learning algorithms can be viewed as doing
+behavior cloning (a.k.a. supervised learning) on optimized data. This blog post
+discusses recent work that extends this idea to the multi-task perspective,
+where it actually becomes *easier* to optimize data.</i>
 </p>
 
 
@@ -58,7 +61,7 @@ src="https://bair.berkeley.edu/static/blog/supervised_rl/supervised_perspective.
 Converting "good data" into a "good policy" is easy: just do supervised learning! The reverse direction, converting a "good policy" into "good data" is slightly more challenging, and we'll discuss a few approaches in the next section. It turns out that in the multi-task setting or by artificially modifying the problem definition slightly, converting a "good policy" into "good data" is substantially easier. The penultimate section will discuss how goal relabeling, a modified problem definition, and inverse RL extract "good data" in the multi-task setting.
 
 #### An RL objective that decouples the policy from data
-We now formalize the supervised learning perspective using the lens of expectation maximization, a lens used in many prior works [^Dayan97][^Williams07][^Peters10][^Levine13][^Neumann11]. To simplify notation, we will use $\pi_\theta(\tau)$ as the probability that policy $\pi_\theta$ produces trajectory $\tau$, and will use $q(\tau)$ to denote the data distribution that we will optimize. Consider the log of the expected reward objective, $\log J(\theta)$. Since log function is monotonic increasing, maximizing this is equivalent to maximizing the expected reward. We then apply Jensen's inequality to move the logarithm inside the expectation:
+We now formalize the supervised learning perspective using the lens of expectation maximization, a lens used in many prior works [[Dayan 1997][Dayan97], [Williams 2007][Williams07], [Peters 2010][Peters10], [Neumann 2011][Neumann11], [Levine 2013][Levine13]]. To simplify notation, we will use $\pi_\theta(\tau)$ as the probability that policy $\pi_\theta$ produces trajectory $\tau$, and will use $q(\tau)$ to denote the data distribution that we will optimize. Consider the log of the expected reward objective, $\log J(\theta)$. Since log function is monotonic increasing, maximizing this is equivalent to maximizing the expected reward. We then apply Jensen's inequality to move the logarithm inside the expectation:
 $$\begin{aligned} \log J(\theta) &=  \log \mathbb{E}_{\pi(\tau)} \left[R(\tau) \right] \\
 & \ge \mathbb{E}_{q(\tau)} \left[ \log R(\tau) + \log \pi_\theta(\tau) - \log q(\tau) \right] \triangleq F(\theta, q)
 \end{aligned} $$
@@ -78,7 +81,7 @@ Finding good data and a good policy correspond to optimizing the lower bound, $F
 #### Optimizing the Policy
 When optimizing the lower bound with respect to the policy, the objective is (up to a constant) exactly equivalent to supervised learning (a.k.a. behavior cloning)!
 $$\max_\theta F(\theta, q) = \max_\theta \mathbb{E}_{\tau \sim q(\tau)} \left[\sum_{s_t, a_t \in \tau} \log \pi_\theta(a_t \mid s_t) \right] + \text{const.}$$
-This observation is exciting because supervised learning is generally much more stable than RL algorithms[^stable]. Moreover, this observation suggests that prior RL methods that use supervised learning as a subroutine[^Oh18][^Ding19] might actually be optimizing a lower bound on expected reward.
+This observation is exciting because supervised learning is generally much more stable than RL algorithms[^stable]. Moreover, this observation suggests that prior RL methods that use supervised learning as a subroutine[[Oh20 18][Oh18], [Ding 2019][Ding19]] might actually be optimizing a lower bound on expected reward.
 
 
 #### Optimizing the Data Distribution
@@ -87,10 +90,10 @@ The objective for the data distribution is to maximize reward while not deviatin
 $$\max_q F(\theta, q) = \max_q \mathbb{E}_{q(\tau)} \left[ \log R(\tau) \right] - D_\text{KL}\left(q(\tau) \; \| \; \pi(\tau) \right).$$
 The KL constraint above makes the optimization of the data distribution conservative, preferring to stay close to the current policy at the cost of slightly lower reward. Optimizing the expected *log* reward, rather than the expected reward, further makes this optimization problem risk averse (the $\log(\cdot)$ function is a concave utility function[^Ingersoll19]).
 
-There are a number of ways we might optimize the data distribution. One straightforward (if inefficient) strategy is to collect experience with a noisy version of the current policy, and keep the 10% of experience that receives the highest reward.[^Oh18] An alternative is to do trajectory optimization, optimizing the states along a single trajectory.[^Neumann11][^Levine13] A third approach is to *not* collect more data, but rather reweight previous collected trajectories by their reward. [^Dayan97] Moreover, the data distribution $q(\tau)$ can be represented in multiple ways -- as a non-parametric discrete distribution over previously-observed trajectories[^Oh18], or a factored distribution over individual state-action pairs[^Neumann11][^Levine13] or as a semi-parametric model that extends observed experience with extra hallucinated experience generated from a parametric model.[^Kumar19b] 
+There are a number of ways we might optimize the data distribution. One straightforward (if inefficient) strategy is to collect experience with a noisy version of the current policy, and keep the 10% of experience that receives the highest reward.[^Oh18] An alternative is to do trajectory optimization, optimizing the states along a single trajectory.[[Neumann 2011][Neumann11], [Levine 2013][Levine13]] A third approach is to *not* collect more data, but rather reweight previous collected trajectories by their reward. [[Dayan1997][Dayan97]] Moreover, the data distribution $q(\tau)$ can be represented in multiple ways -- as a non-parametric discrete distribution over previously-observed trajectories[[Oh 2018][Oh18]], or a factored distribution over individual state-action pairs [[Neumann 2011][Neumann11], [Levine 2013][Levine13]] or as a semi-parametric model that extends observed experience with extra hallucinated experience generated from a parametric model.[[Kumar 2019][Kumar19b]]
 
 #### Viewing Prior Work through the Lens of Supervised Learning
-A number of algorithms perform these steps in disguise. For example, reward-weighted regression[^Williams07] and advantage-weighted regression[^Neumann09][^Peng19] combine the two steps by doing behavior cloning on reward-weighted data. Self-imitation learning[^Oh18] forms the data distribution by ranking observed trajectories according to their reward and choosing a uniform distribution over the top-k. MPO[^Abdolmaleki18] constructs a dataset by sampling actions from the policy, reweights those actions that are expected to lead to high reward (i.e., have high reward plus value), and then performs behavior cloning on those reweighted actions.
+A number of algorithms perform these steps in disguise. For example, reward-weighted regression [[Williams 2007][Williams07]] and advantage-weighted regression [[Neumann 2009][Neumann09], [Peng 2019][Peng19]] combine the two steps by doing behavior cloning on reward-weighted data. Self-imitation learning [[Oh 2018][Oh18]] forms the data distribution by ranking observed trajectories according to their reward and choosing a uniform distribution over the top-k. MPO [[Abdolmaleki 2018][Abdolmaleki18]] constructs a dataset by sampling actions from the policy, reweights those actions that are expected to lead to high reward (i.e., have high reward plus value), and then performs behavior cloning on those reweighted actions.
 
 
 ### Multi-Task Versions of the Supervised Learning Perspective
@@ -99,20 +102,24 @@ A number of algorithms perform these steps in disguise. For example, reward-weig
 <img
 src="https://bair.berkeley.edu/static/blog/supervised_rl/hipi.png" width="90%">
 <br />
-<i>Figure 2: CAPTION</i>
+<i>Figure 2: A number of recent multi-task RL algorithms organize experience
+based on what task each piece of experience solved. This process of post-hoc
+organization is closely related to hindsight relabeling and inverse RL, and lies
+at the core of recent multi-task RL algorithms that are based on supervised
+learning.</i>
 </p>
 
 
 A number of recent algorithms can be viewed as reincarnations of this idea, with a twist. The twist is that finding good data becomes much easier in the multi-task setting. These works typically either operate directly in a multi-task setting or modify the single-task setting to look like one. As we increase the number of tasks, all experience becomes optimal for some task. We now view three recent papers through this lens:
 
-**Goal-conditioned imitation learning**:[^Ghosh19][^Ding19][^Savinov18][^Lynch20LMP] In a goal-reaching task our data distribution consists of both the states and actions, as well as the attempted goal. As a robot's failure to reach a commanded goal is nonetheless a success for reaching the goal it actually reached, we can optimize the data distribution by replacing the originally commanded goals with the goals actually reached. Thus, the hindsight relabelling performed by goal-conditioned imitation learning[^Ghosh19][^Ding19][^Savinov18][^Lynch20LMP] and hindsight experience replay[^Andrychowicz17] can be viewed as optimizing a non-parametric data distribution. Moreover, goal-conditioned imitation can be viewed as simply doing supervised learning (a.k.a behavior cloning) on optimized data. Interestingly, when this goal-conditioned imitation procedure with relabeling is repeated iteratively, it can be shown that this is a convergent procedure for learning policies from scratch, even if no expert data is provided at all![^Ghosh19] This is particularly promising because it essentially provides us a technique for off-policy RL without explicitly requiring any bootstrapping or value function learning, significantly simplifying the algorithm and tuning process. 
+**Goal-conditioned imitation learning**:[[Savinov 2018][Savinov18], [Ghosh 2019][Ghosh19], [Ding 2019][Ding19], [Lynch 2020][Lynch20LMP]] In a goal-reaching task our data distribution consists of both the states and actions, as well as the attempted goal. As a robot's failure to reach a commanded goal is nonetheless a success for reaching the goal it actually reached, we can optimize the data distribution by replacing the originally commanded goals with the goals actually reached. Thus, the hindsight relabelling performed by goal-conditioned imitation learning [[Savinov 2018][Savinov18], [Ghosh 2019][Ghosh19], [Ding 2019][Ding19], [Lynch 2020][Lynch20LMP]] and hindsight experience replay [[Andrychowicz 2017][Andrychowicz17]] can be viewed as optimizing a non-parametric data distribution. Moreover, goal-conditioned imitation can be viewed as simply doing supervised learning (a.k.a behavior cloning) on optimized data. Interestingly, when this goal-conditioned imitation procedure with relabeling is repeated iteratively, it can be shown that this is a convergent procedure for learning policies from scratch, even if no expert data is provided at all![^Ghosh19] This is particularly promising because it essentially provides us a technique for off-policy RL without explicitly requiring any bootstrapping or value function learning, significantly simplifying the algorithm and tuning process. 
 
-**Reward-Conditioned Policies**:[^Kumar19] Interestingly, we can the extend the insight discussed above to single-task RL, if we can view non-expert trajectories collected from sub-optimal policies as optimal supervision for some family of tasks. Of course, these sub-optimal trajectories may not maximize reward, but they are optimal for matching the reward of the given trajectory. Thus, we can modify the policy to be conditioned on a desired vlaue of long-term reward (i.e., the return) and follow a similar strategy as goal-conditioned imitation learning: execute rollouts using this reward-conditioned policy by commanding a desired value of return, relabel the commanded return values to the observed returns, which gives us optimized data non-parametrically, and finally, run supervised learning on this optimized data. We show[^Kumar19] that by simply optimizing the data in a non-parameteric fashion via simple re-weighting schemes, we can obtain an RL method that is guaranteed to converge to the optimal policy and is simpler than most RL methods in that it does not require parameteric return estimators which might be hard to tune. 
+**Reward-Conditioned Policies**:[[Kumar 2019][Kumar19], [Srivastava 2019][Srivastava19]] Interestingly, we can the extend the insight discussed above to single-task RL, if we can view non-expert trajectories collected from sub-optimal policies as optimal supervision for some family of tasks. Of course, these sub-optimal trajectories may not maximize reward, but they are optimal for matching the reward of the given trajectory. Thus, we can modify the policy to be conditioned on a desired value of long-term reward (i.e., the return) and follow a similar strategy as goal-conditioned imitation learning: execute rollouts using this reward-conditioned policy by commanding a desired value of return, relabel the commanded return values to the observed returns, which gives us optimized data non-parametrically, and finally, run supervised learning on this optimized data. We show [[Kumar 2019][Kumar19]] that by simply optimizing the data in a non-parametric fashion via simple re-weighting schemes, we can obtain an RL method that is guaranteed to converge to the optimal policy and is simpler than most RL methods in that it does not require parametric return estimators which might be hard to tune. 
 
 
-**Hindsight Inference for Policy Improvement**:[^Eysenbach20] While the connections between goal-reaching algorithms and dataset optimization are neat, until recently it was unclear how to apply similar ideas to more general multi-task settings, such as a discrete set of reward functions or sets of reward defined by varying (linear) combinations of bonus and penalty terms. To resolve this open question, we started with the intuition that optimizing the data distribution corresponds to answering the following question: "if you assume that your experience was optimal, what tasks were you trying to solve?" Intriguily, this is precisely the question that *inverse RL* answers. This suggests that we can simply use inverse RL to relabel data in *arbitrary* multi-task settings: inverse RL provides a theoretically grounded mechanism for sharing experience across tasks. This result is exciting for two reasons:
+**Hindsight Inference for Policy Improvement**:[[Eysenbach 2020][Eysenbach20]] While the connections between goal-reaching algorithms and dataset optimization are neat, until recently it was unclear how to apply similar ideas to more general multi-task settings, such as a discrete set of reward functions or sets of reward defined by varying (linear) combinations of bonus and penalty terms. To resolve this open question, we started with the intuition that optimizing the data distribution corresponds to answering the following question: "if you assume that your experience was optimal, what tasks were you trying to solve?" Intriguily, this is precisely the question that *inverse RL* answers. This suggests that we can simply use inverse RL to relabel data in *arbitrary* multi-task settings: inverse RL provides a theoretically grounded mechanism for sharing experience across tasks. This result is exciting for two reasons:
 1. This result tells us how to apply similar relabeling ideas to more general multi-task settings. Our experiments showed that relabeling experience using inverse RL accelerates learning across a wide range of multi-task settings, and even outperformed prior goal-relabelling methods on goal-reaching tasks.
-2. It turns out that relabeling with the goal actually reached is exactly equivalent to doing inverse RL with a certain sparse reward function. This result allows us to interpret previous goal-relabeling techniques as inverse RL, thus providing  stronger theoretical foundation for these methods. More generally, this result is exciting 
+2. It turns out that relabeling with the goal actually reached is exactly equivalent to doing inverse RL with a certain sparse reward function. This result allows us to interpret previous goal-relabeling techniques as inverse RL, thus providing a stronger theoretical foundation for these methods. More generally, this result is exciting 
 
 
  
@@ -128,59 +135,57 @@ post.
 This post is based on the following papers:
 
 - Ghosh, D., Gupta, A., Fu, J., Reddy, A., Devin, C., Eysenbach, B., & Levine,
-  S. (2019). Learning to reach goals without reinforcement learning. arXiv
-  preprint <a href="https://arxiv.org/abs/1912.06088">arXiv:1912.06088</a>.
+  S. (2019). Learning to Reach Goals via Iterated Supervised Learning
+  <a href="https://arxiv.org/abs/1912.06088">arXiv:1912.06088</a>.
 - Eysenbach, B., Geng, X., Levine, S., & Salakhutdinov, R. (2020). Rewriting
-  History with Inverse RL: Hindsight Inference for Policy Improvement. arXiv
-  preprint <a href="https://arxiv.org/abs/2002.11089">arXiv:2002.11089</a>.
+  History with Inverse RL: Hindsight Inference for Policy Improvement. <a href="https://arxiv.org/abs/2002.11089">NeurIPS 2020 (oral)</a>.
 - Kumar, A., Peng, X. B., & Levine, S. (2019). Reward-Conditioned Policies.
-  arXiv preprint <a href="https://arxiv.org/abs/1912.13465">arXiv:1912.13465</a>.
+   <a href="https://arxiv.org/abs/1912.13465">arXiv:1912.13465</a>.
 
-<hr>
-[^Lynch20]: Lynch, Corey, and Pierre Sermanet. "Grounding Language in Play." arXiv preprint arXiv:2005.07648 (2020).
+[Williams92]: https://link.springer.com/content/pdf/10.1007/BF00992696.pdf
 
-[^Williams92]: Williams, Ronald J. "Simple statistical gradient-following algorithms for connectionist reinforcement learning." Machine learning 8.3-4 (1992): 229-256.
+[Baird95]: http://www.cs.utsa.edu/~bylander/cs6243/baird95residual.pdf
 
-[^Baird95]: Baird, Leemon. "Residual algorithms: Reinforcement learning with function approximation." Machine Learning Proceedings 1995. Morgan Kaufmann, 1995. 30-37.
+[Dayan97]: http://www.cs.toronto.edu/~fritz/absps/dh97.pdf
 
-[^Dayan97]: Dayan, Peter, and Geoffrey E. Hinton. "Using expectation-maximization for reinforcement learning." Neural Computation 9.2 (1997): 271-278.
+[Ghosh19]: https://arxiv.org/pdf/1912.06088.pdf
 
-[^Ghosh19]: Ghosh, Dibya, et al. "Learning to reach goals without reinforcement learning." arXiv preprint arXiv:1912.06088 (2019).
+[Lynch20LMP]: http://proceedings.mlr.press/v100/lynch20a/lynch20a.pdf
 
-[^Lynch20LMP]: Lynch, Corey, et al. "Learning latent plans from play." Conference on Robot Learning. 2020.
+[Ding19]: http://papers.nips.cc/paper/9667-goal-conditioned-imitation-learning.pdf
 
-[^Ding19]: Ding, Yiming, et al. "Goal-conditioned imitation learning." Advances in Neural Information Processing Systems. 2019.
+[Savinov18]: https://arxiv.org/pdf/1803.00653
 
-[^Savinov18]: Savinov, Nikolay, Alexey Dosovitskiy, and Vladlen Koltun. "Semi-parametric topological memory for navigation." International Conference on Learning Representations. 2018.
+[Kumar19]: https://arxiv.org/pdf/1912.13465
 
-[^Kumar19]: Kumar, Aviral, Xue Bin Peng, and Sergey Levine. "Reward-Conditioned Policies." arXiv preprint arXiv:1912.13465 (2019).
+[Eysenbach20]: https://arxiv.org/abs/2002.11089
 
-[^Eysenbach20]: Eysenbach, Benjamin, et al. "Rewriting History with Inverse RL: Hindsight Inference for Policy Improvement." arXiv preprint arXiv:2002.11089 (2020).
+[Oh18]: https://arxiv.org/pdf/1806.05635
 
-[^Oh18]: Oh, Junhyuk, et al. "Self-Imitation Learning." International Conference on Machine Learning. 2018.
+[Neumann09]: http://papers.nips.cc/paper/3501-fitted-q-iteration-by-advantage-weighted-regression.pdf
 
-[^Neumann09]: Neumann, Gerhard, and Jan R. Peters. "Fitted Q-iteration by advantage weighted regression." Advances in neural information processing systems. 2009.
+[Peng19]: https://arxiv.org/pdf/1910.00177
 
-[^Peng19]: Peng, Xue Bin, et al. "Advantage-weighted regression: Simple and scalable off-policy reinforcement learning." arXiv preprint arXiv:1910.00177 (2019).
+[Williams07]: http://is.tuebingen.mpg.de/fileadmin/user_upload/files/publications/ICML2007-Peters_4493[0].pdf
 
-[^Williams07]: Peters, Jan, and Stefan Schaal. "Reinforcement learning by reward-weighted regression for operational space control." Proceedings of the 24th international conference on Machine learning. 2007.
+[Abdolmaleki18]: https://arxiv.org/pdf/1806.06920
 
-[^Abdolmaleki18]: Abdolmaleki, Abbas, et al. "Maximum a Posteriori Policy Optimisation." International Conference on Learning Representations. 2018.
+[Peters10]: https://www.ias.informatik.tu-darmstadt.de/uploads/Team/JanPeters/Peters2010_REPS.pdf
 
-[^Peters10]: Peters, Jan, Katharina Mülling, and Yasemin Altun. "Relative entropy policy search." AAAI. Vol. 10. 2010.
+[Levine13]: https://papers.nips.cc/paper/5178-variational-policy-search-via-trajectory-optimization.pdf
 
-[^Levine13]: Levine, Sergey, and Vladlen Koltun. "Variational policy search via trajectory optimization." Advances in neural information processing systems. 2013.
+[Neumann11]: http://eprints.lincoln.ac.uk/25793/1/441_icmlpaper.pdf
 
-[^Neumann11]: Neumann, Gerhard. "Variational inference for policy search in changing situations." Proceedings of the 28th International Conference on Machine Learning, ICML 2011. 2011.
+[Ingersoll19]: https://faculty.som.yale.edu/jonathaningersoll/new-book-chapters/
 
-[^Ingersoll19]: Ingersoll, Jonathan E. "Financial Models and Theories." Available at https://faculty.som.yale.edu/jonathaningersoll/new-book-chapters/. Accessed August 25 2020.
+[Andrychowicz17]: https://papers.nips.cc/paper/7090-hindsight-experience-replay.pdf
+
+[Srivastava19]: https://arxiv.org/pdf/1912.02877
+
+[Kumar19b]: https://arxiv.org/pdf/1912.13464
 
 [^1]:  Our lower bound is technically an *evidence lower bound*, so coordinate ascent on it is equivalent to expectation maximization.
 
-[^Andrychowicz17]: Andrychowicz, Marcin, et al. "Hindsight experience replay." Advances in neural information processing systems. 2017.
-
-[^Srivastava19]: Srivastava, Rupesh Kumar, et al. "Training agents using upside-down reinforcement learning." arXiv preprint arXiv:1912.02877 (2019).
-
 [^stable]: While supervised learning is generally more stable than RL, *iterated* supervised learning may be less stable than supervised learning on a fixed dataset.
 
-[^Kumar19b]: Kumar, Levine. "Model Inversion Networks for Model-based optimization." arXiv preprint arXiv:1912.13464 (2019).
+
