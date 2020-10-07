@@ -18,6 +18,8 @@ show_comments:      True
 <br />
 </p>
 
+*This post is cross-listed [on the CMU ML blog][1]*.
+
 To operate successfully in unstructured open-world environments, autonomous intelligent agents need to solve many different tasks and learn new tasks quickly. Reinforcement learning has enabled artificial agents to solve complex tasks both in <a href="https://deepmind.com/research/case-studies/alphago-the-story-so-far">simulation</a> and <a href="https://ai.googleblog.com/2018/06/scalable-deep-reinforcement-learning.html"> real-world</a>. However, it requires collecting large amounts of experience in the environment, and the agent learns only that particular task, much like a student memorizing a lecture without understanding. Self-supervised reinforcement learning has emerged <a href="https://pathak22.github.io/noreward-rl/">as</a> <a href="https://arxiv.org/abs/1903.03698">an</a> <a href="https://arxiv.org/abs/1907.01657">alternative</a>, where the agent only follows an intrinsic objective that is independent of any individual task, analogously to <a href=" https://www.youtube.com/watch?v=SaJL4SLfrcY&ab_channel=InriaChannel">unsupervised representation learning</a>. After experimenting with the environment without supervision, the agent builds an understanding of the environment, which enables it to adapt to specific downstream tasks more efficiently.
 
 In this post, we explain our recent publication that develops <a href="https://ramanans1.github.io/plan2explore/">Plan2Explore</a>. While many recent papers on self-supervised reinforcement learning have focused on <a href="https://spinningup.openai.com/en/latest/spinningup/rl_intro2.html">model-free</a>  agents that can only capture knowledge by remembering behaviors practiced during self-supervision, our agent learns an internal <a href="https://bair.berkeley.edu/blog/2019/12/12/mbpo/">world model</a> that lets it extrapolate beyond memorized facts by predicting what will happen as a consequence of different potential actions. The world model captures general knowledge, allowing Plan2Explore to quickly solve new tasks through planning in its own imagination. In contrast to the model-free prior work, the world model further enables the agent to explore what it expects to be novel, rather than repeating what it found novel in the past. Plan2Explore obtains state-of-the-art zero-shot and few-shot performance on continuous control benchmarks with high-dimensional input images. To make it easy to experiment with our agent, we are open-sourcing the complete <a href="https://github.com/ramanans1/plan2explore">source code</a>.
@@ -191,3 +193,6 @@ This post is based on the following paper:
   Ramanan Sekar\*, Oleh Rybkin\*, Kostas Daniilidis, Pieter Abbeel, Danijar Hafner, Deepak Pathak<br>
   Thirty-seventh International Conference Machine Learning (ICML), 2020.<br>
   <a href="https://arxiv.org/abs/2005.05960">arXiv</a>, <a href="https://ramanans1.github.io/plan2explore/">Project Website</a>
+
+
+[1]:https://blog.ml.cmu.edu/2020/10/06/plan2explore/
