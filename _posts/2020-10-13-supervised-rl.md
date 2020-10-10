@@ -14,16 +14,11 @@ show_comments:      False
 <meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/supervised_rl/teaser.png">
 
 
-The two most common perspectives on Reinforcement learning (RL) are **optimization** and **dynamic programming**. Methods that compute the gradients of the non-differentiable expected reward objective, such as the REINFORCE trick are commonly grouped into the optimization perspective, whereas methods that employ TD-learning or Q-learning are dynamic programming methods. While these methods have shown considerable success in recent years, these methods are still quite challenging to apply to new problems. In contrast deep supervised learning has been extremely successful and we may hence ask, *Can we use supervised learning procedures to perform RL?*
-
-* "RL is a trick for taking gradients of the expected reward objective using the REINFORCE trick" [optimization perspective]
-* "The objective for RL is the TD error, and we can use machine learning to minimize that error." [dynamic programming perspective] -->
+The two most common perspectives on Reinforcement learning (RL) are **optimization** and **dynamic programming**. Methods that compute the gradients of the non-differentiable expected reward objective, such as the REINFORCE trick are commonly grouped into the optimization perspective, whereas methods that employ TD-learning or Q-learning are dynamic programming methods. While these methods have shown considerable success in recent years, these methods are still quite challenging to apply to new problems. In contrast deep supervised learning has been extremely successful and we may hence ask: *Can we use supervised learning to perform RL?*
 
 In this blog post we discuss a mental model for RL, based on the idea that RL can be viewed as doing supervised learning on the "good data". What makes RL challenging is that, unless you're doing imitation learning, actually acquiring that "good data" is quite challenging. Therefore, RL might be viewed as a *joint optimization* problem over both the policy and the data. Seen from this **supervised learning** perspective, many RL algorithms can be viewed as alternating between finding good data and doing supervised learning on that data. It turns out that finding "good data" is much easier in the multi-task setting, or settings that can be converted to a different problem for which obtaining "good data" is easy. In fact, we will discuss how techniques such as hindsight relabeling and inverse RL can be viewed as optimizing data.
 
-We'll start by reviewing the two common perspectives on RL, and then delving into a formal definition of the supervised learning perspective on RL.
-
-<!--more-->
+We'll start by reviewing the two common perspectives on RL, optimization and dynamic programming. We'll then delve into a formal definition of the supervised learning perspective on RL.
 
 ## Common Perspectives on RL
 In this section, we will describe the two predominant perspectives on RL.
@@ -69,7 +64,7 @@ We now formalize the supervised learning perspective using the lens of expectati
 $$
 \begin{aligned} 
 \log J(\theta) &=  \log \mathbb{E}_{\pi(\tau)} \left[R(\tau) \right] \\
-& \ge \mathbb{E}_{q(\tau)} \left[ \log R(\tau) + \log \pi_\theta(\tau) - \log q(\tau) \right] \triangleq F(\theta, q)
+& \ge \mathbb{E}_{q(\tau)} \left[ \log R(\tau) + \log \pi_\theta(\tau) - \log q(\tau) \right] := F(\theta, q)
 \end{aligned}
 $$
 
@@ -78,12 +73,12 @@ What's useful about this lower bound is that it allows us to optimize a policy u
 || Optimization Perspective | Dynamic Programming Perspective | Supervised Learning Perspective|
 |--|--|--|--|
 | What are we optimizing? | policy ($\pi_\theta$) | Q-function ($Q_\theta$) | policy ($\pi_\theta$) and data ($q(\tau)$) |
-| Loss | Surrogate loss ($\tilde{L}(\theta, \tau \sim \pi_\theta)$) | TD error | Lower bound ($F(\theta, q)$)
+| Loss | Surrogate loss <br> $\tilde{L}(\theta, \tau \sim \pi_\theta)$ | TD error | Lower bound <br> $F(\theta, q)$
 | Data used in loss | collected from current policy | arbitrary | optimized data |
 
 
 
-Finding good data and a good policy correspond to optimizing the lower bound, $F(\theta, q)$, with respect to the policy parameters and the experience. One common approach for maximizing the lower bound is to perform coordinate ascent on its arguments, alternating between optimizing the data distribution and the policy:[^1]
+Finding good data and a good policy correspond to optimizing the lower bound, $F(\theta, q)$, with respect to the policy parameters and the experience. One common approach for maximizing the lower bound is to perform coordinate ascent on its arguments, alternating between optimizing the data distribution and the policy.[^1]
 
 
 #### Optimizing the Policy
@@ -141,7 +136,7 @@ In this article, we discussed how RL can be viewed as solving a sequence of stan
 
 <hr>
 
-We thank Allen Zhu, Shreyas Chaudhari, and Sergey Levine for feedback on this
+We thank Allen Zhu, Shreyas Chaudhari, Sergey Levine, and Daniel Seita for feedback on this
 post.
 
 This post is based on the following papers:
