@@ -3,7 +3,7 @@ layout:             post
 title:              "Reinforcement learning is supervised learning on optimized data"
 date:               2020-10-13 9:00:00
 author:             <a href="https://ben-eysenbach.github.io/">Ben Eysenbach</a> and <a href="https://aviralkumar2907.github.io/">Aviral Kumar</a> and <a href="https://people.eecs.berkeley.edu/~abhigupta/">Abhishek Gupta</a>
-img:                assets/supervised_rl/teaser.png
+img:                assets/supervised_rl/hipi.png
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      False
@@ -11,12 +11,14 @@ show_comments:      False
 
 <meta name="twitter:title" content="Reinforcement learning is supervised learning on optimized data">
 <meta name="twitter:card" content="summary_image">
-<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/supervised_rl/teaser.png">
+<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/supervised_rl/hipi.png">
 
 
 The two most common perspectives on Reinforcement learning (RL) are **optimization** and **dynamic programming**. Methods that compute the gradients of the non-differentiable expected reward objective, such as the REINFORCE trick are commonly grouped into the optimization perspective, whereas methods that employ TD-learning or Q-learning are dynamic programming methods. While these methods have shown considerable success in recent years, these methods are still quite challenging to apply to new problems. In contrast deep supervised learning has been extremely successful and we may hence ask: *Can we use supervised learning to perform RL?*
 
 In this blog post we discuss a mental model for RL, based on the idea that RL can be viewed as doing supervised learning on the "good data". What makes RL challenging is that, unless you're doing imitation learning, actually acquiring that "good data" is quite challenging. Therefore, RL might be viewed as a *joint optimization* problem over both the policy and the data. Seen from this **supervised learning** perspective, many RL algorithms can be viewed as alternating between finding good data and doing supervised learning on that data. It turns out that finding "good data" is much easier in the multi-task setting, or settings that can be converted to a different problem for which obtaining "good data" is easy. In fact, we will discuss how techniques such as hindsight relabeling and inverse RL can be viewed as optimizing data.
+
+<!--more-->
 
 We'll start by reviewing the two common perspectives on RL, optimization and dynamic programming. We'll then delve into a formal definition of the supervised learning perspective on RL.
 
@@ -62,7 +64,7 @@ Converting "good data" into a "good policy" is easy: just do supervised learning
 We now formalize the supervised learning perspective using the lens of expectation maximization, a lens used in many prior works [[Dayan 1997][Dayan97], [Williams 2007][Williams07], [Peters 2010][Peters10], [Neumann 2011][Neumann11], [Levine 2013][Levine13]]. To simplify notation, we will use $\pi_\theta(\tau)$ as the probability that policy $\pi_\theta$ produces trajectory $\tau$, and will use $q(\tau)$ to denote the data distribution that we will optimize. Consider the log of the expected reward objective, $\log J(\theta)$. Since log function is monotonic increasing, maximizing this is equivalent to maximizing the expected reward. We then apply Jensen's inequality to move the logarithm inside the expectation:
 
 $$
-\begin{aligned} 
+\begin{aligned}
 \log J(\theta) &=  \log \mathbb{E}_{\pi(\tau)} \left[R(\tau) \right] \\
 & \ge \mathbb{E}_{q(\tau)} \left[ \log R(\tau) + \log \pi_\theta(\tau) - \log q(\tau) \right] := F(\theta, q)
 \end{aligned}
@@ -106,8 +108,7 @@ A number of algorithms perform these steps in disguise. For example, reward-weig
 ### Multi-Task Versions of the Supervised Learning Perspective
 
 <p style="text-align:center;">
-<img
-src="https://bair.berkeley.edu/static/blog/supervised_rl/hipi.png" width="90%">
+<img src="https://bair.berkeley.edu/static/blog/supervised_rl/hipi.png" width="90%">
 <br />
 <i>Figure 2: A number of recent multi-task RL algorithms organize experience
 based on what task each piece of experience solved. This process of post-hoc
