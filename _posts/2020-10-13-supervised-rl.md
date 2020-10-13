@@ -6,7 +6,7 @@ author:             <a href="https://ben-eysenbach.github.io/">Ben Eysenbach</a>
 img:                assets/supervised_rl/hipi.png
 excerpt_separator:  <!--more-->
 visible:            True
-show_comments:      False
+show_comments:      True
 ---
 
 <meta name="twitter:title" content="Reinforcement learning is supervised learning on optimized data">
