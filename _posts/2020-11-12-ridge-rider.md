@@ -144,7 +144,7 @@ These terms only rely on Hessian vector products!
 A: We actually don’t. We show in the paper that symmetries lead to repeated
 Eigenvalues, which reduces the number of branches we need to explore.
 
-A symmetry, **TODO**, of the loss function is a bijection on the parameter
+A symmetry, $\phi$, of the loss function is a bijection on the parameter
 space such that
 
 $$
