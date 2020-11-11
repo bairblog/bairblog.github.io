@@ -1,17 +1,17 @@
 ---
 layout:             post
 title:              "Goodhart’s Law, Diversity and a Series of Seemingly Unrelated Toy Problems"
-date:               2020-11-09 9:00:00
-author:             <a href="https://people.eecs.berkeley.edu/~pacchiano/">Aldo Pacchiano</a>
-img:                assets/ridge-rider/
+date:               2020-11-12 9:00:00
+author:             <a href="https://people.eecs.berkeley.edu/~pacchiano/">Aldo Pacchiano</a> and Jack Parker-Holder
+img:                assets/ridge-rider/fig02.png
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      False
 ---
 
-<meta name="twitter:title" content="">
+<meta name="twitter:title" content="Goodhart’s Law, Diversity and a Series of Seemingly Unrelated Toy Problems">
 <meta name="twitter:card" content="summary_image">
-<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/ridge-rider">
+<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/ridge-rider/fig02.png">
 
 Goodhart’s Law is an adage which states the following:
 
@@ -30,10 +30,9 @@ For some step size $\alpha$. Updates of this form have led to a series of
 breakthroughs from computer vision to reinforcement learning, and it is easy to
 see why it is so popular: 1) it is relatively cheap to compute using backprop
 2) it is guaranteed to locally reduce the loss at every step and finally 3) it
-has an amazing track record empirically some recent theoretical **TODO**
+has an amazing track record empirically.
 
 <!--more-->
-
 
 However, we wouldn’t be writing this if SGD was perfect! In fact there are some
 negatives. Most importantly, there is an intrinsic bias towards ‘easy’
@@ -44,7 +43,7 @@ recently been referred to as a “shortcut” solution [1], examples of which ar
 below:
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/ridge-rider/TODO" width="">
+<img src="https://bair.berkeley.edu/static/blog/ridge-rider/fig01.png" width="">
 <br />
 </p>
 
@@ -61,7 +60,7 @@ There is a lot to unpack in that statement, so we will go into more detail in
 the following section.
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/ridge-rider/TODO" width="">
+<img src="https://bair.berkeley.edu/static/blog/ridge-rider/fig02.png" width="">
 <br />
 </p>
 
@@ -93,7 +92,7 @@ SGD, which will almost always follow just one.
 In the next diagram we show the full Ridge Rider algorithm.
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/ridge-rider/TODO" width="">
+<img src="https://bair.berkeley.edu/static/blog/ridge-rider/gif-01.gif" width="">
 <br />
 </p>
 
@@ -158,7 +157,7 @@ eigenvalues. This means we only have to explore one from each set!
 # RR in action: An illustrative example
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/ridge-rider/TODO" width="">
+<img src="https://bair.berkeley.edu/static/blog/ridge-rider/fig03.png" width="">
 <br />
 </p>
 
@@ -172,7 +171,7 @@ local optima and reaches the high value regions.
 # Ridge Rider for Exploration in Reinforcement Learning
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/ridge-rider/TODO" width="">
+<img src="https://bair.berkeley.edu/static/blog/ridge-rider/fig04.png" width="">
 <br />
 </p>
 
@@ -190,7 +189,7 @@ show that RR on average finds almost all the solutions, while the other methods
 fail to even find half.
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/ridge-rider/TODO" width="">
+<img src="https://bair.berkeley.edu/static/blog/ridge-rider/fig05.png" width="">
 <br />
 </p>
 
@@ -211,7 +210,7 @@ features. In the next Figure, we show the performance for a classifier trained
 by following each ridge individually.
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/ridge-rider/TODO" width="">
+<img src="https://bair.berkeley.edu/static/blog/ridge-rider/fig06.png" width="">
 <br />
 </p>
 
@@ -237,7 +236,7 @@ contrast, RR achieves a respectable 58%, not too far from the 66% achieved by
 the state-of-the-art causal approach.
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/ridge-rider/TODO" width="">
+<img src="https://bair.berkeley.edu/static/blog/ridge-rider/fig07.png" width="">
 <br />
 </p>
 
@@ -251,7 +250,7 @@ follow.
 We use an adapted version of the lever game from [3], shown below:
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/ridge-rider/TODO" width="">
+<img src="https://bair.berkeley.edu/static/blog/ridge-rider/fig08.png" width="">
 <br />
 </p>
 
@@ -264,7 +263,7 @@ unique directions. We ran RR multiple times, and show the result for three
 independent runs below.
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/ridge-rider/TODO" width="">
+<img src="https://bair.berkeley.edu/static/blog/ridge-rider/fig09.png" width="">
 <br />
 </p>
 
