@@ -280,12 +280,16 @@ Don't forget to also change permissions of the folders that start with
 Important references for understanding Jekyll, particularly with regards to
 links:
 
-- [Jekyll's instructions][1].
+- [Jekyll's instructions][1], including [installation here][8].
 - [Understanding baseurl][4]
 - [Configuring for project GitHub pages][3] (this is a "project" page because we're
   putting it on bair.berkeley.edu/blog and not in a personal github website).
 - [Changing the root URL to be the correct one][5]
 - [Jekyll docs on configurations][6]
+
+Installation note: if you're getting an error about not finding the gem
+bundler, you may be able to fix it by [installing the correct bundler
+version][9].
 
 
 [1]:https://jekyllrb.com/docs/posts/
@@ -296,3 +300,5 @@ links:
 [5]:https://github.com/jekyll/jekyll/issues/5853
 [6]:https://jekyllrb.com/docs/configuration/#specifying-a-jekyll-environment-at-build-time
 [7]:https://jekyllrb.com/docs/installation/
+[8]:https://jekyllrb.com/docs/installation/
+[9]:https://bundler.io/blog/2019/01/04/an-update-on-the-bundler-2-release.html
