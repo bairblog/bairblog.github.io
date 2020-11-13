@@ -277,7 +277,7 @@ corresponding to the levers with symmetries.
 A gif speaks a thousand words:
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/ridge-rider/TODO" width="">
+<img src="https://bair.berkeley.edu/static/blog/ridge-rider/RR_FutureWork.gif" width="">
 <br />
 </p>
 
@@ -285,7 +285,7 @@ A gif speaks a thousand words:
 
 - **Ridge Rider: Finding Diverse Solutions by Following Eigenvectors of the Hessian**.<br>
   Jack Parker-Holder, Luke Metz, Cinjon Resnick, Hengyuan Hu, Adam Lerer, Alistair Letcher, Alex Peysakhovich, Aldo Pacchiano, Jakob Foerster. NeurIPS 2020.<br>
-  Arxiv link coming soon!
+  [Paper Link](https://proceedings.neurips.cc/paper/2020/file/08425b881bcde94a383cd258cea331be-Paper.pdf)
 
 **Code**:
 
