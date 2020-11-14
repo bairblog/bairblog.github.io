@@ -53,14 +53,14 @@ In this work, we took a step forward to handle these challenges and provided a g
 ### Observation Graph and Interaction Graph
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/evolvegraph/figure3.png" width="80%">
+<img src="https://bair.berkeley.edu/static/blog/evolvegraph/figure3.png" width="60%">
 <br />
 <i>Figure 3. An illustration of the observation graph and interaction graph.</i>
 </p>
 
 The multi-agent interacting system is naturally represented by a graph, where agents are considered as nodes and their relations are considered as edges. We have two types of graphs for different purposes, which are introduced below:
-- *Observation Graph*: The observation graph aims to extract feature embeddings from raw observations, which consists of N agent nodes and one context node. Agent nodes are bidirectionally connected to each other, and the context node only has outgoing edges to each agent node. Each agent node has two types of attributes: self-attribute and social-attribute. The former only contains the node’s own state information, while the latter only contains other nodes’ state information.
-- *Interaction Graph*: We use different edge types to represent distinct interaction patterns. No edge between a pair of nodes means that the two nodes have no relation. The interaction graph represents interaction patterns with a distribution of edge types for each edge, which is built on top of the observation graph.
+- **Observation Graph**: The observation graph aims to extract feature embeddings from raw observations, which consists of N agent nodes and one context node. Agent nodes are bidirectionally connected to each other, and the context node only has outgoing edges to each agent node. Each agent node has two types of attributes: self-attribute and social-attribute. The former only contains the node’s own state information, while the latter only contains other nodes’ state information.
+- **Interaction Graph**: We use different edge types to represent distinct interaction patterns. No edge between a pair of nodes means that the two nodes have no relation. The interaction graph represents interaction patterns with a distribution of edge types for each edge, which is built on top of the observation graph.
 
 <p style="text-align:center;">
 <img src="https://bair.berkeley.edu/static/blog/evolvegraph/figure4.png" width="80%">
@@ -72,15 +72,16 @@ The multi-agent interacting system is naturally represented by a graph, where ag
 
 In many situations, the interaction patterns recognized from the past time steps are likely not static in the future. Moreover, many interaction systems have multi-modal properties in nature. Different modalities afterwards are likely to result in different interaction patterns and outcomes. Therefore, we designed a dynamic evolving process of the interaction patterns.
 
-As illustrated in Figure 4, the encoding process is repeated every τ (re-encoding gap) time steps to obtain the latent interaction graph based on the latest observation graph. A recurrent unit (GRU) is utilized to maintain and propagate the history information, as well as to adjust the prior interaction graphs. More details can be found in <a href="https://arxiv.org/abs/2003.13924">our paper</a>.
+As illustrated in Figure 4, the encoding process is repeated every τ (re-encoding gap) time steps to obtain the latent interaction graph based on the latest observation graph. A recurrent unit (GRU) is utilized to maintain and propagate the history information, as well as to adjust the prior interaction graphs. More details can be found in <a href="https://papers.nips.cc/paper/2020/hash/e4d8163c7a068b65a64c89bd745ec360-Abstract.html">our paper</a>.
 
 ### Uncertainty and Multi-Modality
 Here we emphasize the efforts to encourage diverse and multi-modal trajectory prediction and generation. In our framework, the uncertainty and multi-modality mainly come from three aspects:
 - First, in the decoding process, we output Gaussian mixture distributions indicating that there are several possible modalities at the next step. We only sample a single Gaussian component at each step based on the component weights which indicate the probability of each modality. 
-- Second, different sampled trajectories will lead to different interaction graph evolution. Evolution of interaction graphs contributes to the multi-modality of future behaviors, since different underlying relational structures enforce different regulations on the system behavior and lead to various outcomes.  - Third, directly training such a model, however, tends to collapse to a single mode. Therefore, we employ an effective mechanism to mitigate the mode collapse issue and encourage multi-modality. During training, we run the decoding process d times, which generates d trajectories for each agent under specific scenarios. We only choose the prediction hypothesis with the minimal loss for backpropagation, which is the most likely to be in the same mode as the ground truth. The other prediction hypotheses may have much higher loss, but it doesn’t necessarily imply that they are implausible. They may represent other potential reasonable modalities.
+- Second, different sampled trajectories will lead to different interaction graph evolution. Evolution of interaction graphs contributes to the multi-modality of future behaviors, since different underlying relational structures enforce different regulations on the system behavior and lead to various outcomes.
+- Third, directly training such a model, however, tends to collapse to a single mode. Therefore, we employ an effective mechanism to mitigate the mode collapse issue and encourage multi-modality. During training, we run the decoding process d times, which generates d trajectories for each agent under specific scenarios. We only choose the prediction hypothesis with the minimal loss for backpropagation, which is the most likely to be in the same mode as the ground truth. The other prediction hypotheses may have much higher loss, but it doesn’t necessarily imply that they are implausible. They may represent other potential reasonable modalities.
 
 ## Experiments
-We highlight the results of two case studies on a synthetic physics system and an urban driving scenario. More experimental details and case studies on pedestrians and sports players can be found in <a href="https://arxiv.org/abs/2003.13924">our paper</a>.
+We highlight the results of two case studies on a synthetic physics system and an urban driving scenario. More experimental details and case studies on pedestrians and sports players can be found in <a href="https://papers.nips.cc/paper/2020/hash/e4d8163c7a068b65a64c89bd745ec360-Abstract.html">our paper</a>.
 
 ### Case Study 1: Particle Physics System
 
@@ -115,7 +116,7 @@ We predicted the particle states at the future 50 time steps based on the observ
 <i>Figure 6. Visualization of testing cases in traffic scenarios. Dashed lines are historical trajectories, solid lines are ground truth, and dash-dotted lines are prediction hypotheses. White areas represent drivable areas and gray areas represent sidewalks. We plotted the prediction hypothesis with the minimal average prediction error, and the heatmap to represent the distributions.</i>
 </p>
 
-We predicted the future 10 time steps (4.0s) based on the historical 5 time steps (2.0s). The comparison of quantitative results is shown in Table 2, where the unit of reported minADE_20 and minFDE_20 is meters in the world coordinates. All the baseline methods consider the relations and interactions among agents. The <a href="https://arxiv.org/abs/1710.04689">Social-Attention</a> employs spatial attention mechanisms, while the <a href="https://openaccess.thecvf.com/content_cvpr_2018/papers/Gupta_Social_GAN_Socially_CVPR_2018_paper.pdf">Social-GAN</a> demonstrates a deep generative model which learns the data distribution to generate human-like trajectories. The <a href="https://openaccess.thecvf.com/content_ICCV_2019/html/Choi_Looking_to_Relations_for_Future_Trajectory_Forecast_ICCV_2019_paper.html">Gated-RN</a> and <a href="https://arxiv.org/abs/2001.03093">Trajectron++</a> both leverage spatio-temporal information to involve relational reasoning, which leads to smaller prediction error. The <a href="https://arxiv.org/abs/1802.04687">NRI</a> infers a latent interaction graph and learns the dynamics of agents, which achieves similar performance to Trajectron++. The <a href="https://openaccess.thecvf.com/content_ICCV_2019/papers/Huang_STGAT_Modeling_Spatial-Temporal_Interactions_for_Human_Trajectory_Prediction_ICCV_2019_paper.pdf">STGAT</a> and <a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Mohamed_Social-STGCNN_A_Social_Spatio-Temporal_Graph_Convolutional_Neural_Network_for_Human_CVPR_2020_paper.pdf">Social-STGCNN</a> further take advantage of the graph neural network to extract relational features in the multi-agent setting. Our proposed method achieves the best performance, which implies the advantages of explicit interaction modeling via evolving interaction graphs. The 4.0s minADE_20 / minFDE_20 are significantly reduced by 20.0% / 27.1% compared to the best baseline approach (STGAT).
+We predicted the future 10 time steps (4.0s) based on the historical 5 time steps (2.0s). The comparison of quantitative results is shown in Table 2, where the unit of reported $$minADE_{20}$$ and $$minFDE_{20}$$ is meters in the world coordinates. All the baseline methods consider the relations and interactions among agents. The <a href="https://arxiv.org/abs/1710.04689">Social-Attention</a> employs spatial attention mechanisms, while the <a href="https://openaccess.thecvf.com/content_cvpr_2018/papers/Gupta_Social_GAN_Socially_CVPR_2018_paper.pdf">Social-GAN</a> demonstrates a deep generative model which learns the data distribution to generate human-like trajectories. The <a href="https://openaccess.thecvf.com/content_ICCV_2019/html/Choi_Looking_to_Relations_for_Future_Trajectory_Forecast_ICCV_2019_paper.html">Gated-RN</a> and <a href="https://arxiv.org/abs/2001.03093">Trajectron++</a> both leverage spatio-temporal information to involve relational reasoning, which leads to smaller prediction error. The <a href="https://arxiv.org/abs/1802.04687">NRI</a> infers a latent interaction graph and learns the dynamics of agents, which achieves similar performance to Trajectron++. The <a href="https://openaccess.thecvf.com/content_ICCV_2019/papers/Huang_STGAT_Modeling_Spatial-Temporal_Interactions_for_Human_Trajectory_Prediction_ICCV_2019_paper.pdf">STGAT</a> and <a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Mohamed_Social-STGCNN_A_Social_Spatio-Temporal_Graph_Convolutional_Neural_Network_for_Human_CVPR_2020_paper.pdf">Social-STGCNN</a> further take advantage of the graph neural network to extract relational features in the multi-agent setting. Our proposed method achieves the best performance, which implies the advantages of explicit interaction modeling via evolving interaction graphs. The 4.0s $$minADE_{20}$$ / $$minFDE_{20}$$ are significantly reduced by 20.0% / 27.1% compared to the best baseline approach (STGAT).
 
 The visualization of some testing cases is provided in Figure 6. Our framework can generate accurate and plausible trajectories. More specifically, in the top left case, for the blue prediction hypothesis at the left bottom, there is an abrupt change at the fifth prediction step. This is because the interaction graph evolved at this step. Moreover, in the heatmap, there are multiple possible trajectories starting from this point, which represent multiple potential modalities. These results show that the evolving interaction graph can reinforce the multi-modal property of our model since different samples of trajectories at the previous steps lead to different directions of graph evolution, which significantly influences the prediction afterwards. In the top right case, each car may leave the roundabout at any exit. Our model can successfully show the modalities of exiting the roundabout and staying in it. Moreover, if exiting the roundabout, the cars are predicted to exit on their right, which implies that the modalities predicted by our model are plausible and reasonable.
 
@@ -123,29 +124,30 @@ The visualization of some testing cases is provided in Figure 6. Our framework c
 
 We introduce EvolveGraph, a generic trajectory prediction framework with dynamic relational reasoning, which can handle evolving interacting systems involving multiple heterogeneous, interactive agents. The proposed framework could be applied to a wide range of applications, from purely physical systems to complex social dynamics systems. In this blog, we demonstrate some illustrative applications to physics objects and traffic participants. The framework could also be applied to analyze and predict the evolution of larger interacting systems, such as complex physical systems with a large number of interacting components, social networks, and macroscopical traffic flows. Although there are existing works using graph neural networks to handle trajectory prediction tasks, here we emphasize the impact of using our framework to recognize and predict the evolution of the underlying relations. With accurate and reasonable relational structures, we can forecast or generate plausible system behaviors, which help much with optimal decision making or other downstream tasks. 
 
-*Acknowledgements*: We thank all the co-authors of the paper “EvolveGraph: Multi-Agent Trajectory Prediction with Dynamic Relational Reasoning” for their contributions and discussions in preparing this blog. The views and opinions expressed in this blog are solely of the authors.
+**Acknowledgements**: We thank all the co-authors of the paper “EvolveGraph: Multi-Agent Trajectory Prediction with Dynamic Relational Reasoning” for their contributions and discussions in preparing this blog. The views and opinions expressed in this blog are solely of the authors.
 
 This blog post is mainly based on the following paper:
 
-- EvolveGraph: Multi-Agent Trajectory Prediction with Dynamic Relational Reasoning
-Jiachen Li*, Fan Yang*, Masayoshi Tomizuka, and Chiho Choi
-Advances in Neural Information Processing Systems (NeurIPS), 2020
-<a href="https://arxiv.org/abs/2003.13924">Preprint</a>, <a href="https://jiachenli94.github.io/publications/Evolvegraph/">Project Website</a>, <a href="https://github.com/jiachenli94/Awesome-Interaction-aware-Trajectory-Prediction">Resources</a>
+EvolveGraph: Multi-Agent Trajectory Prediction with Dynamic Relational Reasoning<br /> 
+Jiachen Li*, Fan Yang*, Masayoshi Tomizuka, and Chiho Choi<br /> 
+Advances in Neural Information Processing Systems (NeurIPS), 2020<br /> 
+<a href="https://papers.nips.cc/paper/2020/hash/e4d8163c7a068b65a64c89bd745ec360-Abstract.html">Proceedings</a>, <a href="https://arxiv.org/abs/2003.13924">Preprint</a>, <a href="https://jiachenli94.github.io/publications/Evolvegraph/">Project Website</a>, <a href="https://github.com/jiachenli94/Awesome-Interaction-aware-Trajectory-Prediction">Resources</a>
+
 
 Some other related works are listed as follows:
 
-Conditional Generative Neural System for Probabilistic Trajectory Prediction
-Jiachen Li, Hengbo Ma, and Masayoshi Tomizuka
-IEEE/RSJ International Conference on Robotics and Systems (IROS), 2019
+Conditional Generative Neural System for Probabilistic Trajectory Prediction<br /> 
+Jiachen Li, Hengbo Ma, and Masayoshi Tomizuka<br /> 
+IEEE/RSJ International Conference on Robotics and Systems (IROS), 2019<br /> 
 <a href="https://ieeexplore.ieee.org/abstract/document/8967822">Paper</a>
 
-Interaction-aware Multi-agent Tracking and Probabilistic Behavior Prediction via Adversarial Learning
-Jiachen Li*, Hengbo Ma*, and Masayoshi Tomizuka
-IEEE International Conference on Robotics and Automation (ICRA), 2019
+Interaction-aware Multi-agent Tracking and Probabilistic Behavior Prediction via Adversarial Learning<br /> 
+Jiachen Li*, Hengbo Ma*, and Masayoshi Tomizuka<br /> 
+IEEE International Conference on Robotics and Automation (ICRA), 2019<br /> 
 <a href="https://ieeexplore.ieee.org/abstract/document/8793661">Paper</a>
 
-Generic Tracking and Probabilistic Prediction Framework and Its Application in Autonomous Driving
-Jiachen Li, Wei Zhan, Yeping Hu, and Masayoshi Tomizuka
-IEEE Transactions on Intelligent Transportation Systems, 2020
+Generic Tracking and Probabilistic Prediction Framework and Its Application in Autonomous Driving<br /> 
+Jiachen Li, Wei Zhan, Yeping Hu, and Masayoshi Tomizuka<br /> 
+IEEE Transactions on Intelligent Transportation Systems, 2020<br /> 
 <a href="https://arxiv.org/abs/1908.09031">Paper</a>
 
