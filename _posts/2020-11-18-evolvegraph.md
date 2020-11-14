@@ -46,7 +46,7 @@ In this work, we took a step forward to handle these challenges and provided a g
 - extracting the underlying interaction patterns with a latent graph structure, which is able to handle different types of agents in a unified way, 
 - capturing the dynamics of interaction graph evolution for dynamic relational reasoning, 
 - predicting future trajectories (state sequences) based on the historical observations and the latent interaction graph, and 
-- and capturing the uncertainty and multi-modality of future system behaviors.
+- capturing the uncertainty and multi-modality of future system behaviors.
 
 ## Relational Reasoning with Graph Representation
 
@@ -78,7 +78,7 @@ As illustrated in Figure 4, the encoding process is repeated every τ (re-encodi
 Here we emphasize the efforts to encourage diverse and multi-modal trajectory prediction and generation. In our framework, the uncertainty and multi-modality mainly come from three aspects:
 - First, in the decoding process, we output Gaussian mixture distributions indicating that there are several possible modalities at the next step. We only sample a single Gaussian component at each step based on the component weights which indicate the probability of each modality. 
 - Second, different sampled trajectories will lead to different interaction graph evolution. Evolution of interaction graphs contributes to the multi-modality of future behaviors, since different underlying relational structures enforce different regulations on the system behavior and lead to various outcomes.
-- Third, directly training such a model, however, tends to collapse to a single mode. Therefore, we employ an effective mechanism to mitigate the mode collapse issue and encourage multi-modality. During training, we run the decoding process d times, which generates d trajectories for each agent under specific scenarios. We only choose the prediction hypothesis with the minimal loss for backpropagation, which is the most likely to be in the same mode as the ground truth. The other prediction hypotheses may have much higher loss, but it doesn’t necessarily imply that they are implausible. They may represent other potential reasonable modalities.
+- Third, directly training such a model, however, tends to collapse to a single mode. Therefore, we employ an effective mechanism to mitigate the mode collapse issue and encourage multi-modality. During training, we run the decoding process d times, which generates $$d$$ trajectories for each agent under specific scenarios. We only choose the prediction hypothesis with the minimal loss for backpropagation, which is the most likely to be in the same mode as the ground truth. The other prediction hypotheses may have much higher loss, but it doesn’t necessarily imply that they are implausible. They may represent other potential reasonable modalities.
 
 ## Experiments
 We highlight the results of two case studies on a synthetic physics system and an urban driving scenario. More experimental details and case studies on pedestrians and sports players can be found in <a href="https://papers.nips.cc/paper/2020/hash/e4d8163c7a068b65a64c89bd745ec360-Abstract.html">our paper</a>.
@@ -129,7 +129,7 @@ We introduce EvolveGraph, a generic trajectory prediction framework with dynamic
 This blog post is mainly based on the following paper:
 
 EvolveGraph: Multi-Agent Trajectory Prediction with Dynamic Relational Reasoning<br /> 
-Jiachen Li*, Fan Yang*, Masayoshi Tomizuka, and Chiho Choi<br /> 
+Jiachen Li\*, Fan Yang\*, Masayoshi Tomizuka, and Chiho Choi<br /> 
 Advances in Neural Information Processing Systems (NeurIPS), 2020<br /> 
 <a href="https://papers.nips.cc/paper/2020/hash/e4d8163c7a068b65a64c89bd745ec360-Abstract.html">Proceedings</a>, <a href="https://arxiv.org/abs/2003.13924">Preprint</a>, <a href="https://jiachenli94.github.io/publications/Evolvegraph/">Project Website</a>, <a href="https://github.com/jiachenli94/Awesome-Interaction-aware-Trajectory-Prediction">Resources</a>
 
@@ -139,15 +139,18 @@ Some other related works are listed as follows:
 Conditional Generative Neural System for Probabilistic Trajectory Prediction<br /> 
 Jiachen Li, Hengbo Ma, and Masayoshi Tomizuka<br /> 
 IEEE/RSJ International Conference on Robotics and Systems (IROS), 2019<br /> 
-<a href="https://ieeexplore.ieee.org/abstract/document/8967822">Paper</a>
+<a href="https://ieeexplore.ieee.org/abstract/document/8967822">Proceedings</a>,
+<a href="https://arxiv.org/abs/1905.01631">Preprint</a>
 
 Interaction-aware Multi-agent Tracking and Probabilistic Behavior Prediction via Adversarial Learning<br /> 
-Jiachen Li*, Hengbo Ma*, and Masayoshi Tomizuka<br /> 
+Jiachen Li\*, Hengbo Ma\*, and Masayoshi Tomizuka<br /> 
 IEEE International Conference on Robotics and Automation (ICRA), 2019<br /> 
-<a href="https://ieeexplore.ieee.org/abstract/document/8793661">Paper</a>
+<a href="https://ieeexplore.ieee.org/abstract/document/8793661">Proceedings</a>,
+<a href="https://arxiv.org/abs/1904.02390">Preprint</a>
 
 Generic Tracking and Probabilistic Prediction Framework and Its Application in Autonomous Driving<br /> 
 Jiachen Li, Wei Zhan, Yeping Hu, and Masayoshi Tomizuka<br /> 
 IEEE Transactions on Intelligent Transportation Systems, 2020<br /> 
-<a href="https://arxiv.org/abs/1908.09031">Paper</a>
+<a href="https://ieeexplore.ieee.org/document/8789525">Article</a>,
+<a href="https://arxiv.org/abs/1908.09031">Preprint</a>
 
