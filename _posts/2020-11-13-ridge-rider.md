@@ -2,7 +2,7 @@
 layout:             post
 title:              "Goodhart’s Law, Diversity and a Series of Seemingly Unrelated Toy Problems"
 date:               2020-11-13 9:00:00
-author:             <a href="https://people.eecs.berkeley.edu/~pacchiano/">Aldo Pacchiano</a>, Jack Parker-Holder, Luke Metz, and Jakob Forester
+author:             <a href="https://people.eecs.berkeley.edu/~pacchiano/">Aldo Pacchiano</a>, Jack Parker-Holder, Luke Metz, and Jakob Foerster
 img:                assets/ridge-rider/fig02.png
 excerpt_separator:  <!--more-->
 visible:            True
