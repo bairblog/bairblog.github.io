@@ -23,6 +23,8 @@ Multi-agent interacting systems are prevalent in the world, from purely physical
 
 In many real-world applications (e.g. autonomous vehicles, mobile robots), an effective understanding of the situation and accurate trajectory prediction of interactive agents play a significant role in downstream tasks, such as decision making and planning. We introduce a generic trajectory forecasting framework (named EvolveGraph) with explicit relational structure recognition and prediction via latent interaction graphs among multiple heterogeneous, interactive agents. Considering the uncertainty of future behaviors, the model is designed to provide multi-modal prediction hypotheses. Since the underlying interactions may evolve even with abrupt changes over time, and different modalities of evolution may lead to different outcomes, we address the necessity of dynamic relational reasoning and adaptively evolving the interaction graphs.
 
+<!--more-->
+
 ## Challenges of Multi-Agent Behavior Prediction
 
 <p style="text-align:center;">
