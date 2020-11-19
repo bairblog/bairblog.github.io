@@ -65,8 +65,10 @@ the following section.
 </p>
 
 First, we assume we start at a saddle (green), where the norm of the gradient
-is zero. We compute the eigenvectors and eigenvalues of the Hessian, which
-solve the following:
+is zero. We compute the eigenvectors $$\{ e_i(\theta) \}_{i=1}^d$$ and
+eigenvalues $$\{\lambda_i(\theta) \}_{i=1}^d$$ of the $d$ dimensional Hessian,
+which solve the following:
+
 
 $$
 \mathcal{H}(\theta) e_i(\theta) = \lambda_i(\theta) e_i(\theta), |e_i| = 1
