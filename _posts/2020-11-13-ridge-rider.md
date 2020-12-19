@@ -2,7 +2,7 @@
 layout:             post
 title:              "Goodhart’s Law, Diversity and a Series of Seemingly Unrelated Toy Problems"
 date:               2020-11-13 9:00:00
-author:             <a href="https://people.eecs.berkeley.edu/~pacchiano/">Aldo Pacchiano</a>, Jack Parker-Holder, Luke Metz, and Jakob Forester
+author:             <a href="https://people.eecs.berkeley.edu/~pacchiano/">Aldo Pacchiano</a>, Jack Parker-Holder, Luke Metz, and Jakob Foerster
 img:                assets/ridge-rider/fig02.png
 excerpt_separator:  <!--more-->
 visible:            True
@@ -65,8 +65,10 @@ the following section.
 </p>
 
 First, we assume we start at a saddle (green), where the norm of the gradient
-is zero. We compute the eigenvectors and eigenvalues of the Hessian, which
-solve the following:
+is zero. We compute the eigenvectors $$\{ e_i(\theta) \}_{i=1}^d$$ and
+eigenvalues $$\{\lambda_i(\theta) \}_{i=1}^d$$ of the $d$ dimensional Hessian,
+which solve the following:
+
 
 $$
 \mathcal{H}(\theta) e_i(\theta) = \lambda_i(\theta) e_i(\theta), |e_i| = 1
@@ -92,17 +94,33 @@ SGD, which will almost always follow just one.
 In the next diagram we show the full Ridge Rider algorithm.
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/ridge-rider/gif-01.gif" width="">
+<img src="https://bair.berkeley.edu/static/blog/ridge-rider/MIS.png" width="">
 <br />
 </p>
 
-We begin at a Maximally Invariant Saddle (MIS) that retains and respects all of
-the symmetries of the underlying problem. We branch, and select a ridge to
-follow, which we update until we reach a breaking point where we branch again.
-At this point we can choose whether to continue along the current path or
-select another ridge from the buffer.  This is equivalent to choosing between
-breadth first search of depth first search. Finally the leaves of the tree are
-the solutions to our problem, each is uniquely defined by the fingerprint.
+Now, clearly there are a lot of possible eigenvectors that we may have to
+explore and, what is worse, due to the symmetries inherent in many optimization
+problems, a large number of these eigenvectors will ultimately produce
+equivalent solutions when followed. Luckily there is a way around this: If we
+start at a saddle that is invariant under all of the symmetry transforms of the
+loss function, then at this special saddle of the equivalent solutions have
+**identical** eigenvalues. As such, at this saddle, which we refer to as the
+*Maximally Invariant Saddle (MIS)*, the eigenvalues provide a natural
+**grouping** for the possible solutions and we can start by exploring one
+solution from each group.
+
+From the MIS we branch by computing the spectrum of the Hessian via GetRidges,
+and select a ridge to follow, which we update using the UpdateRidge method
+until we reach a breaking point where we branch again via GetRidges. At this
+point we can choose whether to continue along the current path or select
+another ridge from the buffer.  This is equivalent to choosing between breadth
+first search of depth first search. Finally the leaves of the tree are the
+solutions to our problem, each is uniquely defined by the fingerprint.
+
+<p style="text-align:center;">
+<img src="https://bair.berkeley.edu/static/blog/ridge-rider/gif-01.gif" width="">
+<br />
+</p>
 
 On the positive side, RR provides us with a set of orthogonal locally
 loss-reducing directions that can be used to span a tree of solutions. It
@@ -115,7 +133,8 @@ this approach. Here we try to answer the FAQs:
 
 > Q: This seems expensive! Don’t you need loads of samples due to the high variance of Hessian?
 
-A: Yes, that is fair! :(
+A: Yes, that is fair! :( Nevertheless, we can use Hessian Vector Products to
+make the computations tractable.
 
 > Q: This seems expensive! Do you need to re-evaluate the full spectrum of the Hessian each timestep?
 
@@ -201,7 +220,7 @@ sample-based RL. We encourage you to check it out.
 We wanted to test the approximate RR algorithm in the simplest possible
 setting, which naturally brought us to MNIST, the canonical ML dataset! We used
 the approximate version to train a neural network with two 128-unit hidden
-layers, and surprisingly we were able to get 98% accuracy. This clearly isnt a
+layers, and surprisingly we were able to get 98% accuracy. This clearly isn't a
 new SoTA for computer vision, but we think it is a nice result which shows the
 possible scalability of our algorithm.
 
@@ -242,25 +261,53 @@ the state-of-the-art causal approach.
 
 # Ridge Rider for Zero-Shot Co-ordination
 
-Finally, we consider the zero-shot co-ordination problem. In this setting, we
-wish to co-ordinate with a partner, but cannot see their policy in training.
-Instead, we can agree on a training strategy, for example --- which ridge to
-follow.
+Finally, we consider the zero-shot coordination (ZSC) problem [3], in which the
+goal is to find a training strategy that allows the two halves of independently
+trained joint policies to coordinate successfully on their first encounter
+(i.e. in *cross-play*). Zero-shot coordination is a great proxy for human-AI
+coordination, since it naturally regularizes policies to those that an agent
+can expect an *independently* trained agent to also discover, without prior
+coordination. Crucially though, it is formulated such that it does not require
+human data during the training process.
 
-We use an adapted version of the lever game from [3], shown below:
+The challenge is that while it is easy to assess the failure of coordination
+after training has finished, we are not allowed to directly optimize for
+coordination success, since the policies need to be trained entirely
+independently. Consequently, there currently is no general algorithm that
+achieves perfect zero-shot coordination. Other-Play [3] is a step in this
+direction, but requires that the symmetries of the underlying problem are known
+ahead of time.
+
+In contrast, since RR can take advantage of the underlying symmetries of an
+optimization problem, it can naturally be used to solve ZSC, as we illustrate
+with an adapted version of the lever game from [3], shown below:
 
 <p style="text-align:center;">
 <img src="https://bair.berkeley.edu/static/blog/ridge-rider/fig08.png" width="">
 <br />
 </p>
 
+Recall from before that symmetries lead to repeated eigenvalues at the MIS.
+Clearly, shuffling all the 1.0 levers (and exchanging the two 0.8 levers)
+leaves the game unchanged. Therefore, at the MIS, there is an entire
+*eigenspace* for the eigenvalue associated with all of the 1.0 solutions.
+Crucially, the *ordering* of the eigenvectors within this eigenspace is
+arbitrary across different optimization runs. Each of these different
+eigenvectors will typically leads to an *equivalent* but *mutually
+incompatible* solution.
 
-Recall from before that symmetries lead to repeated eigenvalues. This means the
-levers which share a payoff with others will have the same eigenvalue.
-Furthermore, the ordering of the ridges corresponding to repeated eigenvalues
-is inconsistent across different runs. Thus, we can only coordinate reliably on
-unique directions. We ran RR multiple times, and show the result for three
-independent runs below.
+In contrast, there is a unique eigenvalue associated with the 0.6 solution
+which is ranked consistently across different optimization runs. This
+illustrates how RR can be used for ZSC: We need to first run the RR algorithm
+independently a large number of times, and then compute the *cross-play score*
+across the different runs for all of the ridges. Finally, at test time we play
+the strategy from the ridges with the highest average cross-play score.
+
+This process is illustrated below for the lever game, where indeed the 0.6
+solution is consistently found with the first ridge across all runs and thus
+leads to the highest cross-play score of 0.6. This happens to be the optimal
+ZSC solution for the lever game. We also show the result for three independent
+runs below for illustration purposes.
 
 <p style="text-align:center;">
 <img src="https://bair.berkeley.edu/static/blog/ridge-rider/fig09.png" width="">
@@ -270,7 +317,17 @@ independent runs below.
 On the right, we see the first ridge is always the same action, which
 corresponds to the optimal zero-shot solution. The next two are a 50-50 bet on
 the two 0.8 ridges. The remaining ridges are largely a jumbled up mess,
-corresponding to the levers with symmetries.
+corresponding to the levers with symmetries. As a reminder, self-play will
+almost certainly converge on one of the arbitrary 1.0 solutions, leading to
+poor cross-play.
+
+Now, you might be concerned that to find the MIS in the first place we needed
+to know the symmetries of the problem, an assumption we have been working to
+avoid. Once again, we got lucky: As we show in the paper, in RL problems the
+MIS can be learned by simply minimizing the gradient norm while maximizing the
+entropy. This will force the policy to place the same probability mass on all
+equivalent actions, thus making it invariant under all symmetries, while
+getting close to a saddle!
 
 # Summary and Future Work
 
