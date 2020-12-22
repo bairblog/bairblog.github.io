@@ -20,6 +20,7 @@ once every two weeks.
 The editorial board consists of the following members:
 
 * [Daniel Seita][5]
+* [Chloe Hsu][14]
 
 with faculty advisor [Sergey Levine][4]. 
 
@@ -71,3 +72,4 @@ Artificial Intelligence Research for hosting support.
 [11]:http://bair.berkeley.edu/students.html
 [12]:https://scholar.google.com/citations?user=K29Sv1EAAAAJ
 [13]:https://people.eecs.berkeley.edu/~eringrant/
+[14]:https://chloe-hsu.com/
