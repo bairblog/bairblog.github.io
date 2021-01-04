@@ -86,7 +86,7 @@ setInterval(function() {
     <div style="width: 45%; float: left;">
         <img src="https://bair.berkeley.edu/static/blog/successor/mb-mf.png" width="100%">
     </div>
-    <div style="width: 46%; float: right;">
+    <div style="width: 47%; float: right;">
         <p>
             <br>
             <i>We can organize reinforcement learning algorithms in terms of when they deal with long-horizon complexity. Dynamics models train for a short-horizon prediction task but are deployed using long-horizon rollouts. In contrast, value functions amortize the work of long-horizon prediction at training, so a single-step prediction (and informally, a shorter "horizon") is sufficient during testing.</i>
