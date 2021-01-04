@@ -1,7 +1,7 @@
 ---
 layout:             post
-title:              "The Successor Representation, Gamma-Models, and Infinite-Horizon Prediction"
-date:               2020-12-27  9:00:00
+title:              "The Successor Representation, $\\gamma$-Models,<br> and Infinite-Horizon Prediction"
+date:               2021-01-04  9:00:00
 author:             <a href="https://people.eecs.berkeley.edu/~janner/">Michael Janner</a> <br />
 img:                assets/successor/gamma-teaser.png
 excerpt_separator:  <!--more-->
@@ -17,6 +17,8 @@ show_comments:      False
 <meta name="keywords" content="successor, representation, SR, gamma-models, gamma, models, reinforcement, learning, generative, temporal, difference">
 <meta name="description" content="The BAIR Blog">
 <meta name="author" content="Michael Janner">
+
+<title>The Successor Representation, Gamma-Models, and Infinite-Horizon Prediction</title>
 
 
 <script>
@@ -77,14 +79,6 @@ setInterval(function() {
 <p>
     In contrast, value functions themselves are long-horizon predictors; they need not be used in the context of rollouts because they already contain information about the extended future. In order to amortize this long-horizon prediction, value functions are trained with either Monte Carlo estimates of expected cumulative reward or with dynamic programming. The important distinction is now that the long-horizon nature of the prediction task is dealt with during training instead of during testing.
 </p>
-
-<!-- <br>
-<p style="text-align:center;">
-    <img src="https://bair.berkeley.edu/static/blog/successor/mb-mf.png" width="40%">
-    <br>
-    <i>We can organize reinforcement learning algorithms in terms of when they deal with long-horizon complexity. Dynamics models train for a short-horizon prediction task but are deployed (at “testing-time”) using long-horizon rollouts. In contrast, value functions amortize the work of long-horizon prediction at training, so a single-step prediction is sufficient during testing.</i>
-</p>
-<br> -->
 
 <br>
 <center>
@@ -192,19 +186,19 @@ setInterval(function() {
 </p>
 
 <p>
-    To overcome this limitation, we can turn the discriminative update used in SR and its continuous variants into one suitable for training a generative model \({\mu}\):
+    To overcome this limitation, we can turn the discriminative update used in SR and its continuous variants into one suitable for training a generative model \({\color{#D62728}\mu}\):
 
     \[
-        \max_{\mu} \mathbb{E}_{\mathbf{s}_t, \mathbf{a}_t, \mathbf{s}_{t+1} \sim \mathcal{D}} [ \mathbb{E}_{
+        \max_{\color{#D62728}\mu} \mathbb{E}_{\mathbf{s}_t, \mathbf{a}_t, \mathbf{s}_{t+1} \sim \mathcal{D}} [ \mathbb{E}_{
             \mathbf{s}_e \sim (1-\gamma) p(\cdot \mid \mathbf{s}_t, \mathbf{a}_t) + \gamma
-            {\mu}(\cdot \mid \mathbf{s}_{t+1})
+            {\color{#D62728}\mu}(\cdot \mid \mathbf{s}_{t+1})
         }
-        [\log {\mu}(\mathbf{s}_e \mid \mathbf{s}_t, \mathbf{a}_t)] ]
+        [\log {\color{#D62728}\mu}(\mathbf{s}_e \mid \mathbf{s}_t, \mathbf{a}_t)] ]
     \]
 </p>
 
 <p>
-    On first glance, this looks like a standard maximum likelihood objective. The important difference is that the distribution over which the inner expectation is evaluated depends on the model \({\mu}\) itself. Instead of a bootstrapped target value like those commonly used in model-free algorithms, we now have a bootstrapped target distribution.
+    On first glance, this looks like a standard maximum likelihood objective. The important difference is that the distribution over which the inner expectation is evaluated depends on the model \({\color{#D62728}\mu}\) itself. Instead of a bootstrapped target value like those commonly used in model-free algorithms, we now have a bootstrapped target distribution.
 
     \[
         \underset{
@@ -216,9 +210,9 @@ setInterval(function() {
         ~~~~~~~~ \Longleftrightarrow ~~~~~~~~
         \underset{
             \vphantom{\Huge\Sigma}
-            \Large \text{target }\text{distribution}
+            \Large \text{target }\color{#D62728}{\text{distribution}}
         }{
-            (1-\gamma) p + \gamma {\mu}
+            (1-\gamma) p + \gamma {\color{#D62728}\mu}
         }
     \]
 
@@ -271,7 +265,6 @@ setInterval(function() {
     </video>
     </figure>
     </center>
-    <br>
     <p style="text-align:center;">
     <i>Because values are expectations of reward over a single step of a \(\gamma\)-model, we can perform value estimation without sequential model-based rollouts.</i>
     </p>
