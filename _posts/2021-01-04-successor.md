@@ -10,7 +10,7 @@ show_comments:      False
 ---
 
 <!-- twitter -->
-<meta name="twitter:title" content="The Successor Representation, γ-Models and Infinite-Horizon Prediction">
+<meta name="twitter:title" content="The Successor Representation, γ-Models, & Infinite-Horizon Prediction">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/successor/twitter-card-0.98-01.png">
 
