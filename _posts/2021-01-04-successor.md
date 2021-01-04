@@ -313,7 +313,7 @@ setInterval(function() {
     </li>
     <li id="fn:options">
       <p>
-        Because the discounted occupancy plays such a central role in reinforcement learning, its approximation by Bellman equations has been a focus in multiple lines of research. <a href="https://people.cs.umass.edu/~barto/courses/cs687/Sutton-Precup-Singh-AIJ99.pdf">Option models</a> and <a href="http://www.incompleteideas.net/papers/sutton-95.pdf">\(\beta\)-models</a> describe generalizations of this idea that allow for state-dependent termination conditions and arbitrary timestep mixtures.<a href="#fnref:options" class="reversefootnote">↩</a>
+        Because the discounted occupancy plays such a central role in reinforcement learning, its approximation by Bellman equations has been a focus in multiple lines of research. For example, <a href="https://people.cs.umass.edu/~barto/courses/cs687/Sutton-Precup-Singh-AIJ99.pdf">option models</a> and <a href="http://www.incompleteideas.net/papers/sutton-95.pdf">\(\beta\)-models</a> describe generalizations of this idea that allow for state-dependent termination conditions and arbitrary timestep mixtures.<a href="#fnref:options" class="reversefootnote">↩</a>
      </p>
     </li>
     <li id="fn:maze">
