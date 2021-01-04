@@ -198,7 +198,7 @@ setInterval(function() {
 </p>
 
 <p>
-    On first glance, this looks like a standard maximum likelihood objective. The important difference is that the distribution over which the inner expectation is evaluated depends on the model \({\color{#D62728}\mu}\) itself. Instead of a bootstrapped target value like those commonly used in model-free algorithms, we now have a bootstrapped target distribution.
+    At first glance, this looks like a standard maximum likelihood objective. The important difference is that the distribution over which the inner expectation is evaluated depends on the model \({\color{#D62728}\mu}\) itself. Instead of a bootstrapped target value like those commonly used in model-free algorithms, we now have a bootstrapped target distribution.
 
     \[
         \underset{
