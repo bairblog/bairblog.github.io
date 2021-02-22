@@ -174,6 +174,7 @@ moving disco lights. In the demonstration below, we consider a Soft
 Actor-Critic (SAC) agent trained with an Inverse Dynamics Model (IDM), with and
 without the PAD adaptation mechanism.
 
+<!--
 {% include youtubePlayer.html id="_kd0EbQzBeU" %}
 <p style="text-align:center;">
 <i>
@@ -183,6 +184,19 @@ and <b>SAC+IDM (PAD)</b> is the same policy but with the addition of policy
 adaptation during deployment on the robot.
 </i>
 </p>
+-->
+
+<p style="text-align:center;">
+<img src="https://bair.berkeley.edu/static/blog/ss-adaptation/4_comparison_0.gif" width="100%">
+<br>
+<i>
+Transferring a policy from simulation to the real world. <b>SAC+IDM</b> is a
+Soft Actor-Critic (SAC) policy trained with an Inverse Dynamics Model (IDM),
+and <b>SAC+IDM (PAD)</b> is the same policy but with the addition of policy
+adaptation during deployment on the robot.
+</i>
+</p>
+
 
 PAD adapts to changes in both visuals and dynamics, and nearly recovers the
 original success rate of the simulated environment. Policy adaptation is
@@ -213,12 +227,20 @@ training signal that CURL provides during the training phase. Algorithms that
 learn both during training and deployment, and from multiple training signals,
 may therefore be preferred.
 
+<!--
 {% include youtubePlayer.html id="2Yget_etBaM" %}
 <p style="text-align:center;">
 <i>
 -- -- --  SAC+IDM        --  CURL    — — —  SAC+IDM (PAD)
 </i>
 </p>
+-->
+
+<p style="text-align:center;">
+<img src="https://bair.berkeley.edu/static/blog/ss-adaptation/4_comparison_1.gif" width="100%">
+<br>
+</p>
+
 
 # Summary
 
