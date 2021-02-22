@@ -239,6 +239,12 @@ may therefore be preferred.
 <p style="text-align:center;">
 <img src="https://bair.berkeley.edu/static/blog/ss-adaptation/4_comparison_1.gif" width="100%">
 <br>
+<i>
+Generalization to an environment with video background. <b>CURL</b> is a
+contrastive method, <b>SAC+IDM</b> is a Soft Actor-Critic (SAC) policy trained
+with an Inverse Dynamics Model (IDM), and <b>SAC+IDM (PAD)</b> is the same
+policy but with the addition of policy adaptation during deployment.
+</i>
 </p>
 
 
