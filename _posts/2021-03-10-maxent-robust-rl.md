@@ -23,7 +23,7 @@ As we aim to scale reinforcement learning algorithms and apply them in the real 
 
 <p style="text-align:center; float:right; width:50%; padding-left:15px;
 padding-right:15px; margin-bottom:0px">
-<img src="http://localhost:2225/assets/maxent-robust-rl/robust_rl.gif"
+<img src="https://bair.berkeley.edu/static/blog/maxent-robust-rl/robust_rl.gif"
 width="90%">
 <br>
 <i><b>Robust reinforcement learning</b> maximizes reward on an adversarially-chosen environment.</i>
