@@ -12,7 +12,7 @@ show_comments:      False
 <!-- twitter -->
 <meta name="twitter:title" content="Maximum Entropy RL (Provably) Solves Some Robust RL Problems">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/maxent-robust-rl/peg_maxent_screenshot.png">
+<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/maxent-robust-rl/pusher_obstacle_maxent.gif">
 
 <meta name="keywords" content="reinforcement, learning">
 <meta name="description" content="The BAIR Blog">
