@@ -228,7 +228,7 @@ and to Chloe Hsu and Daniel Seita for help with the blog.
 
 This post is based on the following paper:
 
-  * [Analyzing when MaxEnt RL Solves Robust Reinforcement Learning][arxiv]. \\
+  * [Maximum Entropy RL (Provably) Solves Some Robust RL Problems][arxiv]. \\
     [Benjamin Eysenbach][be] and [Sergey Levine][sl].
 
 
@@ -247,6 +247,6 @@ This post is based on the following paper:
 [walk]:https://arxiv.org/abs/1812.11103
 [huang]:https://openreview.net/forum?id=r1xPh2VtPB
 [bagnell]:https://www.youtube.com/watch?v=xfyK03MEZ9Q&t=17093s
-[arxiv]:REPLACE ME
+[arxiv]:https://arxiv.org/abs/2103.06257
 [be]:https://ben-eysenbach.github.io/
 [sl]:https://people.eecs.berkeley.edu/~svlevine/
