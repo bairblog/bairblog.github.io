@@ -5,7 +5,7 @@ date:               2021-03-10  9:00:00
 author:             Ben Eysenbach
 img:                assets/maxent-robust-rl/peg_maxent_screenshot.png
 excerpt_separator:  <!--more-->
-visible:            False
+visible:            True
 show_comments:      False
 ---
 
