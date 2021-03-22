@@ -20,7 +20,7 @@ show_comments:      False
 
 Transformers have been successfully applied to a wide variety of modalities:
 natural language, vision, protein modeling, music, robotics, and more. A common
-trend with using large models to train a transformer on a large amount of
+trend with using large models is to train a transformer on a large amount of
 training data, and then finetune it on a downstream task. This enables the
 models to utilize generalizable high-level embeddings trained on a large
 dataset to avoid overfitting to a small task-relevant dataset.
