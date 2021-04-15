@@ -101,7 +101,7 @@ We now formally describe the technical results from the paper. The aim here is n
 $J\_{MaxEnt}(\pi; p, r)$ is the entropy-regularized cumulative return of policy $\pi$ when evaluated using dynamics $p(s' \mid s, a)$ and reward function $r(s, a)$. While we will train the policy using one dynamics $p$, we will evaluate the policy on a different dynamics, $\tilde{p}(s' \mid s, a)$, chosen by the adversary. We can now formally state our main result as follows:
 
 $$\min_{\tilde{p} \in \tilde{\mathcal{P}}(\pi)} J_\text{MaxEnt}(\pi; \tilde{p},
-r) \ge \exp(J_\text{MaxEnt}(\pi; p, \bar{r}) + \log T.$$
+r) \ge \exp(J_\text{MaxEnt}(\pi; p, \bar{r}) + \log T).$$
 
 The left-hand-side is the robust RL objective. It says that the adversary gets
 to choose whichever dynamics function $\tilde{p}(s' \mid s, a)$ makes our policy perform as poorly as
