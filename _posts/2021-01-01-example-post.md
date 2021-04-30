@@ -2,7 +2,7 @@
 layout:             post
 title:              "Example Post Title"
 date:               2021-01-01  9:00:00
-author:             John Doe
+author:             <a href="">John Doe</a> and <a href="">Jane Doe</a>
 img:                assets/example_post/image1.png
 excerpt_separator:  <!--more-->
 visible:            False
@@ -16,7 +16,12 @@ show_comments:      False
 
 <meta name="keywords" content="keyword1, keyword2">
 <meta name="description" content="The BAIR Blog">
-<meta name="author" content="John Doe">
+<meta name="author" content="John Doe, Jane Doe">
+
+<!--
+These are comments in HTML The above text is useful for getting tweets to work.
+The actual text for the blog post appears below.
+-->
 
 This is a template for [BAIR blog][1] posts. Here is an example image.
 
@@ -30,7 +35,7 @@ page width.</i>
 <!--more-->
 
 The content here after the excerpt separator will not appear on the front page
-of the BAIR blog but will show in the post. 
+of the BAIR blog but will show in the post.
 
 # Text formatting
 
