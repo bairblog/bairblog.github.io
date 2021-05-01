@@ -9,6 +9,26 @@ visible:            False
 show_comments:      False
 ---
 
+<!--
+These are comments in HTML. The above header text is needed to format the
+title, authors, etc. The "example_post" is an example representative image (not
+GIF) that we use for each post for tweeting (see below as well) and for the
+emails to subscribers. Please provide this image (and any other images and
+GIFs) in the blog to the BAIR Blog editors directly.
+
+The text directly below gets tweets to work. Please adjust according to your
+post.
+
+The `static/blog` directory is a location on the blog server which permanently
+stores the images/GIFs in BAIR Blog posts. Each post has a subdirectory under
+this for its images (titled `example_post` here, please change).
+
+Keeping the post visbility as False will mean the post is only accessible if
+you know the exact URL.
+
+You can also turn on Disqus comments, but we recommend disabling this feature.
+-->
+
 <!-- twitter -->
 <meta name="twitter:title" content="Example Post Title">
 <meta name="twitter:card" content="summary_large_image">
@@ -19,8 +39,10 @@ show_comments:      False
 <meta name="author" content="John Doe, Jane Doe">
 
 <!--
-These are comments in HTML The above text is useful for getting tweets to work.
-The actual text for the blog post appears below.
+The actual text for the post content appears below.  Text will appear on the
+homepage, i.e., https://bair.berkeley.edu/blog/ but we only show part of the
+posts on the homepage. The rest is accessed via clicking 'Continue'. This is
+enforced with the `more` excerpt separator.
 -->
 
 This is a template for [BAIR blog][1] posts. Here is an example image.
@@ -55,5 +77,13 @@ URLs can be inserted through square brackets, such as [this][1].
 page width.</i>
 </p>
 
+<hr>
+
+<i>This post is based on the paper “TODO”, to be presented at CONFERENCE 2021. You
+can see results [on our website][2], and we [provide code][3] to to reproduce
+our experiments. We thank XXX and YYY for their valuable feedback on this blog
+post.</i>
 
 [1]:https://bair.berkeley.edu/blog/
+[2]:https://www.google.com/
+[3]:https://github.com/
