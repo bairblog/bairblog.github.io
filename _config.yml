@@ -3,7 +3,7 @@ title:       The Berkeley Artificial Intelligence Research Blog
 email:       bair-blog@berkeley.edu
 author:      Daniel Seita
 description: "The BAIR Blog"
-baseurl:     "/"
+baseurl:     "/blog"
 url:         "http://bair.berkeley.edu"
 date_format: "%b %-d, %Y"
 timezone:    America/Los_Angeles
