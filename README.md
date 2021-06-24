@@ -3,7 +3,8 @@
 This is the repository for the BAIR blog, located at `bair.berkeley.edu/blog/`.
 Posts are located in `_posts`. Preview locally, and then push to the master
 branch, which will generate a preview at `bairblog.github.io`. This is the link
-we give to authors to preview their posts.
+we give to authors to preview their posts. If you have any questions, please
+contact the current BAIR blog editors.
 
 Contents:
 
