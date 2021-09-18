@@ -47,15 +47,17 @@ enforced with the `more` excerpt separator.
 
 How do humans become so skillful? Well, initially we are not, but from infancy, we discover and practice increasingly complex skills through self-supervised play. But this play is not random - the child development literature suggests that infants use their prior experience to conduct directed exploration of affordances like movability, suckability, graspability, and digestibility through interaction and sensory feedback. This type of affordance directed exploration allows infants to learn both what can be done in a given environment and how to do it. Can we instantiate an analogous strategy in a robotic learning system?
 
-<p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/val/image1.gif" width="80%">
-</p>
+<video autoplay loop muted playsinline width="80%" style="display:block; margin: 0 auto;">
+    <source src="https://bair.berkeley.edu/static/blog/val/image1.webm" type="video/webm">
+    <source src="https://bair.berkeley.edu/static/blog/val/image1.mp4" type="video/mp4">
+</video>
 
 On the left we see videos from a prior dataset collected with a robot accomplishing various tasks such as drawer opening and closing, as well as grasping and relocating objects. On the right we have a lid that the robot has never seen before. The robot has been granted a short period of time to practice with the new object, after which it will be given a goal image and tasked with making the scene match this image. How can the robot rapidly learn to manipulate the environment and grasp this lid without any external supervision?
 
-<p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/val/image2.gif" width="80%">
-</p>
+<video autoplay loop muted playsinline width="80%" style="display:block; margin: 0 auto;">
+    <source src="https://bair.berkeley.edu/static/blog/val/image2.webm" type="video/webm">
+    <source src="https://bair.berkeley.edu/static/blog/val/image2.mp4" type="video/mp4">
+</video>
 
 <!--more-->
 
@@ -67,9 +69,10 @@ If we can overcome these challenges reliably, we open the door for a powerful cy
 
 Our method, Visuomotor Affordance Learning, or VAL, addresses these challenges. In VAL, we begin by assuming access to a prior dataset of robots demonstrating affordances in various environments. From here, VAL enters an offline phase which uses this information to learn 1) a generative model for imagining useful affordances in new environments,  2) a strong offline policy for effective exploration of these affordances, and 3) a self-evaluation metric for improving this policy. Finally, VAL is ready for it’s online phase. The agent is dropped in a new environment and can now use these learned capabilities to conduct self-supervised finetuning. The whole framework is illustrated in the figure below. Next, we will go deeper into the technical details of the offline and online phase.
 
-<p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/val/image3.gif" width="60%">
-</p>
+<video autoplay loop muted playsinline width="60%" style="display:block; margin: 0 auto;">
+    <source src="https://bair.berkeley.edu/static/blog/val/image3.webm" type="video/webm">
+    <source src="https://bair.berkeley.edu/static/blog/val/image3.mp4" type="video/mp4">
+</video>
 
 <style type="text/css">
 .image-left {
@@ -94,14 +97,10 @@ Distances in this latent space are meaningful, paving the way for our crucial me
 
 Later on, we will also use this representation as the latent space for our policy and Q function.
 
-<!-- <p style="text-align:center;"> -->
-<!-- <img src="https://bair.berkeley.edu/static/blog/val/image5.gif" align=”right” width="50%"> -->
-<!-- <br>
-<i><b>Figure title.</b> Figure caption. This image is centered and set to 50%
-page width.</i> -->
-<!-- </p> -->
-
-![alt text](https://bair.berkeley.edu/static/blog/val/image5.gif){: .image-left }
+<video autoplay loop muted playsinline class="image-left">
+    <source src="https://bair.berkeley.edu/static/blog/val/image5.webm" type="video/webm">
+    <source src="https://bair.berkeley.edu/static/blog/val/image5.mp4" type="video/mp4">
+</video>
 
 **2\.** Next, VAL learn an affordance model by training a PixelCNN in the latent space to the learn the distribution of reachable states conditioned on an image from the environment. This is done by maximizing the likelihood of the data,
 $p(s_n | s_0)$. We use this affordance model for directed exploration and for relabeling goals.
@@ -116,7 +115,10 @@ To accomplish this, we train a goal conditioned policy on the prior dataset usin
 
 # VAL: Online Phase
 
-![alt text](https://bair.berkeley.edu/static/blog/val/image7.gif){: .image-left }
+<video autoplay loop muted playsinline class="image-left">
+    <source src="https://bair.berkeley.edu/static/blog/val/image7.webm" type="video/webm">
+    <source src="https://bair.berkeley.edu/static/blog/val/image7.mp4" type="video/mp4">
+</video>
 
 Now, when VAL is placed in an unseen environment, it uses its prior knowledge to imagine visual representations of useful affordances, collects helpful interaction data by trying to achieve these affordances, updates its parameters using its self-evaluation metric, and repeats the process all over again.
 
@@ -137,9 +139,10 @@ We evaluate our method in five real-world test environments, and assess VAL on i
 
 Each test environment consists of at least one unseen interaction object, and two randomly sampled distractor objects. For instance, while there is opening and closing drawers in the training data, the new drawers have unseen handles.
 
-<p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/val/image9.gif" width="80%">
-</p>
+<video autoplay loop muted playsinline width="80%" style="display:block; margin: 0 auto;">
+    <source src="https://bair.berkeley.edu/static/blog/val/image9.webm" type="video/webm">
+    <source src="https://bair.berkeley.edu/static/blog/val/image9.mp4" type="video/mp4">
+</video>
 
 In every case, we begin with the offline trained policy, which solves the task inconsistently. Then, we collect more experience using our affordance model to sample goals. Finally, we evaluate the fine-tuned policy, which consistently solves the task.
 
@@ -157,9 +160,10 @@ Again, given a single off-policy dataset, our method quickly learns advanced man
 
 The environments and algorithm code are available; please see our [code repository][3].
 
-<p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/val/image10.gif" width="80%">
-</p>
+<video autoplay loop muted playsinline width="80%" style="display:block; margin: 0 auto;">
+    <source src="https://bair.berkeley.edu/static/blog/val/image10.webm" type="video/webm">
+    <source src="https://bair.berkeley.edu/static/blog/val/image10.mp4" type="video/mp4">
+</video>
 
 # Future Work
 
