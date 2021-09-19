@@ -3,7 +3,7 @@ layout:             post
 title:              "What Can I Do Here? Learning New Skills by Imagining Visual Affordances"
 date:               2021-09-15  9:00:00
 author:             <a href="">Alexander Khazatsky</a>, <a href="http://ashvin.me/">Ashvin Nair</a>, and <a href="http://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a>
-img:                assets/visual-affordances-robotics/image1.png
+img:                assets/visual-affordances-robotics/val_preview.png
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      False
@@ -30,13 +30,13 @@ You can also turn on Disqus comments, but we recommend disabling this feature.
 -->
 
 <!-- twitter -->
-<meta name="twitter:title" content="Example Post Title">
+<meta name="twitter:title" content="What Can I Do Here? Learning New Skills by Imagining Visual Affordances">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/example_post/image1.png">
+<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/val/image3.gif">
 
-<meta name="keywords" content="keyword1, keyword2">
+<meta name="keywords" content="reinforcement, learning, robotics">
 <meta name="description" content="The BAIR Blog">
-<meta name="author" content="John Doe, Jane Doe">
+<meta name="author" content="Alexander Khazatsky, Ashvin Nair, Sergey Levine">
 
 <!--
 The actual text for the post content appears below.  Text will appear on the
