@@ -135,7 +135,7 @@ After online finetuning is complete, we can now evaluate the robot on its abilit
 
 ![alt text](https://bair.berkeley.edu/static/blog/val/image8.jpg){: .image-left }
 
-We evaluate our method in five real-world test environments, and assess VAL on its ability to achieve a specific task the environment affords before and after five minutes of unsupervised fine-tuning.
+We evaluate our method in five real-world test environments, and assess VAL on its ability to achieve a specific task the environment affords before and after **five minutes** of unsupervised fine-tuning.
 
 Each test environment consists of at least one unseen interaction object, and two randomly sampled distractor objects. For instance, while there is opening and closing drawers in the training data, the new drawers have unseen handles.
 
@@ -150,7 +150,7 @@ We find that in each of these environments, VAL consistently demonstrates effect
 
 Our dataset of 2,500 high quality robot interaction trajectories, covering 20 drawer handles, 20 pot handles, 60 toys, and 60 distractor objects, [is now publicly available on our website][4].
 
-Simulated Evaluation and Code
+# Simulated Evaluation and Code
 
 For further analysis, we run VAL in a procedurally generated, multi-task environment with visual and dynamic variation. Which objects are in the scene, their colors, and their positions are randomized per environment. The agent can use handles to open drawers, grasp objects to relocate them, press buttons to unlock compartments, and so on.
 
