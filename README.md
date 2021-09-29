@@ -53,8 +53,9 @@ authors) to Markdown.
 
 To avoid putting all images and gifs into this GitHub repository, and to avoid
 having to copy the entire `_site` folder to where the blog lives, we save the
-images inside the folder `/project/eecs/interact/www-bair/static/blog`. To upload
-images to the server, see instructions [here](#push-to-the-server) and [here](#setting-permissions).
+images inside the folder `/project/eecs/bair/www-bair/static/blog`. 
+(Notice that the old location was /eecs/interact but now it should be /eecs/bair.) 
+To upload images to the server, see instructions [here](#push-to-the-server) and [here](#setting-permissions).
 Each blog post gets its own folder of images/gifs, even if it has only one.
 
 Make sure you avoid using the `site.url` and `site.baseurl` liquid tags. That
@@ -158,7 +159,7 @@ should have gotten confirmation from the student authors that the preview on
   master` to get the production branch updated. However ...
 
 - ... that production branch has specific `baseurls` and `urls` that shouldn't
-  change. This will be different from the master branch, so watch out!  The
+  change in `_config.yml`. This will be different from the master branch, so watch out!  The
   master branch uses:
 
   ```
@@ -227,9 +228,10 @@ production environment, the `_site` folder would contain a bunch of
 `http://localhost:4000` links.
 
 Then, copy over the files to the server:
+(Notice that the old location was /eecs/interact but now it should be /eecs/bair)
 
 ```
-scp -r _site/* seita@login.eecs.berkeley.edu:/project/eecs/interact/www-bair/blog/
+scp -r _site/* seita@login.eecs.berkeley.edu:/project/eecs/bair/www-bair/blog/
 ```
 
 so that the contents of `_site` go in `blog`.  **There should be no permission
@@ -243,33 +245,28 @@ When you copy files over to where the blog lives, you must ensure that the
 permissions are set appropriately so that other members of the blog editorial
 board can edit the files, and that viewers can see it.
 
-This requires changing the **group** to be `interact` and the permissions set to
+This requires changing the **group** to be `bair-www` and the permissions set to
 775. Here's an example, assuming that I've created a folder called `confluence`
 to put the corresponding blog post images/gifs here. After copying to the
 folder, the permissions are correctly adjusted:
 
 ```
-[seita@login:/project/eecs/interact/www-bair/static/blog]$ chgrp -R interact confluence
-[seita@login:/project/eecs/interact/www-bair/static/blog]$ chmod -R 775 confluence
-[seita@login:/project/eecs/interact/www-bair/static/blog]$ ls -lh confluence/
+[seita@login:/project/eecs/bair/www-bair/static/blog]$ chgrp -R bair-www confluence
+[seita@login:/project/eecs/bair/www-bair/static/blog]$ chmod -R 775 confluence
+[seita@login:/project/eecs/bair/www-bair/static/blog]$ ls -lh confluence/
 total 15736
--rwxrwxr-x   1 seita    interact    5.9M Dec 31 16:02 cityscapes_sample_results.gif
--rwxrwxr-x   1 seita    interact     94K Dec 31 16:02 csVis.png
--rwxrwxr-x   1 seita    interact     98K Dec 31 16:02 dpe8C7u.png
--rwxrwxr-x   1 seita    interact    316K Dec 31 16:02 NQaMdTl.png
--rwxrwxr-x   1 seita    interact    173K Dec 31 16:02 pascalVis.png
--rwxrwxr-x   1 seita    interact     65K Dec 31 16:02 pipeline.jpg
--rwxrwxr-x   1 seita    interact    126K Dec 31 16:02 sample_result.png
--rwxrwxr-x   1 seita    interact     71K Dec 31 16:02 sinha.png
--rwxrwxr-x   1 seita    interact    217K Dec 31 16:02 sNetColorVis.png
--rwxrwxr-x   1 seita    interact     91K Dec 31 16:02 sNetVis.png
--rwxrwxr-x   1 seita    interact    352K Dec 31 16:02 st1Ia9i.png
--rwxrwxr-x   1 seita    interact    107K Dec 31 16:02 teaser_h.jpg
+-rwxrwxr-x   1 seita    bair-www    5.9M Dec 31 16:02 cityscapes_sample_results.gif
+-rwxrwxr-x   1 seita    bair-www     94K Dec 31 16:02 csVis.png
+-rwxrwxr-x   1 seita    bair-www     98K Dec 31 16:02 dpe8C7u.png
+-rwxrwxr-x   1 seita    bair-www    316K Dec 31 16:02 NQaMdTl.png
+-rwxrwxr-x   1 seita    bair-www    173K Dec 31 16:02 pascalVis.png
+-rwxrwxr-x   1 seita    bair-www     65K Dec 31 16:02 pipeline.jpg
+-rwxrwxr-x   1 seita    bair-www    126K Dec 31 16:02 sample_result.png
 ```
 
 The parent directory (`confluence`) should also have permissions set at `drwxrwxr-x`.
 
-(By the way, you obviously need to be a member of the `interact` group to do
+(By the way, you obviously need to be a member of the `bair-www` group to do
 this ... so we need to contact the IT staff behind the server.)
 
 Don't forget to also change permissions of the folders that start with
