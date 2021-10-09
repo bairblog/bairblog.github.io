@@ -5,7 +5,7 @@ date:               2021-10-11  9:00:00
 author:             <a href="https://katerakelly.github.io/">Kate Rakelly</a>
 img:                assets/mi_sufficiency_analysis/image1.png
 excerpt_separator:  <!--more-->
-visible:            False
+visible:            True
 show_comments:      False
 ---
 
