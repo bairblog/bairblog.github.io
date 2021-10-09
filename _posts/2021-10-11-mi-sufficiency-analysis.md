@@ -144,9 +144,9 @@ We observe in Figure 5 (middle) that indeed the representation trained to maximi
 
 <!-- TODO: how can I put three images next to each other here? -->
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/catcher_game.png" width="33%">
-<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/catcher_game.png" width="33%">
-<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/catcher_game.png" width="33%">
+<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/catcher_game.png" width="32%">
+<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/catcher_distractor_plot.png" width="32%">
+<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/catcher_table.png" width="32%">
 <br>
 <i><b>Figure 5. </b>(left) Illustration of the *catcher* game. (middle) Performance of RL agents trained with different state representations. (right) Accuracy of reconstructing ground truth state elements from state representations.</i>
 </p>
