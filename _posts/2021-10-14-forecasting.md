@@ -18,6 +18,8 @@ show_comments:      False
 <meta name="description" content="The BAIR Blog">
 <meta name="author" content="Jacob Steinhardt">
 
+*Cross-posted from [Bounded Regret](https://bounded-regret.ghost.io/).*
+
 Earlier this year, my research group [commissioned 6 questions](https://prod.hypermind.com/ngdp/en/showcase2/showcase.html?sc=JSAI)  for professional forecasters to predict about AI. Broadly speaking, 2 were on geopolitical aspects of AI and 4 were on future capabilities:
 
  * Geopolitical:
@@ -106,7 +108,7 @@ Here are 5 randomly selected problems from the  "Intermediate Algebra" category 
 
  * Suppose that $x$, $y$, and $z$ satisfy the equations $xyz = 4$,     $x^3 + y^3 + z^3 = 4$, $xy^2 + x^2 y + xz^2 + x^2 z + yz^2 + y^2 z = 12$. Calculate the value of $xy + yz + zx$.
  * If $\\|z\\| = 1$, express $\\overline{z}$ as a simplified fraction in terms of $z$.
- * In the coordinate plane, the graph of $\\|x + y - 1\\| + \\|\\|x\\| - x\\| + \\|\\|x - 1\\| + x - 1\\| = 0$ is a certain curve.  Find the length of this curve.
+ * In the coordinate plane, the graph of $\\|x + y - 1\\| + \\|\\|x\\| - x\\| + \\|\\|x - 1\\| + $ $x - 1\\| = 0$ is a certain curve.  Find the length of this curve.
  * Let $\\alpha$, $\\beta$, $\\gamma$, and $\\delta$ be the roots of $x^4 + kx^2 + 90x - 2009 = 0$. If $\\alpha \\beta = 49$, find $k$.
  * Let $\\tau = \\frac{1 + \\sqrt{5}}{2}$, the golden ratio.  Then $\\frac{1}{\\tau} + \\frac{1}{\\tau^2} + \\frac{1}{\\tau^3} + \\dotsb = \\tau^n$ for some integer $n$.  Find $n$.
 
