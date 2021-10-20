@@ -144,7 +144,7 @@ We observe in Figure 5 (middle) that indeed the representation trained to maximi
 
 <!-- TODO: how can I put three images next to each other here? -->
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/catcher_game.png" width="32%">
+<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/catcher_game.png" width="27%">
 <img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/catcher_distractor_plot.png" width="32%">
 <img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/catcher_table.png" width="32%">
 <br>
