@@ -46,21 +46,21 @@ enforced with the `more` excerpt separator.
 -->
 Processing raw sensory inputs is crucial for applying deep RL algorithms to real-world problems.
 For example, autonomous vehicles must make decisions about how to drive safely given information flowing from cameras, radar, and microphones about the conditions of the road, traffic signals, and other cars and pedestrians.
-However, direct “end-to-end” RL that maps sensor data to actions (Figure 1, top) can be very difficult because the inputs are high-dimensional, noisy, and contain redundant information.
-Instead, the challenge can be broken down into two problems (Figure 1, bottom): (1) extract a representation of the sensory inputs that retains only the relevant information, and (2) perform RL with these representations of the inputs as the system state.
+However, direct “end-to-end” RL that maps sensor data to actions (Figure 1, left) can be very difficult because the inputs are high-dimensional, noisy, and contain redundant information.
+Instead, the challenge can be broken down into two problems (Figure 1, right): (1) extract a representation of the sensory inputs that retains only the relevant information, and (2) perform RL with these representations of the inputs as the system state.
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/overview.png" width="50%">
+<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/image1.png" width="50%">
 <br>
 <i><b>Figure 1. </b>State representation learning for RL.</i>
 </p>
 
-A wide variety of algorithms have been proposed to tackle the first step of representation learning in an unsupervised fashion [CITE generative models].
-Recently, contrastive learning methods (such as [CPC][1], [ATC][2], and [SGI][3]) have proven highly effective on RL benchmarks such as Atari.
-These methods learn lossy representations that discard some parts of the input, prompting a natural question -- are the representations learned via MI-based objectives guaranteed to be sufficient for control?
-In other words, do they contain all the information necessary to solve downstream control problems, or might they throw out some information that may be required?
-For example, in the self-driving car scenario, if the representation discards the locations of other cars, the vehicle would be unable to respond to other drivers’ actions.
-Surprisingly, we find that some widely used objectives are not sufficient, and in fact **do** discard information that may be needed for downstream tasks.
+A wide variety of algorithms have been proposed to learn lossy state representations in an unsupervised fashion (see this recent [tutorial][17] for an overview).
+Recently, contrastive learning methods have proven effective on RL benchmarks such as Atari and DMControl ([Oord et al. 2018][1], [Stooke et al. 2020][2], [Schwarzer et al. 2021][3]), as well as for real-world robotic learning ([Zhan et al.][5]).
+While we could ask which objectives are better in which circumstances, there is an even more basic question at hand: are the representations learned via these methods guaranteed to be sufficient for control?
+In other words, do they suffice to learn the optimal policy, or might they discard some important information, making it impossible to solve the control problem?
+For example, in the self-driving car scenario, if the representation discards the state of stoplights, the vehicle would be unable to drive safely.
+Surprisingly, we find that some widely used objectives are not sufficient, and in fact do discard information that may be needed for downstream tasks.
 
 
 <!--more-->
@@ -72,21 +72,20 @@ In our analysis, we assume that the original state $\mathcal{S}$ is Markovian, s
 We depict the representation learning problem as a graphical model in Figure 2.
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/graphical_model.png" width="30%">
+<img src="https://bair.berkeley.edu/static/blog/example_post/graphical_model.png" width="30%">
 <br>
 <i><b>Figure 2. </b>The representation learning problem in RL as a graphical model.</i>
 </p>
 
-We will say that a representation is sufficient if it is guaranteed that an RL algorithm using that representation can learn and represent the optimal policy.
-Since we are interested in unsupervised representation learning methods that don’t have access to a task reward, to call a representation sufficient we require that it is sufficient for **all** optimal policies for all possible reward functions in the given MDP.
-To define sufficiency formally, we make use of a result from [Li et al. 2006][4].
-This paper proves that if a state representation is capable of representing the optimal $Q$-function, then $Q$-learning is guaranteed to converge when run with that representation as the state input (if you’re interested, see Theorem 4 in that paper).
-We’ll use the ability to represent the optimal $Q$-function as our definition of sufficiency for a state representation.
+We will say that a representation is sufficient if it is guaranteed that an RL algorithm using that representation can learn the optimal policy.
+We make use of a result from [Li et al. 2006][4], which proves that if a state representation is capable of representing the optimal $Q$-function, then $Q$-learning run with that representation as input is guaranteed to converge to the same solution as in the original MDP (if you’re interested, see Theorem 4 in that paper).
+So to test if a representation is sufficient, we can check if it is able to represent the optimal Q-function.
+Since we assume we don’t have access to a task reward during representation learning, to call a representation sufficient we require that it is sufficient for *all* optimal policies for all possible reward functions in the given MDP.
 
 ## Analyzing Representations learned via MI Maximization
 Now that we’ve established how we will evaluate representations, let’s turn to the methods of learning them.
-As mentioned above, we aim to study the popular class of contrastive learning methods that maximize MI-based objectives.
-To simplify the analysis, we analyze representation learning in isolation from the other aspects of RL by assuming the existence of an offline dataset on which to perform representation learning.
+As mentioned above, we aim to study the popular class of contrastive learning methods.
+These methods can largely be understood as maximizing a mutual information (MI) objective involving states and actions.
 This paradigm of offline representation learning followed by online RL is becoming increasingly popular, particularly in applications such as robotics where collecting data is onerous ([Zhan et al. 2020][5], [Kipf et al. 2020][6]).
 Our question is therefore whether the objective is sufficient on its own, not as an auxiliary objective for RL.
 We assume the dataset has full support on the state space, which can be guaranteed by an epsilon-greedy exploration policy, for example.
@@ -100,13 +99,17 @@ Intuitively, this objective seeks a representation in which the current state an
 Therefore, everything predictable in the original state $\mathcal{S}$ should be preserved in $\mathcal{Z}$, since this would maximize the MI.
 Formalizing this intuition, we are able to prove that all representations learned via this objective are guaranteed to be sufficient (see the proof of Proposition 1 in the paper).
 
-It’s worth noting here that, since we proved sufficiency for all reward functions, representations that maximize $J_{fwd}$ are actually capable of representing **any** optimal $Q$-function that was possible in the original MDP.
-This begs the question: what information is the representation $\phi_Z$ actually able to discard?
-The answer is that $\phi_Z$ can discard time-independent information in $S$.
-For example, if a light flashes randomly at each timestep, $\phi_Z$ would be free to ignore the light.
-Note that $\phi_Z$ is still sufficient even if the reward function depends on the flashing light because since the light cannot be predicted, any policy is as good as any other.
-Still, most signals in realistic scenarios, including distracting ones that we may like our agents to ignore, are temporally correlated, and therefore would not be discarded by $J_{fwd}$.
-Is there another objective that can learn sufficient but lossier representations?
+It’s worth noting here that, since we proved sufficiency for all reward functions, representations that maximize $J_{fwd}$ are actually capable of representing *any* optimal $Q$-function that was possible in the original MDP.
+As a result, any state information that is temporally correlated will be retained in representations learned via this objective, no matter how irrelevant to the task.
+For example, the fence, cows, and trees would all be represented even though they are irrelevant to driving.
+Is there another objective that can learn sufficient but *lossier* representations?
+
+<p style="text-align:center;">
+<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/driving_with_cows.png" width="50%">
+<br>
+<i><b>Figure 3.</b></i>
+</p>
+
 
 ### Representations Learned by Maximizing “Inverse Information”
 Next, we consider what we term an “inverse information” objective: $I_{inv} = I(Z_{t+k}; A_t | Z_t)$.
@@ -115,50 +118,68 @@ Intuitively, this objective is appealing because it preserves all the state info
 It therefore may seem like a good candidate for a sufficient objective that discards more information than $J_{fwd}$.
 However, we can actually construct a realistic scenario in which a representation that maximizes this objective is not sufficient.
 
-For example, consider the MDP shown on the left side of Figure 3 in which an autonomous vehicle is approaching a traffic light. The agent has two actions available, stop or go. The reward for following traffic rules depends on the color of the stoplight, and is denoted by a red X (low reward) and green check mark (high reward). On the right side of the figure, we show a state representation that also maximizes $J_{inv}$ but is not sufficient to represent the optimal policy. In this representation, the color of the stoplight is not represented in the two states on the left, allowing them to be aliased and represented as a single state. Intuitively, $J_{inv}$ is maximized by this representation because the agent has no control over the stoplight, so representing it does not increase MI.
+For example, consider the MDP shown on the left side of Figure 4 in which an autonomous vehicle is approaching a traffic light.
+The agent has two actions available, stop or go.
+The reward for following traffic rules depends on the color of the stoplight, and is denoted by a red X (low reward) and green check mark (high reward).
+On the right side of the figure, we show a state representation in which the color of the stoplight is not represented in the two states on the left; they are aliased and represented as a single state.
+This representation is not sufficient, since from the aliased state it is not clear whether the agent should “stop” or “go” to receive the reward.
+However, $J_{inv}$ is maximized because the action taken is still exactly predictable given each pair of states.
+In other words, the agent has no control over the stoplight, so representing it does not increase MI.
+Since $J_{inv}$ is maximized by this insufficient representation, we can conclude that the objective is not sufficient.
 
 <p style="text-align:center;">
 <img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/inv_counterexample.png" width="50%">
 <br>
-<i><b>Figure 3. </b>Counterexample proving the insufficiency of $J_{inv}$.</i>
+<i><b>Figure 4. </b>Counterexample proving the insufficiency of $J_{inv}$.</i>
 </p>
 
-Assuming deterministic dynamics and a uniform policy, we can show this computationally. In Figure 4, we plot the values of $J_{fwd}$ and $J_{inv}$ for different state representations, ordered on the x-axis by the value of $I(Z; S)$, or how much information is retained by the representation (the representation that aliases all states is the furthest left, while the identity representation is the furthest right and plotted with a star). The representation with aliased states depicted on the right side of Figure 3 is plotted with a diamond. This representation achieves the same value of $J_{inv}$ as the original state representation, but value iteration run with this representation fails to learn the optimal policy. The issue appears to be that practical reward functions can depend on elements outside the agent’s control. Intuitively, if the representation fails to capture the stoplight, but the reward depends on it, it seems that we may be able to resolve the issue by requiring that the representation also be capable of predicting the reward at that state. However, this is still not enough to guarantee sufficiency - the representation on the right side of Figure 3 is still a counterexample since the aliased states have the same reward. The crux of the problem is that representing the action that connects two states is not enough to be able to choose the best action. Still, while $J_{inv}$ is insufficient in the general case, it would be revealing to characterize the set of MDPs for which $J_{inv}$ can be proven to be sufficient. We see this as an interesting future direction.
+Since the reward depends on the stoplight, perhaps we can remedy the issue by additionally requiring the representation to be capable of predicting the immediate reward at each state.
+However, this is still not enough to guarantee sufficiency - the representation on the right side of Figure 4 is still a counterexample since the aliased states have the same reward.
+The crux of the problem is that representing the action that connects two states is not enough to be able to choose the best action.
+Still, while $J_{inv}$ is insufficient in the general case, it would be revealing to characterize the set of MDPs for which $J_{inv}$ can be proven to be sufficient.
+We see this as an interesting future direction.
 
-
-<p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/inv_counterexample_plot.png" width="50%">
-<br>
-<i><b>Figure 4. </b>Values of $J_{fwd}$ compared to $J_{inv}$ for different state representations.</i>
-</p>
 
 ### Representations Learned by Maximizing “State Information”
-The final objective we consider was proposed in [Oord et al. 2018][1], and resembles $J_{fwd}$ but omitting the action: $J_{state} = I(Z_t; Z_{t+1})$. Does omitting the action from the MI objective impact its sufficiency? It turns out the answer is yes. The intuition is that maximizing this objective can yield insufficient representations when the variation in the next state depends entirely on the action. For example, consider a car driving at dusk. If the reward depends on turning on the headlights when it gets dark (an action), a state representation maximizing $J_{state}$ could fail to capture the state of the headlights. For brevity, we’ll leave the discussion of this objective here -- see our paper for the full analysis.
+The final objective we consider resembles $J_{fwd}$ but omits the action: $J_{state} = I(Z_t; Z_{t+1})$ (see [Oord et al. 2018][1], [Anand et al. 2019][18], [Stooke et al. 2020][2]).
+Does omitting the action from the MI objective impact its sufficiency?
+It turns out the answer is yes.
+The intuition is that maximizing this objective can yield insufficient representations that alias states whose transition distributions differ only with respect to the action.
+For example, consider a scenario of a car navigating to a city, depicted below.
+There are four states from which the car can take actions “turn right” or “turn left.”
+The optimal policy takes first a left turn, then a right turn, or vice versa.
+Now consider the state representation shown on the right that aliases $\mathbf{s}_2$ and $\mathbf{s]_3$ into a single state we’ll call $\mathbf{z}$.
+If we assume the policy distribution is uniform over left and right turns (a reasonable scenario for a driving dataset collected with an exploration policy), then this representation maximizes $J_{state}$.
+However, it can’t represent the optimal policy because the agent doesn’t know whether to go right or left from $\mathbf{z}$.
+
+<p style="text-align:center;">
+<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/state_counterexample.png" width="50%">
+<br>
+<i><b>Figure 5. </b>Counterexample proving the insufficiency of $J_{state}$.</i>
+</p>
 
 ## Can Sufficiency Matter in Deep RL?
 To understand whether the sufficiency of state representations can matter in practice, we perform simple proof-of-concept experiments with deep RL agents and image observations. To separate representation learning from RL, we first optimize each representation learning objective on a dataset of offline data, (similar to the protocol in [Stooke et al. 2020][2]). We collect the fixed datasets using a random policy, which is sufficient to cover the state space in our environments. We then freeze the weights of the state encoder learned in the first phase and train RL agents with the representation as state input.
 
-We experiment with a simple video game MDP that has a similar characteristic to the self-driving car example described earlier. In this game called *catcher*, from the [PyGame suite][16], the agent controls a paddle that it can move back and forth to catch fruit that falls from the top of the screen (see Figure 5, left). A positive reward is given when the fruit is caught and a negative reward when the fruit is not caught. The episode terminates after one piece of fruit falls. Analogous to the self-driving example, the agent does not control the position of the fruit, and so a representation that maximizes $I_{inv}$ might discard that information. However, representing the fruit is crucial to obtaining reward, since the agent must move the paddle underneath the fruit to catch it. We learn representations with $I_{inv}$ and $I_{fwd}$, optimizing $I_{fwd}$ with noise contrastive estimation [(NCE)][12], and $I_{inv}$ by training an inverse model via maximum likelihood. To select the most compressed representation from among those that maximize each objective, we apply an information bottleneck of the form $\min I(Z; S)$. We also compare to running RL from scratch with the image inputs, which we call ``end-to-end.” For the RL algorithm, we use the [Soft Actor-Critic][14] algorithm.
+We experiment with a simple video game MDP that has a similar characteristic to the self-driving car example described earlier. In this game called *catcher*, from the [PyGame suite][16], the agent controls a paddle that it can move back and forth to catch fruit that falls from the top of the screen (see Figure 5, left). A positive reward is given when the fruit is caught and a negative reward when the fruit is not caught. The episode terminates after one piece of fruit falls. Analogous to the self-driving example, the agent does not control the position of the fruit, and so a representation that maximizes $I_{inv}$ might discard that information. However, representing the fruit is crucial to obtaining reward, since the agent must move the paddle underneath the fruit to catch it. We learn representations with $I_{inv}$ and $I_{fwd}$, optimizing $I_{fwd}$ with noise contrastive estimation ([NCE][12]), and $I_{inv}$ by training an inverse model via maximum likelihood. (For brevity, we omit experiments with $J_{state}$ in this post -- please see the paper!.) To select the most compressed representation from among those that maximize each objective, we apply an information bottleneck of the form $\min I(Z; S)$. We also compare to running RL from scratch with the image inputs, which we call ``end-to-end.” For the RL algorithm, we use the [Soft Actor-Critic][14] algorithm.
 
-We observe in Figure 5 (middle) that indeed the representation trained to maximize $I_{inv}$ results in RL agents that converge slower and to a lower asymptotic expected return. To better understand what information the representation contains, we then attempt to learn a neural network decoder from the learned representation to the position of the falling fruit. We report the mean error achieved by each representation in Figure 5, right. The representation learned by $I_{inv}$ incurs a high error, indicating that the fruit is not precisely captured by the representation, while the representation learned by $I_{fwd}$ incurs low error.
+We observe in Figure 6 (middle) that indeed the representation trained to maximize $I_{inv}$ results in RL agents that converge slower and to a lower asymptotic expected return. To better understand what information the representation contains, we then attempt to learn a neural network decoder from the learned representation to the position of the falling fruit. We report the mean error achieved by each representation in Figure 6, right. The representation learned by $I_{inv}$ incurs a high error, indicating that the fruit is not precisely captured by the representation, while the representation learned by $I_{fwd}$ incurs low error.
 
 <!-- TODO: how can I put three images next to each other here? -->
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/catcher_game.png" width="27%">
-<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/catcher_distractor_plot.png" width="32%">
-<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/catcher_table.png" width="32%">
+<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/catcher_game.png" width="50%">
 <br>
-<i><b>Figure 5. </b>(left) Illustration of the *catcher* game. (middle) Performance of RL agents trained with different state representations. (right) Accuracy of reconstructing ground truth state elements from state representations.</i>
+<i><b>Figure 6. </b>(left) Illustration of the *catcher* game. (middle) Performance of RL agents trained with different state representations. (right) Accuracy of reconstructing ground truth state elements from state representations.</i>
 </p>
 
 ### Increasing observation complexity with visual distractors
-To make the representation learning problem more challenging, we repeat this experiment with visual distractors added to the agent’s observations. We randomly generate images of 10 circles of different colors and replace the background of the game with these images (see Figure 6, left for example observations). As in the previous experiment, we plot the performance of an RL agent trained with the frozen representation as input (Figure 6, middle), as well as the error of decoding true state elements from the representation (Figure 6, right). The difference in performance between sufficient ($I_{fwd}$) and insufficient ($I_{inv}$) objectives is even more pronounced in this setting than in the plain background setting. With more information present in the observation in the form of the distractors, insufficient objectives that do not optimize for representing all the required state information may be "distracted" by representing the background objects instead, resulting in low performance. In this more challenging case, end-to-end RL from images fails to make any progress on the task, demonstrating the difficulty of end-to-end RL.
+To make the representation learning problem more challenging, we repeat this experiment with visual distractors added to the agent’s observations. We randomly generate images of 10 circles of different colors and replace the background of the game with these images (see Figure 7, left for example observations). As in the previous experiment, we plot the performance of an RL agent trained with the frozen representation as input (Figure 7, middle), as well as the error of decoding true state elements from the representation (Figure 7, right). The difference in performance between sufficient ($I_{fwd}$) and insufficient ($I_{inv}$) objectives is even more pronounced in this setting than in the plain background setting. With more information present in the observation in the form of the distractors, insufficient objectives that do not optimize for representing all the required state information may be "distracted" by representing the background objects instead, resulting in low performance. In this more challenging case, end-to-end RL from images fails to make any progress on the task, demonstrating the difficulty of end-to-end RL.
 
 <!-- TODO: how can I put three images next to each other here? -->
 <p style="text-align:center;">
 <img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/distractor_observation.png" width="50%">
 <br>
-<i><b>Figure 6. </b>(left) Example agent observations with distractors. (middle) Performance of RL agents trained with different state representations. (right) Accuracy of reconstructing ground truth state elements from state representations.</i>
+<i><b>Figure 7. </b>(left) Example agent observations with distractors. (middle) Performance of RL agents trained with different state representations. (right) Accuracy of reconstructing ground truth state elements from state representations.</i>
 </p>
 
 ## Conclusion
@@ -187,3 +208,5 @@ Further, extending the proposed framework to partially observed problems would b
 [14]:https://arxiv.org/abs/1801.01290
 [15]:https://arxiv.org/abs/1711.00464
 [16]:https://pygame.org
+[17]:https://icml.cc/virtual/2021/tutorial/10843
+[18]:https://arxiv.org/abs/1906.08226
