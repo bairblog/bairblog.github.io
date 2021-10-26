@@ -227,6 +227,8 @@ GEM
     multipart-post (2.1.1)
     nokogiri (1.12.5-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.12.5-x86_64-linux)
+      racc (~> 1.4)
     octokit (4.21.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
@@ -269,8 +271,9 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
+  ruby
   x86_64-darwin-19
-  x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   github-pages (= 220)
@@ -282,7 +285,7 @@ DEPENDENCIES
   webrick
 
 RUBY VERSION
-   ruby 3.0.2p107
+   ruby 2.5.1p57
 
 BUNDLED WITH
-   2.2.29
+   1.17.2
