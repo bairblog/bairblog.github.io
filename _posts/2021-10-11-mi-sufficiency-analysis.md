@@ -32,7 +32,7 @@ You can also turn on Disqus comments, but we recommend disabling this feature.
 <!-- twitter -->
 <meta name="twitter:title" content="Which Mutual Information Representation Learning Objectives are Sufficient for Control?">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/mi_analysis/image1.png">
+<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/overview.png">
 
 <meta name="keywords" content="reinforcement learning, representation learning">
 <meta name="description" content="The BAIR Blog">
