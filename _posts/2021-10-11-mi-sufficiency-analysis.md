@@ -5,7 +5,7 @@ date:               2021-10-11  9:00:00
 author:             <a href="https://katerakelly.github.io/">Kate Rakelly</a>
 img:                assets/mi_sufficiency_analysis/image1.png
 excerpt_separator:  <!--more-->
-visible:            False
+visible:            True
 show_comments:      False
 ---
 
@@ -72,7 +72,7 @@ In our analysis, we assume that the original state $\mathcal{S}$ is Markovian, s
 We depict the representation learning problem as a graphical model in Figure 2.
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/example_post/graphical_model.png" width="30%">
+<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/graphical_model.png" width="30%">
 <br>
 <i><b>Figure 2. </b>The representation learning problem in RL as a graphical model.</i>
 </p>
