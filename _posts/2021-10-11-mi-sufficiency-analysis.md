@@ -50,7 +50,7 @@ However, direct “end-to-end” RL that maps sensor data to actions (Figure 1, 
 Instead, the challenge is often broken down into two problems (Figure 1, right): (1) extract a representation of the sensory inputs that retains only the relevant information, and (2) perform RL with these representations of the inputs as the system state.
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/image1.png" width="50%">
+<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/overview.png" width="50%">
 <br>
 <i><b>Figure 1. </b>State representation learning for RL.</i>
 </p>
