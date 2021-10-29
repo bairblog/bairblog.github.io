@@ -3,7 +3,7 @@ layout:             post
 title:              "Why Generalization in RL is Difficult: Epistemic POMDPs and Implicit Partial Observability"
 date:               2021-11-01  9:00:00
 author:             <a href="https://dibyaghosh.com/">Dibya Ghosh</a>
-img:                TODO
+img:                assets/epistemic-pomdp/teaser.gif
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      False
@@ -110,4 +110,4 @@ In supervised learning, optimizing for performance on the training set translate
 
 Ultimately, this highlights the incompatibility that afflicts generalization of our deep RL algorithms: with limited training data, our MDP-based RL objectives are misaligned with the implicit POMDP objective that ultimately dictates generalization performance. 
 
-*This post is based on [the paper](https://arxiv.org/abs/2107.06277) “Why Generalization in RL is Difficult: Epistemic POMDPs and Implicit Partial Observability,” which is joint work with Jad Rahme (equal contribution), Aviral Kumar, Amy Zhang, Ryan P. Adams, and Sergey Levine.*
+*This post is based on [the paper](https://arxiv.org/abs/2107.06277) “Why Generalization in RL is Difficult: Epistemic POMDPs and Implicit Partial Observability,” which is joint work with Jad Rahme (equal contribution), Aviral Kumar, Amy Zhang, Ryan P. Adams, and Sergey Levine. Thanks to Sergey Levine and Katie Kang for helpful feedback for the blog post.*
