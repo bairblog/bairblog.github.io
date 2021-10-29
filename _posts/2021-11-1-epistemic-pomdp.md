@@ -3,7 +3,7 @@ layout:             post
 title:              "Why Generalization in RL is Difficult: Epistemic POMDPs and Implicit Partial Observability"
 date:               2021-11-01  9:00:00
 author:             <a href="https://dibyaghosh.com/">Dibya Ghosh</a>
-img:                assets/epistemic-pomdp/teaser.gif
+img:                assets/epistemic_pomdp/teaser.gif
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      False
