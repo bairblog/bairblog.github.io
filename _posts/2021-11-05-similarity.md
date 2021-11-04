@@ -134,11 +134,10 @@ page width.</i>
 
 <hr>
 
-<i>This post is based on the paper “TODO”, to be presented at CONFERENCE 2021. You
-can see results [on our website][2], and we [provide code][3] to to reproduce
-our experiments. We thank XXX and YYY for their valuable feedback on this blog
+<i>This post is based on the paper “Grounding Representation Similarity with Statistical Testing”, to be presented at NeurIPS 2021. You
+can see full results [in our paper][1], and we [provide code][2] to to reproduce
+our experiments. We thank Juanky Perdomo and John Miller for their valuable feedback on this blog
 post.</i>
 
-[1]:https://bair.berkeley.edu/blog/
-[2]:https://www.google.com/
-[3]:https://github.com/
+[1]:https://arxiv.org/abs/2108.01661
+[2]:https://github.com/js-d/sim_metric
