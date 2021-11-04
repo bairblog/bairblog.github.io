@@ -12,12 +12,21 @@ show_comments:      False
 <!-- twitter -->
 <meta name="twitter:title" content="Why Generalization in RL is Difficult: Epistemic POMDPs and Implicit Partial Observability">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/epistemic_pomdp/blog_figs.002.png">
-
+<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/epistemic_pomdp/epistemic_pomdp/blog_figs.teaser.gif">
 <meta name="keywords" content="reinforcement learning, generalization, deep RL">
 <meta name="description" content="The BAIR Blog">
 <meta name="author" content="Dibya Ghosh">
 
+<!--
+The actual text for the post content appears below.  Text will appear on the
+homepage, i.e., https://bair.berkeley.edu/blog/ but we only show part of the
+posts on the homepage. The rest is accessed via clicking 'Continue'. This is
+enforced with the `more` excerpt separator.
+-->
+
+<p style="text-align:center;">
+<img src="https://bair.berkeley.edu/static/blog/epistemic_pomdp/epistemic_pomdp/blog_figs.teaser.gif" width="90%" />
+</p>
 
 Many experimental works have observed that generalization in deep RL appears to be difficult: although RL agents can learn to perform very complex tasks, they don't seem to generalize over diverse task distributions as well as the excellent generalization of supervised deep nets might lead us to expect. In this blog post, we will aim to explain why generalization in RL is fundamentally harder, and indeed more difficult even in theory.
 
@@ -43,7 +52,7 @@ Can we do better than this deterministic prediction strategy? Yes, since the lea
 
 **Maze-Solving:** A staple of RL generalization benchmarks, the maze-solving problem requires an agent to navigate to a goal in a maze given a birds-eye view of the whole maze. This task is fully-observed, since the agent’s observation shows the whole maze. As a result, the optimal policy is memoryless and deterministic: taking the action that moves the agent along the shortest path to the goal. Just as in the image-guessing game, by maximizing return within the training maze layouts, an RL algorithm will learn policies akin to this “optimal” strategy -- at any state, deterministically taking the action that it considers most likely to be on the shortest path to the goal.
 
-This RL policy generalizes poorly, since if the learned policy ever chooses an incorrect action, like running into a wall or doubling back on its old path, it will continue to loop the same mistake and never solve the maze. This failure mode is completely avoidable, since even when the RL agent initially takes such an “incorrect” action, after attempting to follow it, the agent _receives information_ (e.g. the next observation) as to whether or not this was a good action. To generalize as well as possible, an agent should **adapt** its chosen actions if the original predicted actions led to unexpected outcomes , but this behavior eludes standard RL objectives.
+This RL policy generalizes poorly, since if the learned policy ever chooses an incorrect action, like running into a wall or doubling back on its old path, it will continue to loop the same mistake and never solve the maze. This failure mode is completely avoidable, since even when the RL agent initially takes such an “incorrect” action, after attempting to follow it, the agent _receives information_ (e.g. the next observation) as to whether or not this was a good action. To generalize as well as possible, an agent should **adapt** its chosen actions if the original actions led to unexpected outcomes , but this behavior eludes standard RL objectives.
 
 <p style="text-align:center;">
 <img src="https://bair.berkeley.edu/static/blog/epistemic_pomdp/blog_figs.004.gif" width="90%">
@@ -110,4 +119,5 @@ In supervised learning, optimizing for performance on the training set translate
 
 Ultimately, this highlights the incompatibility that afflicts generalization of our deep RL algorithms: with limited training data, our MDP-based RL objectives are misaligned with the implicit POMDP objective that ultimately dictates generalization performance. 
 
-*This post is based on [the paper](https://arxiv.org/abs/2107.06277) “Why Generalization in RL is Difficult: Epistemic POMDPs and Implicit Partial Observability,” which is joint work with Jad Rahme (equal contribution), Aviral Kumar, Amy Zhang, Ryan P. Adams, and Sergey Levine. Thanks to Sergey Levine and Katie Kang for helpful feedback for the blog post.*
+<small>*This post is based on [the paper](https://arxiv.org/abs/2107.06277) “Why Generalization in RL is Difficult: Epistemic POMDPs and Implicit Partial Observability,” which is joint work with Jad Rahme (equal contribution), Aviral Kumar, Amy Zhang, Ryan P. Adams, and Sergey Levine. Thanks to Sergey Levine and Katie Kang for helpful feedback on the blog post.*
+</small>
