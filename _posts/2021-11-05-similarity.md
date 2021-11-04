@@ -45,7 +45,7 @@ posts on the homepage. The rest is accessed via clicking 'Continue'. This is
 enforced with the `more` excerpt separator.
 -->
 
-To understand neural networks, researchers often use **similarity metrics** to measure how similar or different two neural networks are to each other. For instance, they are used to compare vision transformers to convnets \[1\], to understand transfer learning \[2\], and to explain the success of standard training practices for deep models `[3]`. Below is an example visualization using similarity metrics; specifically we use the popular CKA similarity metric (introduced in `[4]`) to compare two transformer models across different layers: 
+To understand neural networks, researchers often use **similarity metrics** to measure how similar or different two neural networks are to each other. For instance, they are used to compare vision transformers to convnets \[1\], to understand transfer learning \[2\], and to explain the success of standard training practices for deep models \[3\]. Below is an example visualization using similarity metrics; specifically we use the popular CKA similarity metric (introduced in \[4\]) to compare two transformer models across different layers: 
 
 <p style="text-align:center;">
 <img src="https://bounded-regret.ghost.io/content/images/2021/10/CKA_avg_double_heatmap.png" width="75%">
@@ -65,7 +65,7 @@ Unfortunately, there isn't much agreement on which particular similarity metric 
 
 <!--more-->
 
-In the literature, researchers often propose new metrics and justify them based on intuitive desiderata that were missing from previous metrics. For example, Morcos et al. motivate CCA by arguing that similarity metrics should be invariant to invertible linear transformations [5]. Kornblith et al. argue that similarity metrics should be invariant to orthogonal transformation and isotropic scaling, but not invertible linear transformation; this motivates their proposed metric, CKA [4]. Kornblith et al. then propose an intuitive test for similarity metrics to pass - given two trained networks with the same architecture but different initialization, layers at the same depth should be most similar to each other - and CKA performs the best on their test. 
+In the literature, researchers often propose new metrics and justify them based on intuitive desiderata that were missing from previous metrics. For example, Morcos et al. motivate CCA by arguing that similarity metrics should be invariant to invertible linear transformations \[5\]. Kornblith et al. argue that similarity metrics should be invariant to orthogonal transformation and isotropic scaling, but not invertible linear transformation; this motivates their proposed metric, CKA \[4\]. Kornblith et al. then propose an intuitive test for similarity metrics to pass - given two trained networks with the same architecture but different initialization, layers at the same depth should be most similar to each other - and CKA performs the best on their test. 
 
 Our paper, [Grounding Representation Similarity with Statistical Testing](https://arxiv.org/abs/2108.01661), argues against this practice. To start, we show that by choosing different intuitive tests, we can make different methods look good. CKA does well on a "specificity test" similar to the one proposed by Kornblith et al., but it does poorly on a "sensitivity test" that CCA shines on.
 
@@ -95,15 +95,16 @@ For more details, please see our [full paper](https://arxiv.org/abs/2108.01661)!
 
 
 References
+
 \[1\] [Raghu, Maithra, et al. "Do Vision Transformers See Like Convolutional Neural Networks?."](https://arxiv.org/abs/2108.08810) arXiv preprint arXiv:2108.08810 (2021).
 
-<a id="2">[2]</a>
-[Neyshabur, Behnam, Hanie Sedghi, and Chiyuan Zhang. "What is being transferred in transfer learning?."](https://arxiv.org/abs/2008.11687) NeurIPS. 2020. 
+\[2\][Neyshabur, Behnam, Hanie Sedghi, and Chiyuan Zhang. "What is being transferred in transfer learning?."](https://arxiv.org/abs/2008.11687) NeurIPS. 2020. 
 
-[3] [Gotmare, Akhilesh, et al. "A Closer Look at Deep Learning Heuristics: Learning rate restarts, Warmup and Distillation."](https://arxiv.org/abs/1810.13243) International Conference on Learning Representations. 2018.
-[4] [Kornblith, Simon, et al. "Similarity of neural network representations revisited."](https://arxiv.org/abs/1905.00414) International Conference on Machine Learning. PMLR, 2019.
-[5] [Morcos, Ari S., Maithra Raghu, and Samy Bengio. "Insights on representational similarity in neural networks with canonical correlation."](https://arxiv.org/abs/1806.05759) Proceedings of the 32nd International Conference on Neural Information Processing Systems. 2018.
-[6] [R. T. McCoy, J. Min, and T. Linzen. Berts of a feather do not generalize together: Large variability in generalization across models with similar test set performance.](https://arxiv.org/abs/1911.02969) Proceedings of the Third BlackboxNLP Workshop on Analyzing and Interpreting Neural Networks for NLP, 2020.
+\[3\] [Gotmare, Akhilesh, et al. "A Closer Look at Deep Learning Heuristics: Learning rate restarts, Warmup and Distillation."](https://arxiv.org/abs/1810.13243) International Conference on Learning Representations. 2018.
+
+\[4\] [Kornblith, Simon, et al. "Similarity of neural network representations revisited."](https://arxiv.org/abs/1905.00414) International Conference on Machine Learning. PMLR, 2019.
+\[5\] [Morcos, Ari S., Maithra Raghu, and Samy Bengio. "Insights on representational similarity in neural networks with canonical correlation."](https://arxiv.org/abs/1806.05759) Proceedings of the 32nd International Conference on Neural Information Processing Systems. 2018.
+\[6\] [R. T. McCoy, J. Min, and T. Linzen. Berts of a feather do not generalize together: Large variability in generalization across models with similar test set performance.](https://arxiv.org/abs/1911.02969) Proceedings of the Third BlackboxNLP Workshop on Analyzing and Interpreting Neural Networks for NLP, 2020.
 
 
 
