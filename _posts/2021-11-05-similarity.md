@@ -48,7 +48,7 @@ enforced with the `more` excerpt separator.
 To understand neural networks, researchers often use **similarity metrics** to measure how similar or different two neural networks are to each other. For instance, they are used to compare vision transformers to convnets [1], to understand transfer learning [2], and to explain the success of standard training practices for deep models [3]. Below is an example visualization using similarity metrics; specifically we use the popular CKA similarity metric (introduced in [4]) to compare two transformer models across different layers: 
 
 <p style="text-align:center;">
-<img src="https://bounded-regret.ghost.io/content/images/2021/10/CKA_avg_double_heatmap.png" width="50%">
+<img src="https://bounded-regret.ghost.io/content/images/2021/10/CKA_avg_double_heatmap.png" width="75%">
 <br>
 <i><b>Figure 1.</b> CKA (Centered Kernel Alignment) similarity between two networks trained identically except for random initialization. Lower values (darker colors) are more similar. CKA suggests that the two networks have similar representations.</i>
 </p>
@@ -56,10 +56,11 @@ To understand neural networks, researchers often use **similarity metrics** to m
 
 Unfortunately, there isn't much agreement on which particular similarity metric to use. Here's the exact same figure, but produced using the Canonical Correlation Analysis (CCA) metric instead of CKA:
 
-![PWCCA_heatmap](https://bounded-regret.ghost.io/content/images/2021/10/PWCCA_avg_double_heatmap.png)
-
-<figcaption>Figure 2: CCA (Canonical Correlation Analysis) similarity between the same two networks. CCA distances suggest that the two networks learn somewhat different representations, especially at later layers. </figcaption>
-
+<p style="text-align:center;">
+<img src="https://bounded-regret.ghost.io/content/images/2021/10/PWCCA_avg_double_heatmap.png" width="75%">
+<br>
+<i><b>Figure 2.</b> CCA (Canonical Correlation Analysis) similarity between the same two networks. CCA distances suggest that the two networks learn somewhat different representations, especially at later layerss.</i>
+</p>
 
 
 This is a template for [BAIR blog][1] posts. Here is an example image.
