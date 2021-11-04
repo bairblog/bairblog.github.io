@@ -45,7 +45,7 @@ posts on the homepage. The rest is accessed via clicking 'Continue'. This is
 enforced with the `more` excerpt separator.
 -->
 
-To understand neural networks, researchers often use **similarity metrics** to measure how similar or different two neural networks are to each other. For instance, they are used to compare vision transformers to convnets `[1]`, to understand transfer learning `[2]`, and to explain the success of standard training practices for deep models `[3]`. Below is an example visualization using similarity metrics; specifically we use the popular CKA similarity metric (introduced in `[4]`) to compare two transformer models across different layers: 
+To understand neural networks, researchers often use **similarity metrics** to measure how similar or different two neural networks are to each other. For instance, they are used to compare vision transformers to convnets \[1\], to understand transfer learning \[2\], and to explain the success of standard training practices for deep models `[3]`. Below is an example visualization using similarity metrics; specifically we use the popular CKA similarity metric (introduced in `[4]`) to compare two transformer models across different layers: 
 
 <p style="text-align:center;">
 <img src="https://bounded-regret.ghost.io/content/images/2021/10/CKA_avg_double_heatmap.png" width="75%">
@@ -95,7 +95,7 @@ For more details, please see our [full paper](https://arxiv.org/abs/2108.01661)!
 
 
 References
-`[1]` [Raghu, Maithra, et al. "Do Vision Transformers See Like Convolutional Neural Networks?."](https://arxiv.org/abs/2108.08810) arXiv preprint arXiv:2108.08810 (2021).
+\[1\] [Raghu, Maithra, et al. "Do Vision Transformers See Like Convolutional Neural Networks?."](https://arxiv.org/abs/2108.08810) arXiv preprint arXiv:2108.08810 (2021).
 
 <a id="2">[2]</a>
 [Neyshabur, Behnam, Hanie Sedghi, and Chiyuan Zhang. "What is being transferred in transfer learning?."](https://arxiv.org/abs/2008.11687) NeurIPS. 2020. 
