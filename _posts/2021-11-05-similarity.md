@@ -44,7 +44,7 @@ homepage, i.e., https://bair.berkeley.edu/blog/ but we only show part of the
 posts on the homepage. The rest is accessed via clicking 'Continue'. This is
 enforced with the `more` excerpt separator.
 -->
-_Cross-posted from [here]_(https://bounded-regret.ghost.io/)
+_Cross-posted from [here](https://bounded-regret.ghost.io/)
 
 To understand neural networks, researchers often use **similarity metrics** to measure how similar or different two neural networks are to each other. For instance, they are used to compare vision transformers to convnets \[1\], to understand transfer learning \[2\], and to explain the success of standard training practices for deep models \[3\]. Below is an example visualization using similarity metrics; specifically we use the popular CKA similarity metric (introduced in \[4\]) to compare two transformer models across different layers: 
 
