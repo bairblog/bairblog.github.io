@@ -100,7 +100,7 @@ For more details, please see our [full paper](https://arxiv.org/abs/2108.01661)!
 
 References
 
-<span style="font-size:.8em;">
+<font size=".8em">
   
 \[1\] [Raghu, Maithra, et al. "Do Vision Transformers See Like Convolutional Neural Networks?."](https://arxiv.org/abs/2108.08810) arXiv preprint arXiv:2108.08810 (2021).
 
@@ -112,7 +112,7 @@ References
 
 \[5\] [Morcos, Ari S., Maithra Raghu, and Samy Bengio. "Insights on representational similarity in neural networks with canonical correlation."](https://arxiv.org/abs/1806.05759) Proceedings of the 32nd International Conference on Neural Information Processing Systems. 2018.
 
-\[6\] [R. T. McCoy, J. Min, and T. Linzen. Berts of a feather do not generalize together: Large variability in generalization across models with similar test set performance.](https://arxiv.org/abs/1911.02969) Proceedings of the Third BlackboxNLP Workshop on Analyzing and Interpreting Neural Networks for NLP, 2020. </span>
+\[6\] [R. T. McCoy, J. Min, and T. Linzen. Berts of a feather do not generalize together: Large variability in generalization across models with similar test set performance.](https://arxiv.org/abs/1911.02969) Proceedings of the Third BlackboxNLP Workshop on Analyzing and Interpreting Neural Networks for NLP, 2020. </font>
 
 
 
