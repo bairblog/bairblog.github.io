@@ -95,8 +95,12 @@ For more details, please see our [full paper](https://arxiv.org/abs/2108.01661)!
 
 
 References
-<a id="1">[1]</a> [Raghu, Maithra, et al. "Do Vision Transformers See Like Convolutional Neural Networks?."](https://arxiv.org/abs/2108.08810) arXiv preprint arXiv:2108.08810 (2021).
-[2] [Neyshabur, Behnam, Hanie Sedghi, and Chiyuan Zhang. "What is being transferred in transfer learning?."](https://arxiv.org/abs/2008.11687) NeurIPS. 2020. 
+<a id="1">[1]</a> 
+[Raghu, Maithra, et al. "Do Vision Transformers See Like Convolutional Neural Networks?."](https://arxiv.org/abs/2108.08810) arXiv preprint arXiv:2108.08810 (2021).
+
+<a id="2">[2]</a>
+[Neyshabur, Behnam, Hanie Sedghi, and Chiyuan Zhang. "What is being transferred in transfer learning?."](https://arxiv.org/abs/2008.11687) NeurIPS. 2020. 
+
 [3] [Gotmare, Akhilesh, et al. "A Closer Look at Deep Learning Heuristics: Learning rate restarts, Warmup and Distillation."](https://arxiv.org/abs/1810.13243) International Conference on Learning Representations. 2018.
 [4] [Kornblith, Simon, et al. "Similarity of neural network representations revisited."](https://arxiv.org/abs/1905.00414) International Conference on Machine Learning. PMLR, 2019.
 [5] [Morcos, Ari S., Maithra Raghu, and Samy Bengio. "Insights on representational similarity in neural networks with canonical correlation."](https://arxiv.org/abs/1806.05759) Proceedings of the 32nd International Conference on Neural Information Processing Systems. 2018.
