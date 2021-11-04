@@ -1,8 +1,8 @@
 ---
 layout:             post
-title:              "Example Post Title"
+title:              "How should we compare neural network representations?"
 date:               2021-01-01  9:00:00
-author:             <a href="">John Doe</a> and <a href="">Jane Doe</a>
+author:             <a href="https://francesding.github.io/">Frances Ding</a> and <a href="https://jsteinhardt.stat.berkeley.edu/">Jacob Steinhardt</a>
 img:                assets/example_post/image1.png
 excerpt_separator:  <!--more-->
 visible:            False
@@ -34,9 +34,9 @@ You can also turn on Disqus comments, but we recommend disabling this feature.
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/example_post/image1.png">
 
-<meta name="keywords" content="keyword1, keyword2">
+<meta name="keywords" content="similarity metrics, representation learning, interpretability">
 <meta name="description" content="The BAIR Blog">
-<meta name="author" content="John Doe, Jane Doe">
+<meta name="author" content="Frances Ding, Jacob Steinhardt">
 
 <!--
 The actual text for the post content appears below.  Text will appear on the
