@@ -63,15 +63,6 @@ Unfortunately, there isn't much agreement on which particular similarity metric 
 </p>
 
 
-This is a template for [BAIR blog][1] posts. Here is an example image.
-
-<p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/example_post/image1.png" width="50%">
-<br>
-<i><b>Figure title.</b> Figure caption. This image is centered and set to 50%
-page width.</i>
-</p>
-
 <!--more-->
 
 In the literature, researchers often propose new metrics and justify them based on intuitive desiderata that were missing from previous metrics. For example, Morcos et al. motivate CCA by arguing that similarity metrics should be invariant to invertible linear transformations [5]. Kornblith et al. argue that similarity metrics should be invariant to orthogonal transformation and isotropic scaling, but not invertible linear transformation; this motivates their proposed metric, CKA [4]. Kornblith et al. then propose an intuitive test for similarity metrics to pass - given two trained networks with the same architecture but different initialization, layers at the same depth should be most similar to each other - and CKA performs the best on their test. 
@@ -104,22 +95,21 @@ For more details, please see our [full paper](https://arxiv.org/abs/2108.01661)!
 
 
 References
-<span style="font-size:.8em;">
 [1] [Raghu, Maithra, et al. "Do Vision Transformers See Like Convolutional Neural Networks?."](https://arxiv.org/abs/2108.08810) arXiv preprint arXiv:2108.08810 (2021).
 [2] [Neyshabur, Behnam, Hanie Sedghi, and Chiyuan Zhang. "What is being transferred in transfer learning?."](https://arxiv.org/abs/2008.11687) NeurIPS. 2020. 
 [3] [Gotmare, Akhilesh, et al. "A Closer Look at Deep Learning Heuristics: Learning rate restarts, Warmup and Distillation."](https://arxiv.org/abs/1810.13243) International Conference on Learning Representations. 2018.
 [4] [Kornblith, Simon, et al. "Similarity of neural network representations revisited."](https://arxiv.org/abs/1905.00414) International Conference on Machine Learning. PMLR, 2019.
 [5] [Morcos, Ari S., Maithra Raghu, and Samy Bengio. "Insights on representational similarity in neural networks with canonical correlation."](https://arxiv.org/abs/1806.05759) Proceedings of the 32nd International Conference on Neural Information Processing Systems. 2018.
-[6] [R. T. McCoy, J. Min, and T. Linzen. Berts of a feather do not generalize together: Large variability in generalization across models with similar test set performance.](https://arxiv.org/abs/1911.02969) Proceedings of the Third BlackboxNLP Workshop on Analyzing and Interpreting Neural Networks for NLP, 2020.</span>
+[6] [R. T. McCoy, J. Min, and T. Linzen. Berts of a feather do not generalize together: Large variability in generalization across models with similar test set performance.](https://arxiv.org/abs/1911.02969) Proceedings of the Third BlackboxNLP Workshop on Analyzing and Interpreting Neural Networks for NLP, 2020.
 
 
 
 
 
-The content here after the excerpt separator will not appear on the front page
-of the BAIR blog but will show in the post.
+<!--The content here after the excerpt separator will not appear on the front page
+of the BAIR blog but will show in the post.-->
 
-# Text formatting
+<!-- # Text formatting
 
 Markdown provides text formatting such as **bold** and *italic*.
 
@@ -136,6 +126,7 @@ URLs can be inserted through square brackets, such as [this][1].
 <i><b>Figure title.</b> Figure caption. This image is centered and set to 30%
 page width.</i>
 </p>
+-->
 
 <hr>
 
