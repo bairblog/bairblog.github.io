@@ -3,7 +3,7 @@ layout:             post
 title:              "How should we compare neural network representations?"
 date:               2021-11-05  9:00:00
 author:             <a href="https://francesding.github.io/">Frances Ding</a> and <a href="https://jsteinhardt.stat.berkeley.edu/">Jacob Steinhardt</a>
-img:                assets/example_post/image1.png
+img:                assets/similarity/PWCCA_avg_double_heatmap.png
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      False
