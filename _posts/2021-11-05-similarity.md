@@ -30,12 +30,12 @@ You can also turn on Disqus comments, but we recommend disabling this feature.
 -->
 
 <!-- twitter -->
-<meta name="twitter:title" content="Example Post Title">
+<meta name="twitter:title" content="How should we compare neural network representations?">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/example_post/image1.png">
 
 <meta name="keywords" content="similarity metrics, representation learning, interpretability">
-<meta name="description" content="The BAIR Blog">
+<meta name="description" content="Blog post about benchmarks for representation similarity measures">
 <meta name="author" content="Frances Ding, Jacob Steinhardt">
 
 <!--
@@ -86,8 +86,12 @@ You can find the code for our benchmarks [here](https://github.com/js-d/sim_metr
 
 The table below shows our results with BERT language models (vision model results can be found in the paper). In addition to the popular CKA and (PW)CCA metrics, we considered a classical baseline called the Procrustes distance. Both CKA and PWCCA dominate certain benchmarks and fall behind on others, while Procrustes is more consistent and often close to the leader. In addition, our last subtask is challenging, with no similarity measure achieving high correlation. We present it as a challenge task to motivate further progress for similarity metrics.
 
-![results_table_lang-1](https://bounded-regret.ghost.io/content/images/2021/11/results_table_lang-1.png)
-<figcaption> </figcaption>
+<p style="text-align:center;">
+<img src="https://bounded-regret.ghost.io/content/images/2021/11/results_table_lang-1.png" width="75%">
+<br>
+<!-- <i><b>Figure 3.</b> caption.</i> -->
+</p>
+
 
 In the end, we were surprised to see Procrustes do so well since the recent CKA and CCA methods have gotten more attention, and we originally included Procrustes as a baseline for the sake of thoroughness. Building these benchmarks across many different tasks was essential for highlighting Procrustes as a good all-around method, and it would be great to see the creation of more benchmarks that evaluate the capabilities and limitations of other tools for understanding and interpreting neural networks.
 
@@ -103,7 +107,9 @@ References
 \[3\] [Gotmare, Akhilesh, et al. "A Closer Look at Deep Learning Heuristics: Learning rate restarts, Warmup and Distillation."](https://arxiv.org/abs/1810.13243) International Conference on Learning Representations. 2018.
 
 \[4\] [Kornblith, Simon, et al. "Similarity of neural network representations revisited."](https://arxiv.org/abs/1905.00414) International Conference on Machine Learning. PMLR, 2019.
+
 \[5\] [Morcos, Ari S., Maithra Raghu, and Samy Bengio. "Insights on representational similarity in neural networks with canonical correlation."](https://arxiv.org/abs/1806.05759) Proceedings of the 32nd International Conference on Neural Information Processing Systems. 2018.
+
 \[6\] [R. T. McCoy, J. Min, and T. Linzen. Berts of a feather do not generalize together: Large variability in generalization across models with similar test set performance.](https://arxiv.org/abs/1911.02969) Proceedings of the Third BlackboxNLP Workshop on Analyzing and Interpreting Neural Networks for NLP, 2020.
 
 
