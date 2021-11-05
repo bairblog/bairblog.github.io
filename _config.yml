@@ -4,7 +4,7 @@ email:       bair-blog@berkeley.edu
 author:      Daniel Seita
 description: "The BAIR Blog"
 baseurl:     "/blog"
-url:         "https://bair.berkeley.edu"
+url:         "http://bair.berkeley.edu"
 date_format: "%b %-d, %Y"
 timezone:    America/Los_Angeles
 
