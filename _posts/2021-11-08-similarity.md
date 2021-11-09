@@ -44,7 +44,7 @@ homepage, i.e., https://bair.berkeley.edu/blog/ but we only show part of the
 posts on the homepage. The rest is accessed via clicking 'Continue'. This is
 enforced with the `more` excerpt separator.
 -->
-*Cross-posted from [Bounded Regret](https://bounded-regret.ghost.io/).*
+*Cross-posted from [Bounded Regret](https://bounded-regret.ghost.io/how-should-we-compare-neural-network-representations/).*
 
 To understand neural networks, researchers often use **similarity metrics** to measure how similar or different two neural networks are to each other. For instance, they are used to compare vision transformers to convnets \[1\], to understand transfer learning \[2\], and to explain the success of standard training practices for deep models \[3\]. Below is an example visualization using similarity metrics; specifically we use the popular CKA similarity metric (introduced in \[4\]) to compare two transformer models across different layers:
 
@@ -61,7 +61,7 @@ Unfortunately, there isn't much agreement on which particular similarity metric 
 <p style="text-align:center;">
 <img src="https://bounded-regret.ghost.io/content/images/2021/10/PWCCA_avg_double_heatmap.png" width="75%">
 <br>
-<i><b>Figure 2.</b> CCA (Canonical Correlation Analysis) similarity between the same two networks. CCA distances suggest that the two networks learn somewhat different representations, especially at later layerss.</i>
+<i><b>Figure 2.</b> CCA (Canonical Correlation Analysis) similarity between the same two networks. CCA distances suggest that the two networks learn somewhat different representations, especially at later layers.</i>
 </p>
 
 
@@ -70,7 +70,7 @@ In the literature, researchers often propose new metrics and justify them based 
 
 Our paper, [Grounding Representation Similarity with Statistical Testing](https://arxiv.org/abs/2108.01661), argues against this practice. To start, we show that by choosing different intuitive tests, we can make any method look good. CKA does well on a "specificity test" similar to the one proposed by Kornblith et al., but it does poorly on a "sensitivity test" that CCA shines on.
 
-To move beyond intuitive tests, our paper provides a carefully-designed quantitative benchmark for evaluting similarity metrics. The basic idea is that a good similarity metric should correlate with the actual **functionality** of a neural network, which we operationalize as accuracy on a task. Why? Accuracy differences between models are a signal that the models are processing data differently, so intermediate representations must be different, and similarity metrics should notice this.
+To move beyond intuitive tests, our paper provides a carefully-designed quantitative benchmark for evaluating similarity metrics. The basic idea is that a good similarity metric should correlate with the actual **functionality** of a neural network, which we operationalize as accuracy on a task. Why? Accuracy differences between models are a signal that the models are processing data differently, so intermediate representations must be different, and similarity metrics should notice this.
 
 Thus, for a given pair of neural network representations, we measure both their (dis)similarity and the difference between their accuracies on some task. If these are well-correlated across many pairs of representations, we have a good similarity metric. Of course, a perfect correlation with accuracy on a particular task also isn’t what we’re hoping for, since metrics should capture many important differences between models, not just one. A good similarity metric is one that gets generally high correlations across a couple of functionalities.
 
