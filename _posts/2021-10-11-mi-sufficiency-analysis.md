@@ -50,9 +50,9 @@ However, direct “end-to-end” RL that maps sensor data to actions (Figure 1, 
 Instead, the challenge is often broken down into two problems (Figure 1, right): (1) extract a representation of the sensory inputs that retains only the relevant information, and (2) perform RL with these representations of the inputs as the system state.
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/image1.png" width="50%">
+<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/image1.png" width="70%">
 <br>
-<i><b>Figure 1. </b>State representation learning for RL.</i>
+<i><b>Figure 1. </b>Representation learning can extract compact representations of states for RL.</i>
 </p>
 
 A wide variety of algorithms have been proposed to learn lossy state representations in an unsupervised fashion (see this recent [tutorial][17] for an overview).
@@ -101,14 +101,8 @@ Therefore, everything predictable in the original state $\mathcal{S}$ should be 
 Formalizing this intuition, we are able to prove that all representations learned via this objective are guaranteed to be sufficient (see the proof of Proposition 1 in the paper).
 
 While reassuring that $J_{fwd}$ is sufficient, it's worth noting that any state information that is temporally correlated will be retained in representations learned via this objective, no matter how irrelevant to the task.
-For example, the fence, cows, and trees in Figure 3 would all be represented even though they are irrelevant to driving.
+For example, in the driving scenario, objects in the agent's field of vision that are not on the road or sidewalk would all be represented, even though they are irrelevant to driving.
 Is there another objective that can learn sufficient but *lossier* representations?
-
-<p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/driving_with_cows.png" width="50%">
-<br>
-<i><b>Figure 3.</b></i>
-</p>
 
 
 ### Representations Learned by Maximizing “Inverse Information”
@@ -128,7 +122,7 @@ In other words, the agent has no control over the stoplight, so representing it 
 Since $J_{inv}$ is maximized by this insufficient representation, we can conclude that the objective is not sufficient.
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/inv_counterexample.png" width="50%">
+<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/inv_counterexample.png" width="70%">
 <br>
 <i><b>Figure 4. </b>Counterexample proving the insufficiency of $J_{inv}$.</i>
 </p>
@@ -153,7 +147,7 @@ If we assume the policy distribution is uniform over left and right turns (a rea
 However, it can’t represent the optimal policy because the agent doesn’t know whether to go right or left from $z$.
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/state_counterexample.png" width="50%">
+<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/state_counterexample.png" width="60%">
 <br>
 <i><b>Figure 5. </b>Counterexample proving the insufficiency of $J_{state}$.</i>
 </p>
@@ -162,7 +156,7 @@ However, it can’t represent the optimal policy because the agent doesn’t kno
 To understand whether the sufficiency of state representations can matter in practice, we perform simple proof-of-concept experiments with deep RL agents and image observations. To separate representation learning from RL, we first optimize each representation learning objective on a dataset of offline data, (similar to the protocol in [Stooke et al. 2020][2]). We collect the fixed datasets using a random policy, which is sufficient to cover the state space in our environments. We then freeze the weights of the state encoder learned in the first phase and train RL agents with the representation as state input (see Figure 6).
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/experiment_setup.png" width="50%">
+<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/experiment_setup.png" width="60%">
 <br>
 <i><b>Figure 6. </b>Experimental setup for evaluating learned representations.</i>
 </p>
@@ -200,7 +194,7 @@ Further, extending the proposed framework to partially observed problems would b
 
 <hr>
 
-<i>This post is based on the paper “Which Mutual Information Representation Learning Objectives are Sufficient for Control?”, to be presented at Neurips 2021. Thank you to Sergey Levine and Abhishek Gupta for their valuable feedback on this blog post.</i>
+<i>This post is based on the paper [Which Mutual Information Representation Learning Objectives are Sufficient for Control?][19], to be presented at Neurips 2021. Thank you to Sergey Levine and Abhishek Gupta for their valuable feedback on this blog post.</i>
 
 [1]:https://arxiv.org/abs/1807.03748
 [2]:https://arxiv.org/abs/2009.08319
@@ -220,3 +214,4 @@ Further, extending the proposed framework to partially observed problems would b
 [16]:https://pygame.org
 [17]:https://icml.cc/virtual/2021/tutorial/10843
 [18]:https://arxiv.org/abs/1906.08226
+[19]:https://arxiv.org/abs/2106.07278
