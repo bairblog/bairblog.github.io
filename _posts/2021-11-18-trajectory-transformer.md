@@ -1,7 +1,7 @@
 ---
 layout:             post
 title:              "Sequence Modeling Solutions<br> for Reinforcement Learning Problems"
-date:               2021-11-07  9:00:00
+date:               2021-11-18  9:00:00
 author:             <a href="https://people.eecs.berkeley.edu/~janner/">Michael Janner</a>
 img:                assets/successor/gamma-teaser.png
 excerpt_separator:  <!--more-->
