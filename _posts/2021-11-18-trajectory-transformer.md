@@ -252,7 +252,8 @@ show_comments:      False
     <img width="80%" style="padding-top: 0px;" src="https://people.eecs.berkeley.edu/~janner/trajectory-transformer/blog/antmaze.png">
     <p style="text-align:center; margin-left:10%; margin-right:10%; padding-top: 20px; padding-bottom: 10px;">
     <i style="font-size: 18px;">
-        Performance on the locomotion environments in the <a href="https://arxiv.org/abs/2004.07219">D4RL offline benchmark suite.</a> We compare two variants of the Trajectory Transformer (TT) &mdash; differing in how they discretize continuous inputs &mdash; with model-based, value-based, and recently proposed sequence-modeling algorithms.
+        Guiding the Trajectory Transformer's plans with a $Q$-function trained via dynamic programming (TT$_{\color{#999999}{(+Q)}}$) is a straightforward way of improving empirical performance compared to model-free (CQL, IQL) and return-conditioning (DT) approaches.
+        We evaluate this effect in the sparse-reward, long-horizon <a href="https://arxiv.org/abs/2004.07219">AntMaze goal-reaching tasks</a>.
     </i>
     </p>
 </center>
