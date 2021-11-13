@@ -2,10 +2,10 @@
 layout:             post
 title:              ""
 date:               2021-11-12  9:00:00
-author:             <a href="">Frederik Ebert</a> and <a href="">Yanlai Yang</a>
+author:             <a href="https://febert.github.io/">Frederik Ebert</a> and <a href="https://www.linkedin.com/in/yanlai-yang/">Yanlai Yang</a>
 img:                assets/bridge-data/header_blog_post.png
 excerpt_separator:  <!--more-->
-visible:            False
+visible:            True
 show_comments:      False
 ---
 
@@ -50,7 +50,7 @@ enforced with the `more` excerpt separator.
 
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/bridge_data/montage_small%20copy.gif" width="50%">
+<img src="https://bair.berkeley.edu/static/blog/bridge_data/montage_small%20copy.gif" width="100%">
 <br>
 <i>Fig. 1: The BRIDGE dataset contains 7200 demonstrations of kitchen-themed manipulation tasks across 71 tasks in 10 domains. Note that any GIF compression artifacts in this animation are not present in the dataset itself.</i>
 </p>
@@ -72,13 +72,13 @@ The environments in the bridge dataset are mostly kitchen and sink playsets for 
 
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/bridge_data/System_Overview.resized.png" width="50%">
+<img src="https://bair.berkeley.edu/static/blog/bridge_data/System_Overview.resized.png" width="80%">
 <br>
 <i>Fig 2: Demonstration data collection setup using VR Headset.</i>
 </p>
 
 
-We collect our dataset with the 6-dof WidowX250s robot (US$2900) due to its accessibility and affordability, though we welcome contributions of data with different robots. The total cost of the setup is less than US$3600 (excluding the computer). To collect demonstrations, we use an Oculus Quest headset, where we put the headset on a table (as illustrated in Figure 2) next to the robot and track the user's handset while applying the user's motions to the robot end-effector via inverse kinematics. This gives the user an intuitive method for controlling the arm in 6 degrees of freedom.
+We collect our dataset with the 6-dof WidowX250s robot due to its accessibility and affordability, though we welcome contributions of data with different robots. The total cost of the setup is less than US$3600 (excluding the computer). To collect demonstrations, we use an Oculus Quest headset, where we put the headset on a table (as illustrated in Figure 2) next to the robot and track the user's handset while applying the user's motions to the robot end-effector via inverse kinematics. This gives the user an intuitive method for controlling the arm in 6 degrees of freedom.
 
 Instructions for how users can reproduce our setup and collect data in new environments can be found on the [project website][2].
 
@@ -96,13 +96,13 @@ We consider three types of generalization in our experiments:
 
  
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/bridge_data/matching_behaviors.resized.png" width="50%">
+<img src="https://bair.berkeley.edu/static/blog/bridge_data/matching_behaviors.resized.png" width="80%">
 <br>
 <i>Figure 4: Scenario 1, Transfer with matching behaviors: Here, the user collects a small number of demonstrations in the target domain for a task that is also present in the bridge data.</i>
 </p>
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/bridge_data/matching_behavior_results.png" width="50%">
+<img src="https://bair.berkeley.edu/static/blog/bridge_data/matching_behavior_results.png" width="80%">
 <br>
 <i>Figure 5: Experiment results for transfer with matching behaviors. Jointly training with the bridge data greatly improves generalization performance.</i>
 </p>
@@ -116,7 +116,7 @@ Figure 5 shows results for the transfer learning with matching behaviors scenari
 
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/bridge_data/transfer_with_target_support.resized.png" width="50%">
+<img src="https://bair.berkeley.edu/static/blog/bridge_data/transfer_with_target_support.resized.png" width="80%">
 <br>
 <i>Figure 6: Scenario 2, Zero-shot transfer with target support: After collecting data for a small number of tasks (10 in our case) in the target domain, the user is able to transfer other tasks from the bridge dataset to the target domain.</i>
 </p>
@@ -125,7 +125,7 @@ Figure 5 shows results for the transfer learning with matching behaviors scenari
 
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/bridge_data/transfer_results.png" width="50%">
+<img src="https://bair.berkeley.edu/static/blog/bridge_data/transfer_results.png" width="80%">
 <br>
 <i>Figure 7: Experiment results for zero-shot transfer with target support: Joint bridge-target imitation, which is trained with bridge data and data from 10 target domain tasks, allows transferring tasks to the target domain with significantly higher success rates (blue) than directly transferring tasks (without any target domain data), called direct transfer (orange).</i>
 </p>
@@ -137,14 +137,14 @@ Figure 7 shows the experiment results for this scenario. Since there is no targe
 # Boosting generalization of new tasks
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/bridge_data/novel_task_with_bridge_data_support.resized.png" width="50%">
+<img src="https://bair.berkeley.edu/static/blog/bridge_data/novel_task_with_bridge_data_support.resized.png" width="80%">
 <br>
 <i>Figure 8:Scenario 3, Boosting generalization of new tasks: Jointly training with bridge data and a new task in a new scene or environment (that is not present in the bridge data) enables significantly higher success rates than training on the target domain data from scratch.</i>
 </p>
 
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/bridge_data/new_task_results.png" width="50%">
+<img src="https://bair.berkeley.edu/static/blog/bridge_data/new_task_results.png" width="80%">
 <br>
 <i>Figure 9: Experiment results for boosting generalization of new tasks: Jointly training with bridge data (blue) on average leads to a 2x gain in generalization performance compared to only training on target domain data (red).</i>
 </p>
@@ -156,14 +156,15 @@ To enable this kind of generalization boosting, we conjecture that the key featu
 
 The experiment results are presented in Figure 9, which show that training jointly with the bridge data leads to significant improvement on 6 out of 10 tasks across three evaluation environments, leading to 50% success averaged over tasks, whereas single task policies attain around 22% success – a 2x improvement in overall performance (the asterisks denote in which experiments the objects are not contained in the bridge data). The significant improvements obtained from including the bridge data suggest that bridge datasets can be a powerful vehicle for boosting the generalization of new skills and that a single shared bridge dataset can be utilized across a range of domains and applications. 
 
+In Figure 10 we show example rollouts for each of the three transfer scenarios.
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/bridge_data/matching.gif" width="30%">
-<img src="https://bair.berkeley.edu/static/blog/bridge_data/target.gif" width="30%">
-<img src="https://bair.berkeley.edu/static/blog/bridge_data/novel.gif" width="30%">
+<img src="https://bair.berkeley.edu/static/blog/bridge_data/matching.gif" width="33%">
+<img src="https://bair.berkeley.edu/static/blog/bridge_data/target.gif" width="33%">
+<img src="https://bair.berkeley.edu/static/blog/bridge_data/novel.gif" width="33%">
 <br>
 <i>Figure 10: Example rollouts of policies jointly trained on target domain data and bridge data in each of the three transfer scenarios. <br>
-Left: Transfer with matching behaviors, scenario 1, put pot in sink; <br> 
+Left: transfer with matching behaviors, scenario 1, put pot in sink; <br> 
 Middle: zero-shot transfer with target support, scenario 2, put carrot on plate; <br>
 Right: boosting generalization of new tasks, scenario 3, wipe plate with sponge <br>
 </i>

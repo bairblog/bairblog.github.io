@@ -5,3 +5,4 @@ _site
 *.*~
 **Icon*
 Gemfile.lock
+.idea/
