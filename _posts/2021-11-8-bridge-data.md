@@ -2,7 +2,7 @@
 layout:             post
 title:              ""
 date:               2021-11-12  9:00:00
-author:             <a href="https://febert.github.io/">Frederik Ebert</a> and <a href="https://www.linkedin.com/in/yanlai-yang/">Yanlai Yang</a>
+author:             <a href="https://febert.github.io/">Frederik Ebert</a> and <a href="https://yanlai00.github.io">Yanlai Yang</a>
 img:                assets/bridge-data/header_blog_post.png
 excerpt_separator:  <!--more-->
 visible:            True
