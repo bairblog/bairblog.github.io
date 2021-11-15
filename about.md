@@ -19,8 +19,10 @@ once every two weeks.
 
 The editorial board consists of the following members:
 
-* [Daniel Seita][5]
+* [Yuqing Du][17]
 * [Chloe Hsu][14]
+* [Atsunobu Kotani][15]
+* [Brijen Thananjeyan][16]
 
 with faculty advisor [Sergey Levine][4]. 
 
@@ -29,6 +31,7 @@ We gratefully acknowledge the contributions of former board members:
 * [Erin Grant][13]
 * [Jacky Liang][12]
 * [Jane Liang][8]
+* [Daniel Seita][5]
 * [Dequan Wang][6]
 * [Harry Huazhe Xu][7]
 
@@ -73,3 +76,6 @@ Artificial Intelligence Research for hosting support.
 [12]:https://scholar.google.com/citations?user=K29Sv1EAAAAJ
 [13]:https://people.eecs.berkeley.edu/~eringrant/
 [14]:https://chloe-hsu.com/
+[15]:http://www.atsunobukotani.com/about
+[16]:https://bthananjeyan.github.io/
+[17]:https://yuqingd.github.io/
