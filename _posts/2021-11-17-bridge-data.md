@@ -32,7 +32,7 @@ You can also turn on Disqus comments, but we recommend disabling this feature.
 <!-- twitter -->
 <meta name="twitter:title" content="Bridge  Data:  Boosting  Generalization  of  Robotic  Skills  with Cross-Domain  Datasets">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/bridge-data/header_blog_post.png">
+<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/bridge_data/header_blog_post.png">
 
 <meta name="keywords" content="large-scale robot learning, transfer learning">
 <meta name="description" content="The BAIR Blog">
