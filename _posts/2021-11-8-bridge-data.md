@@ -176,7 +176,7 @@ We showed how a large, diverse bridge dataset can be leveraged in three differen
 
 We hope that by releasing our dataset to the community, we can take a step toward generalizing robotic learning and make it possible for anyone to train robotic policies that quickly generalize to varied environments without repeatedly collecting large and exhaustive datasets.
 
-We encourage interested researchers to visit our project website for more information and contribute to our dataset.
+We encourage interested researchers to visit our [project website][2] for more information and instructions for how to contribute to our dataset.
 
 Please find the corresponding paper on arxiv.
 We thank Chelsea Finn and Sergey Levine for helpful feedback on the blog post.
@@ -187,7 +187,7 @@ This post is based on the following paper:
 
 **Bridge Data: Boosting Generalization of Robotic Skills with Cross-Domain Datasets** <br>
 
-Frederik Ebert*, Yanlai Yang*, Karl Schmeckpeper, Bernadette Bucher, Georgios Georgakis, Kostas Daniilidis, Chelsea Finn, Sergey Levine <br>
+Frederik Ebert$$^*$$, Yanlai Yang$$^*$$, Karl Schmeckpeper, Bernadette Bucher, Georgios Georgakis, Kostas Daniilidis, Chelsea Finn, Sergey Levine <br>
 [paper][1], [project website][2]
 
 
