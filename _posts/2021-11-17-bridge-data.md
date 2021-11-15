@@ -1,6 +1,6 @@
 ---
 layout:             post
-title:              ""
+title:              "Bridge  Data:  Boosting  Generalization  of  Robotic  Skills  with Cross-Domain  Datasets"
 date:               2021-11-17  9:00:00
 author:             <a href="https://febert.github.io/">Frederik Ebert</a> and <a href="https://yanlai00.github.io">Yanlai Yang</a>
 img:                assets/bridge-data/header_blog_post.png
