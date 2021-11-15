@@ -1,9 +1,9 @@
 ---
 layout:             post
 title:              "Sequence Modeling Solutions<br> for Reinforcement Learning Problems"
-date:               2021-11-18  9:00:00
+date:               2021-11-19  9:00:00
 author:             <a href="https://people.eecs.berkeley.edu/~janner/">Michael Janner</a>
-img:                assets/successor/gamma-teaser.png
+img:                assets/trajectory-transformer/outlines_transformer.png
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      False
@@ -12,7 +12,7 @@ show_comments:      False
 <!-- twitter -->
 <meta name="twitter:title" content="Sequence Modeling Solutions for Reinforcement Learning Problems">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/successor/twitter-card-0.98-01.png">
+<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/tt/outlines_transformer.png">
 
 <meta name="keywords" content="trajectory, transformer, reinforcement, learning, RL">
 <meta name="description" content="The BAIR Blog">
@@ -25,13 +25,11 @@ show_comments:      False
 
 <p style="text-align:center; margin-top:-40px;">
     <br>
-    <!-- <b><font size="3">Trajectory Transformer</font></b> -->
     <video width="100%" autoplay playsinline muted>
-        <source src="https://people.eecs.berkeley.edu/~janner/trajectory-transformer/blog/rollout_transformer.mp4" type="video/mp4">
+        <source src="https://bair.berkeley.edu/static/blog/tt/rollout_transformer.mp4" type="video/mp4">
     </video>
-    <!-- <b><font size="3">Single-Step Model</font></b> -->
     <video width="100%" autoplay playsinline muted>
-        <source src="https://people.eecs.berkeley.edu/~janner/trajectory-transformer/blog/rollout_single.mp4" type="video/mp4">
+        <source src="https://bair.berkeley.edu/static/blog/tt/rollout_single.mp4" type="video/mp4">
     </video>
     <p width="80%" style="text-align:center; margin-left:10%; margin-right:10%; padding-bottom: -10px;">
         <i style="font-size: 18px;">
@@ -64,12 +62,12 @@ show_comments:      False
 
 <p>
     Taking this view to its logical conclusion, we begin by modeling the trajectory data provided to reinforcement learning algorithms with a Transformer architecture, the current tool of choice for natural language modeling.
-    We treat these trajectories as unstructured sequences of (autoregressively discretized) states, actions, and rewards, and train the Transformer architecture using the standard cross-entropy loss.
+    We treat these trajectories as unstructured sequences of discretized states, actions, and rewards, and train the Transformer architecture using the standard cross-entropy loss.
     Modeling all trajectory data with a single high-capacity model and scalable training objective, as opposed to separate procedures for dynamics models, policies, and $Q$-functions, allows for a more streamlined approach that removes much of the usual complexity.
 </p>
 
 <center>
-    <img width="80%" style="padding-top: 20px; padding-bottom: 20px" src="https://people.eecs.berkeley.edu/~janner/trajectory-transformer/blog/architecture.png">
+    <img width="80%" style="padding-top: 20px; padding-bottom: 20px" src="https://bair.berkeley.edu/static/blog/tt/architecture.png">
     <br>
     <p width="80%" style="text-align:center; margin-left:10%; margin-right:10%; padding-bottom: 10px;">
         <i style="font-size: 18px;">
@@ -78,20 +76,13 @@ show_comments:      False
     </p>
 </center>
 
-<!-- <p>
-    The Trajectory Transformer depicted above models all parts of the trajectory jointly.
-    Conventionally, state predictions and action proposals are handled by independently-trained dynamics models and policies.
-    It will later prove useful to augment these trajectories with Monte-Carlo estimates of return-to-go, causing the Transformer to additionally serve the role of a $Q$-function.
-    Handling these separate concerns with a single high-capacity model and scalable training objective allows for a more streamlined approach that removes much of the complexity normally associated with each individual modeling problem.
-</p> -->
-
 <!-- begin section II: models -->
 
 <h3 id="models">Transformers as dynamics models</h3>
 
 <p>
     In many model-based reinforcement learning methods, compounding prediction errors cause long-horizon rollouts to be too unreliable to use for control, necessitating either <a href="https://arxiv.org/abs/1909.11652">short-horizon planning</a> or <a href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.48.6005&rep=rep1&type=pdf">Dyna-style</a> combinations of <a href="https://arxiv.org/abs/1906.08253">truncated model predictions and value functions</a>.
-    In comparison, we find that the Trajectory Transformer is a substantially more accurate long-horizon predictor than conventional dynamics models.
+    In comparison, we find that the Trajectory Transformer is a substantially more accurate long-horizon predictor than conventional single-step dynamics models.
 </p>
 
 <br>
@@ -100,20 +91,19 @@ show_comments:      False
     <div style="width: 50%; float: left; font-size: 14px;">
         <b>Single-step</b>
         <br>
-        <img src="https://people.eecs.berkeley.edu/~janner/trajectory-transformer/blog/outlines_single_step.png" width="100%">
+        <img src="https://bair.berkeley.edu/static/blog/tt/outlines_single_step.png" width="100%">
         <br>
     </div>
     <div style="width: 50%; float: left; font-size: 14px;">
         <b>Transformer</b>
         <br>
-        <img src="https://people.eecs.berkeley.edu/~janner/trajectory-transformer/blog/outlines_transformer.png" width="100%">
+        <img src="https://bair.berkeley.edu/static/blog/tt/outlines_transformer.png" width="100%">
         <br>
     </div>
     &nbsp;
     <br>
-    <!--  -->
     <div style="width: 50%; float: left;">
-        <img src="https://people.eecs.berkeley.edu/~janner/trajectory-transformer/blog/error_blog.png" width="100%">
+        <img src="https://bair.berkeley.edu/static/blog/tt/error_blog.png" width="100%">
     </div>
     <div style="width: 47.5%; float: right;">
         <p>
@@ -140,8 +130,8 @@ show_comments:      False
 </p>
 
 <center>
-    <img width="35%" style="padding-top: 10px; padding-right: 60px;" src="https://people.eecs.berkeley.edu/~janner/trajectory-transformer/blog/markov.png">
-    <img width="35%" src="https://people.eecs.berkeley.edu/~janner/trajectory-transformer/blog/striated.png">
+    <img width="35%" style="padding-top: 10px; padding-right: 60px;" src="https://bair.berkeley.edu/static/blog/tt/markov.png">
+    <img width="35%" src="https://bair.berkeley.edu/static/blog/tt/striated.png">
     <br>
     <p width="80%" style="text-align:center; margin-left:10%; margin-right:10%; padding-top: 20px; padding-bottom: 10px;">
         <i style="font-size: 18px;">
@@ -181,20 +171,20 @@ show_comments:      False
        <b><span style="color:#D62728;">Goal-conditioned RL:</span></b> Conditioning the Transformer on <i>future</i> desired context alongside previous states, actions, and rewards yields a goal-reaching method. This works by recontextualizing past data as optimal for some task, in the same spirit as <a href="https://arxiv.org/abs/1707.01495">hindsight relabeling</a>.
     </p>
         <center>
-          <img width="28%" src="https://people.eecs.berkeley.edu/~janner/trajectory-transformer/blog/0.png">
+          <img width="28%" src="https://bair.berkeley.edu/static/blog/tt/0.png">
           &nbsp;
           &nbsp;
-          <img width="28%" src="https://people.eecs.berkeley.edu/~janner/trajectory-transformer/blog/1.png">
+          <img width="28%" src="https://bair.berkeley.edu/static/blog/tt/1.png">
           &nbsp;
           &nbsp;
-          <img width="28%" src="https://people.eecs.berkeley.edu/~janner/trajectory-transformer/blog/2.png">
+          <img width="28%" src="https://bair.berkeley.edu/static/blog/tt/2.png">
           <br>
-          <img width="2%" src="https://people.eecs.berkeley.edu/~janner/trajectory-transformer/blog/rolloutblack-1.png">
+          <img width="2%" src="https://bair.berkeley.edu/static/blog/tt/rolloutblack-1.png">
           &nbsp;
           Start
           &nbsp;
           &nbsp;
-          <img width="2%" src="https://people.eecs.berkeley.edu/~janner/trajectory-transformer/blog/rolloutblue-1.png">
+          <img width="2%" src="https://bair.berkeley.edu/static/blog/tt/rolloutblue-1.png">
           &nbsp;
           Goal
         </center>
@@ -212,10 +202,10 @@ show_comments:      False
 </div>
 
 <center>
-    <img width="80%" style="padding-top: 0px;" src="https://people.eecs.berkeley.edu/~janner/trajectory-transformer/blog/d4rl.png">
+    <img width="80%" style="padding-top: 0px;" src="https://bair.berkeley.edu/static/blog/tt/d4rl.png">
     &nbsp;
     <br>
-    <img width="80%" src="https://people.eecs.berkeley.edu/~janner/trajectory-transformer/blog/bar.png">
+    <img width="80%" src="https://bair.berkeley.edu/static/blog/tt/bar.png">
     <br>
     <p style="text-align:center; margin-left:10%; margin-right:10%; padding-top: 20px; padding-bottom: 10px;">
     <i style="font-size: 18px;">
@@ -244,12 +234,12 @@ show_comments:      False
 <p>
     We can get a preview of how this would work with a fairly straightforward combination: plan using the Trajectory Transformer as before, but use a $Q$-function trained via dynamic programming as a search heuristic to guide the beam search planning procedure.
     We would expect this to be important in sparse-reward, long-horizon tasks, since these pose particularly difficult search problems.
-    To instiate this idea, we use the $Q$-function from the <a href="https://arxiv.org/abs/2110.06169">implicit $Q$-learning</a> (IQL) algorithm and otherwise leave the Trajectory Transformer unmodified.
+    To instantiate this idea, we use the $Q$-function from the <a href="https://arxiv.org/abs/2110.06169">implicit $Q$-learning</a> (IQL) algorithm and leave the Trajectory Transformer otherwise unmodified.
     We denote the combination <b>TT</b>$_{\color{#999999}{(+Q)}}$:
 </p>
 
 <center>
-    <img width="80%" style="padding-top: 0px;" src="https://people.eecs.berkeley.edu/~janner/trajectory-transformer/blog/antmaze.png">
+    <img width="80%" style="padding-top: 20px;" src="https://people.eecs.berkeley.edu/~janner/trajectory-transformer/blog/antmaze.png">
     <p style="text-align:center; margin-left:10%; margin-right:10%; padding-top: 20px; padding-bottom: 10px;">
     <i style="font-size: 18px;">
         Guiding the Trajectory Transformer's plans with a $Q$-function trained via dynamic programming (TT$_{\color{#999999}{(+Q)}}$) is a straightforward way of improving empirical performance compared to model-free (CQL, IQL) and return-conditioning (DT) approaches.
@@ -261,7 +251,7 @@ show_comments:      False
 
 <p>
     Because the planning procedure only uses the $Q$-function as a way to filter promising sequences, it is not as prone to local inaccuracies in value predictions as policy-extraction-based methods like <a href="https://arxiv.org/abs/2006.04779">CQL</a> and <a href="https://arxiv.org/abs/2110.06169">IQL</a>.
-    However, it still benefits from the temporal compositionality of dynamic programming and planning, so outperforms return-conditioning approaches, like the <a href="https://arxiv.org/abs/2106.01345">Decision Transformer</a>, that rely more on complete demonstrations.
+    However, it still benefits from the temporal compositionality of dynamic programming and planning, so outperforms return-conditioning approaches that rely more on complete demonstrations.
 </p>
 
 <p>
@@ -288,16 +278,12 @@ show_comments:      False
     </li>
 </ul>
 
-<!-- <p>
-    <em>I would like to thank Michael Chang and Sergey Levine for their valuable feedback.</em>
-</p> -->
-
 <hr>
 <div class="footnotes">
   <ol>
     <li id="fn:anderson">
       <p>
-        Though qualitative capabilities advances from scale alone might have been surprising, physicists have long known that <a href="https://cse-robotics.engr.tamu.edu/dshell/cs689/papers/anderson72more_is_different.pdf">more is different</a>.
+        Though qualitative capabilities advances from scale alone might seem surprising, physicists have long known that <a href="https://cse-robotics.engr.tamu.edu/dshell/cs689/papers/anderson72more_is_different.pdf">more is different</a>.
         <a href="#fnref:anderson" class="reversefootnote">↩</a>
       </p>
     </li>
@@ -310,14 +296,3 @@ show_comments:      False
   </ol>
 </div>
 <hr>
-
-<!-- <p>
-<font size="-1">
-<strong>References</strong>
-<ol style="margin-top:-15px">
-    <li>A Barreto, W Dabney, R Munos, JJ Hunt, T Schaul, HP van Hasselt, and D Silver. <a href="https://arxiv.org/abs/1606.05312">Successor features for transfer in reinforcement learning.</a> <i>NeurIPS</i> 2017.</li>
-</ol>
-</font>
-</p>
- -->
-
