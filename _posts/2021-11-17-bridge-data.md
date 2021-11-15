@@ -1,7 +1,7 @@
 ---
 layout:             post
 title:              ""
-date:               2021-11-12  9:00:00
+date:               2021-11-17  9:00:00
 author:             <a href="https://febert.github.io/">Frederik Ebert</a> and <a href="https://yanlai00.github.io">Yanlai Yang</a>
 img:                assets/bridge-data/header_blog_post.png
 excerpt_separator:  <!--more-->
@@ -57,6 +57,8 @@ enforced with the `more` excerpt separator.
 
 
 When we apply robot learning methods to real-world systems, we must usually collect new datasets for every task, every robot, and every environment. This is not only costly and time-consuming, but it also limits the size of the datasets that we can use, and this, in turn, limits generalization: if we train a robot to clean one plate in one kitchen, it is unlikely to succeed at cleaning any plate in any kitchen. In other fields, such as computer vision (e.g., [ImageNet][9]) and natural language processing (e.g., [BERT][8]), the standard approach to generalization is to utilize large, diverse datasets, which are collected once and then reused repeatedly. Since the dataset is reused for many models, tasks, and domains, the up-front cost of collecting such large reusable datasets is worth the benefits. Thus, to obtain truly generalizable robotic behaviors, we may need large and diverse datasets, and the only way to make this practical is to reuse data across many different tasks, environments, and labs (i.e. different background lighting conditions, etc.).
+
+<!--more-->
 
 
 Each end-user of such a dataset might want their robot to learn a different task, which would be situated in a different domain (e.g., a different laboratory, home, etc.). Therefore, any reusable dataset would need to cover a sufficient variety of tasks and environments to allow the learning algorithm to extract generalizable, reusable features. To this end, we collected a dataset of 7200 demonstrations for 71 different kitchen-themed tasks, collected in 10 different environments (see the illustration in Figure 1).  We refer to this dataset as the BRIDGE dataset (Broad Robot Interaction Dataset for boosting GEneralization)
