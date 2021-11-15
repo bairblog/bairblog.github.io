@@ -130,8 +130,8 @@ show_comments:      False
 </p>
 
 <center>
-    <img width="35%" style="padding-top: 10px; padding-right: 60px;" src="https://bair.berkeley.edu/static/blog/tt/markov.png">
-    <img width="35%" src="https://bair.berkeley.edu/static/blog/tt/striated.png">
+    <img width="30%" style="padding-top: 10px; padding-right: 60px;" src="https://bair.berkeley.edu/static/blog/tt/markov.png">
+    <img width="30%" src="https://bair.berkeley.edu/static/blog/tt/striated.png">
     <br>
     <p width="80%" style="text-align:center; margin-left:10%; margin-right:10%; padding-top: 20px; padding-bottom: 10px;">
         <i style="font-size: 18px;">
