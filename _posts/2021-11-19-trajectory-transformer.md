@@ -12,7 +12,7 @@ show_comments:      False
 <!-- twitter -->
 <meta name="twitter:title" content="Sequence Modeling Solutions for Reinforcement Learning Problems">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/tt/outlines_transformer.png">
+<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/trajectory_transformer/outlines_transformer.png">
 
 <meta name="keywords" content="trajectory, transformer, reinforcement, learning, RL">
 <meta name="description" content="The BAIR Blog">
@@ -26,10 +26,10 @@ show_comments:      False
 <p style="text-align:center; margin-top:-40px;">
     <br>
     <video width="100%" autoplay playsinline muted>
-        <source src="https://bair.berkeley.edu/static/blog/tt/rollout_transformer.mp4" type="video/mp4">
+        <source src="https://bair.berkeley.edu/static/blog/trajectory_transformer/rollout_transformer.mp4" type="video/mp4">
     </video>
     <video width="100%" autoplay playsinline muted>
-        <source src="https://bair.berkeley.edu/static/blog/tt/rollout_single.mp4" type="video/mp4">
+        <source src="https://bair.berkeley.edu/static/blog/trajectory_transformer/rollout_single.mp4" type="video/mp4">
     </video>
     <p width="80%" style="text-align:center; margin-left:10%; margin-right:10%; padding-bottom: -10px;">
         <i style="font-size: 18px;">
@@ -67,7 +67,7 @@ show_comments:      False
 </p>
 
 <center>
-    <img width="80%" style="padding-top: 20px; padding-bottom: 20px" src="https://bair.berkeley.edu/static/blog/tt/architecture.png">
+    <img width="80%" style="padding-top: 20px; padding-bottom: 20px" src="https://bair.berkeley.edu/static/blog/trajectory_transformer/architecture.png">
     <br>
     <p width="80%" style="text-align:center; margin-left:10%; margin-right:10%; padding-bottom: 10px;">
         <i style="font-size: 18px;">
@@ -91,19 +91,19 @@ show_comments:      False
     <div style="width: 50%; float: left; font-size: 14px;">
         <b>Single-step</b>
         <br>
-        <img src="https://bair.berkeley.edu/static/blog/tt/outlines_single_step.png" width="100%">
+        <img src="https://bair.berkeley.edu/static/blog/trajectory_transformer/outlines_single_step.png" width="100%">
         <br>
     </div>
     <div style="width: 50%; float: left; font-size: 14px;">
         <b>Transformer</b>
         <br>
-        <img src="https://bair.berkeley.edu/static/blog/tt/outlines_transformer.png" width="100%">
+        <img src="https://bair.berkeley.edu/static/blog/trajectory_transformer/outlines_transformer.png" width="100%">
         <br>
     </div>
     &nbsp;
     <br>
     <div style="width: 50%; float: left;">
-        <img src="https://bair.berkeley.edu/static/blog/tt/error_blog.png" width="100%">
+        <img src="https://bair.berkeley.edu/static/blog/trajectory_transformer/error_blog.png" width="100%">
     </div>
     <div style="width: 47.5%; float: right;">
         <p>
@@ -130,8 +130,8 @@ show_comments:      False
 </p>
 
 <center>
-    <img width="30%" style="padding-top: 10px; padding-right: 60px;" src="https://bair.berkeley.edu/static/blog/tt/markov.png">
-    <img width="30%" src="https://bair.berkeley.edu/static/blog/tt/striated.png">
+    <img width="30%" style="padding-top: 10px; padding-right: 60px;" src="https://bair.berkeley.edu/static/blog/trajectory_transformer/markov.png">
+    <img width="30%" src="https://bair.berkeley.edu/static/blog/trajectory_transformer/striated.png">
     <br>
     <p width="80%" style="text-align:center; margin-left:10%; margin-right:10%; padding-top: 20px; padding-bottom: 10px;">
         <i style="font-size: 18px;">
@@ -171,20 +171,20 @@ show_comments:      False
        <b><span style="color:#D62728;">Goal-conditioned RL:</span></b> Conditioning the Transformer on <i>future</i> desired context alongside previous states, actions, and rewards yields a goal-reaching method. This works by recontextualizing past data as optimal for some task, in the same spirit as <a href="https://arxiv.org/abs/1707.01495">hindsight relabeling</a>.
     </p>
         <center>
-          <img width="28%" src="https://bair.berkeley.edu/static/blog/tt/0.png">
+          <img width="28%" src="https://bair.berkeley.edu/static/blog/trajectory_transformer/0.png">
           &nbsp;
           &nbsp;
-          <img width="28%" src="https://bair.berkeley.edu/static/blog/tt/1.png">
+          <img width="28%" src="https://bair.berkeley.edu/static/blog/trajectory_transformer/1.png">
           &nbsp;
           &nbsp;
-          <img width="28%" src="https://bair.berkeley.edu/static/blog/tt/2.png">
+          <img width="28%" src="https://bair.berkeley.edu/static/blog/trajectory_transformer/2.png">
           <br>
-          <img width="2%" src="https://bair.berkeley.edu/static/blog/tt/rolloutblack-1.png">
+          <img width="2%" src="https://bair.berkeley.edu/static/blog/trajectory_transformer/rolloutblack-1.png">
           &nbsp;
           Start
           &nbsp;
           &nbsp;
-          <img width="2%" src="https://bair.berkeley.edu/static/blog/tt/rolloutblue-1.png">
+          <img width="2%" src="https://bair.berkeley.edu/static/blog/trajectory_transformer/rolloutblue-1.png">
           &nbsp;
           Goal
         </center>
@@ -202,10 +202,10 @@ show_comments:      False
 </div>
 
 <center>
-    <img width="80%" style="padding-top: 0px;" src="https://bair.berkeley.edu/static/blog/tt/d4rl.png">
+    <img width="80%" style="padding-top: 0px;" src="https://bair.berkeley.edu/static/blog/trajectory_transformer/d4rl.png">
     &nbsp;
     <br>
-    <img width="80%" src="https://bair.berkeley.edu/static/blog/tt/bar.png">
+    <img width="80%" src="https://bair.berkeley.edu/static/blog/trajectory_transformer/bar.png">
     <br>
     <p style="text-align:center; margin-left:10%; margin-right:10%; padding-top: 20px; padding-bottom: 10px;">
     <i style="font-size: 18px;">
