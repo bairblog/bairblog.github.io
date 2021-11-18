@@ -5,7 +5,7 @@ date:               2021-11-19  9:00:00
 author:             <a href="https://people.eecs.berkeley.edu/~janner/">Michael Janner</a>
 img:                assets/trajectory-transformer/outlines_transformer.png
 excerpt_separator:  <!--more-->
-visible:            True
+visible:            False
 show_comments:      False
 ---
 
