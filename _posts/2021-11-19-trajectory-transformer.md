@@ -12,7 +12,7 @@ show_comments:      False
 <!-- twitter -->
 <meta name="twitter:title" content="Sequence Modeling Solutions for Reinforcement Learning Problems">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/trajectory_transformer/humanoid_padded.png" />
+<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/trajectory_transformer/humanoid_padded.png">
 
 <meta name="keywords" content="trajectory, transformer, reinforcement, learning, RL">
 <meta name="description" content="The BAIR Blog">
