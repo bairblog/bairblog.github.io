@@ -12,7 +12,7 @@ show_comments:      False
 <!-- twitter -->
 <meta name="twitter:title" content="Sequence Modeling Solutions for Reinforcement Learning Problems">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/trajectory_transformer/outlines_transformer.png">
+<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/trajectory_transformer/humanoid_padded.png">
 
 <meta name="keywords" content="trajectory, transformer, reinforcement, learning, RL">
 <meta name="description" content="The BAIR Blog">
@@ -214,11 +214,11 @@ show_comments:      False
 <p>
     The Trajectory Transformer is something of an exercise in minimalism.
     Despite lacking most of the common ingredients of a reinforcement learning algorithm, it performs on par with approaches that have been the result of much collective effort and tuning.
-    Taken together with the concurrent <a href="https://arxiv.org/abs/2106.01345">Decision Transformer</a>, this result highlights that scalable architectures and stable training objectives can iron out many of the difficulties of reinforcement learning in practice.
+    Taken together with the concurrent <a href="https://arxiv.org/abs/2106.01345">Decision Transformer</a>, this result highlights that scalable architectures and stable training objectives can sidestep some of the difficulties of reinforcement learning in practice.
 </p>
 
 <p>
-    However, the simplicity of the proposed approach gives it some predictable weaknesses.
+    However, the simplicity of the proposed approach gives it predictable weaknesses.
     Because the Transformer is trained with a maximum likelihood objective, it is more dependent on the training distribution than a conventional dynamic programming algorithm.
     Though there is value in studying the most streamlined approaches that can tackle reinforcement learning problems, it is possible that the most effective instantiation of this framework will come from combinations of the sequence modeling and reinforcement learning toolboxes.
 </p>
