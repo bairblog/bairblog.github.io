@@ -12,7 +12,7 @@ show_comments:      False
 <!-- twitter -->
 <meta name="twitter:title" content="Sequence Modeling Solutions for Reinforcement Learning Problems">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/trajectory_transformer/outlines_transformer.png">
+<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/trajectory_transformer/humanoid_padded.png">
 
 <meta name="keywords" content="trajectory, transformer, reinforcement, learning, RL">
 <meta name="description" content="The BAIR Blog">
@@ -26,13 +26,13 @@ show_comments:      False
 <p style="text-align:center; margin-top:-40px;">
     <br>
     <video width="100%" autoplay playsinline muted>
-        <source src="https://bair.berkeley.edu/static/blog/trajectory_transformer/rollout_transformer.mp4" type="video/mp4">
+        <source src="https://bair.berkeley.edu/static/blog/trajectory_transformer/rollout_transformer_compressed.mp4" type="video/mp4">
     </video>
     <video width="100%" autoplay playsinline muted>
-        <source src="https://bair.berkeley.edu/static/blog/trajectory_transformer/rollout_single.mp4" type="video/mp4">
+        <source src="https://bair.berkeley.edu/static/blog/trajectory_transformer/rollout_single_compressed.mp4" type="video/mp4">
     </video>
     <p width="80%" style="text-align:center; margin-left:10%; margin-right:10%; padding-bottom: -10px;">
-        <i style="font-size: 18px;">
+        <i style="font-size: 0.9em;">
         Long-horizon predictions of (top) the <b><span style="color:#D62728;">Trajectory Transformer</span></b> compared to those of (bottom) a <b><span style="color:#D62728;">single-step</span></b> dynamics model.
         </i>
     </p>
@@ -70,7 +70,7 @@ show_comments:      False
     <img width="80%" style="padding-top: 20px; padding-bottom: 20px" src="https://bair.berkeley.edu/static/blog/trajectory_transformer/architecture.png">
     <br>
     <p width="80%" style="text-align:center; margin-left:10%; margin-right:10%; padding-bottom: 10px;">
-        <i style="font-size: 18px;">
+        <i style="font-size: 0.9em;">
         We model the distribution over $N$-dimensional states $\mathbf{s}_t$, $M$-dimensional actions $\mathbf{a}_t$, and scalar rewards $r_t$ using a Transformer architecture.
         </i>
     </p>
@@ -85,38 +85,30 @@ show_comments:      False
     In comparison, we find that the Trajectory Transformer is a substantially more accurate long-horizon predictor than conventional single-step dynamics models.
 </p>
 
-<br>
 <center>
-<div style="width: 90%;">
-    <div style="width: 50%; float: left; font-size: 14px;">
-        <b>Single-step</b>
-        <br>
-        <img src="https://bair.berkeley.edu/static/blog/trajectory_transformer/outlines_single_step.png" width="100%">
-        <br>
-    </div>
-    <div style="width: 50%; float: left; font-size: 14px;">
-        <b>Transformer</b>
-        <br>
-        <img src="https://bair.berkeley.edu/static/blog/trajectory_transformer/outlines_transformer.png" width="100%">
-        <br>
-    </div>
-    &nbsp;
-    <br>
-    <div style="width: 50%; float: left;">
-        <img src="https://bair.berkeley.edu/static/blog/trajectory_transformer/error_blog.png" width="100%">
-    </div>
-    <div style="width: 47.5%; float: right;">
-        <p>
+    <table>
+      <tr>
+        <th width="45%" style="border-top: 0px;">
+            <img src="https://bair.berkeley.edu/static/blog/trajectory_transformer/error_blog.png" width="100%">
+        </th>
+        <th width="55%" style="border-top: 0px;">
+            <b style="font-size: 0.8em;">Transformer</b>
             <br>
-            <i>Whereas the single-step model suffers from compounding errors that make its long-horizon predictions physically implausible, the Trajectory Transformer's predictions remain visually indistinguishable from <a href="https://people.eecs.berkeley.edu/~janner/trajectory-transformer/blog/outlines_reference.png">rollouts in the reference environment</a>.</i>
-            <br><br>
+            <img src="https://bair.berkeley.edu/static/blog/trajectory_transformer/outlines_transformer.png" width="100%">
+            <b style="font-size: 0.8em;">Single-step</b>
+            <br>
+            <img src="https://bair.berkeley.edu/static/blog/trajectory_transformer/outlines_single_step.png" width="100%">
+            <br>
+        </th>
+      </tr>
+    </table>
+    <div style="width: 90%;">
+        <p style="text-align:center;">
+            <i style="font-size: 0.9em;">Whereas the single-step model suffers from compounding errors that make its long-horizon predictions physically implausible, the Trajectory Transformer's predictions remain visually indistinguishable from <a href="https://people.eecs.berkeley.edu/~janner/trajectory-transformer/blog/outlines_reference.png">rollouts in the reference environment</a>.</i>
         </p>
     </div>
-    <br>
-</div>
 </center>
 <br clear="left"/>
-<br>
 
 <p>
     This result is exciting because planning with learned models is notoriously finicky, with neural network dynamics models often being too inaccurate to benefit from more sophisticated planning routines.
@@ -134,7 +126,7 @@ show_comments:      False
     <img width="30%" src="https://bair.berkeley.edu/static/blog/trajectory_transformer/striated.png">
     <br>
     <p width="80%" style="text-align:center; margin-left:10%; margin-right:10%; padding-top: 20px; padding-bottom: 10px;">
-        <i style="font-size: 18px;">
+        <i style="font-size: 0.9em;">
         Attention patterns of Trajectory Transformer, showing (left) a discovered <b><span style="color:#D62728;">Markovian stratetgy</span></b> and (right) an approach with <b><span style="color:#D62728;">action smoothing</span></b>.
         </i>
     </p>
@@ -189,7 +181,7 @@ show_comments:      False
           Goal
         </center>
         <p width="90%" style="text-align:center; padding-top: 20px; padding-bottom: 10px;">
-        <i style="font-size: 18px;">
+        <i style="font-size: 0.9em;">
             Paths taken by the goal-conditioned beam-search planner in a four-rooms environment.
         </i>
     </p>
@@ -208,7 +200,7 @@ show_comments:      False
     <img width="80%" src="https://bair.berkeley.edu/static/blog/trajectory_transformer/bar.png">
     <br>
     <p style="text-align:center; margin-left:10%; margin-right:10%; padding-top: 20px; padding-bottom: 10px;">
-    <i style="font-size: 18px;">
+    <i style="font-size: 0.9em;">
         Performance on the locomotion environments in the <a href="https://arxiv.org/abs/2004.07219">D4RL offline benchmark suite.</a> We compare two variants of the Trajectory Transformer (TT) &mdash; differing in how they discretize continuous inputs &mdash; with model-based, value-based, and recently proposed sequence-modeling algorithms.
     </i>
     </p>
@@ -222,11 +214,11 @@ show_comments:      False
 <p>
     The Trajectory Transformer is something of an exercise in minimalism.
     Despite lacking most of the common ingredients of a reinforcement learning algorithm, it performs on par with approaches that have been the result of much collective effort and tuning.
-    Taken together with the concurrent <a href="https://arxiv.org/abs/2106.01345">Decision Transformer</a>, this result highlights that scalable architectures and stable training objectives can iron out many of the difficulties of reinforcement learning in practice.
+    Taken together with the concurrent <a href="https://arxiv.org/abs/2106.01345">Decision Transformer</a>, this result highlights that scalable architectures and stable training objectives can sidestep some of the difficulties of reinforcement learning in practice.
 </p>
 
 <p>
-    However, the simplicity of the proposed approach gives it some predictable weaknesses.
+    However, the simplicity of the proposed approach gives it predictable weaknesses.
     Because the Transformer is trained with a maximum likelihood objective, it is more dependent on the training distribution than a conventional dynamic programming algorithm.
     Though there is value in studying the most streamlined approaches that can tackle reinforcement learning problems, it is possible that the most effective instantiation of this framework will come from combinations of the sequence modeling and reinforcement learning toolboxes.
 </p>
@@ -241,7 +233,7 @@ show_comments:      False
 <center>
     <img width="80%" style="padding-top: 20px;" src="https://people.eecs.berkeley.edu/~janner/trajectory-transformer/blog/antmaze.png">
     <p style="text-align:center; margin-left:10%; margin-right:10%; padding-top: 20px; padding-bottom: 10px;">
-    <i style="font-size: 18px;">
+    <i style="font-size: 0.9em;">
         Guiding the Trajectory Transformer's plans with a $Q$-function trained via dynamic programming (TT$_{\color{#999999}{(+Q)}}$) is a straightforward way of improving empirical performance compared to model-free (CQL, IQL) and return-conditioning (DT) approaches.
         We evaluate this effect in the sparse-reward, long-horizon <a href="https://arxiv.org/abs/2004.07219">AntMaze goal-reaching tasks</a>.
     </i>
