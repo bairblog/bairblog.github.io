@@ -6,7 +6,7 @@ author:             <a href="https://katerakelly.github.io/">Kate Rakelly</a>
 img:                assets/mi_sufficiency_analysis/image1.png
 excerpt_separator:  <!--more-->
 visible:            True
-show_comments:      True
+show_comments:      False
 ---
 
 <!--
