@@ -166,7 +166,7 @@ We experiment with a simple video game MDP that has a similar characteristic to 
 <p style="text-align:center;">
 <img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/catcher.gif" width="27%">
 <img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/catcher_plot.png" width="32%">
-<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/catcher_table.png" width="32%">
+<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/catcher_table_legend.png" width="33%">
 <br>
 <i><b>Figure 7. </b>(left) Depiction of the catcher game. (middle) Performance of RL agents trained with different state representations. (right) Accuracy of reconstructing ground truth state elements from learned representations.</i>
 </p>
@@ -180,7 +180,7 @@ To make the representation learning problem more challenging, we repeat this exp
 <p style="text-align:center;">
 <img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/distractor_observation.png" width="32%">
 <img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/catcher_distractor_plot.png" width="30%">
-<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/catcher_distractor_table.png" width="27%">
+<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/catcher_distractor_table_legend.png" width="32%">
 <br>
 <i><b>Figure 8. </b>(left) Example agent observations with distractors. (middle) Performance of RL agents trained with different state representations. (right) Accuracy of reconstructing ground truth state elements from state representations.</i>
 </p>
