@@ -1,7 +1,7 @@
 ---
 layout:             post
 title:              "Which Mutual Information Representation Learning Objectives are Sufficient for Control?"
-date:               2021-10-11  9:00:00
+date:               2021-11-19  9:00:00
 author:             <a href="https://katerakelly.github.io/">Kate Rakelly</a>
 img:                assets/mi_sufficiency_analysis/image1.png
 excerpt_separator:  <!--more-->
@@ -166,23 +166,23 @@ We experiment with a simple video game MDP that has a similar characteristic to 
 <p style="text-align:center;">
 <img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/catcher.gif" width="27%">
 <img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/catcher_plot.png" width="32%">
-<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/catcher_table.png" width="32%">
+<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/catcher_table_legend.png" width="33%">
 <br>
 <i><b>Figure 7. </b>(left) Depiction of the catcher game. (middle) Performance of RL agents trained with different state representations. (right) Accuracy of reconstructing ground truth state elements from learned representations.</i>
 </p>
 
-We observe in Figure 8 (left) that indeed the representation trained to maximize $J_{inv}$ results in RL agents that converge slower and to a lower asymptotic expected return. To better understand what information the representation contains, we then attempt to learn a neural network decoder from the learned representation to the position of the falling fruit. We report the mean error achieved by each representation in Figure 8 (right). The representation learned by $J_{inv}$ incurs a high error, indicating that the fruit is not precisely captured by the representation, while the representation learned by $J_{fwd}$ incurs low error.
+We observe in Figure 7 (middle) that indeed the representation trained to maximize $J_{inv}$ results in RL agents that converge slower and to a lower asymptotic expected return. To better understand what information the representation contains, we then attempt to learn a neural network decoder from the learned representation to the position of the falling fruit. We report the mean error achieved by each representation in Figure 7 (right). The representation learned by $J_{inv}$ incurs a high error, indicating that the fruit is not precisely captured by the representation, while the representation learned by $J_{fwd}$ incurs low error.
 
 
 ### Increasing observation complexity with visual distractors
-To make the representation learning problem more challenging, we repeat this experiment with visual distractors added to the agent’s observations. We randomly generate images of 10 circles of different colors and replace the background of the game with these images (see Figure 9, left, for example observations). As in the previous experiment, we plot the performance of an RL agent trained with the frozen representation as input (Figure 9, middle), as well as the error of decoding true state elements from the representation (Figure 9, right). The difference in performance between sufficient ($J_{fwd}$) and insufficient ($J_{inv}$) objectives is even more pronounced in this setting than in the plain background setting. With more information present in the observation in the form of the distractors, insufficient objectives that do not optimize for representing all the required state information may be "distracted" by representing the background objects instead, resulting in low performance. In this more challenging case, end-to-end RL from images fails to make any progress on the task, demonstrating the difficulty of end-to-end RL.
+To make the representation learning problem more challenging, we repeat this experiment with visual distractors added to the agent’s observations. We randomly generate images of 10 circles of different colors and replace the background of the game with these images (see Figure 8, left, for example observations). As in the previous experiment, we plot the performance of an RL agent trained with the frozen representation as input (Figure 8, middle), as well as the error of decoding true state elements from the representation (Figure 8, right). The difference in performance between sufficient ($J_{fwd}$) and insufficient ($J_{inv}$) objectives is even more pronounced in this setting than in the plain background setting. With more information present in the observation in the form of the distractors, insufficient objectives that do not optimize for representing all the required state information may be "distracted" by representing the background objects instead, resulting in low performance. In this more challenging case, end-to-end RL from images fails to make any progress on the task, demonstrating the difficulty of end-to-end RL.
 
 <p style="text-align:center;">
 <img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/distractor_observation.png" width="32%">
 <img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/catcher_distractor_plot.png" width="30%">
-<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/catcher_distractor_table.png" width="27%">
+<img src="https://bair.berkeley.edu/static/blog/mi_sufficiency_analysis/catcher_distractor_table_legend.png" width="32%">
 <br>
-<i><b>Figure 9. </b>(left) Example agent observations with distractors. (middle) Performance of RL agents trained with different state representations. (right) Accuracy of reconstructing ground truth state elements from state representations.</i>
+<i><b>Figure 8. </b>(left) Example agent observations with distractors. (middle) Performance of RL agents trained with different state representations. (right) Accuracy of reconstructing ground truth state elements from state representations.</i>
 </p>
 
 ## Conclusion
