@@ -47,7 +47,7 @@ enforced with the `more` excerpt separator.
 
 # The Unsupervised Reinforcement Learning Benchmark
 
-![img0.png](imgs/img0.png)
+![img0.png](https://bair.berkeley.edu/static/blog/unsupervised-rl/img0.png)
 
 # The shortcomings of supervised RL
 
