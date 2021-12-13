@@ -55,6 +55,8 @@ Reinforcement Learning (RL) is a powerful paradigm for solving many problems of 
 
 A side-effect of the narrowness of today's RL systems is that ***today's RL agents are also very data inefficient***. If we were to train AlphaGo-like agents on many tasks each agent would likely require billions of training steps because today's RL agents don't have the capabilities to reuse prior knowledge to solve new tasks more efficiently. RL as we know it is supervised - agents overfit to a specific extrinsic reward which limits their ability to generalize.
 
+<!--more-->
+
 ![img1.png](https://bair.berkeley.edu/static/blog/unsupervised-rl/img1.png)
 
 ![img2.png](https://bair.berkeley.edu/static/blog/unsupervised-rl/img2.png)
