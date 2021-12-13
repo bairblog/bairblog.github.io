@@ -1,7 +1,7 @@
 ---
 layout:             post
 title:              "How should we compare neural network representations?"
-date:               2021-11-08  12:00:00
+date:               2021-12-14  12:00:00
 author:             <a href="https://www.mishalaskin.com/edaaae9ed2b54016a66a0e315a9c9f63">Misha Laskin</a> and <a href="https://cs.nyu.edu/~dy1042/">Denis Yarats</a>
 img:                assets/unsupervised_rl/img0.png
 excerpt_separator:  <!--more-->
