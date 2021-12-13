@@ -55,9 +55,9 @@ Reinforcement Learning (RL) is a powerful paradigm for solving many problems of 
 
 A side-effect of the narrowness of today's RL systems is that ***today's RL agents are also very data inefficient***. If we were to train AlphaGo-like agents on many tasks each agent would likely require billions of training steps because today's RL agents don't have the capabilities to reuse prior knowledge to solve new tasks more efficiently. RL as we know it is supervised - agents overfit to a specific extrinsic reward which limits their ability to generalize.
 
-![img1.png](imgs/img1.png)
+![img1.png](https://bair.berkeley.edu/static/blog/unsupervised-rl/img1.png)
 
-![img2.png](imgs/img2.png)
+![img2.png](https://bair.berkeley.edu/static/blog/unsupervised-rl/img2.png)
 
 # Unsupervised RL as a path forward
 
@@ -69,7 +69,7 @@ If we believe that pre-training is a powerful approach towards developing genera
 
 Unsupervised RL is very similar to supervised RL. Both assume that the underlying environment is described by a Markov Decision Process (MDP) or a Partially Observed MDP, and both aim to maximize rewards. The main difference is that supervised RL assumes that supervision is provided by the environment through an extrinsic reward while unsupervised RL defines an intrinsic reward through a self-supervised task. Like supervision in NLP and vision, supervised rewards are either engineered or provided as labels by human operators which are hard to scale and limit the generalization of RL algorithms to specific tasks.
 
-![img3.png](imgs/img3.png)
+![img3.png](https://bair.berkeley.edu/static/blog/unsupervised-rl/img3.png)
 
 At the Robot Learning Lab (RLL), we've been taking steps toward making unsupervised RL a plausible approach toward developing RL agents capable of generalization. To this end, we developed and released a benchmark for unsupervised RL with open-sourced PyTorch code for 8 leading or popular baselines.
 
@@ -79,21 +79,21 @@ While a variety of unsupervised RL algorithms have been proposed over the last f
 
 URLB splits training into two phases - a long unsupervised pre-training phase followed by a short supervised fine-tuning phase. The initial release includes three domains with four tasks each for a total of twelve downstream tasks for evaluation. 
 
-![img4.png](imgs/img4.png)
+![img4.png](https://bair.berkeley.edu/static/blog/unsupervised-rl/img4.png)
 
 Most unsupervised RL algorithms known to date can be classified into three categories - knowledge-based, data-based, and competence-based. Knowledge-based methods maximize the prediction error or uncertainty of a predictive model (e.g. Curiosity, Disagreement, RND), data-based methods maximize the diversity of observed data (e.g. APT, ProtoRL), competence-based methods maximize the mutual information between states and some latent vector often referred to as the "skill" or "task" vector (e.g. DIAYN, SMM, APS). 
 
 Previously these algorithms were implemented using different optimization algorithms (Rainbow DQN, DDPG, PPO, SAC, etc). As a result, unsupervised RL algorithms have been hard to compare. In our implementations we standardize the optimization algorithm such that the only difference between various baselines is the self-supervised objective. 
 
-![img5.png](imgs/img5.png)
+![img5.png](https://bair.berkeley.edu/static/blog/unsupervised-rl/img5.png)
 
 We implemented and [released code for eight leading algorithms](https://github.com/rll-research/url_benchmark) supporting both state and pixel-based observations on domains based on the DeepMind Control Suite.
 
-![img6.png](imgs/img6.png)
+![img6.png](https://bair.berkeley.edu/static/blog/unsupervised-rl/img6.png)
 
 By standardizing domains, evaluation, and optimization across all implemented baselines in URLB, ***the result is a first direct and fair comparison between these three different types of algorithms.*** 
 
-![img7.png](imgs/img7.png)
+![img7.png](https://bair.berkeley.edu/static/blog/unsupervised-rl/img7.png)
 
 Above, we show aggregate statistics of fine-tuning runs across all 12 downstream tasks with 10 seeds each after pre-training on the target domain for 2M steps. We find that currently data-based methods (APT, ProtoRL) and RND are the leading approaches on URLB. 
 
