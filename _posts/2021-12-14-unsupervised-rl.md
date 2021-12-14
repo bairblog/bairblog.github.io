@@ -108,6 +108,6 @@ Unsupervised RL is a promising path toward developing generalist RL agents. We'v
 ## Links
 
 **Paper:** [URLB: Unsupervised Reinforcement Learning Benchmark](https://openreview.net/forum?id=lwrPkQP_is)
-\*Michael Laskin, \*Denis Yarats, Hao Liu, Kimin Lee, Albert Zhan, Kevin Lu, Catherine Cang, Lerrel Pinto, Pieter Abbeel, NeurIPS, 2021, *these authors contributed equally* 
+Michael Laskin\*, Denis Yarats\*, Hao Liu, Kimin Lee, Albert Zhan, Kevin Lu, Catherine Cang, Lerrel Pinto, Pieter Abbeel, NeurIPS, 2021, *these authors contributed equally* 
 
 **Code:** [https://github.com/rll-research/url_benchmark](https://github.com/rll-research/url_benchmark)
