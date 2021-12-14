@@ -36,7 +36,7 @@ You can also turn on Disqus comments, but we recommend disabling this feature.
 
 <meta name="keywords" content="unsupervised learning, reinforcement learning, benchmark">
 <meta name="description" content="Blog post about unsupervised reinforcement learning and benchmarking unsupervised RL algorithms">
-<meta name="author" content="Misha Laskin, Denis Yarats">
+<meta name="author" content="Misha Laskin*, Denis Yarats*">
 
 <!--
 The actual text for the post content appears below.  Text will appear on the
