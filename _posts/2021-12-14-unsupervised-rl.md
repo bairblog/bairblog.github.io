@@ -2,7 +2,7 @@
 layout:             post
 title:              "The Unsupervised Reinforcement Learning Benchmark"
 date:               2021-12-14  12:00:00
-author:             <a href="https://www.mishalaskin.com/edaaae9ed2b54016a66a0e315a9c9f63">Misha Laskin*</a> and <a href="https://cs.nyu.edu/~dy1042/">Denis Yarats*</a>
+author:             <a href="https://www.mishalaskin.com/edaaae9ed2b54016a66a0e315a9c9f63">Misha Laskin</a> and <a href="https://cs.nyu.edu/~dy1042/">Denis Yarats</a>
 img:                assets/unsupervised_rl/img0.png
 excerpt_separator:  <!--more-->
 visible:            True
@@ -108,6 +108,6 @@ Unsupervised RL is a promising path toward developing generalist RL agents. We'v
 ## Links
 
 **Paper:** [URLB: Unsupervised Reinforcement Learning Benchmark](https://openreview.net/forum?id=lwrPkQP_is)
-*Michael Laskin*, Denis Yarats*, Hao Liu, Kimin Lee, Albert Zhan, Kevin Lu, Catherine Cang, Lerrel Pinto, Pieter Abbeel, NeurIPS, 2021, *these authors contributed equally* 
+*Michael Laskin, Denis Yarats*, Hao Liu, Kimin Lee, Albert Zhan, Kevin Lu, Catherine Cang, Lerrel Pinto, Pieter Abbeel, NeurIPS, 2021, *these authors contributed equally* 
 
 **Code:** [https://github.com/rll-research/url_benchmark](https://github.com/rll-research/url_benchmark)
