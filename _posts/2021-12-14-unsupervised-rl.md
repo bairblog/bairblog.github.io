@@ -2,7 +2,7 @@
 layout:             post
 title:              "The Unsupervised Reinforcement Learning Benchmark"
 date:               2021-12-14  12:00:00
-author:             <a href="https://www.mishalaskin.com/edaaae9ed2b54016a66a0e315a9c9f63">Misha Laskin</a> and <a href="https://cs.nyu.edu/~dy1042/">Denis Yarats</a>
+author:             <a href="https://www.mishalaskin.com/edaaae9ed2b54016a66a0e315a9c9f63">Misha Laskin*</a> and <a href="https://cs.nyu.edu/~dy1042/">Denis Yarats*</a>
 img:                assets/unsupervised_rl/img0.png
 excerpt_separator:  <!--more-->
 visible:            True
@@ -36,7 +36,7 @@ You can also turn on Disqus comments, but we recommend disabling this feature.
 
 <meta name="keywords" content="unsupervised learning, reinforcement learning, benchmark">
 <meta name="description" content="Blog post about unsupervised reinforcement learning and benchmarking unsupervised RL algorithms">
-<meta name="author" content="Misha Laskin*, Denis Yarats*">
+<meta name="author" content="Misha Laskin, Denis Yarats">
 
 <!--
 The actual text for the post content appears below.  Text will appear on the
