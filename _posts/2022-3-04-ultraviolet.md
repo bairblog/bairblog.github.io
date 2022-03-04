@@ -2,7 +2,7 @@
 layout:             post
 title:              "All You Need is LUV: Unsupervised Collection of Labeled Images Using UV-Fluorescent Markings"
 date:               2022-02-23  12:00:00
-author:             <a href="https://bthananjeyan.github.io">Brijen Thananjeyan</a> and <a href="https://kerrj.github.io/">Justin Kerr</a> 
+author:             <a href="https://bthananjeyan.github.io">Brijen Thananjeyan*</a> and <a href="https://kerrj.github.io/">Justin Kerr*</a> 
 img:                assets/luv/img1.png
 excerpt_separator:  <!--more-->
 visible:            True
@@ -45,7 +45,10 @@ posts on the homepage. The rest is accessed via clicking 'Continue'. This is
 enforced with the `more` excerpt separator.
 -->
 
-![Main Image](https://bair.berkeley.edu/static/blog/luv/splash.png)
+<!-- ![Main Image](https://bair.berkeley.edu/static/blog/luv/splash.png) -->
+<center><img src="https://bair.berkeley.edu/static/blog/luv/splash.png" alt="Main Image" width="400"/></center>
+
+
 
 Large-scale semantic image annotation is a significant challenge for learning-based perception systems in robotics.
 <!-- Current approaches often rely on human labelers, which can be expensive, or simulation data, which can visually or physically differ from real data. -->
@@ -95,13 +98,16 @@ Data annotation services are a popular solution for labeling images. The total o
 ## Network Training Results
 We train a fully-convolutional neural network that predicts the training labels from only the standard images. We present results from three tasks commonly considered in robot learning literature: towel corner detection, cable segmentation, and needle segmentation. We observe that the networks are able to accurately predict these segmentation masks and keypoints on test images.
 
-![Network Predictions](https://bair.berkeley.edu/static/blog/luv/preds.png)
+<!-- ![Network Predictions](https://bair.berkeley.edu/static/blog/luv/preds.png) -->
+<center><img src="https://bair.berkeley.edu/static/blog/luv/preds.png" alt="Network Predictions" width="400"/></center>
 
 
 ## Links
 
 **Paper:** [All You Need is LUV: Unsupervised Collection of Labeled Images Using UV-Fluorescent Markings](insert_link)
-Brijen Thananjeyan, Justin Kerr, Huang Huang, Kishore Srinivas, Joseph E. Gonzalez, Ken Goldberg
+Brijen Thananjeyan\*, Justin Kerr\*, Huang Huang, Kishore Srinivas, Joseph E. Gonzalez, Ken Goldberg.
+
+\**these authors contributed equally* 
 
 **Supplementary Material:** [https://sites.google.com/berkeley.edu/luv](https://sites.google.com/berkeley.edu/luv)
 
