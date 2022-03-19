@@ -8,6 +8,18 @@ excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      False
 ---
+
+<!-- twitter -->
+<meta name="twitter:title" content="Accelerating Ukraine Intelligence Analysis with Computer Vision on Synthetic Aperture Radar Imagery">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:8000/ukraine-clouds-optim.gif">
+
+<meta name="keywords" content="ukraine, russia, synthetic aperture radar, sar, semantic segmentation, geoint">
+<meta name="description" content="Creating efficient EO and SAR machine learning models to aid imagery analysis for Ukraine.">
+<meta name="author" content="Ritwik Gupta, Colorado Reed, Anna Rohrbach, Trevor Darrell">
+
+<!-- body -->
+
 <p style="text-align:center;">
     <img src="http://localhost:8000/ukraine-clouds-optim.gif" width="120%">
     <br>
