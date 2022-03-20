@@ -104,7 +104,7 @@ We train a fully-convolutional neural network that predicts the training labels 
 
 ## Links
 
-**Paper:** [All You Need is LUV: Unsupervised Collection of Labeled Images Using UV-Fluorescent Markings](insert_link)
+**Paper:** [All You Need is LUV: Unsupervised Collection of Labeled Images Using UV-Fluorescent Markings](https://arxiv.org/abs/2203.04566)
 Brijen Thananjeyan\*, Justin Kerr\*, Huang Huang, Kishore Srinivas, Joseph E. Gonzalez, Ken Goldberg.
 
 \**these authors contributed equally* 
