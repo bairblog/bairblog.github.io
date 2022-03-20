@@ -21,7 +21,7 @@ show_comments:      False
 <!-- body -->
 
 <p style="text-align:center;">
-    <img src="http://localhost:8000/ukraine-clouds-optim.gif" width="120%">
+    <img src="https://bair.berkeley.edu/static/blog/maers/ukraine-clouds-optim.gif" width="120%">
     <br>
     <i><b>Figure 1:</b> Airmass measurements over Ukraine from February 18, 2022 - March 01, 2022 from the SEVIRI instrument. Data accessed via the <a href="https://view.eumetsat.int/productviewer?v=default">EUMETSAT Viewer</a>.</i>
 </p>
@@ -55,7 +55,7 @@ With [hundreds of terabytes](https://datacenterfrontier.com/terabytes-from-space
 Machine learning (ML) on EO imagery is used in a wide variety of scientific and commercial applications. From [improving precipitation predictions](https://journals.ametsoc.org/view/journals/hydr/17/3/jhm-d-15-0075_1.xml), [analyzing human slavery by identifying brick kilns](https://www.sciencedirect.com/science/article/pii/S0924271618300479), to [classifying entire cities to improve traffic routing](https://blog.google/products/maps/google-maps-101-ai-power-new-features-io-2021/), the outputs of ML on EO imagery have been integrated into almost every facet of human society.
 
 <p style="text-align:center;">
-    <img src="http://localhost:8000/bridge-eo-kyiv.jpeg" width="100%">
+    <img src="https://bair.berkeley.edu/static/blog/maers/bridge-eo-kyiv.jpeg" width="100%">
     <br>
     <i><a href="https://www.cnn.com/europe/live-news/ukraine-russia-putin-news-03-03-22/h_ed1c79ce964585a1d044c2dd50e2997a"><b>Figure 2:</b> VHR EO imagery over the Kyiv region as acquired by Maxar on February 28, 2022</a>.</i>
 </p>
@@ -67,7 +67,7 @@ Commonly used satellite constellations for EO imagery include the [Landsat](http
 Over the last few years, very high resolution (VHR) EO imagery has been made available through a variety of commercial sources. Ranging from between 0.3 - 2.0 meter resolution[^1], companies such as [Planet](https://www.planet.com/), [Maxar](https://www.maxar.com/), [Airbus](https://www.airbus.com/en/products-services/space/earth-observation), and others are providing extremely precise imagery with high revisit rates, [imaging the entire planet every day](https://www.fastcompany.com/40498033/every-day-this-satellite-company-takes-a-snapshot-of-the-entire-planet).
 
 <p style="text-align:center;">
-    <img src="http://localhost:8000/maxar-ships.jpeg" width="100%">
+    <img src="https://bair.berkeley.edu/static/blog/maers/maxar-ships.jpeg" width="100%">
     <br>
     <i><a href="https://blog.maxar.com/earth-intelligence/2022/enhancing-maritime-domain-awareness-with-maxars-crows-nest-solution"><b>Figure 3:</b> An example of Maxar VHR EO imagery showing floating production, storage and off-loading units and a tanker</a>.</i>
 </p>
@@ -91,7 +91,7 @@ Radar waves penetrate clouds, and since the satellite is actively producing the 
 There are multiple SAR satellite constellations in operation at the moment. The [Copernicus Sentinel-1](https://sentinel.esa.int/web/sentinel/missions/sentinel-1) constellation provides imagery to the public at large with resolutions ranging from 10 - 80 meters (10 meter imagery being the most common. Most commercial SAR providers, such as [ICEYE](https://www.iceye.com/) and [Capella Space](https://www.capellaspace.com/), provide imagery down to 0.5 meter resolution. In upcoming launches, other commercial vendors aim to produce SAR imagery with sub-0.5 meter resolution with high revisit rates as satellite constellations grow and government regulations evolve.
 
 <p style="text-align:center;">
-    <img src="http://localhost:8000/sar-ukraine-belarus.webp" width="100%">
+    <img src="https://bair.berkeley.edu/static/blog/maers/sar-ukraine-belarus.webp" width="100%">
     <br>
     <i><a href="https://www.wired.co.uk/article/ukraine-russia-satellites"><b>Figure 4:</b> A VHR SAR image provided by Capella Space over the Ukraine-Belarus border</a>.</i>
 </p>
@@ -103,7 +103,7 @@ While SAR imagery, at a quick glance, may look very similar to EO imagery, the u
 Radar antennas on SAR satellites often transmit polarized radar waves. The direction of polarization is the orientation of the wave’s electric field. Objects on the ground exhibit different responses to the different polarizations of radar waves. Therefore, SAR satellites often operate in dual or quad-polarization modes, broadcasting horizontally (H) or vertically (V) polarized waves and reading either polarization back, resulting in HH, HV, VH, and VV bands. You can contrast this with RGB bands in EO imagery, but the fundamental physics are different.
 
 <p style="text-align:center;">
-    <img src="http://localhost:8000/sentinel1-vv-vh.png" width="100%">
+    <img src="https://bair.berkeley.edu/static/blog/maers/sentinel1-vv-vh.png" width="100%">
     <br>
     <i><b>Figure 5:</b> Difference between VH (left) and VV (right) polarizations over the same region in Dnipro, Ukraine from Sentinel-1 radiometric terrain corrected imagery. As seen, the radar returns in corresponding local regions are entirely different.</i>
 </p>
@@ -111,7 +111,7 @@ Radar antennas on SAR satellites often transmit polarized radar waves. The direc
 Layover is an effect of foreshortening in which radar beams reach the top of a structure before they reach the bottom, resulting in the top of the object being presented as overlapping with the bottom. This happens when objects are particularly tall. Visually, tall buildings appear as if they are laying on their side, while mountains will have their peaks intersecting with their bases.
 
 <p style="text-align:center;">
-    <img src="http://localhost:8000/capella-layover.jpeg" width="100%">
+    <img src="https://bair.berkeley.edu/static/blog/maers/capella-layover.jpeg" width="100%">
     <br>
     <i><a href="https://twitter.com/capellaspace/status/1367865023587049474/photo/1"><b>Figure 6</b>: Example of layover in Capella’s VHR SAR imagery.</a> The upper portion of the stadium is intersecting, seemingly, with the parking lot behind it.</i>
 </p>
@@ -119,7 +119,7 @@ Layover is an effect of foreshortening in which radar beams reach the top of a s
 Multi-path effects occur when radar waves reflect off of objects on the ground and incur multiple bounces before returning to the SAR sensor. Multi-path effects result in objects appearing in the imagery in various transformations in the resulting image. This effect can be seen everywhere in SAR imagery, but is particularly noticeable in urban areas, forests, and other dense environments.
 
 <p style="text-align:center;">
-    <img src="http://localhost:8000/multipath.png" width="100%">
+    <img src="https://bair.berkeley.edu/static/blog/maers/multipath.png" width="100%">
     <br>
     <i><a href="https://discovery.ucl.ac.uk/id/eprint/10053908/"><b>Figure 7:</b> Example of a multi-path effect on a bridge from oblique SAR imagery</a>.</i>
 </p>
@@ -135,7 +135,7 @@ At Berkeley AI Research, we have created an initial set of methods and models th
 Given that SAR is a phenomenologically different data source than EO imagery, we have found that the Vision Transformer (ViT) is a particularly effective architecture for representation learning with SAR as it removes the scale and shift invariant inductive biases built into convolutional neural networks. Our top performing method, MAERS, for representation learning on RGB, SAR, and co-registered RGB + SAR builds upon the [Masked Autoencoder](https://arxiv.org/abs/2111.06377) (MAE) recently introduced by He et. al., where the network learns to encode the input data by taking a masked version of the data as input, encoding the data, and then learning to decode the data in such a way that it reconstructs the unmasked input data. Contrary to popular [classes of contrastive learning techniques](https://arxiv.org/abs/2002.05709), the MAE does not presuppose certain augmentation invariances in the data that may be incorrect for SAR features. Instead, it solely relies on reconstructing the original input, which is agnostic to RGB, SAR, or co-registered modalities.
 
 <p style="text-align:center;">
-    <img src="http://localhost:8000/maers.png" width="100%">
+    <img src="https://bair.berkeley.edu/static/blog/maers/maers.png" width="100%">
     <br>
     <i><b>Figure 8:</b> (top) A visualization of MAERS to learn an optionally joint representation and encoder that can be used for a (bottom) downstream task, such as object detection on either, or both, modalities.</i>
 </p>
@@ -145,7 +145,7 @@ Learning representations for RGB, SAR, and co-registered modalities can benefit 
 ## Multi-Label Classification on BigEarth-MM
 
 <p style="text-align:center;">
-    <img src="http://localhost:8000/maers-benmm.png" width="100%">
+    <img src="https://bair.berkeley.edu/static/blog/maers/maers-benmm.png" width="100%">
     <br>
     <i><b>Figure 9:</b> (left) co-registered Sentinel-2 EO and Sentinel-1 SAR imagery are patchified and used to perform a multi-label classification task as specified by the BigEarth-MM challenge. A linear layer is added to our multi-modal encoder and then fine-tuned end-to-end.</i>
 </p>
@@ -153,7 +153,7 @@ Learning representations for RGB, SAR, and co-registered modalities can benefit 
 MAERS begins with a set of ImageNet weights for a ViT-Base encoder. We follow through with the MAERS training process on the BigEarthNet-MM dataset for 20 epochs, reconstructing masked RGB, SAR, and RGB+SAR imagery with the standard MAE masking ratio. We append a single Linear layer to the MAERS encoder and learn the multi-label classification task by 1) linear probing and 2) fine-tuning the entire model, each for 20 epochs. Our results are shown in Table 1. MAERS with linear probing convincingly beats transfer learning from ImageNet at a fraction of the training cost. MAERS with fine-tuning convincingly beats SOTA as presented in the BigEarthNet-MM paper.
 
 <p style="text-align:center;">
-    <img src="http://localhost:8000/maers-table.png" width="100%">
+    <img src="https://bair.berkeley.edu/static/blog/maers/maers-table.png" width="100%">
     <br>
     <i><b>Table 1:</b> Reported F2 scores on the validation set of BigEarthNet-MM.</i>
 </p>
