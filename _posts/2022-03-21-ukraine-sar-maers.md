@@ -91,7 +91,7 @@ Radar waves penetrate clouds, and since the satellite is actively producing the 
 There are multiple SAR satellite constellations in operation at the moment. The [Copernicus Sentinel-1](https://sentinel.esa.int/web/sentinel/missions/sentinel-1) constellation provides imagery to the public at large with resolutions ranging from 10 - 80 meters (10 meter imagery being the most common. Most commercial SAR providers, such as [ICEYE](https://www.iceye.com/) and [Capella Space](https://www.capellaspace.com/), provide imagery down to 0.5 meter resolution. In upcoming launches, other commercial vendors aim to produce SAR imagery with sub-0.5 meter resolution with high revisit rates as satellite constellations grow and government regulations evolve.
 
 <p style="text-align:center;">
-    <img src="https://bair.berkeley.edu/static/blog/maers/sar-ukraine-belarus.webp" width="100%">
+    <img src="https://bair.berkeley.edu/static/blog/maers/sar-ukraine-belarus.jpg" width="100%">
     <br>
     <i><a href="https://www.wired.co.uk/article/ukraine-russia-satellites"><b>Figure 4:</b> A VHR SAR image provided by Capella Space over the Ukraine-Belarus border</a>.</i>
 </p>
