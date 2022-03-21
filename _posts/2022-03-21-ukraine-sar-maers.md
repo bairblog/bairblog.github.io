@@ -3,16 +3,16 @@ layout:             post
 title:              "Accelerating Ukraine Intelligence Analysis with Computer Vision on Synthetic Aperture Radar Imagery"
 date:               2022-03-21  12:00:00
 author:             <a href="https://ritwikgupta.me/">Ritwik Gupta*</a>, <a href="https://people.eecs.berkeley.edu/~cjrd/">Colorado Reed*</a>, <a href="https://anna-rohrbach.net/">Anja Rohrbach</a>, and <a href="https://people.eecs.berkeley.edu/~trevor/">Trevor Darrell</a> 
-img:                assets/maers/ukraine-clouds-optim.gif
+img:                assets/maers/maers.png
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      False
 ---
 
 <!-- twitter -->
-<meta name="twitter:title" content="Accelerating Ukraine Intelligence Analysis with Computer Vision on Synthetic Aperture Radar Imagery">
+<meta name="twitter:title" content="Accelerating Ukraine Intelligence Analysis with CV on SAR Imagery">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/maers/ukraine-clouds-optim.gif">
+<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/maers/maers.png">
 
 <meta name="keywords" content="ukraine, russia, synthetic aperture radar, sar, semantic segmentation, geoint">
 <meta name="description" content="Creating efficient EO and SAR machine learning models to aid imagery analysis for Ukraine.">
