@@ -105,7 +105,7 @@ Radar antennas on SAR satellites often transmit polarized radar waves. The direc
 <p style="text-align:center;">
     <img src="https://bair.berkeley.edu/static/blog/maers/sentinel1-vv-vh.png" width="100%">
     <br>
-    <i><b>Figure 5:</b> Difference between VH (left) and VV (right) polarizations over the same region in Dnipro, Ukraine from Sentinel-1 radiometric terrain corrected imagery. As seen, the radar returns in corresponding local regions are entirely different.</i>
+    <i><b>Figure 5:</b> Difference between VH (left) and VV (right) polarizations over the same region in Dnipro, Ukraine from Sentinel-1 radiometric terrain corrected imagery. As seen here, the radar returns in corresponding local regions can be different.</i>
 </p>
 
 Layover is an effect in which radar beams reach the top of a structure before they reach the bottom, resulting in the top of the object being presented as overlapping with the bottom. This happens when objects are particularly tall. Visually, tall buildings appear as if they are laying on their side, while mountains will have their peaks intersecting with their bases.
@@ -128,7 +128,7 @@ Existing computer vision methods that are built on traditional RGB imagery are n
 
 **Computer Vision on SAR Imagery for Ukraine**
 
-Imagery analysts are currently relying on both EO and SAR imagery where available over Ukraine. When EO imagery is available, existing computer vision tooling built for that modality is used to expedite the process of intelligence gathering. However, when only SAR imagery is available, these toolchains cannot be used. Imagery analysts have to resort to manual analysis which is time consuming and can be prone to mistakes.
+Imagery analysts are currently relying on both EO and SAR imagery where available over Ukraine. When EO imagery is available, existing computer vision tooling built for that modality is used to expedite the process of intelligence gathering. However, when only SAR imagery is available, these toolchains cannot be used. Imagery analysts have to resort to manual analysis which is time consuming and can be prone to mistakes. This topic is being explored by some other institutions internationally, however, it still remains an understudied area with respect to the amount of data available.
 
 At Berkeley AI Research, we have created an initial set of methods and models that have learned robust representations for RGB, SAR, and co-registered RGB + SAR imagery from the publicly released [BigEarthNet-MM dataset](https://bigearth.net) and the data from [Capella’s Open Data](https://www.capellaspace.com/community/capella-open-data/), which consists of both RGB and SAR imagery. As such, using our models, imagery analysts are able to interchangeably use co-registered RGB or SAR imagery (or both, when available) for downstream tasks such as image classification, semantic segmentation, object detection, or change detection.
 
@@ -152,7 +152,7 @@ Learning representations for RGB, SAR, and co-registered modalities can benefit 
     <i><b>Figure 9:</b> (left) co-registered Sentinel-2 EO and Sentinel-1 SAR imagery are patchified and used to perform a multi-label classification task as specified by the BigEarth-MM challenge. A linear layer is added to our multi-modal encoder and then fine-tuned end-to-end.</i>
 </p>
 
-MAERS is initialized with a set of ImageNet weights for a ViT-Base encoder, followed by pretraining on the BigEarthNet-MM dataset for 20 epochs with RGB, SAR, and RGB+SAR imagery. We append a single Linear layer to the MAERS encoder and learn the multi-label classification task by fine-tuning the entire modelfor 20 epochs (linear probe experimental results show similar results, as we will show in our upcoming paper). Our results are shown in Table 1. MAERS with fine-tuning outperforms the best RGB+SAR results as presented in the BigEarthNet-MM paper, and show that adapting the State-of-the-Art MAE architecture for representation learning for RGB, SAR, and RGB+SAR input modalities leads to State-of-the-Art results.
+MAERS is initialized with a set of ImageNet weights for a ViT-Base encoder, followed by pretraining on the BigEarthNet-MM dataset for 20 epochs with RGB, SAR, and RGB+SAR imagery. We append a single linear layer to the MAERS encoder and learn the multi-label classification task by fine-tuning the entire model for 20 epochs (linear probe experimental results show similar results, as we will show in our upcoming paper). Our results are shown in Table 1. MAERS with fine-tuning outperforms the best RGB+SAR results as presented in the BigEarthNet-MM paper, and show that adapting the State-of-the-Art MAE architecture for representation learning for RGB, SAR, and RGB+SAR input modalities leads to State-of-the-Art results.
 
 <p style="text-align:center;">
     <img src="https://bair.berkeley.edu/static/blog/maers/maers-table.png" width="100%">
@@ -160,32 +160,24 @@ MAERS is initialized with a set of ImageNet weights for a ViT-Base encoder, foll
     <i><b>Table 1:</b> Reported per-class F2 scores on the test set of BigEarthNet-MM.</i>
 </p>
 
-On average, we outperform the state-of-the-art multilabel classification method presented in the BigEarthNet-MM paper by a confident margin with only fine tuning. Macro F2 scores on the test set are presented in Figure 10 below.
-
-<p style="text-align:center;">
-    <img src="https://bair.berkeley.edu/static/blog/maers/maers-macro-f2.png" width="100%">
-    <br>
-    <i><b>Figure 10:</b> Macro F2 scores on the test set of BigEarthNet-MM.</i>
-</p>
-
 ## Semantic Segmentation on VHR EO and SAR SpaceNet 6
 
-We further experimented with transfer learning to a timely task to aid in the analysis of the destruction in Ukraine: semantic segmentation of buildings footprints, which is a precursor task to performing building damage assessment. Building damage assessment is of direct interest to government officials, journalists, and human rights organizations aiming to understand the scope and severity of Russia’s attacks against infrastructure and civilian populations.
+We further experimented with transfer learning for a timely task that will aid imagery analysts aiming to understand the destruction in Ukraine: semantic segmentation of buildings footprints, which is a precursor task to performing building damage assessment. Building damage assessment is of direct interest to government officials, journalists, and human rights organizations aiming to understand the scope and severity of Russia’s attacks against infrastructure and civilian populations.
 
 <p style="text-align:center;">
     <img src="https://bair.berkeley.edu/static/blog/maers/maers-vhr-sar-segmentation.png" width="100%">
     <br>
-    <i><b>Figure 11:</b> Example of building segmentation taken from SpaceNet 6, where the image on the left shows the RGB image, and the image on the right shows the SAR image with overlaid segmentation results.</i>
+    <i><b>Figure 10:</b> Example of building SAR-based MAERS segmentation taken from SpaceNet6, where the image on the left shows the RGB image, and the image on the right shows the SAR image with overlaid segmentation results. The SAR image is displayed in false color with VV, VH, and VV/VH bands.</i>
 </p>
 
-For this experiment, we use the SpaceNet 6 dataset as an open and public benchmark to illustrate the effectiveness of our learned representations for building footprint detection with VHR SAR from Capella Space. We use this encoder in tandem with the [UperNet](https://arxiv.org/abs/1807.10221) architecture for semantic segmentation. Figure 9 shows the IoU performance of segmenting building footprints in a held-out validation component of the SpaceNet 6 with **only SAR input imagery**, on a segmentation model that was trained to use either SAR or RGB imagery. The MAERS pretrained model leads to a ~13 point improvement compared to training the RGB+SAR model from scratch or adapting ImageNet weights with the exact same architecture. 
+For this experiment, we used the SpaceNet 6 dataset as an open and public benchmark to illustrate the effectiveness of our learned representations for building footprint detection with VHR SAR from Capella Space. We used this encoder in tandem with the [UperNet](https://arxiv.org/abs/1807.10221) architecture for semantic segmentation. Figure 9 shows the IoU performance of segmenting building footprints in a held-out validation component of the SpaceNet 6 with **only SAR input imagery**, on a segmentation model that was trained to use either SAR or RGB imagery. The MAERS pretrained model leads to a ~13 point improvement compared to training the RGB+SAR model from scratch or adapting ImageNet weights with the exact same architecture. 
 
 This demonstrates that MAERS can learn robust RGB+SAR representations that allow a practitioner to use EO or SAR imagery interchangeably to accomplish downstream tasks. It is important to note that the phenomenology of SAR imagery is not fully conducive for building segmentation and that using EO imagery for this task leads to IoU scores > 90. This leaves a substantial gap yet to be covered by SAR techniques, something we hope to cover in our following paper. However, getting this performance out of SAR is essential when environmental conditions are not conducive to EO imagery capture.
 
 <p style="text-align:center;">
     <img src="https://bair.berkeley.edu/static/blog/maers/maers-segmentation-iou.png" width="100%">
     <br>
-    <i><b>Figure 12:</b> Building segmentation IoU on the SpaceNet 6 Challenge, using an UperNet segmentation model with a ViT backbone. MAERS pretraining leads to ~13 point gain in IoU performance compared to training from scratch or adapting ImageNet pretrained weights.</i>
+    <i><b>Figure 11:</b> Building segmentation IoU on the SpaceNet 6 Challenge, using an UperNet segmentation model with a ViT backbone. MAERS pretraining leads to ~13 point gain in IoU performance compared to training from scratch or adapting ImageNet pretrained weights.</i>
 </p>
 
 These results are preliminary, but compelling. We will follow up this effort with a publication with a detailed set of experiments and benchmarks. Furthermore, we will aid in the transition of our models to our humanitarian partners to enable them to perform change detection over residential and other civilian areas to enable better tracking of war crimes being committed in Ukraine. 
