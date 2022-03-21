@@ -3,7 +3,7 @@ layout:             post
 title:              "Accelerating Ukraine Intelligence Analysis with Computer Vision on Synthetic Aperture Radar Imagery"
 date:               2022-03-21  12:00:00
 author:             <a href="https://ritwikgupta.me/">Ritwik Gupta*</a>, <a href="https://people.eecs.berkeley.edu/~cjrd/">Colorado Reed*</a>, <a href="https://anna-rohrbach.net/">Anja Rohrbach</a>, and <a href="https://people.eecs.berkeley.edu/~trevor/">Trevor Darrell</a> 
-img:                assets/maers/maers.png
+img:                /assets/maers/maers.png
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      False
