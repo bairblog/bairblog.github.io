@@ -5,7 +5,7 @@ date:               2019-10-14 9:00:00
 author:             <a href="https://www.linkedin.com/in/eric-liang-31308019/">Eric Liang</a> and
                     <a href="http://people.eecs.berkeley.edu/~rliaw/">Richard Liaw</a> and
                     <a href="http://people.csail.mit.edu/gehring/">Clement Gehring</a>
-img:                assets/functional/rl_lib.png
+img:                /assets/functional/rl_lib.png
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      True

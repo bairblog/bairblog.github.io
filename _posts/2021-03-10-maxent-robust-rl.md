@@ -3,7 +3,7 @@ layout:             post
 title:              "Maximum Entropy RL (Provably) Solves Some Robust RL Problems"
 date:               2021-03-09  9:00:00
 author:             Ben Eysenbach
-img:                assets/maxent-robust-rl/peg_maxent_screenshot.png
+img:                /assets/maxent-robust-rl/peg_maxent_screenshot.png
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      False

@@ -4,7 +4,7 @@ title:              "Robots that Learn to Adapt"
 date:               2019-05-06 9:00:00
 author:             <a href="https://people.eecs.berkeley.edu/~nagaban2/">Anusha Nagabandi</a> and
                     <a href="https://iclavera.github.io/">Ignasi Clavera</a><br>
-img:                assets/adapt/teaser.png
+img:                /assets/adapt/teaser.png
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      True

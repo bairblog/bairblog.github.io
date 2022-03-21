@@ -3,7 +3,7 @@ layout:             post
 title:              "What Can I Do Here? Learning New Skills by Imagining Visual Affordances"
 date:               2021-09-24  10:00:00
 author:             <a href="">Alexander Khazatsky</a>, <a href="http://ashvin.me/">Ashvin Nair</a>, and <a href="http://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a>
-img:                assets/visual-affordances-robotics/val_preview.png
+img:                /assets/visual-affordances-robotics/val_preview.png
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      False

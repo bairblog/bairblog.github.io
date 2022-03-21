@@ -3,7 +3,7 @@ layout:             post
 title:              "Example Post Title"
 date:               2021-01-01  9:00:00
 author:             <a href="">John Doe</a> and <a href="">Jane Doe</a>
-img:                assets/example_post/image1.png
+img:                /assets/example_post/image1.png
 excerpt_separator:  <!--more-->
 visible:            False
 show_comments:      False

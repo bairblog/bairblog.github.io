@@ -3,7 +3,7 @@ layout:             post
 title:              "A First-Principles Theory of Neural<br>Network Generalization"
 date:               2021-10-25  9:00:00
 author:             <a href="https://james-simon.github.io/">Jamie Simon</a>
-img:                assets/eigenlearning/eigenlearning_blog_post_fig1.mp4
+img:                /assets/eigenlearning/eigenlearning_blog_post_fig1.mp4
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      False

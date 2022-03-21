@@ -3,7 +3,7 @@ layout:             post
 title:              "The Ingredients of Real World Robotic Reinforcement Learning"
 date:               2020-04-27 9:00:00
 author:             <a href="https://people.eecs.berkeley.edu/~abhigupta/">Abhishek Gupta</a>, <a href="https://henryzhu.xyz/">Henry Zhu</a>, <a href="https://justinvyu.github.io/about/">Justin Yu</a>, <a href="https://vikashplus.github.io/">Vikash Kumar</a>, <a href="https://people.eecs.berkeley.edu/~shah/">Dhruv Shah</a>, <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a><br>
-img:                assets/ingredients/03_ingredients_fig.png
+img:                /assets/ingredients/03_ingredients_fig.png
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      True

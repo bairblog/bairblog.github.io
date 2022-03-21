@@ -3,7 +3,7 @@ layout:             post
 title:              "Self-Supervised Policy Adaptation during Deployment"
 date:               2021-02-25  9:00:00
 author:             <a href="https://nicklashansen.github.io/">Nicklas Hansen</a> and <a href="https://xiaolonw.github.io/">Xiaolong Wang</a>
-img:                assets/ss-adaptation/3_framework_1.png
+img:                /assets/ss-adaptation/3_framework_1.png
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      False

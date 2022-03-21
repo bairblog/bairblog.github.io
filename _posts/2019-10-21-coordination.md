@@ -4,7 +4,7 @@ title:              "Collaborating with Humans Requires Understanding Them"
 date:               2019-10-21 9:00:00
 author:             <a href="https://rohinshah.com">Rohin Shah</a> and
                     <a href="https://micahcarroll.github.io/">Micah Carroll</a>
-img:                assets/coordination/8_Training_Diagram.png
+img:                /assets/coordination/8_Training_Diagram.png
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      True

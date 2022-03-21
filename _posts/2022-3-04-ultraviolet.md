@@ -3,7 +3,7 @@ layout:             post
 title:              "All You Need is LUV: Unsupervised Collection of Labeled Images Using UV-Fluorescent Markings"
 date:               2022-02-23  12:00:00
 author:             <a href="https://bthananjeyan.github.io">Brijen Thananjeyan*</a> and <a href="https://kerrj.github.io/">Justin Kerr*</a> 
-img:                assets/luv/img1.png
+img:                /assets/luv/img1.png
 excerpt_separator:  <!--more-->
 visible:            False
 show_comments:      False

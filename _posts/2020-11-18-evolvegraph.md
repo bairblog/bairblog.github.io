@@ -3,7 +3,7 @@ layout:             post
 title:              "EvolveGraph: Dynamic Neural Relational Reasoning for Interacting Systems"
 date:               2020-11-18 9:00:00
 author:             <a href="https://jiachenli94.github.io/">Jiachen Li</a>
-img:                assets/evolvegraph/figure2.png
+img:                /assets/evolvegraph/figure2.png
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      False
