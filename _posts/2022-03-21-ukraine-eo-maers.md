@@ -2,7 +2,7 @@
 layout:             post
 title:              "Accelerating Ukraine Intelligence Analysis with Computer Vision on Synthetic Aperture Radar Imagery"
 date:               2022-03-21  12:00:00
-author:             <a href="http://ritwikgupta.me/">Ritwik Gupta*</a>, <a href="https://people.eecs.berkeley.edu/~cjrd/">Colorado Reed*</a>, <a href="https://anna-rohrbach.net/">Anja Rohrbach</a>, and <a href="https://people.eecs.berkeley.edu/~trevor/">Trevor Darrell</a> 
+author:             <a href="https://ritwikgupta.me/">Ritwik Gupta*</a>, <a href="https://people.eecs.berkeley.edu/~cjrd/">Colorado Reed*</a>, <a href="https://anna-rohrbach.net/">Anja Rohrbach</a>, and <a href="https://people.eecs.berkeley.edu/~trevor/">Trevor Darrell</a> 
 img:                assets/maers/ukraine-clouds-optim.gif
 excerpt_separator:  <!--more-->
 visible:            True
@@ -12,7 +12,7 @@ show_comments:      False
 <!-- twitter -->
 <meta name="twitter:title" content="Accelerating Ukraine Intelligence Analysis with Computer Vision on Synthetic Aperture Radar Imagery">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://localhost:8000/ukraine-clouds-optim.gif">
+<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/maers/ukraine-clouds-optim.gif">
 
 <meta name="keywords" content="ukraine, russia, synthetic aperture radar, sar, semantic segmentation, geoint">
 <meta name="description" content="Creating efficient EO and SAR machine learning models to aid imagery analysis for Ukraine.">
@@ -108,7 +108,7 @@ Radar antennas on SAR satellites often transmit polarized radar waves. The direc
     <i><b>Figure 5:</b> Difference between VH (left) and VV (right) polarizations over the same region in Dnipro, Ukraine from Sentinel-1 radiometric terrain corrected imagery. As seen, the radar returns in corresponding local regions are entirely different.</i>
 </p>
 
-Layover is an effect of foreshortening in which radar beams reach the top of a structure before they reach the bottom, resulting in the top of the object being presented as overlapping with the bottom. This happens when objects are particularly tall. Visually, tall buildings appear as if they are laying on their side, while mountains will have their peaks intersecting with their bases.
+Layover is an effect in which radar beams reach the top of a structure before they reach the bottom, resulting in the top of the object being presented as overlapping with the bottom. This happens when objects are particularly tall. Visually, tall buildings appear as if they are laying on their side, while mountains will have their peaks intersecting with their bases.
 
 <p style="text-align:center;">
     <img src="https://bair.berkeley.edu/static/blog/maers/capella-layover.jpeg" width="100%">
@@ -132,7 +132,9 @@ Imagery analysts are currently relying on both EO and SAR imagery where availabl
 
 At Berkeley AI Research, we have created an initial set of methods and models that have learned robust representations for RGB, SAR, and co-registered RGB + SAR imagery from the publicly released [BigEarthNet-MM dataset](https://bigearth.net) and the data from [Capella’s Open Data](https://www.capellaspace.com/community/capella-open-data/), which consists of both RGB and SAR imagery. As such, using our models, imagery analysts are able to interchangeably use co-registered RGB or SAR imagery (or both, when available) for downstream tasks such as image classification, semantic segmentation, object detection, or change detection.
 
-Given that SAR is a phenomenologically different data source than EO imagery, we have found that the Vision Transformer (ViT) is a particularly effective architecture for representation learning with SAR as it removes the scale and shift invariant inductive biases built into convolutional neural networks. Our top performing method, MAERS, for representation learning on RGB, SAR, and co-registered RGB + SAR builds upon the [Masked Autoencoder](https://arxiv.org/abs/2111.06377) (MAE) recently introduced by He et. al., where the network learns to encode the input data by taking a masked version of the data as input, encoding the data, and then learning to decode the data in such a way that it reconstructs the unmasked input data. Contrary to popular [classes of contrastive learning techniques](https://arxiv.org/abs/2002.05709), the MAE does not presuppose certain augmentation invariances in the data that may be incorrect for SAR features. Instead, it solely relies on reconstructing the original input, which is agnostic to RGB, SAR, or co-registered modalities.
+Given that SAR is a phenomenologically different data source than EO imagery, we have found that the Vision Transformer (ViT) is a particularly effective architecture for representation learning with SAR as it removes the scale and shift invariant inductive biases built into convolutional neural networks. Our top performing method, MAERS, for representation learning on RGB, SAR, and co-registered RGB + SAR builds upon the [Masked Autoencoder](https://arxiv.org/abs/2111.06377) (MAE) recently introduced by He et. al., where the network learns to encode the input data by taking a masked version of the data as input, encoding the data, and then learning to decode the data in such a way that it reconstructs the unmasked input data.
+
+Contrary to popular [classes of contrastive learning techniques](https://arxiv.org/abs/2002.05709), the MAE does not presuppose certain augmentation invariances in the data that may be incorrect for SAR features. Instead, it solely relies on reconstructing the original input, which is agnostic to RGB, SAR, or co-registered modalities. As shown in Figure 8, MAERS further extends MAE by learning independent input projection layers for RGB, SAR, and RGB+SAR channels, encoding the output of these projected layers using a shared ViT, and then decoding to the RGB, SAR, or RGB+SAR channels using independent output projection layers. The input projection layers and shared ViT can then be transferred to downstream tasks, such as object detection or change detection, where the input encoder can then take RGB, SAR, or RGB+SAR as input.
 
 <p style="text-align:center;">
     <img src="https://bair.berkeley.edu/static/blog/maers/maers.png" width="100%">
@@ -140,7 +142,7 @@ Given that SAR is a phenomenologically different data source than EO imagery, we
     <i><b>Figure 8:</b> (top) A visualization of MAERS to learn an optionally joint representation and encoder that can be used for a (bottom) downstream task, such as object detection on either, or both, modalities.</i>
 </p>
 
-Learning representations for RGB, SAR, and co-registered modalities can benefit a range of downstream tasks, such as content-based image retrieval, classification, segmentation, and detection. To demonstrate the effectiveness of our learned representations, we perform experiments on the well-established benchmarks of 1) multi-label classification of co-registered EO and SAR scenes from the [BigEarth-MM](https://bigearth.net/) dataset, and 2) semantic segmentation on the VHR EO and SAR [SpaceNet 6](https://spacenet.ai/sn6-challenge/) dataset.
+Learning representations for RGB, SAR, and co-registered modalities can benefit a range of downstream tasks, such as content-based image retrieval, classification, segmentation, and detection. To demonstrate the effectiveness of our learned representations, we perform experiments on the well-established benchmarks of 1) multi-label classification of co-registered EO and SAR scenes from the [BigEarthNet-MM dataset](https://bigearth.net/), and 2) semantic segmentation on the VHR EO and SAR [SpaceNet 6 dataset](https://spacenet.ai/sn6-challenge/).
 
 ## Multi-Label Classification on BigEarth-MM
 
@@ -150,23 +152,45 @@ Learning representations for RGB, SAR, and co-registered modalities can benefit 
     <i><b>Figure 9:</b> (left) co-registered Sentinel-2 EO and Sentinel-1 SAR imagery are patchified and used to perform a multi-label classification task as specified by the BigEarth-MM challenge. A linear layer is added to our multi-modal encoder and then fine-tuned end-to-end.</i>
 </p>
 
-MAERS begins with a set of ImageNet weights for a ViT-Base encoder. We follow through with the MAERS training process on the BigEarthNet-MM dataset for 20 epochs, reconstructing masked RGB, SAR, and RGB+SAR imagery with the standard MAE masking ratio. We append a single Linear layer to the MAERS encoder and learn the multi-label classification task by 1) linear probing and 2) fine-tuning the entire model, each for 20 epochs. Our results are shown in Table 1. MAERS with linear probing convincingly beats transfer learning from ImageNet at a fraction of the training cost. MAERS with fine-tuning convincingly beats SOTA as presented in the BigEarthNet-MM paper.
+MAERS is initialized with a set of ImageNet weights for a ViT-Base encoder, followed by pretraining on the BigEarthNet-MM dataset for 20 epochs with RGB, SAR, and RGB+SAR imagery. We append a single Linear layer to the MAERS encoder and learn the multi-label classification task by fine-tuning the entire modelfor 20 epochs (linear probe experimental results show similar results, as we will show in our upcoming paper). Our results are shown in Table 1. MAERS with fine-tuning outperforms the best RGB+SAR results as presented in the BigEarthNet-MM paper, and show that adapting the State-of-the-Art MAE architecture for representation learning for RGB, SAR, and RGB+SAR input modalities leads to State-of-the-Art results.
 
 <p style="text-align:center;">
     <img src="https://bair.berkeley.edu/static/blog/maers/maers-table.png" width="100%">
     <br>
-    <i><b>Table 1:</b> Reported F2 scores on the validation set of BigEarthNet-MM.</i>
+    <i><b>Table 1:</b> Reported per-class F2 scores on the test set of BigEarthNet-MM.</i>
 </p>
 
-## Semantic segmentation on VHR EO and SAR SpaceNet 6
+On average, we outperform the state-of-the-art multilabel classification method presented in the BigEarthNet-MM paper by a confident margin with only fine tuning. Macro F2 scores on the test set are presented in Figure 10 below.
 
-We then focus our attention on semantic segmentation of buildings as damaged/not-damaged as this particular task is of direct interest to researchers and reporting agencies aiming to understand the scope and severity of Russia’s attacks. We rely on the [SpaceNet6](https://spacenet.ai) dataset as an open and public benchmark to illustrate the effectiveness of our learned representations for building footprint detection with VHR SAR. We use this encoder in tandem with the [UperNet](https://arxiv.org/abs/1807.10221) architecture for semantic segmentation. We demonstrate that we are able to learn robust representations that allow a practitioner to use RGB or SAR imagery interchangeably to accomplish downstream tasks.
+<p style="text-align:center;">
+    <img src="https://bair.berkeley.edu/static/blog/maers/maers-macro-f2.png" width="100%">
+    <br>
+    <i><b>Figure 10:</b> Macro F2 scores on the test set of BigEarthNet-MM.</i>
+</p>
 
-[[Plot showing and explaining the semantic segmentation of SpaceNet6]]
+## Semantic Segmentation on VHR EO and SAR SpaceNet 6
 
-These results are preliminary, but compelling. We will follow up this effort with a thorough set of experiments and benchmarks as well as a paper detailing our work. We will aid in the transition of our models to our humanitarian partners to enable them to perform change detection over residential and other civilian areas to enable better tracking of war crimes being committed in Ukraine. 
+We further experimented with transfer learning to a timely task to aid in the analysis of the destruction in Ukraine: semantic segmentation of buildings footprints, which is a precursor task to performing building damage assessment. Building damage assessment is of direct interest to government officials, journalists, and human rights organizations aiming to understand the scope and severity of Russia’s attacks against infrastructure and civilian populations.
 
-These models are created with the goal of increasing the efficacy of organizations involved in humanitarian missions that are keeping a watchful eye on the war in Ukraine. However, as with any technology, it is our responsibility to understand how this technology could be misused. Therefore, we have designed these models with input from partners who perform intelligence and imagery analysis in humanitarian settings. By taking their thoughts, comments, and critiques into account, we are releasing a capability we are confident will be used for the good of humanity and with processes which dictate their safe and responsible use.
+<p style="text-align:center;">
+    <img src="https://bair.berkeley.edu/static/blog/maers/maers-vhr-sar-segmentation.png" width="100%">
+    <br>
+    <i><b>Figure 11:</b> Example of building segmentation taken from SpaceNet 6, where the image on the left shows the RGB image, and the image on the right shows the SAR image with overlaid segmentation results.</i>
+</p>
+
+For this experiment, we use the SpaceNet 6 dataset as an open and public benchmark to illustrate the effectiveness of our learned representations for building footprint detection with VHR SAR from Capella Space. We use this encoder in tandem with the [UperNet](https://arxiv.org/abs/1807.10221) architecture for semantic segmentation. Figure 9 shows the IoU performance of segmenting building footprints in a held-out validation component of the SpaceNet 6 with **only SAR input imagery**, on a segmentation model that was trained to use either SAR or RGB imagery. The MAERS pretrained model leads to a ~13 point improvement compared to training the RGB+SAR model from scratch or adapting ImageNet weights with the exact same architecture. 
+
+This demonstrates that MAERS can learn robust RGB+SAR representations that allow a practitioner to use EO or SAR imagery interchangeably to accomplish downstream tasks. It is important to note that the phenomenology of SAR imagery is not fully conducive for building segmentation and that using EO imagery for this task leads to IoU scores > 90. This leaves a substantial gap yet to be covered by SAR techniques, something we hope to cover in our following paper. However, getting this performance out of SAR is essential when environmental conditions are not conducive to EO imagery capture.
+
+<p style="text-align:center;">
+    <img src="https://bair.berkeley.edu/static/blog/maers/maers-segmentation-iou.png" width="100%">
+    <br>
+    <i><b>Figure 12:</b> Building segmentation IoU on the SpaceNet 6 Challenge, using an UperNet segmentation model with a ViT backbone. MAERS pretraining leads to ~13 point gain in IoU performance compared to training from scratch or adapting ImageNet pretrained weights.</i>
+</p>
+
+These results are preliminary, but compelling. We will follow up this effort with a publication with a detailed set of experiments and benchmarks. Furthermore, we will aid in the transition of our models to our humanitarian partners to enable them to perform change detection over residential and other civilian areas to enable better tracking of war crimes being committed in Ukraine. 
+
+These models are created with the goal of increasing the efficacy of organizations involved in humanitarian missions that are keeping a watchful eye on the war in Ukraine. However, as with any technology, it is our responsibility to understand how this technology could be misused. Therefore, we have designed these models with input from partners who perform intelligence and imagery analysis in humanitarian settings. By taking into account their thoughts, comments, and critiques, we are releasing a capability we are confident will be used for the good of humanity and with processes which dictate their safe and responsible use.
 
 ## Call to Action
 
