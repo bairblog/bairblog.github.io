@@ -3,7 +3,7 @@ layout:             post
 title:              "CVPR 2019 Challenges on Domain Adaptation in Autonomous Driving"
 date:               2019-03-27 9:00:00
 author:             <a href="https://www.yf.io/">Fisher Yu</a>
-img:                assets/BAIR_Logo.png
+img:                /assets/BAIR_Logo.png
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      True

@@ -3,7 +3,7 @@ layout:             post
 title:              "Updates and Lessons from AI Forecasting"
 date:               2021-10-14  9:00:00
 author:             <a href="https://jsteinhardt.stat.berkeley.edu/">Jacob Steinhardt</a>
-img:                assets/forecasting/hypermind_incumbents.png
+img:                /assets/forecasting/hypermind_incumbents.png
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      False

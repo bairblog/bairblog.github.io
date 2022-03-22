@@ -3,7 +3,7 @@ layout:             post
 title:              "Pretrained Transformers as Universal Computation Engines"
 date:               2021-03-23  9:00:00
 author:             <a href="https://kzl.github.io/">Kevin Lu</a>, <a href="https://aditya-grover.github.io/">Aditya Grover</a>, <a href="https://people.eecs.berkeley.edu/~pabbeel/">Pieter Abbeel</a>, and Igor Mordatch
-img:                assets/universal-computation/attention_visual.png
+img:                /assets/universal-computation/attention_visual.png
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      False
