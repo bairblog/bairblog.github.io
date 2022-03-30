@@ -5,7 +5,7 @@ date:               2022-03-30  12:00:00
 author:             
 img:                /assets/ieee_misinfo/open_letter.png
 excerpt_separator:  <!--more-->
-visible:            True
+visible:            False
 show_comments:      False
 ---
 
