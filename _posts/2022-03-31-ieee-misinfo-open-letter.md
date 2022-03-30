@@ -1,7 +1,7 @@
 ---
 layout:             post
 title:              "Open Letter: IEEE Spectrum Editors Apparently Fell for Russian Propaganda"
-date:               2022-03-30  12:00:00
+date:               2022-03-31  12:00:00
 author:             
 img:                /assets/ieee_misinfo/open_letter.png
 excerpt_separator:  <!--more-->
