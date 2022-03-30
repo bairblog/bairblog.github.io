@@ -12,6 +12,7 @@ show_comments:      False
 <!-- twitter -->
 <meta name="twitter:title" content="Open Letter: IEEE Spectrum Editors Apparently Fell for Russian Propaganda. Please, read, sign, share!">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/ieee_misinfo/open_letter.png">
 
 <meta name="keywords" content="ieee spectrum, ieee, russia ukraine war, propaganda, misinformation">
 <meta name="description" content="Open Letter: IEEE Spectrum Editors Apparently Fell for Russian Propaganda">
