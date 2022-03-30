@@ -14,8 +14,8 @@ show_comments:      False
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/ieee_misinfo/open_letter.png">
 
-<meta name="keywords" content="ieee spectrum, ieee, russia ukraine war, propaganda, misinformation">
-<meta name="description" content="Open Letter: IEEE Spectrum Editors Apparently Fell for Russian Propaganda">
+<meta name="og:keywords" content="ieee spectrum, ieee, russia ukraine war, propaganda, misinformation">
+<meta name="og:description" content="The undersigned believe that a piece published by IEEE Spectrum is furthering misinformation and Russian propaganda. We request a revision and other actions.">
 <meta name="author" content="Anja Rohrbach, Olena Chubach, Karina Ngyuen, Alyosha Efros, Trevor Darrell">
 
 <!-- body -->
