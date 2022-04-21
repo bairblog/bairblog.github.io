@@ -3,7 +3,7 @@ layout:             post
 title:              "Estimating the fatality rate is difficult but doable with better data"
 date:               2020-08-03 9:00:00
 author:             <a href="https://people.eecs.berkeley.edu/~angelopoulos/">Anastasios Angelopoulos</a>, <a href="https://people.eecs.berkeley.edu/~pathakr/">Reese Pathak</a>, and <a href="https://people.eecs.berkeley.edu/~jordan/">Michael Jordan</a>
-img:                assets/cfr/graphical-model.png
+img:                /assets/cfr/graphical-model.png
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      True

@@ -3,7 +3,7 @@ layout:             post
 title:              "The Successor Representation, $\\gamma$-Models,<br> and Infinite-Horizon Prediction"
 date:               2021-01-05  9:00:00
 author:             <a href="https://people.eecs.berkeley.edu/~janner/">Michael Janner</a>
-img:                assets/successor/gamma-teaser.png
+img:                /assets/successor/gamma-teaser.png
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      False

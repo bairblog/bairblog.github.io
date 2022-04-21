@@ -3,7 +3,7 @@ layout:             post
 title:              "Making Decision Trees Accurate Again: Explaining What Explainable AI Did Not"
 date:               2020-04-23 9:00:00
 author:             <a href="https://alvinwan.com">Alvin Wan</a>
-img:                assets/decisions/decision_Trees.jpeg
+img:                /assets/decisions/decision_Trees.jpeg
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      True

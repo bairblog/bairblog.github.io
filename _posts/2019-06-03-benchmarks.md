@@ -3,7 +3,7 @@ layout:             post
 title:              "Autonomous Vehicles for Social Good: Learning to Solve Congestion"
 date:               2019-06-03 9:00:00
 author:             Eugene Vinitsky
-img:                assets/benchmarks/figure_eight.png
+img:                /assets/benchmarks/figure_eight.png
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      True

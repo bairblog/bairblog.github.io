@@ -3,7 +3,7 @@ layout:             post
 title:              "Evaluating and Testing Unintended Memorization in Neural Networks"
 date:               2019-08-13 12:00:00
 author:             Nicholas Carlini
-img:                assets/memorization/mem_over_train_short.png
+img:                /assets/memorization/mem_over_train_short.png
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      True

@@ -3,7 +3,7 @@ layout:             post
 title:              "Announcing the BAIR Open Research Commons"
 date:               2019-03-24 9:00:00
 author:             ""
-img:                assets/bair-commons/berkeley_way-west_web_1.jpg
+img:                /assets/bair-commons/berkeley_way-west_web_1.jpg
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      False

@@ -4,7 +4,7 @@ title:              "Learning to Imitate Human Demonstrations via CycleGAN"
 date:               2019-12-13 9:00:00
 author:             <a href="https://lauramsmith.github.io/">Laura Smith</a> and
                     <a href="http://marvinzhang.com/">Marvin Zhang</a>
-img:                assets/humans-cyclegan/setup.png
+img:                /assets/humans-cyclegan/setup.png
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      True

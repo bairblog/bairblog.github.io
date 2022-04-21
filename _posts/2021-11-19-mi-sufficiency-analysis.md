@@ -3,7 +3,7 @@ layout:             post
 title:              "Which Mutual Information Representation Learning Objectives are Sufficient for Control?"
 date:               2021-11-19  9:00:00
 author:             <a href="https://katerakelly.github.io/">Kate Rakelly</a>
-img:                assets/mi_sufficiency_analysis/image1.png
+img:                /assets/mi_sufficiency_analysis/image1.png
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      False

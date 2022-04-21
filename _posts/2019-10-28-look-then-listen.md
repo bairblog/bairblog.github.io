@@ -3,7 +3,7 @@ layout:             post
 title:              "Look then Listen: Pre-Learning Environment Representations for Data-Efficient Neural Instruction Following"
 date:               2019-10-28 9:00:00
 author:             <a href="https://dgaddy.github.io/">David Gaddy</a>
-img:                assets/look-then-listen/training_example.PNG
+img:                /assets/look-then-listen/training_example.PNG
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      True

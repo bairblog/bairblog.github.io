@@ -3,7 +3,7 @@ layout:             post
 title:              "Deep Dynamics Models for Dexterous Manipulation"
 date:               2019-09-30 9:00:00
 author:             <a href="https://people.eecs.berkeley.edu/~nagaban2/">Anusha Nagabandi</a>
-img:                assets/deep-dynamics/image10.png
+img:                /assets/deep-dynamics/image10.png
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      True
