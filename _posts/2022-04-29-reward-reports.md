@@ -2,7 +2,7 @@
 layout:             post
 title:              "Designing Societally Beneficial Reinforcement Learning Systems"
 date:               2022-04-29  12:00:00
-author:             <a href="https://www.natolambert.com/">Nathan Lambert</a>, <a href="https://aaronsnoswell.github.io/">Aaron Snoswell</a>, <a href="https://sdean.website/">Sarah Dean</a>, <a href="https://www.thomaskrendlgilbert.com/">Thomas Krendle Gilbert</a>, <a href="https://www.linkedin.com/in/tom-zick/">Tom Zick</a> 
+author:             <a href="https://www.natolambert.com/">Nathan Lambert</a>, <a href="https://aaronsnoswell.github.io/">Aaron Snoswell</a>, <a href="https://sdean.website/">Sarah Dean</a>, <a href="https://www.thomaskrendlgilbert.com/">Thomas Krendl Gilbert</a>, <a href="https://www.linkedin.com/in/tom-zick/">Tom Zick</a> 
 img:                /assets/reward-reports/fb-exo.png #TODO NOL
 excerpt_separator:  <!--more-->
 visible:            True
