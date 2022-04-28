@@ -1,7 +1,7 @@
 ---
 layout:             post
 title:              "Rethinking Human-in-the-Loop for Artificial Augmented Intelligence"
-date:               2022-04-27  13:55:00
+date:               2022-05-03  13:55:00
 author:             <a href="https://github.com/zhmiao">Zhongqi Miao</a> and <a href="https://liuziwei7.github.io/">Ziwei Liu</a>
 img:                /assets/human-in-the-loop/image3.png
 excerpt_separator:  <!--more-->
