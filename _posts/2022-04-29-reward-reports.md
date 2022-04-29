@@ -37,8 +37,8 @@ Reinforcement learning systems are often spotlighted for their ability to act in
 
 First is control feedback - in the control systems engineering sense - where the action taken depends on the current measurements of the state of the system. RL agents choose actions based on an observed state according to a policy, which generates environmental feedback. For example, a thermostat turns on a furnace according to the current temperature measurement. Control feedback gives an agent the ability to react to unforeseen events (e.g. a sudden snap of cold weather) autonomously.
 
-<p style="text-align:center;float:right">
-<img src="https://bair.berkeley.edu/static/blog/reward-reports/fb-control.png" width="100%">
+<p style="text-align:center;float:center">
+<img src="https://bair.berkeley.edu/static/blog/reward-reports/fb-control.png" width="60%">
 <br>
 <i>Figure 1: Control Feedback.</i>
 </p>
@@ -48,8 +48,8 @@ First is control feedback - in the control systems engineering sense - where the
 
 Next in our taxonomy of RL feedback is ‘behavioral feedback’: the trial and error learning that enables an agent to improve its policy through interaction with the environment. This could be considered the defining feature of RL, as compared to e.g. ‘classical’ control theory. Policies in RL can be defined by a set of parameters that determine the actions the agent takes in the future. Because these parameters are updated through behavioral feedback, these are actually a reflection of the data collected from executions of past policy versions. RL agents are not fully ‘memoryless’ in this respect–the current policy depends on stored experience, and impacts newly collected data, which in turn impacts future versions of the agent. To continue the thermostat example - a ‘smart home’ thermostat might analyze historical temperature measurements and adapt its control parameters in accordance with seasonal shifts in temperature, for instance to have a more aggressive control scheme during winter months.
 
-<p style="text-align:center;float:right">
-<img src="https://bair.berkeley.edu/static/blog/reward-reports/fb-behavioral.png" width="100%">
+<p style="text-align:center;float:center">
+<img src="https://bair.berkeley.edu/static/blog/reward-reports/fb-behavioral.png" width="70%">
 <br>
 <i>Figure 2: Behavioral Feedback.</i>
 </p>
@@ -62,8 +62,8 @@ To continue the thermostat example, as a 'smart thermostat' continues to adapt i
 
 Negative costs of these external effects will not be specified in the agent-centric reward function, leaving these external environments to be manipulated or exploited. Exo-feedback is by definition difficult for a designer to predict. Instead, we propose that it should be addressed by documenting the evolution of the agent, the targeted environment, and adjacent environments.
 
-<p style="text-align:center;float:right">
-<img src="https://bair.berkeley.edu/static/blog/reward-reports/fb-exo.png" width="100%">
+<p style="text-align:center;float:center">
+<img src="https://bair.berkeley.edu/static/blog/reward-reports/fb-exo.png" width="80%">
 <br>
 <i>Figure 3: Exogenous (exo) Feedback.</i>
 </p>
@@ -76,18 +76,19 @@ Let's consider how two key properties can lead to failure modes specific to RL s
 
 First is decision-time safety. One current practice in RL research to create safe decisions is to augment the agent’s reward function with a penalty term for certain harmful or undesirable states and actions. For example, in a robotics domain we might penalize certain actions (such as extremely large torques) or state-action tuples (such as carrying a glass of water over sensitive equipment). However it is difficult to anticipate where on a pathway an agent may encounter a crucial action, such that failure would result in an unsafe event. This aspect of how reward functions interact with optimizers is especially problematic for deep learning systems, where numerical guarantees are challenging.
 
-<p style="text-align:center;float:right">
-<img src="https://bair.berkeley.edu/static/blog/reward-reports/decision.png" width="100%">
+<p style="text-align:center;float:center">
+<img src="https://bair.berkeley.edu/static/blog/reward-reports/decision.png" width="90%">
 <br>
 <i>Figure 4: Decision time failure illustration.</i>
 </p>
+
 
 As an RL agent collects new data and the policy adapts, there is a complex interplay between current parameters, stored data, and the environment that governs evolution of the system. Changing any one of these three sources of information will change the future behavior of the agent, and moreover these three components are deeply intertwined. This uncertainty makes it difficult to back out the cause of failures or successes.
 
 In domains where many behaviors can possibly be expressed, the RL specification leaves a lot of factors constraining behavior unsaid. For a robot learning locomotion over an uneven environment, it would be useful to know what signals in the system indicate it will learn to find an easier route rather than a more complex gait. In complex situations with less well-defined reward functions, these intended or unintended behaviors will encompass a much broader range of capabilities, which may or may not have been accounted for by the designer.
 
-<p style="text-align:center;float:right">
-<img src="https://bair.berkeley.edu/static/blog/reward-reports/behavior.png" width="100%">
+<p style="text-align:center;float:center">
+<img src="https://bair.berkeley.edu/static/blog/reward-reports/behavior.png" width="80%">
 <br>
 <i>Figure 5: Behavior estimation failure illustration.</i>
 </p>
@@ -103,28 +104,30 @@ Here, we discuss four types of design choices an RL designer must make, and how 
 
 Determining the timescale on which aRL agent can plan impacts the possible and actual behavior of that agent. In the lab, it may be common to tune the horizon length until the desired behavior is achieved. But in real world systems, optimizations will externalize costs depending on the defined horizon. For example, an RL agent controlling an autonomous vehicle will have very different goals and behaviors if the task is to stay in a lane,  navigate a contested intersection, or route across a city to a destination. This is true even if the objective (e.g. “minimize travel time”) remains the same.
 
-<p style="text-align:center;float:right">
+<p style="text-align:center;float:center">
 <img src="https://bair.berkeley.edu/static/blog/reward-reports/horizon.png" width="100%">
 <br>
 <i>Figure 6: Scoping the horizon example with an autonomous vehicle.</i>
 </p>
 
+
 ## Defining Rewards
 
-A second design choice is that of actually specifying the reward function to be maximized. This immediately raises the well-known risk of RL systems, `reward hacking`, where the designer and agent negotiate behaviors based on specified reward functions. In a deployed RL system, this often results in unexpected exploitative behavior – from [bizarre video game agents](https://openai.com/blog/faulty-reward-functions/) to [causing errors in robotics simulators](https://bair.berkeley.edu/blog/2021/04/19/mbrl/). For example, if an agent is presented with the problem of navigating a maze to reach the far side, a mis-specified reward might result in the agent avoiding the task entirely to minimize the time taken.
+A second design choice is that of actually specifying the reward function to be maximized. This immediately raises the well-known risk of RL systems, reward hacking, where the designer and agent negotiate behaviors based on specified reward functions. In a deployed RL system, this often results in unexpected exploitative behavior – from [bizarre video game agents](https://openai.com/blog/faulty-reward-functions/) to [causing errors in robotics simulators](https://bair.berkeley.edu/blog/2021/04/19/mbrl/). For example, if an agent is presented with the problem of navigating a maze to reach the far side, a mis-specified reward might result in the agent avoiding the task entirely to minimize the time taken.
 
-<p style="text-align:center;float:right">
+<p style="text-align:center;float:center">
 <img src="https://bair.berkeley.edu/static/blog/reward-reports/reward-shaping.png" width="100%">
 <br>
 <i>Figure 7: Defining rewards example with maze navigation.</i>
 </p>
 
+
 ## Pruning Information
 
 A common practice in RL research is to redefine the environment to fit one’s needs – RL designers make numerous explicit and implicit assumptions to model tasks in a way that makes them amenable to virtual RL agents. In highly structured domains, such as video games, this can be rather benign.However, in the real world redefining the environment amounts to changing the ways information can flow between the world and the RL agent. This can dramatically change the meaning of the reward function and offload risk to external systems. For example, an autonomous vehicle with sensors focused only on the road surface shifts the burden from AV designers to pedestrians. In this case, the designer is pruning out information about the surrounding environment that is actually crucial to robustly safe integration within society.
 
-<p style="text-align:center;float:right">
-<img src="https://bair.berkeley.edu/static/blog/reward-reports/info-shaping.png" width="100%">
+<p style="text-align:center;float:center">
+<img src="https://bair.berkeley.edu/static/blog/reward-reports/info-shaping.png" width="80%">
 <br>
 <i>Figure 8: Information shaping example with an autonomous vehicle.</i>
 </p>
@@ -133,8 +136,8 @@ A common practice in RL research is to redefine the environment to fit one’s n
 
 There is growing interest in the problem of [multi-agent RL](https://bair.berkeley.edu/blog/2021/07/14/mappo/), but as an emerging research area, little is known about how learning systems interact within dynamic environments. When the relative concentration of autonomous agents increases within an environment, the terms these agents optimize for can actually re-wire norms and values encoded in that specific application domain. An example would be the changes in behavior that will come if the majority of vehicles are autonomous and communicating (or not) with each other. In this case, if the agents have autonomy to optimize toward a goal of minimizing transit time (for example), they could crowd out the remaining human drivers and heavily disrupt accepted societal norms of transit.
 
-<p style="text-align:center;float:right">
-<img src="https://bair.berkeley.edu/static/blog/reward-reports/multi-agent.png" width="100%">
+<p style="text-align:center;float:center">
+<img src="https://bair.berkeley.edu/static/blog/reward-reports/multi-agent.png" width="80%">
 <br>
 <i>Figure 9: The risks of multi-agency example on autonomous vehicles.</i>
 </p>
@@ -150,8 +153,8 @@ Our proposed template for a Reward Reports consists of several sections, arrange
 The most important feature of a Reward Report is that it allows documentation to evolve over time, in step with the temporal evolution of an online, deployed RL system! This is most evident in the change-log, which is we locate at the end of our Reward Report template:
 
 
-<p style="text-align:center;float:right">
-<img src="https://bair.berkeley.edu/static/blog/reward-reports/rr-contents.png" width="60%">
+<p style="text-align:center;float:center">
+<img src="https://bair.berkeley.edu/static/blog/reward-reports/rr-contents.png" width="80%">
 <br>
 <i>Figure 10: Reward Reports contents.</i>
 </p>
