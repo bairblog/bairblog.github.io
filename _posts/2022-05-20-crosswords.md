@@ -18,7 +18,7 @@ show_comments:      False
 <meta name="description" content="Building the world's best automated crossword solver">
 <meta name="author" content="Eric Wallace, Nicholas Tomlin, Albert Xu, Kevin Yang, Eshaan Pathak">
 
-We recently built the Berkeley Crossword Solver (BCS), the first computer program to beat every human competitor in the world’s top crossword tournament. The BCS combines neural question answering and probabilistic inference to achieve near-perfect performance on most American-style crossword puzzles, like the one shown below:
+We recently published the Berkeley Crossword Solver (BCS), the current state of the art for solving American-style crossword puzzles. The BCS combines neural question answering and probabilistic inference to achieve near-perfect performance on most American-style crossword puzzles, like the one shown below:
 
 <p style="text-align:center;">
     <img src="https://bair.berkeley.edu/static/blog/crosswords/fig1.png"
@@ -29,9 +29,11 @@ Figure 1: Example American-style crossword puzzle
 </i>
 </p>
 
-Crosswords are challenging for humans and computers alike. Many clues are vague or underspecified and can’t be answered until crossing constraints are taken into account. While some clues are similar to factoid question answering, others require relational reasoning or understanding difficult wordplay.
+An earlier version of the BCS, in conjunction with Dr.Fill, was the first computer program to outscore all human competitors in the world's top crossword tournament. The most recent version is the current top-performing system on crossword puzzles from The New York Times, acheiving 99.7% letter accuracy (see the [technical paper](https://arxiv.org/abs/2205.09665), [web demo](https://berkeleycrosswordsolver.com), and [code release](https://github.com/albertkx/Berkeley-Crossword-Solver)).
 
 <!--more-->
+
+Crosswords are challenging for humans and computers alike. Many clues are vague or underspecified and can’t be answered until crossing constraints are taken into account. While some clues are similar to factoid question answering, others require relational reasoning or understanding difficult wordplay.
 
 Here are a handful of example clues from our dataset (answers at the bottom of this post):
 * They’re given out at Berkeley’s HAAS School (4)
@@ -53,7 +55,7 @@ Figure 2: Architecture diagram of the Berkeley Crossword Solver
 </i>
 </p>
 
-The BCS’s question answering model is based on DPR [Karpukhin et al., 2020], which is a bi-encoder model typically used to retrieve passages that are relevant to a given question. Rather than passages, however, our approach maps both questions and answers into a shared embedding space and finds answers directly. Compared to the previous state-of-the-art method for answering crossword clues, this approach obtained a 13.4% absolute improvement in top-1000 QA accuracy. We conducted a manual error analysis and found that our QA model typically performed well on questions involving knowledge, commonsense reasoning, and definitions, but it often struggled to understand wordplay or theme-related clues.
+The BCS’s question answering model is based on DPR (Karpukhin et al., 2020), which is a bi-encoder model typically used to retrieve passages that are relevant to a given question. Rather than passages, however, our approach maps both questions and answers into a shared embedding space and finds answers directly. Compared to the previous state-of-the-art method for answering crossword clues, this approach obtained a 13.4% absolute improvement in top-1000 QA accuracy. We conducted a manual error analysis and found that our QA model typically performed well on questions involving knowledge, commonsense reasoning, and definitions, but it often struggled to understand wordplay or theme-related clues.
 
 After running the QA model on each clue, the BCS runs loopy belief propagation to iteratively update the answer probabilities in the grid. This allows information from high confidence predictions to propagate to more challenging clues. After belief propagation converges, the BCS obtains an initial puzzle solution by greedily taking the highest likelihood answer at each position. 
 
@@ -76,12 +78,12 @@ We evaluated the BCS on puzzles from five major crossword publishers, including 
     width="90%">
     <br>
 <i>
-Figure 4: Results compared to previous state-of-the-art Dr. Fill
+Figure 4: Results compared to previous state-of-the-art Dr.Fill
 </i>
 </p>
 
 # Winning The American Crossword Puzzle Tournament
-The American Crossword Puzzle Tournament (ACPT) is the largest and longest-running crossword tournament and is organized by Will Shortz, the New York Times crossword editor. Two prior approaches to computer crossword solving gained mainstream attention and competed in the ACPT: Proverb and Dr. Fill. Proverb is a 1998 system that ranked 213th out of 252 competitors in the tournament. Dr. Fill’s first competition was in ACPT 2012, and it ranked 141st out of 650 competitors. We teamed up with Dr. Fill’s creator Matt Ginsberg and combined an early version of our QA system with Dr. Fill’s search procedure to win first place in the 2021 ACPT against over a thousand competitors. Our submission solved all seven puzzles in under a minute, missing just three letters across two puzzles.
+The American Crossword Puzzle Tournament (ACPT) is the largest and longest-running crossword tournament and is organized by Will Shortz, the New York Times crossword editor. Two prior approaches to computer crossword solving gained mainstream attention and competed in the ACPT: Proverb and Dr.Fill. Proverb is a 1998 system that ranked 213th out of 252 competitors in the tournament. Dr.Fill’s first competition was in ACPT 2012, and it ranked 141st out of 650 competitors. We teamed up with Dr.Fill’s creator Matt Ginsberg and combined an early version of our QA system with Dr.Fill’s search procedure to outscore all 1033 human competitors in the 2021 ACPT. Our joint submission solved all seven puzzles in under a minute, missing just three letters across two puzzles.
 
 <p style="text-align:center;">
     <img src="https://bair.berkeley.edu/static/blog/crosswords/fig5.png"
