@@ -29,7 +29,7 @@ Figure 1: Example American-style crossword puzzle
 </i>
 </p>
 
-An earlier version of the BCS, in conjunction with Dr.Fill, was the first computer program to outscore all human competitors in the world's top crossword tournament. The most recent version is the current top-performing system on crossword puzzles from The New York Times, acheiving 99.7% letter accuracy (see the [technical paper](https://arxiv.org/abs/2205.09665), [web demo](https://berkeleycrosswordsolver.com), and [code release](https://github.com/albertkx/Berkeley-Crossword-Solver)).
+An earlier version of the BCS, in conjunction with Dr.Fill, was the first computer program to outscore all human competitors in the world's top crossword tournament. The most recent version is the current top-performing system on crossword puzzles from The New York Times, achieving 99.7% letter accuracy (see the [technical paper](https://arxiv.org/abs/2205.09665), [web demo](https://berkeleycrosswordsolver.com), and [code release](https://github.com/albertkx/Berkeley-Crossword-Solver)).
 
 <!--more-->
 
