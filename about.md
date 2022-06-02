@@ -30,13 +30,13 @@ with faculty advisor [Sergey Levine][4].
 
 We gratefully acknowledge the contributions of former board members:
 
+* [Daniel Seita][5] (Founding Editor)
 * [Yuqing Du][17]
 * [Atsunobu Kotani][15]
 * [Brijen Thananjeyan][16]
 * [Erin Grant][13]
 * [Jacky Liang][12]
 * [Jane Liang][8]
-* [Daniel Seita][5]
 * [Dequan Wang][6]
 * [Harry Huazhe Xu][7]
 
