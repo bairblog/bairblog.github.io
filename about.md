@@ -19,19 +19,24 @@ once every two weeks.
 
 The editorial board consists of the following members:
 
-* [Yuqing Du][17]
+* [Ritwik Gupta][18] (Editor-in-Chief)
+* [Hellina Hailu Nigatu][19]
+* Sukanya Kudva
+* [Peter Wu][20]
 * [Chloe Hsu][14]
-* [Atsunobu Kotani][15]
-* [Brijen Thananjeyan][16]
+
 
 with faculty advisor [Sergey Levine][4]. 
 
 We gratefully acknowledge the contributions of former board members:
 
+* [Daniel Seita][5] (Founding Editor)
+* [Yuqing Du][17]
+* [Atsunobu Kotani][15]
+* [Brijen Thananjeyan][16]
 * [Erin Grant][13]
 * [Jacky Liang][12]
 * [Jane Liang][8]
-* [Daniel Seita][5]
 * [Dequan Wang][6]
 * [Harry Huazhe Xu][7]
 
@@ -79,3 +84,6 @@ Artificial Intelligence Research for hosting support.
 [15]:http://www.atsunobukotani.com/about
 [16]:https://bthananjeyan.github.io/
 [17]:https://yuqingd.github.io/
+[18]:https://ritwikgupta.me/
+[19]:https://hhnigatu.github.io/
+[20]:https://peter.onrender.com/
