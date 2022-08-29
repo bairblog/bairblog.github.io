@@ -1,7 +1,7 @@
 ---
 layout:             post
 title:              "Reverse engineering the NTK: towards first-principles architecture design"
-date:               2022-09-01  9:00:00
+date:               2022-08-29  16:00:00
 author:             <a href="https://james-simon.github.io/">Jamie Simon</a>
 img:                /assets/reverse-engineering/rev_eng_fig1.png
 excerpt_separator:  <!--more-->
