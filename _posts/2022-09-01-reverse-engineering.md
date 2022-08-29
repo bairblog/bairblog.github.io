@@ -23,7 +23,7 @@ show_comments:      False
 </p>
 <p style="margin-left:20%; margin-right:20%;">
 <small>
-<i> <b>Fig 1.</b> Foundational works showed how to find the kernel corresponding to a wide network. We find the inverse mapping, showing how to find the wide network corresponding to a given kernel. </i>
+<i> Foundational works showed how to find the kernel corresponding to a wide network. We find the inverse mapping, showing how to find the wide network corresponding to a given kernel. </i>
 </small>
 </p>
 
@@ -33,8 +33,6 @@ Deep neural networks have enabled technological wonders ranging from voice recog
 The development of tools and methods to guide this process is one of the grand challenges of deep learning theory.
 In [Reverse Engineering the Neural Tangent Kernel](https://arxiv.org/abs/2106.03186), we propose a paradigm for bringing some principle to the art of architecture design using recent theoretical breakthroughs: first design a good kernel function -- often a much easier task -- and then "reverse-engineer" a net-kernel equivalence to translate the chosen kernel into a neural network.
 Our main theoretical result enables the design of activation functions from first principles, and we use it to create one activation function that mimics deep $$\textrm{ReLU}$$ network performance with just one hidden layer and another that soundly outperforms deep $$\textrm{ReLU}$$ networks on a synthetic task.
-
-<!-- then *reverse engineer* recently-discovered net-kernel equivalences to translate this kernel into a network architecture. -->
 
 <!--more-->
 
