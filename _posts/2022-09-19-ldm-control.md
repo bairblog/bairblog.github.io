@@ -1,7 +1,7 @@
 ---
 layout:             post
 title:              "Keeping Learning-Based Control Safe by Regulating Distributional Shift"
-date:               2022-09-16  9:00:00
+date:               2022-09-19  9:00:00
 author:             <a href="http://katiekang.com/">Katie Kang</a> 
 img:                assets/ldm_control/header.jpg)
 excerpt_separator:  <!--more-->
