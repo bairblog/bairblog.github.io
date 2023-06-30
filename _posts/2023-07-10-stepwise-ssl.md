@@ -87,4 +87,4 @@ All considered, we’re optimistic about the prospects of future work in the are
 
 <hr>
 
-*This post is based on [the paper](https://arxiv.org/abs/2110.03922) “On the Stepwise Nature of Self-Supervised Learning," which is joint work with Maksis Knutins, Liu Ziyin, Daniel Geisz, and Joshua Albrecht. This blogpost is cross-posted [here](https://generallyintelligent.com/research/ssl_stepwise/). We'd be delighted to field your questions or comments.*
+*This post is based on the paper [“On the Stepwise Nature of Self-Supervised Learning"](https://arxiv.org/abs/2110.03922), which is joint work with Maksis Knutins, Liu Ziyin, Daniel Geisz, and Joshua Albrecht. This blogpost is cross-posted [here](https://generallyintelligent.com/research/ssl_stepwise/). We'd be delighted to field your questions or comments.*
