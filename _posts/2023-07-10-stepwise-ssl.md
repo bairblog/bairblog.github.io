@@ -2,7 +2,7 @@
 layout:             post
 title:              "On the Stepwise Nature of <br> Self-Supervised Learning"
 date:               2023-07-10  9:00:00
-author:             <a href="https://james-simon.github.io/">Jamie Simon</a> and <a href="generallyintelligent.com/">Generally Intelligent</a>
+author:             <a href="https://james-simon.github.io/">Jamie Simon</a>
 img:                /assets/eigenlearning/eigenlearning_blog_post_fig1.mp4
 excerpt_separator:  <!--more-->
 visible:            True
@@ -87,4 +87,4 @@ All considered, we’re optimistic about the prospects of future work in the are
 
 <hr>
 
-*This post is based on the paper [“On the Stepwise Nature of Self-Supervised Learning"](https://arxiv.org/abs/2110.03922), which is joint work with Maksis Knutins, Liu Ziyin, Daniel Geisz, and Joshua Albrecht. This blogpost is cross-posted [here](https://generallyintelligent.com/research/ssl_stepwise/). We'd be delighted to field your questions or comments.*
+*This post is based on the paper [“On the Stepwise Nature of Self-Supervised Learning"](https://arxiv.org/abs/2110.03922), which is joint work with Maksis Knutins, Liu Ziyin, Daniel Geisz, and Joshua Albrecht. This work was conducted with <a href="https://generallyintelligent.com/">Generally Intelligent</a> where Jamie Simon is a Research Fellow. This blogpost is cross-posted [here](https://generallyintelligent.com/research/ssl_stepwise/). We'd be delighted to field your questions or comments.*
