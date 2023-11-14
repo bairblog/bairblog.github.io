@@ -109,7 +109,7 @@ Future directions for Ghostbuster include providing explanations for model decis
 <hr>
 
 [1]:https://ghostbuster.app/
-[2]:https://arxiv.org/pdf/2305.15047.pdf
+[2]:https://arxiv.org/abs/2305.15047
 [3]:https://github.com/vivek3141/ghostbuster
 [4]:https://ghostbuster.app/experiment
 [5]:https://www.technologyreview.com/2023/04/06/1071059/chatgpt-change-not-destroy-education-openai/
