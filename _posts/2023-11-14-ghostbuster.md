@@ -1,7 +1,7 @@
 ---
 layout:             post
 title:              "Ghostbuster: Detecting Text Ghostwritten by Large Language Models"
-date:               2023-11-14  12:00:00
+date:               2023-11-14  12:30:00
 author:             <a href="https://vivek.lol/">Vivek Verma</a>, <a href="https://www.efleisig.com/">Eve Fleisig</a>, <a href="https://people.eecs.berkeley.edu/~nicholas_tomlin/">Nicholas Tomlin</a>, and <a href="https://people.eecs.berkeley.edu/~klein/">Dan Klein</a>
 img:                /assets/ghostbuster/overview_hires.png
 excerpt_separator:  <!--more-->
