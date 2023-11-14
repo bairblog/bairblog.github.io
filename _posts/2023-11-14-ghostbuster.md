@@ -113,11 +113,11 @@ Future directions for Ghostbuster include providing explanations for model decis
 [3]:https://github.com/vivek3141/ghostbuster
 [4]:https://ghostbuster.app/experiment
 [5]:https://www.technologyreview.com/2023/04/06/1071059/chatgpt-change-not-destroy-education-openai/
-[6]:https://arxiv.org/pdf/2304.02819.pdf
+[6]:https://arxiv.org/abs/2304.02819
 [7]:https://arxiv.org/abs/1906.03351
 [8]:https://arxiv.org/abs/2210.09421
 [9]:https://medium.com/nlplanet/two-minutes-nlp-perplexity-explained-with-simple-probabilities-6cdc46884584
 [10]:https://arxiv.org/abs/2301.11305
 [11]:http://claude.ai
-[12]:https://arxiv.org/pdf/2304.02819.pdf
+[12]:https://arxiv.org/abs/2304.02819
 [13]:https://www.nytimes.com/interactive/2023/02/17/business/ai-text-detection.html
