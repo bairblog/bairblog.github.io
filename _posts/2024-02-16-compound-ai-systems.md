@@ -2,7 +2,7 @@
 layout:             post
 title:              "The Shift from Models to Compound AI Systems"
 date:               2024-02-16  9:00:00
-author:             <a href="https://people.eecs.berkeley.edu/~matei/">Matei Zaharia</a>, <a href="https://omarkhattab.com">Omar Khattab</a>, <a href="https://heather.miller.am">Heather Miller</a>, <a href="https://web.stanford.edu/~cgpotts/">Chris Potts</a>, <a href="https://people.csail.mit.edu/mcarbin/">Michael Carbin</a>, <a href="http://www.jfrankle.com">Jonathan Frankle</a>, <a href="https://www.linkedin.com/in/alighodsi/">Ali Ghodsi</a>, <a href="https://www.linkedin.com/in/naveen-rao-bba5b01//">Naveen Rao</a>, <a href="https://lchen001.github.io">Lingjiao Chen</a>, <a href="https://scholar.google.com/citations?user=_3bbpWoAAAAJ&hl=en">Jared Quincy Davis</a>, <a href="https://www.james-zou.com">James Zou</a>
+author:             <a href="https://people.eecs.berkeley.edu/~matei/">Matei Zaharia</a>, <a href="https://omarkhattab.com">Omar Khattab</a>, <a href="https://lchen001.github.io">Lingjiao Chen</a>, <a href="https://scholar.google.com/citations?user=_3bbpWoAAAAJ&hl=en">Jared Quincy Davis</a>, <a href="https://heather.miller.am">Heather Miller</a>, <a href="https://web.stanford.edu/~cgpotts/">Chris Potts</a>, <a href="https://www.james-zou.com">James Zou</a>, <a href="https://people.csail.mit.edu/mcarbin/">Michael Carbin</a>, <a href="http://www.jfrankle.com">Jonathan Frankle</a>, <a href="https://www.linkedin.com/in/naveen-rao-bba5b01//">Naveen Rao</a>, <a href="https://www.linkedin.com/in/alighodsi/">Ali Ghodsi</a>
 img:                /assets/compound-ai-systems/compound-ai-systems.png
 excerpt_separator:  <!--more-->
 visible:            True
