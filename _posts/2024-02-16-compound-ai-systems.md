@@ -88,6 +88,7 @@ Below are few recent compound AI systems to show the breadth of design choices:
     }
     #mytable ul {
         font-size: 16px;
+        text-align: left;
     }
     #mytable td {
         vertical-align: top;
