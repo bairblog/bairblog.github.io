@@ -63,7 +63,7 @@ In this post, we analyze the trend toward compound AI systems and what it means 
 
 # Why Compound AI Systems?
 
-We define a Compound AI System as a system that tackles AI tasks using multiple interacting components, including multiple calls to models, retrieval engines, or external tools like calculators. In contrast, an AI Model is simply a [statistical model][6], e.g., a Transformer that predicts the next token in text.
+We define a Compound AI System as a system that tackles AI tasks using multiple interacting components, including multiple calls to models, retrievers, or external tools. In contrast, an AI Model is simply a [statistical model][6], e.g., a Transformer that predicts the next token in text.
 
 Our observation is that even though AI models are getting steadily better, and there is no clear end in sight to their scaling, more and more state-of-the-art results are obtained using compound systems. Why is that? We have seen several distinct reasons:
 
