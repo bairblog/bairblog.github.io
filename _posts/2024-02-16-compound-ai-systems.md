@@ -36,7 +36,7 @@ You can also turn on Disqus comments, but we recommend disabling this feature.
 
 <meta name="keywords" content="compound ai systems, dspy, frugalgpt, ai routers">
 <meta name="description" content="The BAIR Blog">
-<meta name="author" content="Matei Zaharia, Omar Khattab, Heather Miller, Chris Potts,  Michael Carbin, Jonathan Frankle, Ali Ghodsi, Naveen Rao, Lingjiao Chen, Jared Quincy Davis, James Zou">
+<meta name="author" content="Matei Zaharia, Omar Khattab, Lingjiao Chen, Jared Quincy Davis, Heather Miller, Chris Potts, James Zou, Michael Carbin, Jonathan Frankle, Naveen Rao, Ali Ghodsi">
 
 <!--
 The actual text for the post content appears below.  Text will appear on the
