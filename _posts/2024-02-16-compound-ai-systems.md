@@ -65,7 +65,7 @@ In this post, we analyze the trend toward compound AI systems and what it means 
 
 We define a Compound AI System as a system that tackles AI tasks using multiple interacting components, including multiple calls to models, retrievers, or external tools. In contrast, an AI Model is simply a [statistical model][6], e.g., a Transformer that predicts the next token in text.
 
-Our observation is that even though AI models are continually getting better, and there is no clear end in sight to their scaling, more and more state-of-the-art results are obtained using compound systems. Why is that? We have seen several distinct reasons:
+Even though AI models are continually getting better, and there is no clear end in sight to their scaling, more and more state-of-the-art results are obtained using compound systems. Why is that? We have seen several distinct reasons:
 
 1. **Some tasks are easier to improve via system design.** While LLMs appear to follow remarkable [scaling laws][7] that predictably yield better results with more compute, in many applications, scaling offers lower returns-vs-cost than building a compound system. For example, suppose that the current best LLM can solve coding contest problems 30% of the time, and tripling its training budget would increase this to 35%; this is still not reliable enough to win a coding contest! In contrast, engineering a system that samples from the model multiple times, tests each sample, etc. might increase performance to 80% with today's models, as shown in work like [AlphaCode][1]. Even more importantly, iterating on a system design is often much faster than waiting for training runs. We believe that in any high-value application, developers will want to use every tool available to maximize AI quality, so they will use system ideas in addition to scaling. We frequently see this with LLM users, where a good LLM creates a compelling but frustratingly unreliable first demo, and engineering teams then go on to systematically raise quality.
 2. **Systems can be dynamic.** Machine learning models are inherently limited because they are trained on static datasets, so their "knowledge" is fixed. Therefore, developers need to combine models with other components, such as search and retrieval, to incorporate timely data. In addition, training lets a model "see" the whole training set, so more complex systems are needed to build AI applications with access controls (e.g., answer a user's questions based only on files the user has access to).
@@ -196,7 +196,7 @@ In addition, developers need to allocate limited resources, like latency and cos
 ### Optimization
 Often in ML, maximizing the quality of a compound system requires co-optimizing the components to work well together. For example, consider a simple RAG application where an LLM sees a user question, generates a search query to send to a retriever, and then generates an answer. Ideally, the LLM would be tuned to generate queries that work well *for that particular retriever*, and the retriever would be tuned to prefer answers that work well *for that LLM*.
 
-In single model development a la PyTorch, users can easily optimize a model end-to-end because the whole model is differentiable. However, new compound AI systems contain non-differentiable components like search engines or code interpreters, and thus require new methods of optimization. Optimizing these compound AI systems is still a new research area; for example, [DSPy][13] offers a general optimizer for pipelines of pretrained LLMs and other components, while others systems, like [LaMDA][14], [Toolformer][10] and [AlphaGeometry][2], use tool calls during model training to optimize models for those tools.
+In single model development a la PyTorch, users can easily optimize a model end-to-end because the whole model is differentiable. However, compound AI systems contain non-differentiable components like search engines or code interpreters, and thus require new methods of optimization. Optimizing these compound AI systems is still a new research area; for example, [DSPy][13] offers a general optimizer for pipelines of pretrained LLMs and other components, while others systems, like [LaMDA][14], [Toolformer][10] and [AlphaGeometry][2], use tool calls during model training to optimize models for those tools.
 
 ### Operation
 Machine learning operations (MLOps) become more challenging for compound AI systems. For example, while it is easy to track success rates for a traditional ML model like a spam classifier, how should developers track and debug the performance of an LLM agent for the same task, which might use a variable number of "reflection" steps or external API calls to classify a message? We believe that a new generation of MLOps tools will be developed to tackle these problems. Interesting problems include:
@@ -219,11 +219,23 @@ To tackle the challenges of building compound AI systems, multiple new approache
 # Conclusion
 Generative AI has excited every developer by unlocking a wide range of capabilities through natural language prompting. As developers aim to move beyond demos and maximize the quality of their AI applications, however, they are increasingly turning to compound AI systems as a natural way to control and enhance the capabilities of LLMs. Figuring out the best practices for developing compound AI systems is still an open question, but there are already exciting approaches to aid with design, end-to-end optimization, and operation. We believe that compound AI systems will remain the best way to maximize the quality and reliability of AI applications going forward, and may be one of the most important trends in AI in 2024.
 
+BibTex for this post:
+```
+@misc{compound-ai-blog,
+  title={The Shift from Models to Compound AI Systems},
+  author={Matei Zaharia and Omar Khattab and Lingjiao Chen and Jared Quincy Davis
+          and Heather Miller and Chris Potts and James Zou and Michael Carbin
+          and Jonathan Frankle and Naveen Rao and Ali Ghodsi},
+  howpublished={\url{https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/}},
+  year={2024}
+}
+```
+
 <hr>
 
 [1]:https://storage.googleapis.com/deepmind-media/AlphaCode2/AlphaCode2_Tech_Report.pdf
 [2]:https://deepmind.google/discover/blog/alphageometry-an-olympiad-level-ai-system-for-geometry/
-[3]:https://github.com/
+[3]:https://arxiv.org/pdf/2005.11401.pdf
 [4]:https://www.microsoft.com/en-us/research/blog/the-power-of-prompting/
 [5]:https://blog.google/technology/ai/google-gemini-ai/#performance
 [6]:https://en.wikipedia.org/wiki/Statistical_model
