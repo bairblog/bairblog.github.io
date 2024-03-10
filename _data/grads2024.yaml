@@ -1,0 +1,156 @@
+people:
+  - name: Yaodong Yu
+    website: https://yaodongyu.github.io/
+    email: yyu@eecs.berkeley.edu
+    advisors: Michael I. Jordan, Yi Ma
+    picture: https://drive.google.com/open?id=1Kk8aNUdekRA-qU7bJor_7O_k80CXVASh
+    blurb: My research interests are broadly in theory and practice of trustworthy machine learning, including interpretability, privacy, and robustness.
+    jobs: Faculty
+
+  - name: Dhruv Shah
+    website: http://cs.berkeley.edu/~shah/
+    email: shah@cs.berkeley.edu
+    advisors: Sergey Levine
+    picture: https://drive.google.com/open?id=1fn5lcoHUwtYTX0TYFX8UxDxtFh8atfKi
+    blurb: I train big(-ish) models and make robots smarter.
+    jobs: Research scientist, roboticist
+
+  - name: Fangyu Wu
+    website: https://fangyuwu.com/
+    email: fangyuwu@berkeley.edu
+    advisors: Alexandre Bayen
+    picture: https://drive.google.com/open?id=1KA7KybAuJuGR-4dfOJGNdPm9frM4uijD
+    blurb: Under the mentorship of Prof. Alexandre Bayen, Fangyu focuses on the application of optimization methods to multi-agent robotic systems, particularly in the planning and control of automated vehicles.
+    jobs: Faculty, or research scientist in control, optimization, and robotics
+
+  - name: Sam Toyer
+    website: https://www.qxcv.net/
+    email: sdt@berkeley.edu
+    advisors: Stuart Russell
+    picture: https://drive.google.com/open?id=1uhInKvgv18jCL0luAs-NdJ664AsOM2p_
+    blurb: My research focuses on making language models secure, robust and safe. I also have experience in vision, planning, imitation learning, reinforcement learning, and reward learning.
+    jobs: Research scientist
+
+  - name: Alicia Tsai
+    website: https://www.aliciatsai.com/
+    email: aliciatsai@berkeley.edu
+    advisors: Laurent El Ghaoui
+    picture: https://drive.google.com/open?id=1HG3aOlLyI1X0Us73IGVaqGJE_ae0M0gh
+    blurb: My research delves into the theoretical aspects of deep implicit models, beginning with a unified "state-space" representation that simplifies notation. Additionally, my work explores various training challenges associated with deep learning, including problems amenable to convex and non-convex optimization. In addition to theoretical exploration, my research extends the potential applications to various problem domains, including natural language processing, and natural science.
+    jobs: Research Scientist, Applied Scientist, Machine Learning Engineer
+
+  - name: Eliza Kosoy
+    website: https://www.elizakosoy.com/
+    email: eko@berkeley.edu
+    advisors: Alison Gopnik
+    picture: https://drive.google.com/open?id=1eN5bpibqRUzvqalcefZNyARl47xMjGca
+    blurb: Eliza Kosoy works at the intersection of child development and AI with Prof. Alison Gopnik. Her work includes creating evaluative benchmarks for LLMs rooted in child development and studying how children and adults use GenAI models such as ChatGPT/Dalle and form mental models about them. She’s an intern at Google working on the AI/UX team and previously with the Empathy Lab. She has published in Neurips, ICML, ICLR, Cogsci and cognition. Her thesis work created a unified virtual environment for testing children and AI models in one place for the purposes of training RL models. She also has experience building startups and STEM hardware coding toys.
+    jobs: 
+      - Research Scientist (child development and AI)
+      - AI safety (specializing in children)
+      - User Experience (UX) Researcher (specializing in mixed methods, youth, AI, LLMs)
+      - Education and AI (STEM toys)
+
+  - name: Ryan Hoque
+    website: https://ryanhoque.github.io
+    email: ryanhoque@berkeley.edu
+    advisors: Ken Goldberg
+    picture: https://drive.google.com/open?id=1SMmKk2qGHWRql_WiTDhmjRpn2Z3OhZZ_
+    blurb: Imitation learning and reinforcement learning algorithms that scale to large robot fleets performing manipulation and other complex tasks.
+    jobs: Research Scientist
+
+  - name: Chawin Sitawarin
+    website: https://chawins.github.io/
+    email: chawin.sitawarin@gmail.com
+    advisors: David Wagner
+    picture: https://drive.google.com/open?id=1qb9j3TBA5FHT4pd7xvukohcox2eKSm2z
+    blurb: I am broadly interested in the security and safety aspects of machine learning systems. Most of my previous works are in the domain of adversarial machine learning, particularly adversarial examples and robustness of machine learning algorithms. More recently, I am excited about emerging security and privacy risks on large language models.
+    jobs: Research scientist
+
+  - name: Xingyu Lin
+    website: https://xingyu-lin.github.io/
+    email: xingyu@berkeley.edu
+    advisors: Pieter Abbeel
+    picture: https://drive.google.com/open?id=1cZ0bDf5gXydT5EcngnqHYmunE7G7enzQ
+    blurb: "My research lies in robotics, machine learning, and computer vision, with the primary goal of learning generalizable robot skills from two angles: (1) Learning structured world models with spatial and temporal abstractions. (2) Pre-training visual representation and skills to enable knowledge transfer from Internet-scale vision datasets and simulators."
+    jobs: Faculty, or research scientist
+
+  - name: Shishir G. Patil
+    website: https://shishirpatil.github.io/
+    email: shishirpatil2007@gmail.com
+    advisors: Joseph Gonzalez
+    picture: https://drive.google.com/open?id=1DDb0CXzsroWQAcWDdq09t9bgIR8ksHbg
+    blurb: "Gorilla LLM - Teaching LLMs to use tools (https://gorilla.cs.berkeley.edu/); LLM Execution Engine: Guaranteeing reversibility, robustness, and minimizing blast-radius  for LLM-Agents incorporated into user and enterprise workflows; POET: Memory bound, and energy efficient fine-tuning of LLMs on edge devices such as smartphones and laptops (https://poet.cs.berkeley.edu/)."
+    jobs: Research Scientist
+
+  - name: Ruiming Cao
+    website: https://rmcao.net
+    email: rcao@berkeley.edu
+    advisors: Laura Waller
+    picture: https://drive.google.com/open?id=1WXvZsAmuwfg11bs4qmixC_tmbbsVl1EQ
+    blurb: My research is on computational imaging, particularly the space-time modeling for dynamic scene recovery and motion estimation. I also work on optical microscopy techniques, optimization-based optical design, event camera processing, novel view rendering.
+    jobs: Research scientist, postdoc, faculty
+
+  - name: Nikhil Ghosh
+    website: https://nikhil-ghosh-berkeley.github.io/
+    email: nikhil_ghosh@berkeley.edu
+    advisors: Bin Yu, Song Mei
+    picture: https://drive.google.com/open?id=1aGxtb4CnpOl83ymUFlC9KGDjMMRBLl46
+    blurb: I am interested in developing a better foundational understanding of deep learning and improving practical systems, using both theoretical and empirical methodology. Currently, I am especially interested in improving the efficiency of large models by studying how to properly scale hyperparameters with model size.
+    jobs: Research Scientist
+
+  - name: Kevin Lin
+    website: https://people.eecs.berkeley.edu/~kevinlin/
+    email: k-lin@berkeley.edu
+    advisors: Dan Klein, Joseph E. Gonzalez
+    picture: https://drive.google.com/open?id=1srLbwodUWsIeMnrLTGMcXR9MeoKk_snt
+    blurb: My research focuses on understanding and improving how language models use and provide information.
+    jobs: Research Scientist
+
+  - name: Catherine Weaver
+    website: cwj22.github.io
+    email: catherine22@berkeley.edu
+    advisors: Masayoshi Tomizuka, Wei Zhan
+    picture: https://drive.google.com/open?id=1dMQ0512gH5vMqUERDwhefrFgMiLqJZNx
+    blurb: My research focuses on machine learning and control algorithms for the challenging task of autonomous racing in Gran Turismo Sport. I leverage my background in Mechanical Engineering to discover how machine learning and model-based optimal control can create safe, high-performance control systems for robotics and autonomous systems. A particular emphasis of mine has been how to leverage offline datasets (e.g. human player's racing trajectories) to inform better, more sample efficient control algorithms.
+    jobs: Research Scientist and Robotics/Controls Engineer
+
+  - name: Frances Ding
+    website: https://www.francesding.com/
+    email: frances@berkeley.edu
+    advisors: Jacob Steinhardt, Moritz Hardt
+    picture: https://drive.google.com/open?id=1-6DguQOK4wn9mBqMwmM6mb2xJVX03IJX
+    blurb: My research focus is in machine learning for protein modeling. I work on improving protein property classification and protein design, as well as understanding what different protein models learn. I have previously worked on sequence models for DNA and RNA, and benchmarks for evaluating the interpretability and fairness of ML models across domains.
+    jobs: Research scientist
+
+  - name: Olivia Watkins
+    website: https://aliengirlliv.github.io/oliviawatkins
+    email: oliviawatkins@berkeley.edu
+    advisors: Pieter Abbeel and Trevor Darrell
+    picture: https://drive.google.com/open?id=1waFouUNuJlqmGV_rfTmW3v1pnvF1jAfI
+    blurb: My work involves RL, BC, learning from humans, and using common-sense foundation model reasoning for agent learning. I’m excited about language agent learning, supervision, alignment & robustness.
+    jobs: Research scientist
+
+  - name: Abdus Salam Azad
+    website: https://www.azadsalam.org/
+    email: salam_azad@berkeley.edu
+    advisors: Ion Stoica
+    picture: https://drive.google.com/open?id=1oFxYTdl3bG0vG6IJRajpghe8BEBkozbi
+    blurb: My research interest lies broadly in the field of Machine Learning and Artificial Intelligence. During my PhD I have focused on Environment Generation/ Curriculum Learning methods for training Autonomous Agents with Reinforcement Learning. Specifically, I work on methods that algorithmically generates diverse training environments (i.e., learning scenarios) for autonomous agents to improve generalization and sample efficiency. Currently, I am working on Large Language Model (LLM) based autonomous agents.
+    jobs: Research Scientist, ML Engineer
+
+  - name: Kathy Jang
+    website: kathyjang.com
+    email: kathyjang@gmail.com
+    advisors: 
+    picture: https://drive.google.com/open?id=1cNU2w1fva8nVIROocK9hIg54AVcTc7Eg
+    blurb: My thesis work has specialized in reinforcement learning for autonomous vehicles, focusing on enhancing decision-making and efficiency in applied settings. In future work, I'm eager to apply these principles to broader challenges across domains like natural language processing. With my background, my aim is to see the direct impact of my efforts by contributing to innovative AI research and solutions.
+    jobs: ML research scientist/engineer
+
+  - name: Suzie Petryk
+    website: https://suziepetryk.com/
+    email: spetryk@berkeley.edu
+    advisors: Trevor Darrell, Joseph Gonzalez
+    picture: https://drive.google.com/open?id=1AZYrjxvtH4ckQvF-Hi8hutdmlpzDK3mw
+    blurb: I work on improving the reliability and safety of multimodal models. My focus has been on localizing and reducing hallucinations for vision + language models, along with measuring and using uncertainty and mitigating bias. My interests lay in applying solutions to these challenges in actual production scenarios, rather than solely in academic environments.
+    jobs: Applied research scientist in generative AI, safety, and/or accessibility
