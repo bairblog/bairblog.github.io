@@ -108,7 +108,7 @@ people:
     jobs: Research Scientist
 
   - name: Catherine Weaver
-    website: cwj22.github.io
+    website: https://cwj22.github.io
     email: catherine22@berkeley.edu
     advisors: Masayoshi Tomizuka, Wei Zhan
     picture: https://drive.google.com/open?id=1dMQ0512gH5vMqUERDwhefrFgMiLqJZNx
@@ -140,9 +140,9 @@ people:
     jobs: Research Scientist, ML Engineer
 
   - name: Kathy Jang
-    website: kathyjang.com
+    website: https://kathyjang.com
     email: kathyjang@gmail.com
-    advisors: 
+    advisors: Alexandre Bayen
     picture: https://drive.google.com/open?id=1cNU2w1fva8nVIROocK9hIg54AVcTc7Eg
     blurb: My thesis work has specialized in reinforcement learning for autonomous vehicles, focusing on enhancing decision-making and efficiency in applied settings. In future work, I'm eager to apply these principles to broader challenges across domains like natural language processing. With my background, my aim is to see the direct impact of my efforts by contributing to innovative AI research and solutions.
     jobs: ML research scientist/engineer
@@ -154,3 +154,11 @@ people:
     picture: https://drive.google.com/open?id=1AZYrjxvtH4ckQvF-Hi8hutdmlpzDK3mw
     blurb: I work on improving the reliability and safety of multimodal models. My focus has been on localizing and reducing hallucinations for vision + language models, along with measuring and using uncertainty and mitigating bias. My interests lay in applying solutions to these challenges in actual production scenarios, rather than solely in academic environments.
     jobs: Applied research scientist in generative AI, safety, and/or accessibility
+
+  - name: Jianlan Luo
+    website: https://people.eecs.berkeley.edu/~jianlanluo/
+    email: jianlanluo@eecs.berkeley.edu
+    advisors: Sergey Levine
+    picture: https://drive.google.com/open?id=1NWEZ_M4WcKOvCd9skLd5lAQdMRpA8cN8
+    blurb: My research interests are broadly in scalable algorithms and practice of machine learning, robotics, and controls; particularly their intersections. 
+    jobs: Faculty, Research Scientist
