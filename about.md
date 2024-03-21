@@ -23,7 +23,6 @@ The editorial board consists of the following members:
 * [Hellina Hailu Nigatu][19]
 * Sukanya Kudva
 * [Peter Wu][20]
-* [Chloe Hsu][14]
 
 
 with faculty advisor [Sergey Levine][4]. 
@@ -39,6 +38,7 @@ We gratefully acknowledge the contributions of former board members:
 * [Jane Liang][8]
 * [Dequan Wang][6]
 * [Harry Huazhe Xu][7]
+* [Chloe Hsu][14]
 
 To contact the group, send email to `bair-blog@berkeley.edu`.
 

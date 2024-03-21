@@ -1,10 +1,10 @@
 # Site settings
 title:       The Berkeley Artificial Intelligence Research Blog
 email:       bair-blog@berkeley.edu
-author:      Daniel Seita
+author:      Ritwik Gupta
 description: "The BAIR Blog"
-baseurl:     ""
-url:         "https://bairblog.github.io/"
+baseurl:     "/blog"
+url:         "http://bair.berkeley.edu"
 date_format: "%b %-d, %Y"
 timezone:    America/Los_Angeles
 
@@ -34,7 +34,7 @@ facebook_comments_number:
 github_username:
 bitbucket_username:
 stackoverflow_id:
-twitter_username:
+twitter_username: berkeley_ai
 google_plus_id:
 linkedin_username:
 angellist_username:
