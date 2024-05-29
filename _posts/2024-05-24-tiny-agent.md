@@ -155,6 +155,7 @@ We evaluated the model performance after incorporating Tool RAG. The results are
 <style>
     #mytable {
         font-size: 16px;
+        border-collapse: collapse;
     }
     #mytable ul {
         font-size: 16px;
@@ -172,6 +173,9 @@ We evaluated the model performance after incorporating Tool RAG. The results are
     }
     #mytable td:nth-child(1) {
         text-align: left;
+    }
+    #mytable tr {
+      border-bottom: 1pt solid black;
     }
 </style>
 <table id="mytable">
