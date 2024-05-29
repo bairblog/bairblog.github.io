@@ -2,7 +2,7 @@
 layout:             post
 title:              "TinyAgent: Function Calling at the Edge"
 date:               2024-5-28  9:00:00
-author:             <a href="https://www.linkedin.com/in/lutfi-eren-erdogan-02900b189/">Lutfi Eren Erdogan$^*$</a>, Nicholas Lee$^*$, <a href="https://sidjha1.github.io">Siddharth Jha$^*$</a>, <a href="https://sehoonkim.org">Sehoon Kim</a>, <a href="https://ryantabrizi.com">Ryan Tabrizi</a>, <a href="https://www.linkedin.com/in/suhong-moon-5288ab150/">Suhong Moon</a>, <a href="https://www2.eecs.berkeley.edu/Faculty/Homepages/gopala.html">Gopala Anumanchipalli</a>, <a href="https://people.eecs.berkeley.edu/~keutzer/">Kurt Keutzer</a>, <a href="http://amirgholami.org/">Amir Gholami</a>
+author:             <a href="https://www.linkedin.com/in/lutfi-eren-erdogan-02900b189/">Lutfi Eren Erdogan$^*$</a>, <a href="https://www.linkedin.com/in/nicholas-lee-74731916a/">Nicholas Lee$^*$</a>, <a href="https://sidjha1.github.io">Siddharth Jha$^*$</a>, <a href="https://sehoonkim.org">Sehoon Kim</a>, <a href="https://ryantabrizi.com">Ryan Tabrizi</a>, <a href="https://www.linkedin.com/in/suhong-moon-5288ab150/">Suhong Moon</a>, <a href="https://www2.eecs.berkeley.edu/Faculty/Homepages/gopala.html">Gopala Anumanchipalli</a>, <a href="https://people.eecs.berkeley.edu/~keutzer/">Kurt Keutzer</a>, <a href="http://amirgholami.org/">Amir Gholami</a>
 img:                /assets/tiny-agent/Figure2.png
 excerpt_separator:  <!--more-->
 visible:            True
