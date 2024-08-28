@@ -1,7 +1,7 @@
 ---
 layout:             post
-title:              "How to evaluate jailbreak methods: A case study with the StrongREJECT benchmark"
-date:               2024-08-26  9:00:00
+title:              "How to Evaluate Jailbreak Methods: A Case Study with the StrongREJECT Benchmark"
+date:               2024-08-28  15:30:00
 author:             <a href="www.linkedin.com/in/dillon-bowen-409791a1">Dillon Bowen</a>, <a href="https://www.scottemmons.com/">Scott Emmons</a>, Alexandra Souly, Qingyuan Lu, Tu Trinh, Elvis Hsieh, Sana Pandey, Pieter Abbeel, Justin Svegliato, Olivia Watkins, Sam Toyer
 img:                /assets/strong_reject/strong_reject.png
 excerpt_separator:  <!--more-->
