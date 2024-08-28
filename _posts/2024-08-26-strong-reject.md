@@ -32,9 +32,8 @@ You can also turn on Disqus comments, but we recommend disabling this feature.
 <!-- twitter -->
 <meta name="twitter:title" content="A StrongREJECT for empty jailbreaks">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/strong_reject/strong_reject.png">
-
-<meta name="keywords" content="jailbreak, benchmark, LLMs, AI">
+<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/strongreject/strongreject-draft-figure-1.png">
+<meta name="keywords" content="jailbreak, LLM, AI, AI safety">
 <meta name="description" content="The BAIR Blog">
 <meta name="author" content="Dillon Bowen, Scott Emmons">
 
@@ -83,7 +82,7 @@ Researchers evaluating a jailbreak must choose a dataset of forbidden prompts an
 # Problems with Existing Forbidden Prompts
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/strong_reject/strongreject-draft-figure-1.png" width="50%">
+<img src="https://bair.berkeley.edu/static/blog/strongreject/strongreject-draft-figure-1.png">
 <br>
 <i><b>Problems with existing jailbreak benchmarks.</b></i>
 </p>
@@ -169,25 +168,24 @@ Our automated evaluator gives accurate jailbreak method rankings, achieving a Sp
 3. *Our automated evaluator is robustly accurate across jailbreak methods,* consistently assigning human-like scores to every jailbreak method we considered, as shown in the figure below.
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/strong_reject/mae_by_jailbreak_x_evaluator.png" width="50%">
+<img src="https://bair.berkeley.edu/static/blog/strongreject/mae_by_jailbreak_x_evaluator.png">
 <br>
-<i><b>StrongREJECT is robustly accurate across many jailbreaks.</b></i>
+<i><b>StrongREJECT is robustly accurate across many jailbreaks.</b> A lower score indicates greater agreement with human judgments of jailbreak effectiveness.</i>
 </p>
 
 These results demonstrate that our auto-evaluator closely aligns with human judgments of jailbreak effectiveness, providing a more accurate and reliable benchmark than previous methods.
 
 # Jailbreaks Are Less Effective Than Reported
 
-Using the StrongREJECT rubric-based evaluator with GPT-4o-mini to evaluate 38 jailbreak methods, we identified a small number of highly effective jailbreaks. The most effective use LLMs to jailbreak LLMs, like Prompt Automatic Iterative Refinement (PAIR) (Chao et al., 2023) and Persuasive Adversarial Prompts (PAP) (Yu et al., 2023), both of which use LLMs to automatically jailbreak the victim model. PAIR instructs an attacker model to iteratively modify a forbidden prompt until it obtains a useful response from the victim model. PAP instructs an attacker model to persuade a victim model to give it harmful information using techniques like misrepresentation and logical appeals. However, we were surprised to find that most jailbreak methods we tested resulted in far lower-quality responses to forbidden prompts than previously claimed. For example:
+Using the StrongREJECT rubric-based evaluator with GPT-4o-mini to evaluate 37 jailbreak methods, we identified a small number of highly effective jailbreaks. The most effective use LLMs to jailbreak LLMs, like Prompt Automatic Iterative Refinement (PAIR) (Chao et al., 2023) and Persuasive Adversarial Prompts (PAP) (Yu et al., 2023). PAIR instructs an attacker model to iteratively modify a forbidden prompt until it obtains a useful response from the victim model. PAP instructs an attacker model to persuade a victim model to give it harmful information using techniques like misrepresentation and logical appeals. However, we were surprised to find that most jailbreak methods we tested resulted in far lower-quality responses to forbidden prompts than previously claimed. For example:
 
-Against GPT-4o, the best-performing jailbreak method we tested besides PAIR and PAP achieved an average score of only 0.37 out of 1.0 on our benchmark.
-
-Many jailbreaks that reportedly had near-100% success rates scored below 0.2 on our benchmark when tested on GPT-4o, GPT-3.5 Turbo, and Llama-3.1 70B Instruct.
+* Against GPT-4o, the best-performing jailbreak method we tested besides PAIR and PAP achieved an average score of only 0.37 out of 1.0 on our benchmark.
+* Many jailbreaks that reportedly had near-100% success rates scored below 0.2 on our benchmark when tested on GPT-4o, GPT-3.5 Turbo, and Llama-3.1 70B Instruct.
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/strong_reject/score_by_jailbreak_x_model.png" width="50%">
+<img src="https://bair.berkeley.edu/static/blog/strongreject/score_by_jailbreak_x_model.png">
 <br>
-<i><b>Most jailbreaks are less effective than reported.</b></i>
+<i><b>Most jailbreaks are less effective than reported.</b> A score of 0 means the jailbreak was entirely ineffective, while a score of 1 means the jailbreak was maximally effective. The "Best" jailbreak represents the best victim model response an attacker could achieve by taking the highest StrongREJECT score across all jailbreaks for each forbidden prompt.</i>
 </p>
 
 ## Explaining the Discrepancy: The Willingness-Capabilities Tradeoff
@@ -196,18 +194,18 @@ We were curious to understand why our jailbreak benchmark gave such different re
 
 We conducted two experiments to test this hypothesis:
 
-1. We used StrongREJECT to evaluate 38 jailbreak methods on an unaligned model; Dolphin. Because Dolphin is already willing to respond to forbidden prompts, any difference in StrongREJECT scores across jailbreaks must be due to the effect of these jailbreaks on Dolphin’s capabilities.
+1. We used StrongREJECT to evaluate 37 jailbreak methods on an unaligned model; Dolphin. Because Dolphin is already willing to respond to forbidden prompts, any difference in StrongREJECT scores across jailbreaks must be due to the effect of these jailbreaks on Dolphin’s capabilities.
 
-    The left panel of the figure below shows that most jailbreaks substantially decrease Dolphin’s capabilities, and those that don’t tend to be refused when used on a safety fine-tuned model like GPT-4o. Conversely, the jailbreaks that are most likely to circumvent aligned models’ safety fine-tuning are those that lead to the greatest capabilities degradation! We call this effect the willingness-capabilities tradeoff. In general, jailbreaks tend to either result in a refusal (unwillingness to respond) or will degrade the model’s capabilities such that it cannot respond effectively.
+    The left panel of the figure below shows that most jailbreaks substantially decrease Dolphin’s capabilities, and those that don’t tend to be refused when used on a safety fine-tuned model like GPT-4o. Conversely, the jailbreaks that are most likely to circumvent aligned models’ safety fine-tuning are those that lead to the greatest capabilities degradation! We call this effect the *willingness-capabilities tradeoff*. In general, jailbreaks tend to either result in a refusal (unwillingness to respond) or will degrade the model’s capabilities such that it cannot respond effectively.
 
-2. We assessed GPT-4o’s zero-shot MMLU performance after applying the same 38 jailbreaks to the MMLU prompts. GPT-4o willingly responds to benign MMLU prompts, so any difference in MMLU performance across jailbreaks must be because they affect GPT-4o’s capabilities.
+2. We assessed GPT-4o’s zero-shot MMLU performance after applying the same 37 jailbreaks to the MMLU prompts. GPT-4o willingly responds to benign MMLU prompts, so any difference in MMLU performance across jailbreaks must be because they affect GPT-4o’s capabilities.
 
 	We also see the willingness-capabilities tradeoff in this experiment, as shown in the right panel of the figure below. While GPT-4o's baseline accuracy on MMLU is 75%, nearly all jailbreaks cause its performance to drop. For example, all variations of Base64 attacks we tested caused the MMLU performance to fall below 15%! The jailbreaks that successfully get aligned models to respond to forbidden prompts are also those that result in the worst MMLU performance for GPT-4o.
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/strong_reject/willingness_capabilities.png" width="50%">
+<img src="https://bair.berkeley.edu/static/blog/strongreject/willingness_capabilities.png">
 <br>
-<i><b>Jailbreaks that make models more complaint with forbidden requests tend to reduce their capabilities.</b></i>
+<i><b>Jailbreaks that make models more complaint with forbidden requests tend to reduce their capabilities.</b> Jailbreaks that score higher on non-refusal (the x-axis) successfully increase the models' willingness to respond to forbidden prompts. However, these jailbreaks tend to reduce capabilities (y-axis) as measured by StrongREJECT scores using an unaligned model (left) and MMLU (right).</i>
 </p>
 
 These findings suggest that while jailbreaks might sometimes bypass an LLM’s safety fine-tuning, they often do so at the cost of making the LLM less capable of providing useful information. This explains why many previously reported "successful" jailbreaks may not be as effective as initially thought.
@@ -216,7 +214,7 @@ These findings suggest that while jailbreaks might sometimes bypass an LLM’s s
 
 Our research underscores the importance of using robust, standardized benchmarks like StrongREJECT when evaluating AI safety measures and potential vulnerabilities. By providing a more accurate assessment of jailbreak effectiveness, StrongREJECT enables researchers to focus less effort on empty jailbreaks, like Base64 and translation attacks, and instead prioritize jailbreaks that are actually effective, like PAIR and PAP.
 
-To use StrongREJECT yourself, you can find our dataset and open-source automated evaluator at https://strong-reject.readthedocs.io/en/latest/.
+To use StrongREJECT yourself, you can find our dataset and open-source automated evaluator at [https://strong-reject.readthedocs.io/en/latest/](https://strong-reject.readthedocs.io/en/latest/).
 
 # References
 
