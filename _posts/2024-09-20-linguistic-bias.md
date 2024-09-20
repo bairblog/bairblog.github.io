@@ -1,7 +1,7 @@
 ---
 layout:             post
 title:              "Linguistic Bias in ChatGPT: Language Models Reinforce Dialect Discrimination"
-date:               2024-09-19  12:00:00
+date:               2024-09-20  09:00:00
 author:             <a href="https://www.efleisig.com/">Eve Fleisig</a>, <a href="https://haas.berkeley.edu/faculty/genevieve-smith/">Genevieve Smith</a>, <a href="https://sites.google.com/view/madeline-bossi">Madeline Bossi</a>, <a href="https://www.linkedin.com/in/ishitar/">Ishita Rustagi</a>, <a href="https://scholar.google.com/citations?user=WPCAOQQAAAAJ&hl=en">Xavier Yin</a>, and <a href="https://people.eecs.berkeley.edu/~klein/">Dan Klein</a>
 img:                /assets/linguistic-bias/image1.png
 excerpt_separator:  <!--more-->
