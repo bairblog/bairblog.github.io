@@ -78,7 +78,7 @@ Anthology enables the approximation of individual subjects by conditioning with 
 For evaluation, we compare the effectiveness of different methods for conditioning virtual personas in the context of approximating three Pew Research Center ATP surveys: Waves 34, 92, and 99.
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/virtual_personas/results.png" width="100%">
+<img src="https://bair.berkeley.edu/static/blog/virtual_personas/results.jpg" width="100%">
 <br>
 <i>Results on approximating human responses for Pew Research Center ATP surveys. Boldface and underlined results indicate values closest and the second closest to those of humans, respectively.</i>
 </p>
@@ -105,10 +105,6 @@ Finally, an exciting next dimension in applying LLMs in behavioral studies would
 All of these directions present multitudes of technical challenges; please let us know if you are interested in collaborating or want to discuss our work further!
 
 **Learn more about our work: [ link to full paper ](https://arxiv.org/abs/2407.06576)**
-
-[1]:https://arxiv.org/abs/2212.01681
-[2]:https://arxiv.org/abs/2303.17548
-[3]:https://arxiv.org/abs/2209.06899
 
 ```
 @article{moon2024virtual,
