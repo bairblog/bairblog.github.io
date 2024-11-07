@@ -44,12 +44,18 @@ homepage, i.e., https://bair.berkeley.edu/blog/ but we only show part of the
 posts on the homepage. The rest is accessed via clicking 'Continue'. This is
 enforced with the `more` excerpt separator.
 -->
+<!-- <p style="text-align:center;">
+  <img src="{{ site.baseurl }}/assets/virtual_personas/header.png" width="90%">
+  <br>
+<i style="font-size: 0.9em;">We introduce <b>Anthology</b>, a method for conditioning LLMs to representative, consistent, and diverse virtual personas by generating and utilizing naturalistic backstories with rich details of individual values and experience.</i>
+</p> -->
 
 <p style="text-align:center;">
 <img src="https://bair.berkeley.edu/static/blog/virtual_personas/header.png" width="70%">
 <br>
 <i style="font-size: 0.9em;">We introduce <b>Anthology</b>, a method for conditioning LLMs to representative, consistent, and diverse virtual personas by generating and utilizing naturalistic backstories with rich details of individual values and experience.</i>
 </p>
+
 What does it mean for large language models (LLMs) to be trained on massive text corpora, collectively produced by millions and billions of distinctive human authors? 
 
 In [“Language Models as Agent Models”][1], compelling evidence suggests that recent language models could be considered models of *agents*: provided with a textual context, LLMs are capable of generating conditional text that represents the characteristics of an agent likely to have produced that context. This suggests that, with appropriate conditioning, LLMs could be guided to approximate the responses of a particular human voice, rather than the *mixture of voices* that otherwise emerges. If realized, this capability of LLMs would have significant implications for user research and social sciences—conditioned language models as **virtual personas** of human subjects could serve as cost-effective pilot studies and supporting best practices in human studies, e.g. the Belmont principles of justice and beneficence.
