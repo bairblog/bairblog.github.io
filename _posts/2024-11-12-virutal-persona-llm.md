@@ -1,9 +1,9 @@
 ---
 layout:             post
 title:              "Virtual Personas for Language Models via an Anthology of Backstories"
-date:               2024-11-08  09:00:00
+date:               2024-11-12  09:00:00
 author:             <a href="https://scholar.google.com/citations?user=k4TJRc0AAAAJ&hl=en&oi=ao">Suhong Moon</a>, <a href="https://abdulhaim.github.io/">Marwa Abdulhai</a>, <a href="https://joshuaminwookang.github.io/">Minwoo Kang</a>, <a href="https://josephjeesungsuh.github.io/">Joseph Suh</a>, <a href="https://openreview.net/profile?id=~Widyadewi_Soedarmadji1">Widyadewi Soedarmadji</a>, <a href="https://www.linkedin.com/in/erankohenbehar/">Eran Kohen Behar</a>, <a href="https://dchan.cc/">David. M Chan</a>, and <a href="https://people.eecs.berkeley.edu/~jfc/">John Canny</a>
-img:                /assets/virtual_personas/image1.png
+img:                /assets/virtual_personas/header.png
 excerpt_separator:  <!--more-->
 visible:            True
 show_comments:      False
