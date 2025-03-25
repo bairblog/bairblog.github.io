@@ -7,3 +7,5 @@ _site/
 vendor/
 
 Gemfile.lock
+
+.DS_Store/
