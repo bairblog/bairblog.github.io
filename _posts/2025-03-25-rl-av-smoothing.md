@@ -1,7 +1,7 @@
 ---
 layout:             post
 title:              "Scaling Up Reinforcement Learning for Traffic Smoothing: A 100-AV Highway Deployment"
-date:               2025-03-20  9:00:00
+date:               2025-03-25  9:00:00
 author:             <a href="https://nathanlichtle.com/">Nathan Lichtlé</a>, <a href="https://kathyjang.com/">Kathy Jang</a>, <a href="https://www.eugenevinitsky.com/">Eugene Vinitsky</a>, <a href="https://www.linkedin.com/in/aditshah00/">Adit Shah</a>,<br><a href="https://sites.google.com/site/jonathanwlee5/">Jonathan W. Lee</a>, and <a href="https://bayen.berkeley.edu/alex-bayen/">Alexandre M. Bayen</a>
 img:                /assets/rl_av_smoothing/cover.png
 excerpt_separator:  <!--more-->
