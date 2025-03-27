@@ -12,7 +12,7 @@ show_comments:      False
 <!-- twitter -->
 <meta name="twitter:title" content="Scaling Up Reinforcement Learning for Traffic Smoothing: A 100-AV Highway Deployment">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="/blog/assets/rl_av_smoothing/cover.png">
+<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/rl_av_smoothing/megavandertest.png">
 
 <meta name="keywords" content="reinforcement learning, RL, autonomous vehicles, AV, traffic">
 <meta name="description" content="The BAIR Blog">
