@@ -102,12 +102,12 @@ We summarize 5 steps to train an LLM secure to prompt injections with SecAlign.
 - Find an instruction tuning dataset D, which is Cleaned Alpaca in our experiments.
 - From D, format the secure preference dataset D’ using the special delimiters defined in the Instruct model. This is a string concatenation operation, requiring no human labor compared to generating human preference dataset. 
 - Preference-optimize the LLM on D’. We use DPO, and other preference optimization methods are also applicable. 
-- Deploy the LLM with a secure front-end to filter the data part out of any special delimiters for separation.
+- Deploy the LLM with a secure front-end to filter the data out of special separation delimiters.
 
 Below are resources to learn more and keep updated on prompt injection attacks and defenses.
 
 - <a href="https://www.youtube.com/watch?v=zjkBMFhNj_g&t=3090">Video</a> explaining prompt injections (<a href="https://karpathy.ai">Andrej Karpathy</a>)
-- Prompt injections blogs: <a href="https://simonwillison.net/tags/prompt-injection">Simon Willison’s Weblog</a>, <a href="https://embracethered.com/blog">Embrace The Red</a>
+- Latest blogs on prompt injections: <a href="https://simonwillison.net/tags/prompt-injection">Simon Willison’s Weblog</a>, <a href="https://embracethered.com/blog">Embrace The Red</a>
 - <a href="https://drive.google.com/file/d/1g0BVB5HCMjJU4IBGWfdUVope4gr5V_cL/view?usp=sharing">Lecture</a> and <a href="https://drive.google.com/file/d/1baUbgFMILhPWBeGrm67XXy_H-jO7raRa/view?usp=sharing">project</a> slides about prompt injection defenses (<a href="https://sizhe-chen.github.io">Sizhe Chen</a>)
 
 - <a href="https://sizhe-chen.github.io/StruQ-Website">StruQ</a> (<a href="https://github.com/Sizhe-Chen/StruQ">Code</a>): Defend by secure front-end and structured instruction tuning
