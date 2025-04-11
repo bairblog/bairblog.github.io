@@ -1,7 +1,7 @@
 ---
 layout:             post
 title:              "Defending against Prompt Injection with Structured Queries (StruQ) and Preference Optimization (SecAlign)"
-date:               2025-04-07  9:00:00
+date:               2025-04-11  10:00:00
 author:             <a href="https://sizhe-chen.github.io/StruQ-Website/">StruQ</a> (USENIX Security'25) - <a href="https://sizhe-chen.github.io">Sizhe Chen</a>, <a href="https://people.eecs.berkeley.edu/~julien.piet">Julien Piet</a>, <a href="https://chawins.github.io">Chawin Sitawarin</a>, <a href="https://people.eecs.berkeley.edu/~daw">David Wagner</a> <br> <a href="https://sizhe-chen.github.io/SecAlign-Website">SecAlign</a> (CCS'25) - <a href="https://sizhe-chen.github.io">Sizhe Chen</a>, <a href="https://arman-z.github.io">Arman Zharmagambetov</a>, <br> <a href="https://smahloujifar.github.io">Saeed Mahloujifar</a>, <a href="https://cseweb.ucsd.edu/~kamalika">Kamalika Chaudhuri</a>, <a href="https://people.eecs.berkeley.edu/~daw">David Wagner</a>, <a href="https://sites.google.com/view/chuanguo">Chuan Guo</a> <br>
 img:                /assets/prompt_injection_defense/teaser.png
 excerpt_separator:  <!--more-->
