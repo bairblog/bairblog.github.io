@@ -19,11 +19,8 @@ once every two weeks.
 
 The editorial board consists of the following members:
 
-* [Ritwik Gupta][18] (Editor-in-Chief)
-* [Hellina Hailu Nigatu][19]
-* Sukanya Kudva
-* [Peter Wu][20]
-
+* [C.K. Wolfe][19] (Editor-in-Chief)
+* [Ishan Gaur][20]
 
 with faculty advisor [Sergey Levine][4]. 
 
@@ -39,6 +36,7 @@ We gratefully acknowledge the contributions of former board members:
 * [Dequan Wang][6]
 * [Harry Huazhe Xu][7]
 * [Chloe Hsu][14]
+* [Ritwik Gupta][18]
 
 To contact the group, send email to `bair-blog@berkeley.edu`.
 
@@ -85,5 +83,5 @@ Artificial Intelligence Research for hosting support.
 [16]:https://bthananjeyan.github.io/
 [17]:https://yuqingd.github.io/
 [18]:https://ritwikgupta.me/
-[19]:https://hhnigatu.github.io/
-[20]:https://peter.onrender.com/
+[19]: https://ckwolfe.org/
+[20]: https://www.linkedin.com/in/ishangaur
