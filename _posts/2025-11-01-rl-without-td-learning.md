@@ -6,7 +6,7 @@ author:             <a href="https://seohong.me/">Seohong Park</a>
 img:                /assets/rl-without-td-learning/teaser.png
 excerpt_separator:  <!--more-->
 visible:            True
-show_comments:      False
+show_comments:      True
 ---
 
 <!-- twitter -->

@@ -6,7 +6,7 @@ author:             <a href="https://dkarkada.xyz/">Dhruva Karkada</a>, <a href=
 img:                /assets/qwem-word2vec-theory/fig1.c8u1a3E7_Z23iPso.webp
 excerpt_separator:  <!--more-->
 visible:            True
-show_comments:      False
+show_comments:      True
 ---
 
 <!-- twitter -->
