@@ -21,7 +21,7 @@ show_comments:      True
 In this post, I'll introduce a reinforcement learning (RL) algorithm based on an "alternative" paradigm: **divide and conquer**. Unlike traditional methods, this algorithm is _not_ based on temporal difference (TD) learning (which has [scalability challenges](<https://seohong.me/blog/q-learning-is-not-yet-scalable/>)), and scales well to long-horizon tasks.
 
 <p style="text-align:center;">
-<img src="{{ site.baseurl }}/assets/rl-without-td-learning/teaser_short.png" alt="" width="100%">
+<img src="https://bair.berkeley.edu/static/blog/rl-without-td-learning/teaser_short.png" alt="" width="100%">
 <br>
 <i style="font-size: 0.9em;">We can do Reinforcement Learning (RL) based on divide and conquer, instead of temporal difference (TD) learning.</i>
 </p>
@@ -61,7 +61,7 @@ Is there a fundamentally different way to solve this problem?
 My claim is that a _third_ paradigm in value learning, **divide and conquer**, may provide an ideal solution to off-policy RL that scales to arbitrarily long-horizon tasks.
 
 <p style="text-align:center;">
-<img src="{{ site.baseurl }}/assets/rl-without-td-learning/teaser.png" alt="" width="100%">
+<img src="https://bair.berkeley.edu/static/blog/rl-without-td-learning/teaser.png" alt="" width="100%">
 <br>
 <i style="font-size: 0.9em;">Divide and conquer reduces the number of Bellman recursions logarithmically.</i>
 </p>
@@ -111,7 +111,7 @@ This has two benefits. First, we don't need to search over the entire state spac
 <div style="display: flex; justify-content: center; gap: 30px; margin: 30px 0;">
   <div style="text-align: center;">
     <video autoplay loop muted playsinline style="width: 350px;">
-      <source src="{{ site.baseurl }}/assets/rl-without-td-learning/humanoidmaze.mp4" type="video/mp4">
+      <source src="https://bair.berkeley.edu/static/blog/rl-without-td-learning/humanoidmaze.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
     <br>
@@ -119,7 +119,7 @@ This has two benefits. First, we don't need to search over the entire state spac
   </div>
   <div style="text-align: center;">
     <video autoplay loop muted playsinline style="width: 350px;">
-      <source src="{{ site.baseurl }}/assets/rl-without-td-learning/puzzle.mp4" type="video/mp4">
+      <source src="https://bair.berkeley.edu/static/blog/rl-without-td-learning/puzzle.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
     <br>
@@ -130,7 +130,7 @@ This has two benefits. First, we don't need to search over the entire state spac
 To see whether our method scales well to complex tasks, we directly evaluated TRL on some of the most challenging tasks in [OGBench](<https://seohong.me/projects/ogbench/>), a benchmark for offline goal-conditioned RL. We mainly used the hardest versions of humanoidmaze and puzzle tasks with large, 1B-sized datasets. These tasks are highly challenging: they require performing combinatorially complex skills across up to **3,000 environment steps**.
 
 <p style="text-align:center;">
-<img src="{{ site.baseurl }}/assets/rl-without-td-learning/table.png" alt="" width="100%">
+<img src="https://bair.berkeley.edu/static/blog/rl-without-td-learning/table.png" alt="" width="100%">
 <br>
 <i style="font-size: 0.9em;">TRL achieves the best performance on highly challenging, long-horizon tasks.</i>
 </p>
@@ -138,7 +138,7 @@ To see whether our method scales well to complex tasks, we directly evaluated TR
 The results are quite exciting! Compared to many strong baselines across different categories (TD, MC, quasimetric learning, etc.), TRL achieves the best performance on most tasks.
 
 <p style="text-align:center;">
-<img src="{{ site.baseurl }}/assets/rl-without-td-learning/1b.svg" alt="" width="100%">
+<img src="https://bair.berkeley.edu/static/blog/rl-without-td-learning/1b.svg" alt="" width="100%">
 <br>
 <i style="font-size: 0.9em;">TRL matches the best, individually tuned TD-$n$, <b>without needing to set $\boldsymbol{n}$</b>.</i>
 </p>

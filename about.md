@@ -31,6 +31,10 @@ The editorial board consists of the following members:
         <strong><a href="https://ishan-gaur.github.io/" style="color: #667eea; text-decoration: none; font-weight: bold;">Ishan Gaur</a></strong> - 
         <a href="https://x.com/ishan__gaur" style="text-decoration: none; font-size: 1.1em;">𝕏</a>
       </li>
+      <li style="padding: 10px 0; font-size: 1.1em;">
+        <strong><a href="https://x.com/addikala" style="color: #667eea; text-decoration: none; font-weight: bold;">Addison Kalanther</a></strong> - 
+        <a href="https://x.com/addikala" style="text-decoration: none; font-size: 1.1em;">𝕏</a>
+      </li>
     </ul>
     <div style="margin-top: 15px; padding-top: 15px; border-top: 2px solid #f0f0f0;">
       <p style="margin: 0; font-size: 0.95em;">
