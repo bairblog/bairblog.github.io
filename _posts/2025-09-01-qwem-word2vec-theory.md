@@ -20,7 +20,7 @@ show_comments:      True
 
 
 
-What exactly does `word2vec` learn, and how? Answering this question amounts to understanding representation learning in a minimal yet interesting language modeling task. Despite the fact that `word2vec` is a well-known precursor to modern language models, for many years researchers lacked a quantitative and predictive theory describing its learning process. In our new [paper](https://arxiv.org/abs/2502.09863), we finally provide such a theory. We prove that there are realistic, practical regimes in which the learning problem reduces to *unweighted least-squares matrix factorization*. We solve the gradient flow dynamics in closed form; the final learned representations are simply given by PCA.
+What exactly does `word2vec` learn, and how? Answering this question amounts to understanding representation learning in a minimal yet interesting language modeling task. Despite the fact that `word2vec` is a well-known precursor to modern language models, for many years, researchers lacked a quantitative and predictive theory describing its learning process. In our new [paper](https://arxiv.org/abs/2502.09863), we finally provide such a theory. We prove that there are realistic, practical regimes in which the learning problem reduces to *unweighted least-squares matrix factorization*. We solve the gradient flow dynamics in closed form; the final learned representations are simply given by PCA.
 
 <div style="width: 100%; margin: 0 auto; text-align: center;">
 <p style="text-align:center;">
