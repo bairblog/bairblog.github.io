@@ -19,32 +19,13 @@ once every two weeks.
 
 The editorial board consists of the following members:
 
-<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 10px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin: 20px 0;">
-  <div style="background: white; padding: 20px; border-radius: 8px;">
-    <ul style="list-style: none; padding-left: 0; margin: 0;">
-      <li style="padding: 10px 0; font-size: 1.1em; border-bottom: 1px solid #eee;">
-        <strong><a href="https://ckwolfe.org/" style="color: #667eea; text-decoration: none; font-weight: bold;">C.K. Wolfe</a></strong> 
-        <span style="color: #666;">(Editor-in-Chief)</span> - 
-        <a href="https://x.com/ckwolfeofficial" style="text-decoration: none; font-size: 1.1em;">𝕏</a>
-      </li>
-      <li style="padding: 10px 0; font-size: 1.1em;">
-        <strong><a href="https://ishan-gaur.github.io/" style="color: #667eea; text-decoration: none; font-weight: bold;">Ishan Gaur</a></strong> - 
-        <a href="https://x.com/ishan__gaur" style="text-decoration: none; font-size: 1.1em;">𝕏</a>
-      </li>
-      <li style="padding: 10px 0; font-size: 1.1em;">
-        <strong><a href="https://x.com/addikala" style="color: #667eea; text-decoration: none; font-weight: bold;">Addison Kalanther</a></strong> - 
-        <a href="https://x.com/addikala" style="text-decoration: none; font-size: 1.1em;">𝕏</a>
-      </li>
-    </ul>
-    <div style="margin-top: 15px; padding-top: 15px; border-top: 2px solid #f0f0f0;">
-      <p style="margin: 0; font-size: 0.95em;">
-        <strong>Faculty Advisor:</strong> 
-        <a href="https://people.eecs.berkeley.edu/~svlevine/" style="color: #667eea; text-decoration: none; font-weight: bold;">Sergey Levine</a> - 
-        <a href="https://x.com/svlevine" style="text-decoration: none; font-size: 1em;">𝕏</a>
-      </p>
-    </div>
-  </div>
-</div> 
+* [C.K. Wolfe](https://ckwolfe.org/) (Editor-in-Chief) - [𝕏](https://x.com/ckwolfeofficial)
+* [Ishan Gaur](https://ishan-gaur.github.io/) - [𝕏](https://x.com/ishan__gaur)
+* [Addison Kalanther](https://x.com/addikala) - [𝕏](https://x.com/addikala)
+
+**Faculty Advisor**: [Sergey Levine](https://people.eecs.berkeley.edu/~svlevine/) - [𝕏](https://x.com/svlevine) 
+
+
 
 We gratefully acknowledge the contributions of former board members:
 
