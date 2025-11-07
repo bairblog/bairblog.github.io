@@ -5,7 +5,7 @@ date:               2021-11-08  12:00:00
 author:             <a href="https://francesding.github.io/">Frances Ding</a> and <a href="https://jsteinhardt.stat.berkeley.edu/">Jacob Steinhardt</a>
 img:                /assets/similarity/PWCCA_avg_double_heatmap.png
 excerpt_separator:  <!--more-->
-visible:            True
+visible:            False
 show_comments:      False
 ---
 

@@ -6,7 +6,7 @@ author:             <a href="https://dkarkada.xyz/">Dhruva Karkada</a>, <a href=
 img:                /assets/qwem-word2vec-theory/fig1.c8u1a3E7_Z23iPso.webp
 excerpt_separator:  <!--more-->
 visible:            True
-show_comments:      False
+show_comments:      True
 ---
 
 <!-- twitter -->
@@ -20,11 +20,11 @@ show_comments:      False
 
 
 
-What exactly does `word2vec` learn, and how? Answering this question amounts to understanding representation learning in a minimal yet interesting language modeling task. Despite the fact that `word2vec` is a well-known precursor to modern language models, for many years researchers lacked a quantitative and predictive theory describing its learning process. In our new [paper](https://arxiv.org/abs/2502.09863), we finally provide such a theory. We prove that there are realistic, practical regimes in which the learning problem reduces to *unweighted least-squares matrix factorization*. We solve the gradient flow dynamics in closed form; the final learned representations are simply given by PCA.
+What exactly does `word2vec` learn, and how? Answering this question amounts to understanding representation learning in a minimal yet interesting language modeling task. Despite the fact that `word2vec` is a well-known precursor to modern language models, for many years, researchers lacked a quantitative and predictive theory describing its learning process. In our new [paper](https://arxiv.org/abs/2502.09863), we finally provide such a theory. We prove that there are realistic, practical regimes in which the learning problem reduces to *unweighted least-squares matrix factorization*. We solve the gradient flow dynamics in closed form; the final learned representations are simply given by PCA.
 
 <div style="width: 100%; margin: 0 auto; text-align: center;">
 <p style="text-align:center;">
-<img src="{{ site.baseurl }}/assets/qwem-word2vec-theory/fig1.c8u1a3E7_Z23iPso.webp" width="100%">
+<img src="https://bair.berkeley.edu/static/blog/qwem-word2vec-theory/fig1.c8u1a3E7_Z23iPso.webp" width="100%">
 <br>
 <i style="font-size: 0.9em;"><a href="https://arxiv.org/abs/2502.09863" target="_blank"><strong>Learning dynamics of word2vec</strong></a>. When trained from small initialization, word2vec learns in discrete, sequential steps. Left: rank-incrementing learning steps in the weight matrix, each decreasing the loss. Right: three time slices of the latent embedding space showing how embedding vectors expand into subspaces of increasing dimension at each learning step, continuing until model capacity is saturated.</i>
 </p>
@@ -61,7 +61,7 @@ The following plots illustrate this behavior.
 
 <div style="width: 100%; margin: 20px auto; text-align: center;">
 <p style="text-align:center;">
-<img src="{{ site.baseurl }}/assets/qwem-word2vec-theory/fig2.C4kWlUSu_ZJTCeE.webp" width="100%">
+<img src="https://bair.berkeley.edu/static/blog/qwem-word2vec-theory/fig2.C4kWlUSu_ZJTCeE.webp" width="100%">
 <br>
 <i style="font-size: 0.9em;">Learning dynamics comparison showing discrete, sequential learning steps.</i>
 </p>

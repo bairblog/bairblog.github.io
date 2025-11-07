@@ -1,7 +1,7 @@
 ---
 layout:             post
 title:              "The Unsupervised Reinforcement Learning Benchmark"
-date:               2021-12-14  12:00:00
+date:               2021-12-15  12:00:00
 author:             <a href="https://www.mishalaskin.com/edaaae9ed2b54016a66a0e315a9c9f63">Misha Laskin</a> and <a href="https://cs.nyu.edu/~dy1042/">Denis Yarats</a>
 img:                /assets/unsupervised_rl/img0.png
 excerpt_separator:  <!--more-->
@@ -32,7 +32,7 @@ You can also turn on Disqus comments, but we recommend disabling this feature.
 <!-- twitter -->
 <meta name="twitter:title" content="The Unsupervised Reinforcement Learning Benchmark">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/unsupervised_rl/img0.png">
+<meta name="twitter:image" content="https://bair.berkeley.edu/static/blog/unsupervised-rl/img0.png">
 
 <meta name="keywords" content="unsupervised learning, reinforcement learning, benchmark">
 <meta name="description" content="Blog post about unsupervised reinforcement learning and benchmarking unsupervised RL algorithms">
