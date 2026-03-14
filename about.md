@@ -20,8 +20,8 @@ once every two weeks.
 The editorial board consists of the following members:
 
 * [C.K. Wolfe](https://ckwolfe.org/) (Editor-in-Chief) - [𝕏](https://x.com/ckwolfeofficial)
-* [Ishan Gaur](https://ishan-gaur.github.io/) - [𝕏](https://x.com/ishan__gaur)
 * [Addison Kalanther](https://x.com/addikala) - [𝕏](https://x.com/addikala)
+* [Ishan Gaur](https://ishan-gaur.github.io/) - [𝕏](https://x.com/ishan__gaur)
 
 **Faculty Advisor**: [Sergey Levine](https://people.eecs.berkeley.edu/~svlevine/) - [𝕏](https://x.com/svlevine) 
 
