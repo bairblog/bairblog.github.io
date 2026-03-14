@@ -1,10 +1,10 @@
 # Site settings
 title:       The Berkeley Artificial Intelligence Research Blog
 email:       bair-blog@berkeley.edu
-author:      Ritwik Gupta
+author:      C.K. Wolfe
 description: "The BAIR Blog"
-baseurl:     ""
-url:         "https://bairblog.github.io/"
+baseurl:     "/blog"
+url:         "http://bair.berkeley.edu"
 date_format: "%b %-d, %Y"
 timezone:    America/Los_Angeles
 
