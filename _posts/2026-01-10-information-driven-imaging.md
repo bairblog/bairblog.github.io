@@ -32,21 +32,23 @@ you know the exact URL.
 <meta name="description" content="The BAIR Blog">
 <meta name="author" content="Henry Pinkard, Leyla Kabuli, Eric Markley, Tiffany Chien, Jiantao Jiao, Laura Waller">
 
-Many imaging systems produce measurements that humans never see or cannot interpret directly. Your smartphone processes raw sensor data through algorithms before producing the final photo. MRI scanners collect frequency-space measurements that require reconstruction before doctors can view them. Self-driving cars process camera and LiDAR data directly with neural networks.
-
-What matters in these systems is not how measurements look, but how much useful information they contain. AI can extract this information even when it is encoded in ways that humans cannot interpret.
-
-And yet we rarely evaluate information content directly. Traditional metrics like resolution and signal-to-noise ratio assess individual aspects of quality separately, making it difficult to compare systems that trade off between these factors. The common alternative, training neural networks to reconstruct or classify images, conflates the quality of the imaging hardware with the quality of the algorithm.
-
-<!--more-->
-
-We developed a framework that enables direct evaluation and optimization of imaging systems based on their information content. In our [NeurIPS 2025 paper][paper], we show that this information metric predicts system performance across four imaging domains, and that optimizing it produces designs that match state-of-the-art end-to-end methods while requiring less memory, less compute, and no task-specific decoder design.
 
 <p style="text-align:center;">
 <img src="/assets/information-driven-imaging/info_estimation_overview.png" width="100%">
 <br>
 <i>An encoder (optical system) maps objects to noiseless images, which noise corrupts into measurements. Our information estimator uses only these noisy measurements and a noise model to quantify how well measurements distinguish objects.</i>
 </p>
+
+Many imaging systems produce measurements that humans never see or cannot interpret directly. Your smartphone processes raw sensor data through algorithms before producing the final photo. MRI scanners collect frequency-space measurements that require reconstruction before doctors can view them. Self-driving cars process camera and LiDAR data directly with neural networks.
+
+What matters in these systems is not how measurements look, but how much useful information they contain. AI can extract this information even when it is encoded in ways that humans cannot interpret.
+
+
+<!--more-->
+
+And yet we rarely evaluate information content directly. Traditional metrics like resolution and signal-to-noise ratio assess individual aspects of quality separately, making it difficult to compare systems that trade off between these factors. The common alternative, training neural networks to reconstruct or classify images, conflates the quality of the imaging hardware with the quality of the algorithm.
+
+We developed a framework that enables direct evaluation and optimization of imaging systems based on their information content. In our [NeurIPS 2025 paper][paper], we show that this information metric predicts system performance across four imaging domains, and that optimizing it produces designs that match state-of-the-art end-to-end methods while requiring less memory, less compute, and no task-specific decoder design.
 
 ## Why mutual information?
 
@@ -135,19 +137,6 @@ The framework may extend beyond imaging to other sensing domains. Any system tha
 <hr>
 
 *This post is based on our NeurIPS 2025 paper ["Information-driven design of imaging systems"][paper]. Code is available on [GitHub][code]. A video summary is available on the [project website][website].*
-
-**BibTeX:**
-```
-@article{pinkard2024informationdrivendesignimagingsystems,
-  title={Information-driven design of imaging systems},
-  author={Henry Pinkard and Leyla Kabuli and Eric Markley and Tiffany Chien and Jiantao Jiao and Laura Waller},
-  year={2024},
-  eprint={2405.20559},
-  archivePrefix={arXiv},
-  primaryClass={physics.optics},
-  url={https://arxiv.org/abs/2405.20559},
-}
-```
 
 [paper]: https://arxiv.org/abs/2405.20559
 [code]: https://github.com/Waller-Lab/EncodingInformation
