@@ -26,7 +26,7 @@ you know the exact URL.
 <!-- twitter -->
 <meta name="twitter:title" content="Measuring What Matters: Information-Driven Design of Imaging Systems">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="/assets/information-driven-imaging/info_estimation_overview.png">
+<meta name="twitter:image" content="{{ site.baseurl }}/assets/information-driven-imaging/info_estimation_overview.png">
 
 <meta name="keywords" content="information theory, computational imaging, optical design, imaging systems, machine learning, optimization">
 <meta name="description" content="The BAIR Blog">
@@ -34,7 +34,7 @@ you know the exact URL.
 
 
 <p style="text-align:center;">
-<img src="/assets/information-driven-imaging/info_estimation_overview.png" width="100%">
+<img src="{{ site.baseurl }}/assets/information-driven-imaging/info_estimation_overview.png" width="100%">
 <br>
 <i>An encoder (optical system) maps objects to noiseless images, which noise corrupts into measurements. Our information estimator uses only these noisy measurements and a noise model to quantify how well measurements distinguish objects.</i>
 </p>
@@ -57,7 +57,7 @@ Mutual information quantifies how much a measurement reduces uncertainty about t
 This single number captures the combined effect of resolution, noise, sampling, and all other factors that affect measurement quality. A blurry, noisy image that preserves the features needed to distinguish objects can contain more information than a sharp, clean image that loses those features.
 
 <p style="text-align:center;">
-<img src="/assets/information-driven-imaging/noise_res_spectrum.png" width="90%">
+<img src="{{ site.baseurl }}/assets/information-driven-imaging/noise_res_spectrum.png" width="90%">
 <br>
 <i>Information unifies traditionally separate quality metrics. It accounts for noise, resolution, and spectral sensitivity together rather than treating them as independent factors.</i>
 </p>
@@ -77,7 +77,7 @@ $$I(X; Y) = H(Y) - H(Y \mid X)$$
 The first term, $H(Y)$, measures total variation in measurements from both object differences and noise. The second term, $H(Y \mid X)$, measures variation from noise alone.
 
 <p style="text-align:center;">
-<img src="/assets/information-driven-imaging/entropies_decomposition.png" width="70%">
+<img src="{{ site.baseurl }}/assets/information-driven-imaging/entropies_decomposition.png" width="70%">
 <br>
 <i>Mutual information equals the difference between total measurement variation and noise-only variation.</i>
 </p>
@@ -91,7 +91,7 @@ For $H(Y)$, we fit a probabilistic model (e.g. a transformer or other autoregres
 Information estimates should predict decoder performance if they capture what limits real systems. We tested this relationship across four imaging applications.
 
 <p style="text-align:center;">
-<img src="/assets/information-driven-imaging/applications_figure.png" width="100%">
+<img src="{{ site.baseurl }}/assets/information-driven-imaging/applications_figure.png" width="100%">
 <br>
 <i>Information estimates predict decoder performance across color photography, radio astronomy, lensless imaging, and microscopy. Higher information consistently produces better results on downstream tasks.</i>
 </p>
@@ -111,7 +111,7 @@ In all cases, higher information meant better downstream performance.
 Information estimates can do more than evaluate existing systems. Our Information-Driven Encoder Analysis Learning (IDEAL) method uses gradient ascent on information estimates to optimize imaging system parameters.
 
 <p style="text-align:center;">
-<img src="/assets/information-driven-imaging/IDEAL_overview.png" width="100%">
+<img src="{{ site.baseurl }}/assets/information-driven-imaging/IDEAL_overview.png" width="100%">
 <br>
 <i>IDEAL optimizes imaging system parameters through gradient feedback on information estimates, without requiring a decoder network.</i>
 </p>
@@ -121,7 +121,7 @@ The standard approach to computational imaging design, end-to-end optimization, 
 IDEAL avoids these problems by optimizing the encoder alone. We tested it on color filter design. Starting from a random filter arrangement, IDEAL progressively improved the design. The final result matched end-to-end optimization in both information content and reconstruction quality.
 
 <p style="text-align:center;">
-<img src="/assets/information-driven-imaging/IDEAL_perf.png" width="50%">
+<img src="{{ site.baseurl }}/assets/information-driven-imaging/IDEAL_perf.png" width="50%">
 <br>
 <i>IDEAL matches end-to-end optimization performance while avoiding decoder complexity during training.</i>
 </p>
