@@ -36,13 +36,16 @@ Subscribe to our <a href="{{ site.baseurl }}/feed.xml">RSS feed</a>.
 {% endif %}
 
 {% if site.disqus_shortname and page.show_comments %}
+  {% assign disqus_page_url = page.url | replace: 'index.html', '' | prepend: site.baseurl | prepend: site.url %}
   <h1>Comments</h1>
   <div id="disqus_thread"></div>
   <script type="text/javascript">
-    var disqus_shortname  = '{{ site.disqus_shortname }}';
-    var disqus_identifier = '{{ page.id }}';
-    var disqus_title      = '{{ page.title }}';
-
+    var disqus_shortname = '{{ site.disqus_shortname }}';
+    var disqus_config = function () {
+      this.page.url = {{ disqus_page_url | jsonify }};
+      this.page.identifier = {{ page.id | jsonify }};
+      this.page.title = {{ page.title | strip_html | jsonify }};
+    };
     (function() {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
       dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
