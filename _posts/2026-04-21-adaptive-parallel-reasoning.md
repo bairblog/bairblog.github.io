@@ -228,7 +228,7 @@ When all is said and done, how well do these adaptive parallel methods actually 
 
 Each paper also offers a slightly different interpretation about how adaptive parallel reasoning contributes to the research field. They optimize for different theoretical objectives, so they use slightly different sets of metrics. Multiverse ([Yang et al., 2025](https://doi.org/10.48550/arXiv.2506.09991)) and ThreadWeaver ([Lian et al., 2025](https://doi.org/10.48550/arXiv.2512.07843)) aim to deliver sequential AR model level accuracy at faster speeds. Multiverse shows that APR models can achieve higher accuracy under the same fixed context window. ThreadWeaver shows that the APR model achieves shorter end-to-end token latency (critical path length) while getting comparable accuracy.
 
-**NPR ([Wu et al., 2025](https://doi.org/10.48550/arXiv.2512.07461))** treats sequential fallback as a failure mode and optimizes for 100% Genuine Parallelism Rate, measured by percentage of parallel tokens versus total tokens.
+NPR ([Wu et al., 2025](https://doi.org/10.48550/arXiv.2512.07461)) treats sequential fallback as a failure mode and optimizes for 100% Genuine Parallelism Rate, measured by percentage of parallel tokens versus total tokens.
 
 Parallel-R1 ([Zheng et al., 2025](https://doi.org/10.48550/arXiv.2509.07980)) did not focus on end-to-end latency and instead optimizes for exploration diversity and presents APR as a form of mid-training exploration scaffold that provides a performance boost after RL. 
 
