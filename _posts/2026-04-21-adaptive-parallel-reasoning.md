@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Adaptive Parallel Reasoning: The Next Paradigm in Efficient Inference Scaling"
-date: 2026-04-20 09:00:00
+date: 2026-04-21 09:00:00
 author: <a href="https://www.stephenxie.com/">Stephen Xie</a> and <a href="https://tonylian.com/">Long (Tony) Lian</a>
 img: /assets/adaptive-parallel-reasoning/cover.png
 excerpt_separator: <!--more-->
@@ -53,9 +53,7 @@ What if a reasoning model could decide *for itself* when to decompose and parall
 
 Recent progress in LLM reasoning capability has been largely driven by inference-time scaling, in addition to data and parameter scaling ([OpenAI et al., 2024](https://doi.org/10.48550/arXiv.2412.16720); [DeepSeek-AI et al., 2025](https://doi.org/10.1038/s41586-025-09422-z)). Models that explicitly output reasoning tokens (through intermediate steps, backtracking, and exploration) now dominate math, coding, and agentic benchmarks. These behaviors allow models to explore alternative hypotheses, correct earlier mistakes, and synthesize conclusions rather than committing to a single solution ([Wen et al., 2025](https://doi.org/10.48550/arXiv.2509.04475)).
 
-### What’s wrong with sequential reasoning?
-
-Scaling sequential reasoning tokens comes at a cost, as models risk exceeding effective context limits ([Hsieh et al., 2024](https://doi.org/10.48550/arXiv.2404.06654)). The accumulation of intermediate exploration paths makes it challenging for the model to disambiguate amongst distractors when attending to information in its context, leading to a degradation of model performance, also known as **context-rot** ([Hong, Troynikov and Huber, 2025](https://research.trychroma.com/context-rot)). Latency also grows proportionally with reasoning length. For complex tasks requiring tens of millions of tokens for exploration and planning, it’s not uncommon to see users wait tens of minutes or even hours for an answer ([Qu et al., 2025](https://doi.org/10.48550/arXiv.2503.21614)). As we continue to scale along the output sequence length dimension, we also make inference slower, less reliable, and more compute intensive. Parallel reasoning has emerged as a natural solution. Instead of exploring paths sequentially ([Gandhi et al., 2024](https://doi.org/10.48550/arXiv.2404.03683)) and accumulating the context window at every step, we can allow models to explore multiple threads independently (threads don’t rely on each other’s context) and concurrently (threads can be executed at the same time).
+**The problem is that sequential reasoning scales linearly with the amount of exploration.** Scaling sequential reasoning tokens comes at a cost, as models risk exceeding effective context limits ([Hsieh et al., 2024](https://doi.org/10.48550/arXiv.2404.06654)). The accumulation of intermediate exploration paths makes it challenging for the model to disambiguate amongst distractors when attending to information in its context, leading to a degradation of model performance, also known as **context-rot** ([Hong, Troynikov and Huber, 2025](https://research.trychroma.com/context-rot)). Latency also grows proportionally with reasoning length. For complex tasks requiring tens of millions of tokens for exploration and planning, it’s not uncommon to see users wait tens of minutes or even hours for an answer ([Qu et al., 2025](https://doi.org/10.48550/arXiv.2503.21614)). As we continue to scale along the output sequence length dimension, we also make inference slower, less reliable, and more compute intensive. Parallel reasoning has emerged as a natural solution. Instead of exploring paths sequentially ([Gandhi et al., 2024](https://doi.org/10.48550/arXiv.2404.03683)) and accumulating the context window at every step, we can allow models to explore multiple threads independently (threads don’t rely on each other’s context) and concurrently (threads can be executed at the same time).
 
 <p class="apr-fig apr-fig--wide">
 <img src="/assets/adaptive-parallel-reasoning/figure-01-sequential-vs-parallel.png" alt="Figure 1: Sequential vs. Parallel Reasoning"><br>
@@ -64,21 +62,23 @@ Scaling sequential reasoning tokens comes at a cost, as models risk exceeding ef
 
 Over recent years, a growing body of work has explored this idea across synthetic settings (e.g., the Countdown game ([Katz, Kokel and Sreedharan, 2025](https://doi.org/10.48550/arXiv.2508.02900))), real-world math problems, and general reasoning tasks.
 
-### Existing approaches to parallel reasoning - and why they’re not enough
+## From Fixed Parallelism to Adaptive Control
 
-#### Simple fork-and-join
+Existing approaches show that parallel reasoning can help, but most of them still decide the parallel structure outside the model rather than letting the model choose it.
+
+**Simple fork-and-join.**
 
 - **Self-consistency/Majority Voting** - independently sample multiple complete reasoning traces, extract final answer from each, and return the most common one ([Wang et al., 2023](https://doi.org/10.48550/arXiv.2203.11171)).
 - **Best-of-N** - similar to self-consistency, but uses a trained verifier to select the best solution instead of using majority voting ([Stiennon et al., 2022](https://doi.org/10.48550/arXiv.2009.01325)).
 - Although simple to implement, these methods often contain redundant computation across branches since trajectories are sampled independently.
 
-#### Heuristic-based Structured Search
+**Heuristic-based structured search.**
 
 - **Tree / Graph / Skeleton of Thoughts** - a family of structured decomposition methods that explores multiple alternative “thoughts” using known search algorithms (BFS/DFS) and prunes via LLM-based evaluation ([Yao et al., 2023](https://doi.org/10.48550/arXiv.2305.10601); [Besta et al., 2024](https://doi.org/10.1609/aaai.v38i16.29720); [Ning et al., 2024](https://doi.org/10.48550/arXiv.2307.15337)).
 - **Monte-Carlo Tree Search (MCTS)** - estimate node values by sampling random rollouts and expanding the search tree with Upper Confidence Bound (UCB) style exploration-exploitation ([Xie et al., 2024](https://doi.org/10.48550/arXiv.2405.00451); [Zhang et al., 2024](https://doi.org/10.48550/arXiv.2406.07394)).
 - These methods improve upon simple fork-and-join by decomposing tasks into non-overlapping subtasks; however, they require prior knowledge about the decomposition strategy, which is not always known.
 
-#### Recent Variants
+**Recent variants.**
 
 - **ParaThinker** - train model to run in two fixed stages; first generate multiple reasoning threads in parallel, then synthesize them. They introduce trainable control tokens (`<think_i>`) and thought-specific positional embeddings to enforce independence during reasoning and controlled integration during summarization via a two-phase attention mask ([Wen et al., 2025](https://doi.org/10.48550/arXiv.2509.04475)).
 - **GroupThink** - multiple parallel reasoning threads can see each other’s partial progress at token level and adapt mid-generation. Unlike prior concurrent methods that operate on independent requests, GroupThink runs a single LLM producing multiple interdependent reasoning trajectories simultaneously ([Hsu et al., 2025](https://doi.org/10.48550/arXiv.2505.11107)).
@@ -91,25 +91,17 @@ Over recent years, a growing body of work has explored this idea across syntheti
 
 The methods above share a common limitation: the decision to parallelize, the level of parallelization, and the search strategy are imposed on the model, regardless of whether the problem actually benefits from it. However, different problems need different levels of parallelization, and that is something critical to the effectiveness of parallelization. For example, a framework that applies the same parallel structure to “What’s 25+42?” and “What's the smallest area you need to rotate a unit-length line by 180 degrees in a plane?” is wasting compute on the former and probably using the wrong decomposition strategy for the latter. In these previous approaches that we just introduced, the model is not taught this adaptive behavior. A natural question arises: **What if the model could decide** ***for itself*** **when to parallelize, how many threads to spawn, and how to coordinate them based on the problem at hand?**
 
-## Introducing Adaptivity to Parallel Reasoning
-
-### What does “adaptive” mean?
-
-Formally defined, adaptivity refers to the model’s ability to **dynamically allocate compute between parallel and serial operations at inference time**. In other words, a model with adaptive parallel reasoning (APR) capability is taught to coordinate its control flow – when to generate sequences sequentially vs. in parallel.
+Adaptive Parallel Reasoning (APR) answers this question by making parallelization part of the model's generated control flow. Formally defined, adaptivity refers to the model’s ability to **dynamically allocate compute between parallel and serial operations at inference time**. In other words, a model with adaptive parallel reasoning (APR) capability is taught to coordinate its control flow – when to generate sequences sequentially vs. in parallel.
 
 It’s important to note that the concept of adaptive parallel reasoning is introduced by the work *Learning Adaptive Parallel Reasoning with Language Models* ([Pan et al., 2025](https://doi.org/10.48550/arXiv.2504.15466)), but it is a paradigm instead of a specific method. In this work, we use APR to refer to the paradigm. We use the phrase “APR method” when we talk about the specific method. The APR method is an example of the APR (paradigm).
 
-### Why adaptive parallel reasoning?
-
-**Compared to ToT, APR doesn’t need domain-specific heuristics for decomposition.** During RL, the model learns *general* decomposition strategy from trial and error. In fact, models discover useful parallelization patterns, such as running the next step along with the self-verification of a previous step, or hedging a primary approach with a backup one, in an emergent manner that would be difficult to hand-design ([Yao et al., 2023](https://doi.org/10.48550/arXiv.2305.10601); [Wu et al., 2025](https://doi.org/10.48550/arXiv.2512.07461); [Zheng et al., 2025](https://doi.org/10.48550/arXiv.2509.07980)).
+This shift matters for three reasons. **Compared to ToT, APR doesn’t need domain-specific heuristics for decomposition.** During RL, the model learns *general* decomposition strategy from trial and error. In fact, models discover useful parallelization patterns, such as running the next step along with the self-verification of a previous step, or hedging a primary approach with a backup one, in an emergent manner that would be difficult to hand-design ([Yao et al., 2023](https://doi.org/10.48550/arXiv.2305.10601); [Wu et al., 2025](https://doi.org/10.48550/arXiv.2512.07461); [Zheng et al., 2025](https://doi.org/10.48550/arXiv.2509.07980)).
 
 **Compared to BoN, APR avoids redundant computation.** APR models have control over what each parallel thread will do before branching out. Therefore, APR can learn to produce a set of unique, non-overlapping subtasks before assigning them to independent threads ([Wang et al., 2023](https://doi.org/10.48550/arXiv.2203.11171); [Stiennon et al., 2022](https://doi.org/10.48550/arXiv.2009.01325); [Pan et al., 2025](https://doi.org/10.48550/arXiv.2504.15466); [Yang et al., 2025](https://doi.org/10.48550/arXiv.2506.09991)).
 
 **Compared to non-adaptive approaches, APR can choose not to parallelize.** Adaptive models can adjust the level of parallelization to match the complexity of the problem against the complexity and overhead of parallelization ([Lian et al., 2025](https://doi.org/10.48550/arXiv.2512.07843)).
 
-### Implementation of adaptive parallel reasoning
-
-Model outputs special tokens to adaptively control when to reason in parallel versus sequentially. Below is a condensed ThreadWeaver-style trace: two outlines and two paths under a &lt;Parallel&gt; block, then the threads agree on a single boxed answer.
+In practice, this is implemented by having the model output special tokens that control when to reason in parallel versus sequentially. Below is a condensed ThreadWeaver-style trace: two outlines and two paths under a &lt;Parallel&gt; block, then the threads agree on a single boxed answer.
 
 <p class="apr-fig apr-fig--tall-1-5x">
 <img src="/assets/adaptive-parallel-reasoning/figure-03-threadweaver-trajectory.png" alt="Figure 3: Example of an Adaptive Parallel Reasoning Trajectory from ThreadWeaver, manually condensed for ease of illustration."><br>
@@ -121,13 +113,11 @@ Model outputs special tokens to adaptively control when to reason in parallel ve
 <i class="apr-fig-cap">Figure 4: Special Tokens Variants across Adaptive Parallel Reasoning Papers</i>
 </p>
 
-## Inference and Training Co-Designs
+## Inference Systems for Adaptive Parallelism
 
 How do we actually execute parallel branches? We take inspiration from computer systems, and specifically, multithreading and multiprocessing. A majority of the work can be considered as leveraging a fork-join design.
 
-### Fork-join design
-
-At inference time, we are effectively asking the model to perform a map-reduce operation:
+**At inference time, we are effectively asking the model to perform a map-reduce operation:**
 
 - Fork the problem into subtasks/threads, process them concurrently
 - Join them into a final answer
@@ -141,9 +131,7 @@ Specifically, the model will encounter a list of subtasks. It will then prefill 
 
 To address this issue, the field splits into two schools of thought on how to execute the aggregation process, defined by whether they modify the inference engine or work around it.
 
-### Multiverse’s Approach: Custom KV Cache Handling
-
-Before taking a deeper look into Multiverse ([Yang et al., 2025](https://doi.org/10.48550/arXiv.2506.09991))’s memory management, let’s first understand how KV cache is handled up until the “join” phase. Notice how each of the independent threads share the prefix sequence, i.e., the list of subtasks. Without optimization, each thread needs to prefill and recompute the KV cache for the prefix sequence. However, this redundancy can be avoided with [SGLang](https://github.com/sgl-project/sglang)’s RadixAttention ([Sheng et al., 2023](https://doi.org/10.48550/arXiv.2312.07104)), which organizes multiple requests into a radix tree, a trie (prefix tree) with sequence of elements with varying lengths instead of single elements. This way, the only new KV cache are those from independent thread generation.
+**Multiverse modifies the inference engine to reuse KV cache across the join.** Before taking a deeper look into Multiverse ([Yang et al., 2025](https://doi.org/10.48550/arXiv.2506.09991))’s memory management, let’s first understand how KV cache is handled up until the “join” phase. Notice how each of the independent threads share the prefix sequence, i.e., the list of subtasks. Without optimization, each thread needs to prefill and recompute the KV cache for the prefix sequence. However, this redundancy can be avoided with [SGLang](https://github.com/sgl-project/sglang)’s RadixAttention ([Sheng et al., 2023](https://doi.org/10.48550/arXiv.2312.07104)), which organizes multiple requests into a radix tree, a trie (prefix tree) with sequence of elements with varying lengths instead of single elements. This way, the only new KV cache are those from independent thread generation.
 
 <p class="apr-fig apr-fig--tall-2x">
 <img src="/assets/adaptive-parallel-reasoning/figure-06-radix.png" alt="Figure 6: RadixAttention’s KV Cache Management Strategy"><br>
@@ -168,9 +156,7 @@ Second, this approach modifies how models see the sequence, which creates a dist
 
 With these issues arising from non-standard KV cache management, can we try an approach without engine modifications?
 
-### ThreadWeaver’s Approach: Engine-agnostic
-
-ThreadWeaver ([Lian et al., 2025](https://doi.org/10.48550/arXiv.2512.07843)) treats parallel inference purely as a client-side problem. The “Fork” process is nearly identical to Multiverse’s, but the join phase handles memory very differently as it does NOT modify engine internals. Instead, the client concatenates all text outputs from independent branches into one contiguous sequence. Then, the engine performs a **second prefill** to generate the KV cache for the conclusion generation step. While this introduces computational redundancy that Multiverse tries to avoid, the cost of prefill is significantly lower than decoding. In addition, this does not require special attention handling during inference, as the second prefill uses causal attention (threads see each other), making it easier to adapt sequential autoregressive models for this task.
+**ThreadWeaver keeps the inference engine unchanged and moves orchestration to the client.** ThreadWeaver ([Lian et al., 2025](https://doi.org/10.48550/arXiv.2512.07843)) treats parallel inference purely as a client-side problem. The “Fork” process is nearly identical to Multiverse’s, but the join phase handles memory very differently as it does NOT modify engine internals. Instead, the client concatenates all text outputs from independent branches into one contiguous sequence. Then, the engine performs a **second prefill** to generate the KV cache for the conclusion generation step. While this introduces computational redundancy that Multiverse tries to avoid, the cost of prefill is significantly lower than decoding. In addition, this does not require special attention handling during inference, as the second prefill uses causal attention (threads see each other), making it easier to adapt sequential autoregressive models for this task.
 
 <p class="apr-fig apr-fig--wide">
 <img src="/assets/adaptive-parallel-reasoning/figure-09-prefill-decode.png" alt="Figure 9: ThreadWeaver’s Prefill and Decode Strategy"><br>
@@ -186,38 +172,26 @@ How should we train a model to learn this behavior? Naively, for each parallel t
 
 Specifically, we apply masking and position IDs to mimic the inference behavior, such that each thread is only conditioned on the prompt+subtasks, without ever attending to sibling threads or the final conclusion.
 
-### Why does being engine-agnostic matter?
+The engine-agnostic design makes adoption easy since you don't need to figure out a separate hosting method and can leverage existing hardware infra. It also gets better as existing inference engines get better. What's more, with an engine-agnostic method, we can serve a hybrid model that switches between sequential and parallel thinking mode easily.
 
-It makes adoption easy since you don't need to figure out a separate hosting method and can leverage existing hardware infra. It also gets better as existing inference engines get better. What's more, with an engine-agnostic method, we can serve a hybrid model that switches between sequential and parallel thinking mode easily.
+## Training Models to Use Parallelism
 
-## Teaching with Demonstrations
-
-### Do we need demonstrations?
-
-Yes, since you need to train to let the model output special tokens that orchestrate control flow. We found the instruction-following capabilities of base models insufficient for generating parallel threads.
+Once the inference path exists, the next problem is teaching a model to use it. Demonstrations are needed because the model must learn to output special tokens that orchestrate control flow. We found the instruction-following capabilities of base models insufficient for generating parallel threads.
 
 An interesting question here is: does SFT training induce a fundamental reasoning capability for parallel execution that was previously absent, or does it merely align the model's existing pre-trained capabilities to a specific control-flow token syntax. Typical wisdom is SFT teaches new knowledge; but contrary to common belief, some papers—notably Parallel-R1 ([Zheng et al., 2025](https://doi.org/10.48550/arXiv.2509.07980)) and NPR ([Wu et al., 2025](https://doi.org/10.48550/arXiv.2512.07461))—argue that their SFT demonstrations simply just induce format following (i.e., how to structure parallel requests). We leave it as future work for researchers.
-
-### Where do parallelization demonstrations come from?
 
 <p class="apr-fig apr-fig--wide">
 <img src="/assets/adaptive-parallel-reasoning/figure-11-demo-sources.png" alt="Figure 11: Sources of Parallelization Demonstration Data"><br>
 <i class="apr-fig-cap">Figure 11: Sources of Parallelization Demonstration Data</i>
 </p>
 
-## Reward Design: How to incentivize parallelization?
+Demonstrations teach the syntax of parallel control flow, but they do not fully solve the incentive problem. In an ideal world, we only need to reward the outcome accuracy, and the parallelization pattern emerges naturally given it learns to output special tokens through SFT, similar to the emergence of long CoT. However, researchers ([Zheng et al., 2025](https://doi.org/10.48550/arXiv.2509.07980)) observed that this is not enough, and we do in fact need parallelization incentives. The question then becomes, how do we tell when the model is parallelizing effectively?
 
-In an ideal world, we only need to reward the outcome accuracy, and the parallelization pattern emerges naturally given it learns to output special tokens through SFT, similar to the emergence of long CoT. However, researchers ([Zheng et al., 2025](https://doi.org/10.48550/arXiv.2509.07980)) observed that this is not enough, and we do in fact need parallelization incentives. The question then becomes, how do we tell when the model is parallelizing effectively?
-
-### Rewarding Parallel Structures
-
-Naively, we can give a reward for the number of threads spawned. But models can spawn many short, useless threads to hack the reward. Okay, that doesn’t work. How about a binary reward for simply using parallel structure correctly? This partially solves the issue of models spamming new threads, but models still learn to spawn threads when they don’t need to. The authors of Parallel-R1 ([Zheng et al., 2025](https://doi.org/10.48550/arXiv.2509.07980)) introduced an alternating-schedule, only rewarding parallel structure 20% of the time, which successfully increased the use of parallel structure (13.6% -> 63%), but had little impact on overall accuracy.
+**Structure-only rewards are too easy to game.** Naively, we can give a reward for the number of threads spawned. But models can spawn many short, useless threads to hack the reward. Okay, that doesn’t work. How about a binary reward for simply using parallel structure correctly? This partially solves the issue of models spamming new threads, but models still learn to spawn threads when they don’t need to. The authors of Parallel-R1 ([Zheng et al., 2025](https://doi.org/10.48550/arXiv.2509.07980)) introduced an alternating-schedule, only rewarding parallel structure 20% of the time, which successfully increased the use of parallel structure (13.6% -> 63%), but had little impact on overall accuracy.
 
 With this structure-only approach, we might be drifting away from our original goal of increasing accuracy and reducing latency… How can we optimize for the Pareto frontier directly? Accuracy is simple – we just look at the outcome. How about latency?
 
-### Rewarding Parallel Efficiency
-
-In sequential-only trajectories, we can measure latency based on the total number of tokens generated. To extend this to parallel trajectories, we can focus on the critical path, or the longest sequence of tokens that are causally dependent, as this directly determines our end-to-end generation time (aka wall-clock time). As an example, when there are two &lt;Parallel&gt; sections with five threads each, the critical path will go through the longest thread from the first parallel section, then any sequential tokens, then the longest thread from the second parallel section, and so on until the end of sequence.
+**Efficiency rewards need to track the critical path.** In sequential-only trajectories, we can measure latency based on the total number of tokens generated. To extend this to parallel trajectories, we can focus on the critical path, or the longest sequence of tokens that are causally dependent, as this directly determines our end-to-end generation time (aka wall-clock time). As an example, when there are two &lt;Parallel&gt; sections with five threads each, the critical path will go through the longest thread from the first parallel section, then any sequential tokens, then the longest thread from the second parallel section, and so on until the end of sequence.
 
 <p class="apr-fig apr-fig--wide">
 <img src="/assets/adaptive-parallel-reasoning/figure-12-critical-path.png" alt="Figure 12: Critical Path Length Illustration"><br>
@@ -226,9 +200,7 @@ In sequential-only trajectories, we can measure latency based on the total numbe
 
 The goal is to minimize the length of the critical path. Simultaneously, we would still like the model to be spending tokens exploring threads in parallel. To combine the two objectives, we can focus on making the critical path a smaller fraction of the total tokens spent. Authors of ThreadWeaver ([Lian et al., 2025](https://doi.org/10.48550/arXiv.2512.07843)) framed the parallelization reward as $1 - L_{\mathrm{critical}} / L_{\mathrm{total}}$, which is 0 for sequential trajectory, and increases linearly as the critical path gets smaller compared to the total tokens generated.
 
-### How to combine this with accuracy reward?
-
-Intuitively, when multiple trajectories are correct we should assign more reward to the trajectories that are more efficient at parallelization. But how about when they are all incorrect? Should we assign any reward at all? Probably not.
+**Parallel efficiency should be gated by correctness.** Intuitively, when multiple trajectories are correct we should assign more reward to the trajectories that are more efficient at parallelization. But how about when they are all incorrect? Should we assign any reward at all? Probably not.
 
 To formalize this:
 
@@ -245,28 +217,20 @@ This way, a model only gets a parallelization reward when it answers correctly, 
 <i class="apr-fig-cap">Figure 13: Differences in Reward Designs Across Adaptive Parallel Reasoning Works</i>
 </p>
 
-## Comparisons
+## Evaluation and Open Questions
 
-When all is said and done, how well do these adaptive parallel methods actually perform? Well…this is a hard question, as they differ in model choice and metrics.
-
-### Why do different APR papers use different models?
-
-The model selection depends on the training method, SFT problem difficulty, and sequence length. When running SFT on difficult datasets like s1k, which contains graduate-level math and science problems, researchers chose large base models (Qwen2.5 32B for Multiverse ([Yang et al., 2025](https://doi.org/10.48550/arXiv.2506.09991)) to capture the complex reasoning structure behind the solution trajectories. When running RL, researchers chose a small, non-CoT, instruct model (4B, 8B) due to compute cost constraints.
+When all is said and done, how well do these adaptive parallel methods actually perform? Well…this is a hard question, as they differ in model choice and metrics. The model selection depends on the training method, SFT problem difficulty, and sequence length. When running SFT on difficult datasets like s1k, which contains graduate-level math and science problems, researchers chose large base models (Qwen2.5 32B for Multiverse ([Yang et al., 2025](https://doi.org/10.48550/arXiv.2506.09991)) to capture the complex reasoning structure behind the solution trajectories. When running RL, researchers chose a small, non-CoT, instruct model (4B, 8B) due to compute cost constraints.
 
 <p class="apr-fig apr-fig--wide apr-fig--wide-0-8">
 <img src="/assets/adaptive-parallel-reasoning/figure-14-model-choice.png" alt="Figure 14: Difference in Model Choice Across Adaptive Parallel Reasoning Papers"><br>
 <i class="apr-fig-cap">Figure 14: Difference in Model Choice Across Adaptive Parallel Reasoning Papers</i>
 </p>
 
-### Why do different APR papers use different metrics?
+Each paper also offers a slightly different interpretation about how adaptive parallel reasoning contributes to the research field. They optimize for different theoretical objectives, so they use slightly different sets of metrics. Multiverse ([Yang et al., 2025](https://doi.org/10.48550/arXiv.2506.09991)) and ThreadWeaver ([Lian et al., 2025](https://doi.org/10.48550/arXiv.2512.07843)) aim to deliver sequential AR model level accuracy at faster speeds. Multiverse shows that APR models can achieve higher accuracy under the same fixed context window. ThreadWeaver shows that the APR model achieves shorter end-to-end token latency (critical path length) while getting comparable accuracy.
 
-Each paper offers a slightly different interpretation about how adaptive parallel reasoning contributes to the research field. They optimize for different theoretical objectives, so they use slightly different sets of metrics. Multiverse ([Yang et al., 2025](https://doi.org/10.48550/arXiv.2506.09991)) and ThreadWeaver ([Lian et al., 2025](https://doi.org/10.48550/arXiv.2512.07843)) aim to deliver sequential AR model level accuracy at faster speeds. Multiverse shows that APR models can achieve higher accuracy under the same fixed context window. ThreadWeaver shows that the APR model achieves shorter end-to-end token latency (critical path length) while getting comparable accuracy.
-
-NPR ([Wu et al., 2025](https://doi.org/10.48550/arXiv.2512.07461)) treats sequential fallback as a failure mode and optimizes for 100% Genuine Parallelism Rate, measured by percentage of parallel tokens versus total tokens.
+**NPR ([Wu et al., 2025](https://doi.org/10.48550/arXiv.2512.07461))** treats sequential fallback as a failure mode and optimizes for 100% Genuine Parallelism Rate, measured by percentage of parallel tokens versus total tokens.
 
 Parallel-R1 ([Zheng et al., 2025](https://doi.org/10.48550/arXiv.2509.07980)) did not focus on end-to-end latency and instead optimizes for exploration diversity and presents APR as a form of mid-training exploration scaffold that provides a performance boost after RL. 
-
-## Discussions, Future Work, and Conclusion
 
 While Adaptive Parallel Reasoning represents a promising step toward more efficient inference-time scaling, significant open questions remain.
 
@@ -283,4 +247,3 @@ What if we allow parallelization depth > 1? Recursive language models (RLMs; [Zh
 <div class="apr-ack">
 <p>We thank <a href="https://nickatomlin.github.io/">Nicholas Tomlin</a> and <a href="https://www.alanesuhr.com/">Alane Suhr</a> for providing us with helpful feedback. We thank Christopher Park, Karl Vilhelmsson, <a href="https://xyntechx.com/">Nyx Iskandar</a>, Georgia Zhou, <a href="https://www.kaivalshah.com/">Kaival Shah</a>, and Jyoti Rani for their insightful suggestions. We thank <a href="https://www.vkethana.com/">Vijay Kethana</a>, <a href="https://www.jaewon.io/">Jaewon Chang</a>, <a href="https://www.cameronsjordan.com/">Cameron Jordan</a>, <a href="https://smontariol.github.io/">Syrielle Montariol</a>, Erran Li, and <a href="https://anya-ji.github.io/">Anya Ji</a> for their valuable discussions. We thank <a href="https://jiayipan.com/">Jiayi Pan</a>, <a href="https://xiuyuli.com/">Xiuyu Li</a>, and <a href="https://alexzhang13.github.io/">Alex Zhang</a> for their constructive correspondences about Adaptive Parallel Reasoning and Recursive Language Models.</p>
 </div>
-
