@@ -69,7 +69,7 @@ Existing approaches show that parallel reasoning can help, but most of them stil
 **Simple fork-and-join.**
 
 - **Self-consistency/Majority Voting** — independently sample multiple complete reasoning traces, extract final answer from each, and return the most common one ([Wang et al., 2023](https://doi.org/10.48550/arXiv.2203.11171)).
-- **Best-of-N** — similar to self-consistency, but uses a trained verifier to select the best solution instead of using majority voting ([Stiennon et al., 2022](https://doi.org/10.48550/arXiv.2009.01325)).
+- **Best-of-N (BoN)** — similar to self-consistency, but uses a trained verifier to select the best solution instead of using majority voting ([Stiennon et al., 2022](https://doi.org/10.48550/arXiv.2009.01325)).
 - Although simple to implement, these methods often incur redundant computation across branches since trajectories are sampled independently.
 
 **Heuristic-based structured search.**
@@ -95,7 +95,7 @@ Adaptive Parallel Reasoning (APR) answers this question by making parallelizatio
 
 It’s important to note that the concept of adaptive parallel reasoning was introduced by the work *Learning Adaptive Parallel Reasoning with Language Models* ([Pan et al., 2025](https://doi.org/10.48550/arXiv.2504.15466)), but is a paradigm rather than a specific method. Throughout this post, **APR** refers to the paradigm, while “**the APR method**” denotes the specific instantiation from Pan et al. (2025).
 
-This shift matters for three reasons. **Compared to ToT, APR doesn’t need domain-specific heuristics for decomposition.** During RL, the model learns *general* decomposition strategies from trial and error. In fact, models discover useful parallelization patterns, such as running the next step along with the self-verification of a previous step, or hedging a primary approach with a backup one, in an emergent manner that would be difficult to hand-design ([Yao et al., 2023](https://doi.org/10.48550/arXiv.2305.10601); [Wu et al., 2025](https://doi.org/10.48550/arXiv.2512.07461); [Zheng et al., 2025](https://doi.org/10.48550/arXiv.2509.07980)).
+This shift matters for three reasons. **Compared to Tree-of-Thoughts, APR doesn’t need domain-specific heuristics for decomposition.** During RL, the model learns *general* decomposition strategies from trial and error. In fact, models discover useful parallelization patterns, such as running the next step along with the self-verification of a previous step, or hedging a primary approach with a backup one, in an emergent manner that would be difficult to hand-design ([Yao et al., 2023](https://doi.org/10.48550/arXiv.2305.10601); [Wu et al., 2025](https://doi.org/10.48550/arXiv.2512.07461); [Zheng et al., 2025](https://doi.org/10.48550/arXiv.2509.07980)).
 
 **Compared to BoN, APR avoids redundant computation.** APR models have control over what each parallel thread will do before branching out. Therefore, APR can learn to produce a set of unique, non-overlapping subtasks before assigning them to independent threads ([Wang et al., 2023](https://doi.org/10.48550/arXiv.2203.11171); [Stiennon et al., 2022](https://doi.org/10.48550/arXiv.2009.01325); [Pan et al., 2025](https://doi.org/10.48550/arXiv.2504.15466); [Yang et al., 2025](https://doi.org/10.48550/arXiv.2506.09991)).
 
