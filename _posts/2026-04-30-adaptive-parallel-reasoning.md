@@ -18,15 +18,6 @@ show_comments: False
 <meta name="description" content="What if a reasoning model could decide for itself when to decompose and parallelize independent subtasks, how many concurrent threads to spawn, and how to coordinate them based on the problem at hand? We provide a detailed analysis of recent progress in the field of parallel reasoning, especially Adaptive Parallel Reasoning.">
 <meta name="author" content="Stephen Xie, Long (Tony) Lian">
 
-<p class="apr-fig apr-fig--wide">
-<img src="/assets/adaptive-parallel-reasoning/cover.png" alt="Adaptive Parallel Reasoning overview"><br>
-<i class="apr-fig-cap">Overview of adaptive parallel reasoning.</i>
-</p>
-
-What if a reasoning model could decide *for itself* when to decompose and parallelize independent subtasks, how many concurrent threads to spawn, and how to coordinate them based on the problem at hand? We provide a detailed analysis of recent progress in the field of parallel reasoning, especially Adaptive Parallel Reasoning.
-
-<!--more-->
-
 <style>
 .apr-fig { text-align: center; margin: 1.35em 0; line-height: 1.4; }
 .apr-fig--wide img { display: inline-block; width: 100%; max-width: 100%; height: auto; vertical-align: middle; }
@@ -35,7 +26,7 @@ What if a reasoning model could decide *for itself* when to decompose and parall
 .apr-fig--tall-1-2x img { display: inline-block; max-height: 360px; width: auto; max-width: 100%; height: auto; object-fit: contain; vertical-align: middle; }
 .apr-fig--tall-1-5x img { display: inline-block; max-height: 450px; width: auto; max-width: 100%; height: auto; object-fit: contain; vertical-align: middle; }
 .apr-fig--tall-2x img { display: inline-block; max-height: 600px; width: auto; max-width: 100%; height: auto; object-fit: contain; vertical-align: middle; }
-.apr-fig .apr-fig-cap { font-size: 0.9em; font-style: italic; }
+.apr-fig .apr-fig-cap { display: block; text-align: center; font-size: 0.9em; font-style: italic; }
 .apr-ack a {
   color: #1565c0;
   font-weight: 500;
@@ -48,6 +39,19 @@ What if a reasoning model could decide *for itself* when to decompose and parall
   border-bottom-color: #1565c0;
 }
 </style>
+
+<p class="apr-fig apr-fig--wide">
+<img src="/assets/adaptive-parallel-reasoning/cover.png" alt="Adaptive Parallel Reasoning overview"><br>
+<i class="apr-fig-cap">Overview of adaptive parallel reasoning.</i>
+</p>
+
+What if a reasoning model could decide *for itself* when to decompose and parallelize independent subtasks, how many concurrent threads to spawn, and how to coordinate them based on the problem at hand? We provide a detailed analysis of recent progress in the field of parallel reasoning, especially Adaptive Parallel Reasoning.
+
+<!--more-->
+
+<p style="font-size: 0.8em; color: #888; font-style: italic; margin: 1em 0;">
+Disclosure: this post is part landscape survey, part perspective on adaptive parallel reasoning. One of the authors (Tony Lian) co-led ThreadWeaver (<a href="https://doi.org/10.48550/arXiv.2512.07843">Lian et al., 2025</a>), one of the methods discussed below. The authors aim to present each approach on its own terms.
+</p>
 
 ## Motivation
 
@@ -89,9 +93,9 @@ Existing approaches show that parallel reasoning can help, but most of them stil
 <i class="apr-fig-cap">Figure 2: Various Strategies for Parallel Reasoning</i>
 </p>
 
-The methods above share a common limitation: the decision to parallelize, the level of parallelization, and the search strategy are imposed on the model, regardless of whether the problem actually benefits from it. However, different problems need different levels of parallelization, and that is something critical to the effectiveness of parallelization. For example, a framework that applies the same parallel structure to “What’s 25+42?” and “What's the smallest planar region in which you can continuously rotate a unit-length line segment by 180°?” is wasting compute on the former and probably using the wrong decomposition strategy for the latter. In the approaches described above, the model is not taught this adaptive behavior. A natural question arises: **What if the model could decide** ***for itself*** **when to parallelize, how many threads to spawn, and how to coordinate them based on the problem at hand?**
+The methods above share a common limitation: the decision to parallelize, the level of parallelization, and the search strategy are imposed on the model, regardless of whether the problem actually benefits from it. However, different problems need different levels of parallelization, and that is something critical to the effectiveness of parallelization. For example, a framework that applies the same parallel structure to “What’s 25+42?” and “What’s the smallest planar region in which you can continuously rotate a unit-length line segment by 180°?” is wasting compute on the former and probably using the wrong decomposition strategy for the latter. In the approaches described above, the model is not taught this adaptive behavior. A natural question arises: **What if the model could decide for itself when to parallelize, how many threads to spawn, and how to coordinate them based on the problem at hand?**
 
-Adaptive Parallel Reasoning (APR) answers this question by making parallelization part of the model's generated control flow. Formally defined, adaptivity refers to the model’s ability to **dynamically allocate compute between parallel and serial operations at inference time**. In other words, a model with adaptive parallel reasoning (APR) capability is taught to coordinate its control flow – when to generate sequences sequentially vs. in parallel.
+Adaptive Parallel Reasoning (APR) answers this question by making parallelization part of the model’s generated control flow. Formally defined, adaptivity refers to the model’s ability to **dynamically allocate compute between parallel and serial operations at inference time**. In other words, a model with adaptive parallel reasoning (APR) capability is taught to coordinate its control flow — when to generate sequences sequentially vs. in parallel.
 
 It’s important to note that the concept of adaptive parallel reasoning was introduced by the work *Learning Adaptive Parallel Reasoning with Language Models* ([Pan et al., 2025](https://doi.org/10.48550/arXiv.2504.15466)), but is a paradigm rather than a specific method. Throughout this post, **APR** refers to the paradigm, while “**the APR method**” denotes the specific instantiation from Pan et al. (2025).
 
@@ -172,13 +176,13 @@ How should we train a model to learn this behavior? Naively, for each parallel t
 
 Specifically, we apply masking and position IDs to mimic the inference behavior, such that each thread is only conditioned on the prompt+subtasks, without ever attending to sibling threads or the final conclusion.
 
-The engine-agnostic design makes adoption easy since you don't need to figure out a separate hosting method and can leverage existing hardware infra. It also gets better as existing inference engines get better. What's more, with an engine-agnostic method, we can serve a hybrid model that switches between sequential and parallel thinking modes easily.
+The engine-agnostic design makes adoption easy since you don’t need to figure out a separate hosting method and can leverage existing hardware infra. It also gets better as existing inference engines get better. What’s more, with an engine-agnostic method, we can serve a hybrid model that switches between sequential and parallel thinking modes easily.
 
 ## Training Models to Use Parallelism
 
 Once the inference path exists, the next problem is teaching a model to use it. Demonstrations are needed because the model must learn to output special tokens that orchestrate control flow. We found the instruction-following capabilities of base models insufficient for generating parallel threads.
 
-An interesting question here is: does SFT training induce a fundamental reasoning capability for parallel execution that was previously absent, or does it merely align the model's existing pre-trained capabilities to a specific control-flow token syntax. Typical wisdom is SFT teaches new knowledge; but contrary to common belief, some papers—notably Parallel-R1 ([Zheng et al., 2025](https://doi.org/10.48550/arXiv.2509.07980)) and NPR ([Wu et al., 2025](https://doi.org/10.48550/arXiv.2512.07461))—argue that their SFT demonstrations simply induce format following (i.e., how to structure parallel requests). We leave this as future work.
+An interesting question here is: does SFT training induce a fundamental reasoning capability for parallel execution that was previously absent, or does it merely align the model’s existing pre-trained capabilities to a specific control-flow token syntax. Typical wisdom is SFT teaches new knowledge; but contrary to common belief, some papers—notably Parallel-R1 ([Zheng et al., 2025](https://doi.org/10.48550/arXiv.2509.07980)) and NPR ([Wu et al., 2025](https://doi.org/10.48550/arXiv.2512.07461))—argue that their SFT demonstrations simply induce format following (i.e., how to structure parallel requests). We leave this as future work.
 
 <p class="apr-fig apr-fig--wide">
 <img src="/assets/adaptive-parallel-reasoning/figure-11-demo-sources.png" alt="Figure 11: Sources of Parallelization Demonstration Data"><br>
@@ -187,9 +191,9 @@ An interesting question here is: does SFT training induce a fundamental reasonin
 
 Demonstrations teach the syntax of parallel control flow, but they do not fully solve the incentive problem. In an ideal world, we only need to reward the outcome accuracy, and the parallelization pattern emerges naturally given that it learns to output special tokens through SFT, similar to the emergence of long CoT. However, researchers ([Zheng et al., 2025](https://doi.org/10.48550/arXiv.2509.07980)) observed that this is not enough, and we do in fact need parallelization incentives. The question then becomes, how do we tell when the model is parallelizing effectively?
 
-**Structure-only rewards are too easy to game.** Naively, we can give a reward for the number of threads spawned. But models can spawn many short, useless threads to hack the reward. Okay, that doesn’t work. How about a binary reward for simply using parallel structure correctly? This partially solves the issue of models spamming new threads, but models still learn to spawn threads when they don’t need to. The authors of Parallel-R1 ([Zheng et al., 2025](https://doi.org/10.48550/arXiv.2509.07980)) introduced an alternating-schedule, only rewarding parallel structure 20% of the time, which successfully increased the use of parallel structure (13.6% -> 63%), but had little impact on overall accuracy.
+**Structure-only rewards are too easy to game.** Naively, we can give a reward for the number of threads spawned. But models can spawn many short, useless threads to hack the reward. Okay, that doesn’t work. How about a binary reward for simply using parallel structure correctly? This partially solves the issue of models spamming new threads, but models still learn to spawn threads when they don’t need to. The authors of Parallel-R1 ([Zheng et al., 2025](https://doi.org/10.48550/arXiv.2509.07980)) introduced an alternating-schedule, only rewarding parallel structure 20% of the time, which successfully increased the use of parallel structure (13.6% → 63%), but had little impact on overall accuracy.
 
-With this structure-only approach, we might be drifting away from our original goal of increasing accuracy and reducing latency… How can we optimize for the Pareto frontier directly? Accuracy is simple – we just look at the outcome. How about latency?
+With this structure-only approach, we might be drifting away from our original goal of increasing accuracy and reducing latency… How can we optimize for the Pareto frontier directly? Accuracy is simple — we just look at the outcome. How about latency?
 
 **Efficiency rewards need to track the critical path.** In sequential-only trajectories, we can measure latency based on the total number of tokens generated. To extend this to parallel trajectories, we can focus on the critical path, or the longest sequence of tokens that are causally dependent, as this directly determines our end-to-end generation time (i.e., wall-clock time). As an example, when there are two &lt;Parallel&gt; sections with five threads each, the critical path will go through the longest thread from the first parallel section, then any sequential tokens, then the longest thread from the second parallel section, and so on until the end of sequence.
 
@@ -202,15 +206,7 @@ The goal is to minimize the length of the critical path. Simultaneously, we woul
 
 **Parallel efficiency should be gated by correctness.** Intuitively, when multiple trajectories are correct we should assign more reward to the trajectories that are more efficient at parallelization. But how about when they are all incorrect? Should we assign any reward at all? Probably not.
 
-To formalize this:
-
-$R = R_{\mathrm{correctness}} + R_{\mathrm{parallel}}$
-
-Assuming we are dealing with binary outcome correctness, it can be formulated as:
-
-$R = \mathbf{1}(\text{Correctness}) + \mathbf{1}(\text{Correctness}) \times (\text{some parallelization metric})$
-
-This way, a model only gets a parallelization reward when it answers correctly, since we don’t want to pose parallelization constraints on the model if it couldn’t answer the question correctly. 
+To formalize this, $R = R_{\mathrm{correctness}} + R_{\mathrm{parallel}}$. Assuming binary outcome correctness, this can be written as $R = \mathbf{1}(\text{Correctness}) + \mathbf{1}(\text{Correctness}) \times (\text{some parallelization metric})$. This way, a model only gets a parallelization reward when it answers correctly, since we don’t want to pose parallelization constraints on the model if it couldn’t answer the question correctly.
 
 <p class="apr-fig apr-fig--tall-2x">
 <img src="/assets/adaptive-parallel-reasoning/figure-13-reward-designs.png" alt="Figure 13: Differences in Reward Designs Across Adaptive Parallel Reasoning Works"><br>
@@ -226,21 +222,23 @@ When all is said and done, how well do these adaptive parallel methods actually 
 <i class="apr-fig-cap">Figure 14: Difference in Model Choice Across Adaptive Parallel Reasoning Papers</i>
 </p>
 
-Each paper also offers a slightly different interpretation about how adaptive parallel reasoning contributes to the research field. They optimize for different theoretical objectives, so they use slightly different sets of metrics. Multiverse ([Yang et al., 2025](https://doi.org/10.48550/arXiv.2506.09991)) and ThreadWeaver ([Lian et al., 2025](https://doi.org/10.48550/arXiv.2512.07843)) aim to deliver sequential-AR-model-level accuracy at faster speeds. Multiverse shows that APR models can achieve higher accuracy under the same fixed context window. ThreadWeaver shows that the APR model achieves shorter end-to-end token latency (critical path length) while getting comparable accuracy.
+Each paper also offers a slightly different interpretation about how adaptive parallel reasoning contributes to the research field. They optimize for different theoretical objectives, so they use slightly different sets of metrics:
 
-NPR ([Wu et al., 2025](https://doi.org/10.48550/arXiv.2512.07461)) treats sequential fallback as a failure mode and optimizes for 100% Genuine Parallelism Rate, measured as the ratio of parallel tokens to total tokens.
+- **Multiverse and ThreadWeaver** ([Yang et al., 2025](https://doi.org/10.48550/arXiv.2506.09991); [Lian et al., 2025](https://doi.org/10.48550/arXiv.2512.07843)) aim to deliver sequential-AR-model-level accuracy at faster speeds. Multiverse shows that APR models can achieve higher accuracy under the same fixed context window, while ThreadWeaver shows that the APR model achieves shorter end-to-end token latency (critical path length) while getting comparable accuracy.
+- **NPR** ([Wu et al., 2025](https://doi.org/10.48550/arXiv.2512.07461)) treats sequential fallback as a failure mode and optimizes for 100% Genuine Parallelism Rate, measured as the ratio of parallel tokens to total tokens.
+- **Parallel-R1** ([Zheng et al., 2025](https://doi.org/10.48550/arXiv.2509.07980)) does not focus on end-to-end latency and instead optimizes for exploration diversity, presenting APR as a form of mid-training exploration scaffold that provides a performance boost after RL.
 
-Parallel-R1 ([Zheng et al., 2025](https://doi.org/10.48550/arXiv.2509.07980)) did not focus on end-to-end latency and instead optimizes for exploration diversity and presents APR as a form of mid-training exploration scaffold that provides a performance boost after RL. 
+### Open Questions
 
 While Adaptive Parallel Reasoning represents a promising step toward more efficient inference-time scaling, significant open questions remain.
 
-Does parallelization at inference-time consistently improve accuracy, or is it primarily valuable as a training-time exploration scaffold? Parallel-R1 ([Zheng et al., 2025](https://doi.org/10.48550/arXiv.2509.07980)) suggests that the diversity induced by parallel structure during RL may matter more than the parallelization itself at test time.
+As noted above, Parallel-R1 ([Zheng et al., 2025](https://doi.org/10.48550/arXiv.2509.07980)) presents APR as a form of mid-training exploration scaffold rather than a primarily inference-time technique. This invites a more fundamental question: Does parallelization at inference-time consistently improve accuracy, or is it primarily valuable as a training-time exploration scaffold? Parallel-R1 suggests that the diversity induced by parallel structure during RL may matter more than the parallelization itself at test time.
 
-Can we design training methods that account for available compute budget at inference time, so parallelization decisions are hardware-aware rather than purely problem-driven?
+A related concern is stability. There’s also a persistent tendency for models to collapse back to sequential reasoning when parallelization rewards are relaxed. Parallel-R1 authors showed that removing parallelization reward after 200 steps results in the model reverting to sequential behavior. Is this a training stability issue, a reward signal design issue, or evidence that parallel structure genuinely conflicts with how autoregressive pretraining shapes the model’s prior?
 
-There's also a persistent tendency for models to collapse back to sequential reasoning when parallelization rewards are relaxed. Parallel-R1 authors ([Zheng et al., 2025](https://doi.org/10.48550/arXiv.2509.07980)) showed that removing parallelization reward after 200 steps results in the model reverting to sequential behavior. Is this a training stability issue, a reward signal design issue, or evidence that parallel structure genuinely conflicts with how autoregressive pretraining shapes the model's prior?
+Beyond whether APR works, deployment introduces its own questions. Can we design training methods that account for available compute budget at inference time, so parallelization decisions are hardware-aware rather than purely problem-driven?
 
-What if we allow parallelization depth > 1? Recursive language models (RLMs; [Zhang, Kraska and Khattab, 2026](https://doi.org/10.48550/arXiv.2512.24601)) effectively manage long context and show promising inference-time scaling capabilities. How well do RLMs perform when trained with end-to-end RL that incentivizes adaptive parallelization?
+Finally, the parallel structures considered above are essentially flat. What if we allow parallelization depth > 1? Recursive language models (RLMs; [Zhang, Kraska and Khattab, 2026](https://doi.org/10.48550/arXiv.2512.24601)) effectively manage long context and show promising inference-time scaling capabilities. How well do RLMs perform when trained with end-to-end RL that incentivizes adaptive parallelization?
 
 ## Acknowledgements
 
