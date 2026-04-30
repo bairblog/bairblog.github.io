@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Adaptive Parallel Reasoning: The Next Paradigm in Efficient Inference Scaling"
-date: 2026-04-21 09:00:00
+date: 2026-04-30 09:00:00
 author: <a href="https://www.stephenxie.com/">Stephen Xie</a> and <a href="https://tonylian.com/">Long (Tony) Lian</a>
 img: /assets/adaptive-parallel-reasoning/cover.png
 excerpt_separator: <!--more-->
