@@ -3,7 +3,7 @@ layout: post
 title: "Adaptive Parallel Reasoning: The Next Paradigm in Efficient Inference Scaling"
 date: 2026-04-30 09:00:00
 author: <a href="https://www.stephenxie.com/">Stephen Xie</a> and <a href="https://tonylian.com/">Long (Tony) Lian</a>
-img: /assets/adaptive-parallel-reasoning/cover.png
+img: "https://bair.berkeley.edu/static/blog/adaptive-parallel-reasoning/cover.png"
 excerpt_separator: <!--more-->
 visible: True
 show_comments: False
@@ -41,7 +41,7 @@ show_comments: False
 </style>
 
 <p class="apr-fig apr-fig--wide">
-<img src="/assets/adaptive-parallel-reasoning/cover.png" alt="Adaptive Parallel Reasoning overview"><br>
+<img src="https://bair.berkeley.edu/static/blog/adaptive-parallel-reasoning/cover.png" alt="Adaptive Parallel Reasoning overview"><br>
 <i class="apr-fig-cap">Overview of adaptive parallel reasoning.</i>
 </p>
 
@@ -60,7 +60,7 @@ Recent progress in LLM reasoning capabilities has been largely driven by inferen
 **The problem is that sequential reasoning scales linearly with the amount of exploration.** Scaling sequential reasoning tokens comes at a cost, as models risk exceeding effective context limits ([Hsieh et al., 2024](https://doi.org/10.48550/arXiv.2404.06654)). The accumulation of intermediate exploration paths makes it challenging for the model to disambiguate amongst distractors when attending to information in its context, leading to a degradation of model performance, also known as **context-rot** ([Hong, Troynikov and Huber, 2025](https://research.trychroma.com/context-rot)). Latency also grows proportionally with reasoning length. For complex tasks requiring millions of tokens for exploration and planning, it’s not uncommon to see users wait tens of minutes or even hours for an answer ([Qu et al., 2025](https://doi.org/10.48550/arXiv.2503.21614)). As we continue to scale along the output sequence length dimension, we also make inference slower, less reliable, and more compute-intensive. Parallel reasoning has emerged as a natural solution. Instead of exploring paths sequentially ([Gandhi et al., 2024](https://doi.org/10.48550/arXiv.2404.03683)) and accumulating the context window at every step, we can allow models to explore multiple threads independently (threads don’t rely on each other’s context) and concurrently (threads can be executed at the same time).
 
 <p class="apr-fig apr-fig--wide">
-<img src="/assets/adaptive-parallel-reasoning/figure-01-sequential-vs-parallel.png" alt="Figure 1: Sequential vs. Parallel Reasoning"><br>
+<img src="https://bair.berkeley.edu/static/blog/adaptive-parallel-reasoning/figure-01-sequential-vs-parallel.png" alt="Figure 1: Sequential vs. Parallel Reasoning"><br>
 <i class="apr-fig-cap">Figure 1: Sequential vs. Parallel Reasoning</i>
 </p>
 
@@ -89,7 +89,7 @@ Existing approaches show that parallel reasoning can help, but most of them stil
 - **Hogwild! Inference** — multiple parallel reasoning threads share KV cache and decide how to decompose tasks without an explicit coordination protocol. Workers generate concurrently into a shared attention cache using RoPE to stitch together individual KV blocks in different orders without recomputation ([Rodionov et al., 2025](https://doi.org/10.48550/arXiv.2504.06261)).
 
 <p class="apr-fig apr-fig--wide">
-<img src="/assets/adaptive-parallel-reasoning/figure-02-strategies.png" alt="Figure 2: Various Strategies for Parallel Reasoning"><br>
+<img src="https://bair.berkeley.edu/static/blog/adaptive-parallel-reasoning/figure-02-strategies.png" alt="Figure 2: Various Strategies for Parallel Reasoning"><br>
 <i class="apr-fig-cap">Figure 2: Various Strategies for Parallel Reasoning</i>
 </p>
 
@@ -108,12 +108,12 @@ This shift matters for three reasons. **Compared to Tree-of-Thoughts, APR doesn�
 In practice, this is implemented by having the model output special tokens that control when to reason in parallel versus sequentially. Below is a condensed ThreadWeaver-style trace: two outlines and two paths under a &lt;Parallel&gt; block, then the threads agree on a single boxed answer.
 
 <p class="apr-fig apr-fig--tall-1-5x">
-<img src="/assets/adaptive-parallel-reasoning/figure-03-threadweaver-trajectory.png" alt="Figure 3: Example of an Adaptive Parallel Reasoning Trajectory from ThreadWeaver, manually condensed for ease of illustration."><br>
+<img src="https://bair.berkeley.edu/static/blog/adaptive-parallel-reasoning/figure-03-threadweaver-trajectory.png" alt="Figure 3: Example of an Adaptive Parallel Reasoning Trajectory from ThreadWeaver, manually condensed for ease of illustration."><br>
 <i class="apr-fig-cap">Figure 3: Example of an Adaptive Parallel Reasoning Trajectory from ThreadWeaver, manually condensed for ease of illustration.</i>
 </p>
 
 <p class="apr-fig apr-fig--wide">
-<img src="/assets/adaptive-parallel-reasoning/figure-04-special-tokens.png" alt="Figure 4: Special Tokens Variants across Adaptive Parallel Reasoning Papers"><br>
+<img src="https://bair.berkeley.edu/static/blog/adaptive-parallel-reasoning/figure-04-special-tokens.png" alt="Figure 4: Special Tokens Variants across Adaptive Parallel Reasoning Papers"><br>
 <i class="apr-fig-cap">Figure 4: Special Tokens Variants across Adaptive Parallel Reasoning Papers</i>
 </p>
 
@@ -127,7 +127,7 @@ How do we actually execute parallel branches? We take inspiration from computer 
 - Join them into a final answer
 
 <p class="apr-fig apr-fig--wide">
-<img src="/assets/adaptive-parallel-reasoning/figure-05-fork-join.png" alt="Figure 5: Fork-join Inference Design"><br>
+<img src="https://bair.berkeley.edu/static/blog/adaptive-parallel-reasoning/figure-05-fork-join.png" alt="Figure 5: Fork-join Inference Design"><br>
 <i class="apr-fig-cap">Figure 5: Fork-join Inference Design</i>
 </p>
 
@@ -138,7 +138,7 @@ To address this issue, the field splits into two schools of thought on how to ex
 **Multiverse modifies the inference engine to reuse KV cache across the join.** Before taking a deeper look into Multiverse ([Yang et al., 2025](https://doi.org/10.48550/arXiv.2506.09991))’s memory management, let’s first understand how KV cache is handled up until the “join” phase. Notice how each of the independent threads share the prefix sequence, i.e., the list of subtasks. Without optimization, each thread needs to prefill and recompute the KV cache for the prefix sequence. However, this redundancy can be avoided with [SGLang](https://github.com/sgl-project/sglang)’s RadixAttention ([Sheng et al., 2023](https://doi.org/10.48550/arXiv.2312.07104)), which organizes multiple requests into a radix tree, a trie (prefix tree) with sequences of elements of varying lengths instead of single elements. This way, the only new KV cache entries are those from independent thread generation.
 
 <p class="apr-fig apr-fig--tall-2x">
-<img src="/assets/adaptive-parallel-reasoning/figure-06-radix.png" alt="Figure 6: RadixAttention’s KV Cache Management Strategy"><br>
+<img src="https://bair.berkeley.edu/static/blog/adaptive-parallel-reasoning/figure-06-radix.png" alt="Figure 6: RadixAttention’s KV Cache Management Strategy"><br>
 <i class="apr-fig-cap">Figure 6: RadixAttention’s KV Cache Management Strategy</i>
 </p>
 
@@ -147,14 +147,14 @@ Now, if everything went well, all the independent threads have come back from th
 First, this approach requires modifying the inference engine to perform non-standard memory handling, which can result in unexpected behaviors. Specifically, since the synthesis request references KV cache from previous requests, it creates fragility in the system and the possibility of bad pointers. Another request can come in and evict the referenced KV cache before the synthesis request completes, requiring it to halt and trigger a re-prefilling of the previous thread request. This problem has led the Multiverse researchers ([Yang et al., 2025](https://doi.org/10.48550/arXiv.2506.09991)) to limit the batch size that the inference engine can handle, which restricts throughput.
 
 <p class="apr-fig apr-fig--tall-2x">
-<img src="/assets/adaptive-parallel-reasoning/figure-07-kv-stitch.png" alt="Figure 7: KV Cache “Stitching” During Multiverse Inference"><br>
+<img src="https://bair.berkeley.edu/static/blog/adaptive-parallel-reasoning/figure-07-kv-stitch.png" alt="Figure 7: KV Cache “Stitching” During Multiverse Inference"><br>
 <i class="apr-fig-cap">Figure 7: KV Cache “Stitching” During Multiverse Inference</i>
 </p>
 
 Second, this approach modifies how models see the sequence, which creates a distributional shift that models are not pretrained on, therefore requiring more extensive training to align behavior. Specifically, when we stitch together KV cache this way, we create a sequence with non-standard position encoding. During independent-thread generation, all threads started at the same position index and attended to the prior subtasks, NOT each other. So when the threads merge back, the resulting KV cache has a non-standard positional encoding and does not use causal attention. Therefore, this approach requires extensive training to align the model to this new behavior. To address this, Multiverse ([Yang et al., 2025](https://doi.org/10.48550/arXiv.2506.09991)) and related works apply a modified attention mask during training to prevent independent threads from attending to each other, aligning the training and inference behaviors.
 
 <p class="apr-fig apr-fig--tall-2x">
-<img src="/assets/adaptive-parallel-reasoning/figure-08-attention-mask.png" alt="Figure 8: Multiverse’s Attention Mask"><br>
+<img src="https://bair.berkeley.edu/static/blog/adaptive-parallel-reasoning/figure-08-attention-mask.png" alt="Figure 8: Multiverse’s Attention Mask"><br>
 <i class="apr-fig-cap">Figure 8: Multiverse’s Attention Mask</i>
 </p>
 
@@ -163,14 +163,14 @@ With these issues arising from non-standard KV cache management, can we try an a
 **ThreadWeaver keeps the inference engine unchanged and moves orchestration to the client.** ThreadWeaver ([Lian et al., 2025](https://doi.org/10.48550/arXiv.2512.07843)) treats parallel inference purely as a client-side problem. The “Fork” process is nearly identical to Multiverse’s, but the join phase handles memory very differently as it does NOT modify engine internals. Instead, the client concatenates all text outputs from independent branches into one contiguous sequence. Then, the engine performs a second prefill to generate the KV cache for the conclusion generation step. While this introduces computational redundancy that Multiverse tries to avoid, the cost of prefill is significantly lower than decoding. In addition, this does not require special attention handling during inference, as the second prefill uses causal attention (threads see each other), making it easier to adapt sequential autoregressive models for this task.
 
 <p class="apr-fig apr-fig--wide">
-<img src="/assets/adaptive-parallel-reasoning/figure-09-prefill-decode.png" alt="Figure 9: ThreadWeaver’s Prefill and Decode Strategy"><br>
+<img src="https://bair.berkeley.edu/static/blog/adaptive-parallel-reasoning/figure-09-prefill-decode.png" alt="Figure 9: ThreadWeaver’s Prefill and Decode Strategy"><br>
 <i class="apr-fig-cap">Figure 9: ThreadWeaver’s Prefill and Decode Strategy</i>
 </p>
 
 How should we train a model to learn this behavior? Naively, for each parallel trajectory, we can break it down into multiple sequential pieces following our inference pattern. For instance, we would train the model to output the subtasks given prompt, individual threads given prompt+subtask assignment, and conclusion given prompt+subtasks+corresponding threads. However, this seems redundant and not compute efficient. Can we do better? Turns out, yes. As in ThreadWeaver ([Lian et al., 2025](https://doi.org/10.48550/arXiv.2512.07843)), we can organize a parallel trajectory into a prefix-tree (trie), flatten it into a single sequence, and apply an ancestor-only attention mask during training (not inference!).
 
 <p class="apr-fig apr-fig--tall-1-2x">
-<img src="/assets/adaptive-parallel-reasoning/figure-10-prefix-tree.png" alt="Figure 10: Building the Prefix-tree and Flattening into a single training sequence"><br>
+<img src="https://bair.berkeley.edu/static/blog/adaptive-parallel-reasoning/figure-10-prefix-tree.png" alt="Figure 10: Building the Prefix-tree and Flattening into a single training sequence"><br>
 <i class="apr-fig-cap">Figure 10: Building the Prefix-tree and Flattening into a single training sequence</i>
 </p>
 
@@ -185,7 +185,7 @@ Once the inference path exists, the next problem is teaching a model to use it. 
 An interesting question here is: does SFT training induce a fundamental reasoning capability for parallel execution that was previously absent, or does it merely align the model’s existing pre-trained capabilities to a specific control-flow token syntax. Typical wisdom is SFT teaches new knowledge; but contrary to common belief, some papers—notably Parallel-R1 ([Zheng et al., 2025](https://doi.org/10.48550/arXiv.2509.07980)) and NPR ([Wu et al., 2025](https://doi.org/10.48550/arXiv.2512.07461))—argue that their SFT demonstrations simply induce format following (i.e., how to structure parallel requests). We leave this as future work.
 
 <p class="apr-fig apr-fig--wide">
-<img src="/assets/adaptive-parallel-reasoning/figure-11-demo-sources.png" alt="Figure 11: Sources of Parallelization Demonstration Data"><br>
+<img src="https://bair.berkeley.edu/static/blog/adaptive-parallel-reasoning/figure-11-demo-sources.png" alt="Figure 11: Sources of Parallelization Demonstration Data"><br>
 <i class="apr-fig-cap">Figure 11: Sources of Parallelization Demonstration Data</i>
 </p>
 
@@ -198,7 +198,7 @@ With this structure-only approach, we might be drifting away from our original g
 **Efficiency rewards need to track the critical path.** In sequential-only trajectories, we can measure latency based on the total number of tokens generated. To extend this to parallel trajectories, we can focus on the critical path, or the longest sequence of tokens that are causally dependent, as this directly determines our end-to-end generation time (i.e., wall-clock time). As an example, when there are two &lt;Parallel&gt; sections with five threads each, the critical path will go through the longest thread from the first parallel section, then any sequential tokens, then the longest thread from the second parallel section, and so on until the end of sequence.
 
 <p class="apr-fig apr-fig--wide">
-<img src="/assets/adaptive-parallel-reasoning/figure-12-critical-path.png" alt="Figure 12: Critical Path Length Illustration"><br>
+<img src="https://bair.berkeley.edu/static/blog/adaptive-parallel-reasoning/figure-12-critical-path.png" alt="Figure 12: Critical Path Length Illustration"><br>
 <i class="apr-fig-cap">Figure 12: Critical Path Length Illustration</i>
 </p>
 
@@ -209,7 +209,7 @@ The goal is to minimize the length of the critical path. Simultaneously, we woul
 To formalize this, $R = R_{\mathrm{correctness}} + R_{\mathrm{parallel}}$. Assuming binary outcome correctness, this can be written as $R = \mathbf{1}(\text{Correctness}) + \mathbf{1}(\text{Correctness}) \times (\text{some parallelization metric})$. This way, a model only gets a parallelization reward when it answers correctly, since we don’t want to pose parallelization constraints on the model if it couldn’t answer the question correctly.
 
 <p class="apr-fig apr-fig--tall-2x">
-<img src="/assets/adaptive-parallel-reasoning/figure-13-reward-designs.png" alt="Figure 13: Differences in Reward Designs Across Adaptive Parallel Reasoning Works"><br>
+<img src="https://bair.berkeley.edu/static/blog/adaptive-parallel-reasoning/figure-13-reward-designs.png" alt="Figure 13: Differences in Reward Designs Across Adaptive Parallel Reasoning Works"><br>
 <i class="apr-fig-cap">Figure 13: Differences in Reward Designs Across Adaptive Parallel Reasoning Works</i>
 </p>
 
@@ -218,7 +218,7 @@ To formalize this, $R = R_{\mathrm{correctness}} + R_{\mathrm{parallel}}$. Assum
 When all is said and done, how well do these adaptive parallel methods actually perform? Well…this is a hard question, as they differ in model choice and metrics. The model selection depends on the training method, SFT problem difficulty, and sequence length. When running SFT on difficult datasets like s1k, which contains graduate-level math and science problems, researchers chose a large base model (Qwen2.5 32B for Multiverse ([Yang et al., 2025](https://doi.org/10.48550/arXiv.2506.09991))) to capture the complex reasoning structure behind the solution trajectories. When running RL, researchers chose a small, non-CoT, instruct model (4B, 8B) due to compute cost constraints.
 
 <p class="apr-fig apr-fig--wide apr-fig--wide-0-8">
-<img src="/assets/adaptive-parallel-reasoning/figure-14-model-choice.png" alt="Figure 14: Difference in Model Choice Across Adaptive Parallel Reasoning Papers"><br>
+<img src="https://bair.berkeley.edu/static/blog/adaptive-parallel-reasoning/figure-14-model-choice.png" alt="Figure 14: Difference in Model Choice Across Adaptive Parallel Reasoning Papers"><br>
 <i class="apr-fig-cap">Figure 14: Difference in Model Choice Across Adaptive Parallel Reasoning Papers</i>
 </p>
 
