@@ -6,7 +6,7 @@ author: <a href="https://www.stephenxie.com/">Stephen Xie</a> and <a href="https
 img: "https://bair.berkeley.edu/static/blog/adaptive-parallel-reasoning/cover.png"
 excerpt_separator: <!--more-->
 visible: True
-show_comments: False
+show_comments: True
 ---
 
 <!-- twitter -->
