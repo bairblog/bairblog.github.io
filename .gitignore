@@ -11,3 +11,6 @@ Gemfile.lock
 .DS_Store/
 
 .ruby-version
+
+# Local scratch dirs (e.g. unzipped .docx for style extraction)
+.tmp-*/
