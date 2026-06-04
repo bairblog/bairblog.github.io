@@ -1,0 +1,333 @@
+people:
+  - name: "Baifeng Shi"
+    email: "baifeng_shi@berkeley.edu"
+    website: "https://bfshi.github.io/"
+    advisors: "Trevor Darrell"
+    img: "baifeng-shi.jpg"
+    blurb: "I work on building generalist vision and robotic models."
+    looking: false
+    next: "Member of Technical Staff at Physical Intelligence"
+
+  - name: "Charlie Snell"
+    email: "csnell22@berkeley.edu"
+    website: "https://sea-snell.github.io"
+    advisors: "Dan Klein"
+    img: "charlie-snell.jpg"
+    blurb: "My work aims to understand when and how the different LLM scaling paradigms can be traded off and interchanged. In particular, test-time scaling treats each prompt independently, drawing long chains of inferences and then forgetting them entirely between prompts. This differs critically from pretraining, which instead learns a compressed representation from a large dataset. I believe bridging the gap between these methods of scaling computation, presents a key open challenge in the field: how can we develop methods which turn the inferences drawn at test-time back into learned representations that the model can hold onto across interactions."
+    looking: false
+    next: ""
+
+  - name: "Devin Guillory"
+    email: "dguillory@berkeley.edu"
+    website: "https://devinguillory.com"
+    advisors: "Trevor Darrell"
+    img: "devin-guillory.jpg"
+    blurb: "Accounting for data shifts in computer vision models"
+    looking: false
+    next: "Building collaborative AI systems, looking for conspirators."
+
+  - name: "Eve Fleisig"
+    email: "efleisig@berkeley.edu"
+    website: "https://efleisig.com"
+    advisors: "Dan Klein"
+    img: "eve-fleisig.jpg"
+    blurb: "I design language models to work reliably and fairly for the broad range of real LLM users. First, my research leverages disagreement among user preferences as signal, in order to train and evaluate LLMs for entire populations of users. Second, I work on designing rigorous evaluations to extricate challenging LLM harms that diverse users face. Finally, I work on core technical failures of LLMs, like miscalibrated confidence, to reduce downstream risks when models are deployed to users with different needs. Combined, these interventions facilitate building LLMs that minimize societal harms, and maximize benefits to a wider range of real-world users."
+    looking: false
+    next: "Postdoctoral fellow at Princeton CITP"
+
+  - name: "Grace Luo"
+    email: "graceluo@berkeley.edu"
+    website: "https://graceluo.net"
+    advisors: "Trevor Darrell"
+    img: "grace-luo.jpg"
+    blurb: "My research is on interpreting and controlling generative models. For example, I've worked on re-purposing image generators for computer vision tasks, and meta-modeling language activations for better LLM probing and steering."
+    looking: false
+    next: "Research scientist in industry"
+
+  - name: "Hanlin Zhu"
+    email: "hanlinzhu@berkeley.edu"
+    website: "https://hanlinzhu.com/"
+    advisors: "Stuart Russell, Jiantao Jiao"
+    img: "hanlin-zhu.jpg"
+    blurb: "My research centers on understanding and improving the reasoning capabilities of large language models (LLMs)."
+    looking: false
+    next: "Member of Technical Staff at OpenAI"
+
+  - name: "Haoru Xue"
+    email: "haoru-xue@berkeley.edu"
+    website: "https://haoruxue.github.io/"
+    advisors: "Shankar Sastry"
+    img: "haoru-xue.jpg"
+    blurb: "I’m interested in foundemental robot learning problems, a.k.a. receipe for physical AGI: scalable priors, long-horizon reasonings, dexterous and agile motor skills."
+    looking: false
+    next: "Doing systematic large-scale studies on frontier robotics models with industry"
+
+  - name: "Haozhi Qi"
+    email: "hqi@berkeley.edu"
+    website: "https://haozhi.io/"
+    advisors: "Jitendra Malik, Yi Ma"
+    img: "haozhi-qi.jpg"
+    blurb: "Dexterous Manipulation and Robot Learning"
+    looking: false
+    next: "Research scientist at Amazon; Faculty at University of Chicago"
+
+  - name: "J.D. Zamfirescu-Pereira"
+    email: "zamfi@berkeley.edu"
+    website: "https://zamfi.net"
+    advisors: "Bjoern Hartmann"
+    img: "j-d-zamfirescu-pereira.jpg"
+    blurb: "My research focuses on effective human-AI co-design. I study the boundaries of language interfaces as a medium for interacting with AI, creating systems that blend language-focused interactions with structured user interfaces that draw on different levels of abstraction. I focus on language-oriented technologies, like LLMs and text-to-image models, that are powerful mediators of design processes. These technologies enable humans to describe their desires at almost any level of abstraction, from high-level goals vaguely specified (“I’d like a game to help my kid learn to read”) to low-level corrections of undesired outputs (“Don’t say ‘I know because I’ve tasted it’ when about a recipe substitution's taste”)."
+    looking: false
+    next: "Assistant Professor, Computer Science, UCLA"
+
+  - name: "Jiachen Lian"
+    email: "jiachenlian@berkeley.edu"
+    website: "https://jlian2.github.io"
+    advisors: "Gopala Anumanchipalli"
+    img: "jiachen-lian.jpg"
+    blurb: "My research focuses on human-centered AI across speech, healthcare, and systems."
+    looking: true
+    next: "Look for AI talents to join our startup"
+
+  - name: "Josh Kang"
+    email: "minwoo_kang@berkeley.edu"
+    website: "https://joshuaminwookang.github.io/"
+    advisors: "John Canny"
+    img: "josh-kang.jpg"
+    blurb: "I study language modeling and related topics in NLP; specific interests are human user simulation and building conversational, collaborative AI agents."
+    looking: false
+    next: "AI Scientist at Mistral AI"
+
+  - name: "Junhao (Bear) Xiong"
+    email: "junhao_xiong@berkeley.edu"
+    website: "https://www.linkedin.com/in/junhao-bear-xiong"
+    advisors: "Jennifer Listgarten, Yun Song"
+    img: "junhao-bear-xiong.jpg"
+    blurb: "Junhao (Bear) Xiong is a PhD candidate at UC Berkeley, advised by Jennifer Listgarten and Yun S. Song. His work focuses on machine learning methods for biology, with an emphasis on generative modeling for proteins. Previously, he studied Applied Math and Computer Science at Johns Hopkins."
+    looking: true
+    next: "Research scientist"
+
+  - name: "Kaylo Littlejohn"
+    email: "kaylo_littlejohn@berkeley.edu"
+    website: "https://kaylolittlejohn.com"
+    advisors: "Gopala Anumanchipalli"
+    img: "kaylo-littlejohn.jpg"
+    blurb: "My research is focused on speech modeling and natural language processing. I co-led the development of multimodal AI tools to accurately translate brain activity into text, audible personalized speech, and a high-fidelity \"digital talking avatar\" (Nature 2023, Nature Neuroscience 2025). I am also tech lead for voice modeling at Roblox."
+    looking: true
+    next: "Research Scientist / Engineer"
+
+  - name: "Kent Chang"
+    email: "kentkchang@berkeley.edu"
+    website: "https://kentkc.org"
+    advisors: "David Bamman"
+    img: "kent-chang.jpg"
+    blurb: "I work on NLP and multimodal machine learning, with a focus on evaluating large language models and building multimodal systems for understanding dialogue, narrative, and social interaction. My research includes benchmarks for LLM memorization, multimodal datasets sourced from feature films and television, and studies of model behavior. I'm interested in bridging computational methods with questions from the humanities and social sciences about whose voices get represented in AI systems, and about AI's broader impact. My work has appeared at EMNLP and ACL, among others."
+    looking: true
+    next: "(teaching) faculty, Research Scientist, ML/AI SWE"
+
+  - name: "Kevin Black"
+    email: "kvablack@berkeley.edu"
+    website: "https://kevin.black"
+    advisors: "Sergey Levine"
+    img: "kevin-black.jpg"
+    blurb: "I work on large-scale robot learning: including imitation learning, reinforcement learning, generative modeling, real-time control, and whatever else it takes to make robots work in the real world!"
+    looking: false
+    next: "Research Scientist of Physical Intelligence"
+
+  - name: "Kunhe Yang"
+    email: "kunheyang@berkeley.edu"
+    website: "https://www.kunheyang.com/"
+    advisors: "Nika Haghtalab"
+    img: "kunhe-yang.jpg"
+    blurb: "My research focuses on the theoretical foundations of designing and evaluating AI algorithms in environments shaped by human incentives and AI agency. My work spans human-centric policy learning, incentive-aware evaluation, and multi-agent collaboration and information transmission, drawing on tools from machine learning theory and computational economics."
+    looking: false
+    next: "Postdoc Research at Stanford"
+
+  - name: "Lisa Dunlap"
+    email: "lisabdunlap@berkeley.edu"
+    website: "https://lisabdunlap.com"
+    advisors: "Joseph Gonzalez, Trevor Darrell"
+    img: "lisa-dunlap.jpg"
+    blurb: "Auditing generative models."
+    looking: false
+    next: "Research Engineer at Anthropic"
+
+  - name: "Long (Tony) Lian"
+    email: "longlian@berkeley.edu"
+    website: "https://tonylian.com/"
+    advisors: "Trevor Darrell, Adam Yala"
+    img: "long-tony-lian.jpg"
+    blurb: "My research primarily focuses on developing real-time multi-modal multi-agent systems and parallel reasoning systems through end-to-end RL."
+    looking: false
+    next: "Member of Technical Staff at Thinking Machines Lab"
+
+  - name: "Lucy Revina"
+    email: "srevi@berkeley.edu"
+    website: "https://www.linkedin.com/in/srevi/"
+    advisors: "Bora Nikolic"
+    img: "lucy-revina.jpg"
+    blurb: "Interests include the design of hardware accelerators for specialized workloads (such as AI), particularly in the context of emerging transistor technologies, and development of flows for system-on-chip design, tapeout, and bring-up, extending to ways of making these useful for a broader audience (such as through classes and open source.)"
+    looking: false
+    next: "senior research engineer @ amd"
+
+  - name: "Maulik Bhatt"
+    email: "maulikbhatt@berkeley.edu"
+    website: "https://maulikb.com"
+    advisors: "Negar Mehr"
+    img: "maulik-bhatt.jpg"
+    blurb: "My research develops autonomous robots that can safely coordinate with humans and other robots in shared environments. I build scalable algorithms grounded in game theory and diffusion models that let agents reason about the intent and behavior of others around them. My work spans real-time multi-agent trajectory planning and imitation learning in the presence of multi-modality. I've validated these methods on hardware platforms ranging from quadrotors to manipulators, with the goal of making multi-agent coordination robust, interpretable, and deployable in the real world."
+    looking: false
+    next: "Joining Toyota Woven's end-to-end autonomous driving team."
+
+  - name: "Melissa Pan"
+    email: "melissapan@berkeley.edu"
+    website: "https://melissa-pan.github.io/"
+    advisors: "Matei Zaharia"
+    img: "melissa-pan.jpg"
+    blurb: "Agentic AI promises powerful real-world automation but risks unsustainable energy use, especially as inference dominates cloud workloads and test-time scaling multiplies costs. My research addresses the poorly understood energy cost-accuracy trade-off through co-design of ML algorithms and systems for multi-component AI pipelines."
+    looking: true
+    next: "Have a great PhD journey :)"
+
+  - name: "Michael Psenka"
+    email: "psenka@berkeley.edu"
+    website: "https://www.michaelpsenka.io/"
+    advisors: "Aditi Krishnapriyan"
+    img: "michael-psenka.jpg"
+    blurb: "Work in various domains (reinforcement learning, world models, AI+bio/chem), generally working on longer-horizon and out-of-distribution problems in planning and interpolation (e.g. robot manipulation from start state to goal, molecular dynamics of proteins between ground states). My thesis took a variational approach (think calculus of variations) directly from deep generative models of the environment, framing path-finding as minimizing a functional induced by the learned model itself (its score, its critic, or its dynamics). Through my research I've gained insight on how to properly handle dynamics in deep learning systems, and I plan to continue developing systems that are dynamic and adaptive."
+    looking: false
+    next: "Lead Research Scientist at Baseten"
+
+  - name: "Nathan Lichtlé"
+    email: "nathan.lichtle@gmail.com"
+    website: "https://nathanlichtle.com"
+    advisors: "Alexandre M. Bayen"
+    img: "nathan-lichtle.jpg"
+    blurb: "RL for autonomous driving."
+    looking: false
+    next: "Chief Scientist & Co-founder at Yumi Health"
+
+  - name: "Neerja Thakkar"
+    email: "nthakkar@berkeley.edu"
+    website: "https://neerja.me/"
+    advisors: "Jitendra Malik"
+    img: "neerja-thakkar.jpg"
+    blurb: "My research focuses on scaling predictive world models to handle the complexity of in-the-wild motion. Using autoregressive and diffusion frameworks, I develop better representations for real-world prediction and propose methods to efficiently adapt these models to new domains."
+    looking: true
+    next: "Research scientist"
+
+  - name: "Nikita Mehandru"
+    email: "nmehandru@berkeley.edu"
+    website: "https://n-mehandru.github.io/"
+    advisors: "Ahmed Alaa and David Bamman"
+    img: "nikita-mehandru.jpg"
+    blurb: "My research develops and applies machine learning methods for clinical reasoning and disease progression modeling using unstructured text and time series data from electronic health records. In collaboration with physicians at UCSF, I bridge method development and clinical validation with the intention to build reliable, interpretable AI systems in medicine."
+    looking: true
+    next: "Research Scientist"
+
+  - name: "Niklas Lauffer"
+    email: "nlauffer@berkeley.edu"
+    website: "https://niklaslauffer.github.io/"
+    advisors: "Stuart Russell and Sanjit Seshia"
+    img: "niklas-lauffer.jpg"
+    blurb: "Niklas's research is focused on AI safety and reinforcement learning, particularly in the area of multi-agent interaction and LM agents. He's worked on enabling adversarial learning in cooperative and mixed-motive settings, solving issues of covariate shift in training LM agents on long-horizon tasks, as well as evaluating safety risks posed by LM agents in multi-agent settings."
+    looking: false
+    next: "Research Scientist at Google Deepmind"
+
+  - name: "Qiyang Li"
+    email: "qcli@berkeley.edu"
+    website: "https://colinqiyangli.github.io/"
+    advisors: "Sergey Levine"
+    img: "qiyang-li.jpg"
+    blurb: "Recent progress in robotic manipulation policy learning has been largely driven by (1) the increasing availability of large-scale prior datasets and (2) the success of action chunking, where the policy predicts a short sequence of future actions rather than a single one. However, most action chunking policies are trained via supervised imitation learning, because efficient online self-improvement with reinforcement learning (RL) remains challenging—limiting real-world applicability. My PhD research studied how we could leverage prior data to optimize action-chunking policies with RL, combining empirical results with theoretical insights."
+    looking: true
+    next: "Post-doc/research scientist for RL in robotics and LLMs!"
+
+  - name: "Sampada Deglurkar"
+    email: "sampada_deglurkar@berkeley.edu"
+    website: "https://sdeglurkar.github.io/"
+    advisors: "Prof Claire Tomlin"
+    img: "sampada-deglurkar.jpg"
+    blurb: "My research is in providing safety assurances for AI-enabled autonomous systems, ranging from robots to autonomous vehicles to aviation systems. For this, I have worked with uncertainty quantification for machine learning models, decision-making under uncertainty algorithms, and tools for producing probabilistic guarantees on system operation."
+    looking: true
+    next: "Research scientist, Research engineer"
+
+  - name: "Toby Yegian"
+    email: "tobyyegian@berkeley.edu"
+    website: "https://tobyyegian.com/"
+    advisors: "Shankar Sastry"
+    img: "toby-yegian.jpg"
+    blurb: "I work in computational modeling and simulation for machine learning and nonplanar 3D printing."
+    looking: true
+    next: "Research in nonplanar 3D printing"
+
+  - name: "Vinamra Benara"
+    email: "vbenara@berkeley.edu"
+    website: "https://cs.berkeley.edu/~vbenara"
+    advisors: "Ion Stoica"
+    img: "vinamra-benara.jpg"
+    blurb: "My research focuses on LLM post-training, including data curation, RLHF, RLVR with VLMs, evaluations, reasoning, agentic workflows, and interpretability. I also have strong expertise in systems infrastructure for distributed computing."
+    looking: true
+    next: "Research scientist / Research Engineer"
+
+  - name: "Vongani Maluleke"
+    email: "vongani_maluleke@berkeley.edu"
+    website: "https://people.eecs.berkeley.edu/~vongani_maluleke/"
+    advisors: "Jitendra Malik and Angjoo Kanazawa"
+    img: "vongani-maluleke.jpg"
+    blurb: "Vongani Maluleke is a PhD candidate at UC Berkeley (BAIR, advised by Jitendra Malik and Angjoo Kanazawa), where she led the development of MAGNet, a unified multi-agent motion generation framework that supports a wide range of motion generation tasks without retraining or architectural changes, outperforming task-specialized state-of-the-art baselines. She is currently extending this work by deploying it on a Unitree G1 humanoid to make it embody social intelligence. Before her PhD, she was a Senior AI Consultant at Deloitte, awarded Exceptional Performer two consecutive years, leading AI system development across media, telecommunications, retail, and financial services."
+    looking: true
+    next: "Research scientist"
+
+  - name: "Wei-Jer Chang"
+    email: "weijer_chang@berkeley.edu"
+    website: "https://weijer-chang.github.io/"
+    advisors: "Masayoshi Tomizuka"
+    img: "wei-jer-chang.jpg"
+    blurb: "My research focuses on developing safe and intelligent autonomous systems for complex, human-centered environments. I work at the intersection of machine learning, generative models, and reinforcement learning, with applications in autonomy. My work addresses challenges in multi-agent interaction, interactive human behavior, and long-tail safety-critical scenarios at scale."
+    looking: true
+    next: "Research Scientist, Applied Scientist, Roboticist"
+
+  - name: "Xiuyu Li"
+    email: "xiuyu@berkeley.edu"
+    website: "https://xiuyuli.com/"
+    advisors: "Kurt Keutzer"
+    img: "xiuyu-li.jpg"
+    blurb: "My research focuses on developing scalable and self-improving large language model agents, with emphasis on coding agents for complex, long-horizon tasks. This direction builds on my work in parallel reasoning, and on broader expertise in making generative models more efficient in training and inference across language and vision."
+    looking: false
+    next: "Member of Technical Staff at xAI"
+
+  - name: "Yichen Xie"
+    email: "yichenxie0928@gmail.com"
+    website: "https://yichen928.github.io/"
+    advisors: "Masayoshi Tomizuka"
+    img: "yichen-xie.jpg"
+    blurb: "My research focuses on building multimodal foundation models and world models that understand and interact with complex physical environments. I aim to develop unified representations across modalities, enabling AI systems to reason over space, time, and dynamics toward general-purpose embodied intelligence."
+    looking: false
+    next: "Research Scientist at Luma AI"
+
+  - name: "Yigit Efe Erginbas"
+    email: "erginbas@berkeley.edu"
+    website: "https://www.linkedin.com/in/erginbas/"
+    advisors: "Kannan Ramchandran, Thomas A. Courtade"
+    img: "yigit-efe-erginbas.jpg"
+    blurb: "My PhD research spans two threads: online learning in large-scale markets, and interpretability of large machine learning models. In the first, I work on sequential decision-making with applications to recommendation, pricing, and assortment selection. My focus is on designing algorithms with provable guarantees for welfare maximization, revenue maximization, and stability. In the second, I develop scalable attribution methods that exploit the sparse, low-degree structure of real-world interactions, using tools from signal processing and information theory. More recently, I have been exploring principled ways to evaluate the faithfulness of model self-explanations."
+    looking: false
+    next: "Researcher at Hudson River Trading's AI Labs (HAIL)"
+
+  - name: "Yiheng Li"
+    email: "yhli@berkeley.edu"
+    website: "https://Yihengli.com"
+    advisors: "Masayoshi Tomizuka"
+    img: "yiheng-li.jpg"
+    blurb: "I am working on vision world modeling, with prior experience in diffusion model's efficiency as well as in autonomous driving."
+    looking: false
+    next: "Research Scientist at Waymo"
+
+  - name: "Zhe Fu"
+    email: "zhefu@berkeley.edu"
+    website: "https://fu-zhe.com/"
+    advisors: "Alexandre Bayen"
+    img: "zhe-fu.jpg"
+    blurb: "My research focuses on physics-informed learning and control for mixed-autonomy systems, with applications in transportation. I design physics-informed neural networks to learn solutions of nonlinear partial differential equations, enabling accurate and data-efficient prediction of traffic dynamics. Building on these models, I develop both model-based and learning-based control strategies that coordinate automated vehicles to improve system-level performance. My work bridges machine learning, control, and real-world deployment, and has been validated in large-scale field experiments. More broadly, I aim to advance trustworthy, interpretable AI for decision-making in complex, real-world systems."
+    looking: false
+    next: "I will be an Energy Fellow at Stanford after graduation. Also looking for Faculty, or research scientist positions in AI, control, and autonomy."
