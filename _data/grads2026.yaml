@@ -53,15 +53,6 @@ people:
     looking: false
     next: "Member of Technical Staff at OpenAI"
 
-  - name: "Haoru Xue"
-    email: "haoru-xue@berkeley.edu"
-    website: "https://haoruxue.github.io/"
-    advisors: "Shankar Sastry"
-    img: "haoru-xue.jpg"
-    blurb: "I’m interested in foundemental robot learning problems, a.k.a. receipe for physical AGI: scalable priors, long-horizon reasonings, dexterous and agile motor skills."
-    looking: false
-    next: "Doing systematic large-scale studies on frontier robotics models with industry"
-
   - name: "Haozhi Qi"
     email: "hqi@berkeley.edu"
     website: "https://haozhi.io/"
@@ -161,15 +152,6 @@ people:
     looking: false
     next: "Member of Technical Staff at Thinking Machines Lab"
 
-  - name: "Lucy Revina"
-    email: "srevi@berkeley.edu"
-    website: "https://www.linkedin.com/in/srevi/"
-    advisors: "Bora Nikolic"
-    img: "lucy-revina.jpg"
-    blurb: "Interests include the design of hardware accelerators for specialized workloads (such as AI), particularly in the context of emerging transistor technologies, and development of flows for system-on-chip design, tapeout, and bring-up, extending to ways of making these useful for a broader audience (such as through classes and open source.)"
-    looking: false
-    next: "senior research engineer @ amd"
-
   - name: "Maulik Bhatt"
     email: "maulikbhatt@berkeley.edu"
     website: "https://maulikb.com"
@@ -178,15 +160,6 @@ people:
     blurb: "My research develops autonomous robots that can safely coordinate with humans and other robots in shared environments. I build scalable algorithms grounded in game theory and diffusion models that let agents reason about the intent and behavior of others around them. My work spans real-time multi-agent trajectory planning and imitation learning in the presence of multi-modality. I've validated these methods on hardware platforms ranging from quadrotors to manipulators, with the goal of making multi-agent coordination robust, interpretable, and deployable in the real world."
     looking: false
     next: "Joining Toyota Woven's end-to-end autonomous driving team."
-
-  - name: "Melissa Pan"
-    email: "melissapan@berkeley.edu"
-    website: "https://melissa-pan.github.io/"
-    advisors: "Matei Zaharia"
-    img: "melissa-pan.jpg"
-    blurb: "Agentic AI promises powerful real-world automation but risks unsustainable energy use, especially as inference dominates cloud workloads and test-time scaling multiplies costs. My research addresses the poorly understood energy cost-accuracy trade-off through co-design of ML algorithms and systems for multi-component AI pipelines."
-    looking: true
-    next: "Have a great PhD journey :)"
 
   - name: "Michael Psenka"
     email: "psenka@berkeley.edu"
@@ -250,15 +223,6 @@ people:
     blurb: "My research is in providing safety assurances for AI-enabled autonomous systems, ranging from robots to autonomous vehicles to aviation systems. For this, I have worked with uncertainty quantification for machine learning models, decision-making under uncertainty algorithms, and tools for producing probabilistic guarantees on system operation."
     looking: true
     next: "Research scientist, Research engineer"
-
-  - name: "Toby Yegian"
-    email: "tobyyegian@berkeley.edu"
-    website: "https://tobyyegian.com/"
-    advisors: "Shankar Sastry"
-    img: "toby-yegian.jpg"
-    blurb: "I work in computational modeling and simulation for machine learning and nonplanar 3D printing."
-    looking: true
-    next: "Research in nonplanar 3D printing"
 
   - name: "Vinamra Benara"
     email: "vbenara@berkeley.edu"
