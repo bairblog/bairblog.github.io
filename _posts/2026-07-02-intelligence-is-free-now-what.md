@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Intelligence is Free, Now What? Data Systems for, of, and by Agents"
-date: 2026-07-06 09:00:00
+date: 2026-07-02 09:00:00
 author: <a href="https://people.eecs.berkeley.edu/~adityagp/">Aditya G. Parameswaran</a>, <a href="https://skejriwal44.github.io/">Shubham Agarwal</a>, <a href="https://keremakillioglu.github.io/">Kerem Akillioglu</a>, <a href="https://www.sh-reya.com/">Shreya Shankar</a>, <a href="https://szeighami.github.io/">Sepanta Zeighami</a>, <a href="https://rishabh246.github.io/">Rishabh Iyer</a>, <a href="https://people.eecs.berkeley.edu/~matei/">Matei Zaharia</a>, <a href="https://people.eecs.berkeley.edu/~akcheung/">Alvin Cheung</a>, <a href="https://nacrooks.github.io/">Natacha Crooks</a>, <a href="https://people.eecs.berkeley.edu/~jegonzal/">Joseph Gonzalez</a>, <a href="https://dsf.berkeley.edu/jmh/">Joseph Hellerstein</a>, and <a href="https://people.eecs.berkeley.edu/~istoica/">Ion Stoica</a>
 img: https://bair.berkeley.edu/static/blog/intelligence-is-free-now-what/image6.png
 excerpt_separator: <!--more-->
