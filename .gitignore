@@ -14,3 +14,6 @@ Gemfile.lock
 
 # Local scratch dirs (e.g. unzipped .docx for style extraction)
 .tmp-*/
+
+# Local Claude Code working files (agent guides, notes, etc.)
+.claude/
