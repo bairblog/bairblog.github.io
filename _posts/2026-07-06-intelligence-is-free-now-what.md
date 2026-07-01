@@ -2,7 +2,7 @@
 layout: post
 title: "Intelligence is Free, Now What? Data Systems for, of, and by Agents"
 date: 2026-07-06 09:00:00
-author: <a href="https://www.adityagp.net/">Aditya G. Parameswaran</a>, Shubham Agarwal, Kerem Akillioglu, Shreya Shankar, Sepanta Zeighami, Rishabh Iyer, Matei Zaharia, Alvin Cheung, Natacha Crooks, Joseph Gonzalez, Joseph Hellerstein, and Ion Stoica
+author: <a href="https://people.eecs.berkeley.edu/~adityagp/">Aditya G. Parameswaran</a>, <a href="https://skejriwal44.github.io/">Shubham Agarwal</a>, <a href="https://keremakillioglu.github.io/">Kerem Akillioglu</a>, <a href="https://www.sh-reya.com/">Shreya Shankar</a>, <a href="https://szeighami.github.io/">Sepanta Zeighami</a>, <a href="https://rishabh246.github.io/">Rishabh Iyer</a>, <a href="https://people.eecs.berkeley.edu/~matei/">Matei Zaharia</a>, <a href="https://people.eecs.berkeley.edu/~akcheung/">Alvin Cheung</a>, <a href="https://nacrooks.github.io/">Natacha Crooks</a>, <a href="https://people.eecs.berkeley.edu/~jegonzal/">Joseph Gonzalez</a>, <a href="https://dsf.berkeley.edu/jmh/">Joseph Hellerstein</a>, and <a href="https://people.eecs.berkeley.edu/~istoica/">Ion Stoica</a>
 img: https://bair.berkeley.edu/static/blog/intelligence-is-free-now-what/image6.png
 excerpt_separator: <!--more-->
 visible: True
@@ -117,4 +117,4 @@ Looking further out, the boundaries between agents and data systems will likely 
 
 ## Acknowledgements
 
-This post reflects ongoing and joint work carried out at the [EPIC Data Lab](https://epic.berkeley.edu/) and across the broader Berkeley data systems community. We thank our many colleagues and collaborators for the discussions that shaped these ideas.
+The perspective and ongoing work described in this post are the product of joint research and many discussions with wonderful collaborators at the [EPIC Data Lab](https://epic.berkeley.edu/) and across the broader Berkeley data systems community, including Shubham Agarwal, Kerem Akillioglu, Shreya Shankar, Sepanta Zeighami, Rishabh Iyer, Matei Zaharia, Alvin Cheung, Natacha Crooks, Joseph Gonzalez, Joseph Hellerstein, and Ion Stoica. Thank you all.
