@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Intelligence is Free, Now What? Data Systems for, of, and by Agents"
-date: 2026-07-01 09:00:00
-author: Aditya Parameswaran
+date: 2026-07-06 09:00:00
+author: <a href="https://www.adityagp.net/">Aditya G. Parameswaran</a>, Shubham Agarwal, Kerem Akillioglu, Shreya Shankar, Sepanta Zeighami, Rishabh Iyer, Matei Zaharia, Alvin Cheung, Natacha Crooks, Joseph Gonzalez, Joseph Hellerstein, and Ion Stoica
 img: https://bair.berkeley.edu/static/blog/intelligence-is-free-now-what/image6.png
 excerpt_separator: <!--more-->
 visible: True
@@ -16,7 +16,7 @@ show_comments: False
 
 <meta name="keywords" content="data systems, AI agents, agentic workloads, LLM inference cost, agent memory, query optimization, agent swarms, database systems">
 <meta name="description" content="As the cost of intelligence approaches zero, agents will become the dominant workload for data systems. We explore three challenges and opportunities: data systems for agents, of agents, and by agents.">
-<meta name="author" content="Aditya Parameswaran">
+<meta name="author" content="Aditya G. Parameswaran, Shubham Agarwal, Kerem Akillioglu, Shreya Shankar, Sepanta Zeighami, Rishabh Iyer, Matei Zaharia, Alvin Cheung, Natacha Crooks, Joseph Gonzalez, Joseph Hellerstein, Ion Stoica">
 
 <p style="text-align:center;">
 <i>... government of the people, by the people, for the people ...</i><br>
@@ -25,6 +25,10 @@ show_comments: False
 
 <p style="text-align:center;">
 <img src="https://bair.berkeley.edu/static/blog/intelligence-is-free-now-what/image6.png" alt="A cartoon database character and an AI robot agent holding hands" width="450">
+</p>
+
+<p style="text-align:center; font-size:0.85em; color:#888; margin-top:-0.4em;">
+<i><a href="https://www.adityagp.net/">Aditya Parameswaran</a> is an Associate Professor of EECS and co-director of the <a href="https://epic.berkeley.edu/">EPIC Data Lab</a> at UC Berkeley.</i>
 </p>
 
 The cost of AI is dropping rapidly. GPT-4-class capabilities cost roughly <span class="tex2jax_ignore">\$30</span> per million tokens in early 2023; today the same runs under <span class="tex2jax_ignore">\$1</span>, and [some providers are pushing costs below <span class="tex2jax_ignore">\$0.10</span>](https://zuplo.com/learning-center/the-10x-cheaper-ai-era-api-pricing-strategy-obsolete). Across benchmarks, [inference prices have fallen between 9x and 900x per year](https://epochai.org/data-insights/llm-inference-price-trends), with a median decline near 50x. Even [frontier models are getting dramatically cheaper](https://tokenmix.ai/blog/ai-pricing-trends-history) each generation, with open-source models following closely behind. And crucially, even if "Nobel-Prize-winning genius-level" intelligence isn't here yet, the intelligence that suffices for the vast majority of knowledge work is here today, and getting cheaper by the month. **At this rate, we are soon entering the era of virtually free intelligence**&mdash;the kind that is more than enough for everyday knowledge work.
@@ -110,3 +114,7 @@ In the era of near-free intelligence, data systems matter more than ever. As age
 </p>
 
 Looking further out, the boundaries between agents and data systems will likely start to blur. For instance, agents may design the data systems they themselves run on, defining both the interfaces as well as the system components underneath. Both the interfaces and internals can be evolved over time by agents in a form of recursive self-improvement. There is also an opportunity to rethink data systems as a holistic source of truth for the entirety of relevant state: including raw data, memory, and coordination state, further erasing the distinctions between the data that is being queried by agents and data generated as a result of agentic activity. Finally, data systems may themselves incorporate agentic components, fundamentally evolving from passive computation engines into intelligent, proactive, self-optimizing architectures. It is hard to predict what the future may hold. We're in for a wild ride!
+
+## Acknowledgements
+
+This post reflects ongoing and joint work carried out at the [EPIC Data Lab](https://epic.berkeley.edu/) and across the broader Berkeley data systems community. We thank our many colleagues and collaborators for the discussions that shaped these ideas.
