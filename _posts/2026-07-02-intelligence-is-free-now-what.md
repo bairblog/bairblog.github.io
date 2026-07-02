@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Intelligence is Free, Now What? <br> Data Systems for, of, and by Agents"
-date: 2026-07-01 09:00:00
+date: 2026-07-02 09:00:00
 author: Aditya Parameswaran
 img: https://bair.berkeley.edu/static/blog/intelligence-is-free-now-what/image6.png
 excerpt_separator: <!--more-->
@@ -149,7 +149,7 @@ BibTex for this post:
 @misc{intelligence-is-free-blog,
   title={Intelligence is Free, Now What? Data Systems for, of, and by Agents},
   author={Aditya Parameswaran},
-  howpublished={\url{https://bair.berkeley.edu/blog/2026/07/01/intelligence-is-free-now-what/}},
+  howpublished={\url{https://bair.berkeley.edu/blog/2026/07/02/intelligence-is-free-now-what/}},
   year={2026}
 }
 ```
