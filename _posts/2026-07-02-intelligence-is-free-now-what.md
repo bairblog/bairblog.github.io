@@ -66,7 +66,10 @@ An agent-first data system can exploit such properties to help agents make progr
 Another opportunity here is to rethink the query interface entirely: instead of agents issuing a single SQL query at a time, they could instead issue a batch of queries, each with its own approximation requirements. Since enumerating an exponential search space (as in the root cause or cohort analysis examples above) isn't a good use of agentic reasoning ability, perhaps data systems should support higher-level primitives rather than requiring agents to list each SQL query explicitly. One idea here is to draw on [DBT-style Jinja macros](https://docs.getdbt.com/docs/build/jinja-macros) to provide looping-based primitives for agents to interact with data systems.
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/intelligence-is-free-now-what/image2.png" alt="A swarm of AI agents working at laptops" width="450">
+<img src="https://bair.berkeley.edu/static/blog/intelligence-is-free-now-what/image2.png" alt="A swarm of AI agents working at laptops" width="450"><br>
+<i>
+A Caffeinated Army of Agents Ready to Tirelessly Complete Your Data Tasks
+</i>
 </p>
 
 A final opportunity here is to stop thinking of data systems as passive executors of queries; data systems could be [proactive](https://arxiv.org/abs/2502.13016), as they possess more grounding in data and system characteristics that agents may lack a priori&mdash;they could steer agents in different directions, provide results for related queries, and also provide performance-level feedback (e.g., instead of executing an expensive query, the system could first provide the agent a latency estimate). The reason we can do this now as opposed to the past is that an agent can accept any form of textual feedback and isn't expecting a strict SQL query result. In fact, the data system could also prepare both materialized and virtual views for an agent in advance, provided to the agent as part of context, as this may be cheaper or more effective than having an agent author or use them.
