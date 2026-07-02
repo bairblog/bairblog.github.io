@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Intelligence is Free, Now What? Data Systems for, of, and by Agents"
+title: "Intelligence is Free, Now What? <br> Data Systems for, of, and by Agents"
 date: 2026-07-01 09:00:00
 author: Aditya Parameswaran
 img: https://bair.berkeley.edu/static/blog/intelligence-is-free-now-what/image6.png
@@ -23,11 +23,11 @@ show_comments: False
 &nbsp;&nbsp;&nbsp;&nbsp;&mdash; Abraham Lincoln, Gettysburg Address (1863)
 </p>
 
+The cost of AI is dropping rapidly. GPT-4-class capabilities cost roughly <span class="tex2jax_ignore">\$30</span> per million tokens in early 2023; today the same runs under <span class="tex2jax_ignore">\$1</span>, and [some providers are pushing costs below <span class="tex2jax_ignore">\$0.10</span>](https://zuplo.com/learning-center/the-10x-cheaper-ai-era-api-pricing-strategy-obsolete). Across benchmarks, [inference prices have fallen between 9x and 900x per year](https://epochai.org/data-insights/llm-inference-price-trends), with a median decline near 50x. Even [frontier models are getting dramatically cheaper](https://tokenmix.ai/blog/ai-pricing-trends-history) each generation, with open-source models following closely behind. And crucially, even if "Nobel-Prize-winning genius-level" intelligence isn't here yet, the intelligence that suffices for the vast majority of knowledge work is here today, and getting cheaper by the month. **At this rate, we are soon entering the era of virtually free intelligence**&mdash;the kind that is more than enough for everyday knowledge work.
+
 <p style="text-align:center;">
 <img src="https://bair.berkeley.edu/static/blog/intelligence-is-free-now-what/image6.png" alt="A cartoon database character and an AI robot agent holding hands" width="450">
 </p>
-
-The cost of AI is dropping rapidly. GPT-4-class capabilities cost roughly <span class="tex2jax_ignore">\$30</span> per million tokens in early 2023; today the same runs under <span class="tex2jax_ignore">\$1</span>, and [some providers are pushing costs below <span class="tex2jax_ignore">\$0.10</span>](https://zuplo.com/learning-center/the-10x-cheaper-ai-era-api-pricing-strategy-obsolete). Across benchmarks, [inference prices have fallen between 9x and 900x per year](https://epochai.org/data-insights/llm-inference-price-trends), with a median decline near 50x. Even [frontier models are getting dramatically cheaper](https://tokenmix.ai/blog/ai-pricing-trends-history) each generation, with open-source models following closely behind. And crucially, even if "Nobel-Prize-winning genius-level" intelligence isn't here yet, the intelligence that suffices for the vast majority of knowledge work is here today, and getting cheaper by the month. **At this rate, we are soon entering the era of virtually free intelligence**&mdash;the kind that is more than enough for everyday knowledge work.
 
 <!--more-->
 
@@ -40,7 +40,10 @@ So, what does this new era of near-free intelligence mean for data systems? We b
 **Data Systems *By* Agents.** Agents are rapidly becoming capable of synthesizing entire data systems in one go&mdash;meaning we can rebuild custom systems for each new workload. Verifying that such systems match intended behavior is a challenge. *What does it take to let agents synthesize data systems we can actually trust?*
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/intelligence-is-free-now-what/image1.png" alt="A database character and an agent shaking hands, with labels 'of', 'for', and 'by'" width="450">
+<img src="https://bair.berkeley.edu/static/blog/intelligence-is-free-now-what/for-of-by-agents.png" alt="A database character and a robot agent holding up a triangle labeled 'of', 'for', and 'by'" width="500"><br>
+<i>
+Data Systems For, Of, and By Agents
+</i>
 </p>
 
 Next, we will discuss each in more detail, followed by discussing the intertwined future of data systems and agents, especially as the three challenges intersect.
@@ -50,7 +53,10 @@ Next, we will discuss each in more detail, followed by discussing the intertwine
 An agent querying a database doesn't behave like a person or a BI tool. It performs what we call [*agentic speculation*](https://arxiv.org/abs/2509.00997): a high-volume, heterogeneous stream of work spanning schema introspection, columnar exploration, partial and then full query formulation. With multiple agents each exploring portions of the hypothesis space, each user request could amount to 1000s of individual SQL queries. Now, users can issue 'high-level' data tasks, e.g., root-cause analysis&mdash;e.g., 'why did coffee sales in Berkeley drop this year'&mdash;or exploratory cohort analysis&mdash;e.g., 'which user segments are most likely to churn next quarter'&mdash;each involving a combinatorial space of potential joins, aggregations, and filter combinations.
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/intelligence-is-free-now-what/image5.png" alt="An agent sending many SELECT SQL queries to a database and receiving results back" width="600">
+<img src="https://bair.berkeley.edu/static/blog/intelligence-is-free-now-what/image5.png" alt="An agent sending many SELECT SQL queries to a database and receiving results back" width="600"><br>
+<i>
+Data Systems Redesigned to More Effectively Support Agentic Speculation
+</i>
 </p>
 
 The requests from these agents have various opportunities for optimization. For instance, on a text-to-SQL benchmark with multiple agents attempting each task, only 10-20% of the sub-plans are distinct. Thus, 80-90% of sub-queries perform duplicate work. The same experiments show task success rates significantly increasing with more agentic attempts&mdash;so the redundancy is actually helpful. But from the data system perspective it's wasted work.
@@ -74,12 +80,22 @@ First, on the memory front, the current wisdom is that [files](https://www.ampli
 Given limited context windows, retrieving all MD file fragments that may be relevant and stuffing it into the context will break down at some point. Even if context windows continue to grow, there are latency benefits to not put all information into context &mdash; and in many cases, e.g., when knowledge work involves interacting with large databases or code bases, it will be infeasible to serialize all relevant data into context.
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/intelligence-is-free-now-what/image3.png" alt="An agent perched on a database, drawing memory and state from it through glowing connections" width="400">
+<img src="https://bair.berkeley.edu/static/blog/intelligence-is-free-now-what/substrate-for-agent-swarms.png" alt="A swarm of robot agents holding hands, each drawing state from a single large shared database platform below them" width="500"><br>
+<i>
+Data Systems As A Substrate for Multi-Agent Swarms
+</i>
 </p>
 
 One could use a [knowledge](https://mem0.ai/) [graph](https://www.getzep.com/) [representation](https://langchain-ai.github.io/langmem/), but knowledge graphs suffer from the same limitations as unstructured MD-based memory due to their lack of structured search. What one needs is to be able to retrieve only memory that is pertinent to the task, across multiple attributes (or facets) of interest. For example, an agent debugging a flaky test should be able to pull only the memories tagged with the relevant module, language, framework, and failure mode&mdash;rather retrieving based on keywords or embedding similarity. A separate issue is what to actually retrieve; raw agent traces with mistakes are not very useful as they will induce agents to repeat the same mistake&mdash;instead, we want the retrieved memory to be corrective.
 
 We recently explored a related notion of [*structured memory*](https://arxiv.org/abs/2602.13521), where we organize memory across various attributes, each of which could be set as `*` to indicate universal applicability, or set as a list of values to be matched. For a data agent, the dimensions could include the columns and tables, type of operation, and finally, open-ended natural-language corrective instructions. So, we could include memory that only applies to a given type of operation (e.g., 'when performing date-time operations, use fiscal year as opposed to calendar year conventions'), or a given table (e.g., 'column product_cleaned is preferred over column product when querying on product name'). One open question is defining an *application-specific structured memory*&mdash;or what others have called [world models for memory](https://www.linkedin.com/feed/update/urn:li:activity:7467499112523804672/). We believe this is akin to defining a schema for each application&mdash;and perhaps agents themselves can help us define and refine it over time.
+
+<p style="text-align:center;">
+<img src="https://bair.berkeley.edu/static/blog/intelligence-is-free-now-what/structured-knowledge.png" alt="Diagram showing corrective knowledge stored with structured attributes (SQL keywords, tables, columns, data type) and retrieved by matching the features of a new agent query" width="100%"><br>
+<i>
+One Possible Way To Store and Retrieve Structured Knowledge <a href="https://arxiv.org/abs/2602.13521">[From Here]</a>
+</i>
+</p>
 
 Structured memory will be useful also for [evolutionary](https://github.com/skydiscover-ai/skydiscover) [frameworks](https://arxiv.org/abs/2506.13131) to effectively manage search spaces. Indeed, storing, structuring, and mining large volumes of single and [multi-agent traces](https://sky.cs.berkeley.edu/project/mast/) can help future agents become much more efficient&mdash;potentially enabling effective recursive self-improvement through structured memory-based mechanisms.
 
@@ -92,10 +108,20 @@ Beyond shared state, other concerns emerge when trying to support an army of age
 Finally, if intelligence is effectively free, then we can employ this intelligence to synthesize new data systems from scratch. Indeed, in many settings, general-purpose data systems may be overkill, as they have to support every schema, query, and hardware target. Given a workload, recent work, including [Bespoke OLAP](https://arxiv.org/abs/2603.02001) and [GenDB](https://arxiv.org/abs/2603.02081), has shown that one can use an agentic pipeline to synthesize a complete, workload-specific analytical engine&mdash;in minutes to a few hours, at a cost of a few dollars. The engines are disposable: when the workload shifts, one can simply regenerate them. Analogously, our work has shown that one can synthesize custom [key-value stores](https://arxiv.org/abs/2605.24096) from scratch, targeted to the workload. In fact, modern IDEs, such as [Kiro](https://kiro.dev/), elevate specifications for systems development to be a first-class citizen.
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/intelligence-is-free-now-what/image4.png" alt="An agent chiseling a database character out of a block of stone" width="500">
+<img src="https://bair.berkeley.edu/static/blog/intelligence-is-free-now-what/synthesize-from-scratch.png" alt="A robot agent with a hammer and chisel carving a database character out of a block of stone" width="500"><br>
+<i>
+Agents Can Synthesize Custom Data Systems From Scratch
+</i>
 </p>
 
 The main issue, however, is that specifications are typically imperfect, and don't cover all corner cases. Present-day agents will exploit the missing specifications to reward-hack their way to a high performance metric. In our custom key-value store work, we found that one way to alleviate this is to have auxiliary verification agents trying to generate test cases that catch the exploitation of corner cases, essentially expanding the specification. Yet another approach is to both generate a system and a proof for its correctness together, for which we have found some [early success](https://arxiv.org/abs/2605.23109), but more needs to be done to solidify the approach. Further, it remains to be seen what is the best way to solicit human-written specifications for a system&mdash;can this be done in an iterative, human-in-the-loop manner, as opposed to a one-shot, incomplete one. Indeed, human-written specifications are incomplete even for manually authored software, so one would expect that future agents that are more aligned will increasingly exercise better judgement when making design decisions.
+
+<p style="text-align:center;">
+<img src="https://bair.berkeley.edu/static/blog/intelligence-is-free-now-what/synthesis-pipeline.png" alt="Pipeline diagram where a system builder provides a specification, planner and coder agents generate code, the code is evaluated for correctness and performance, and critic and auditor agents provide feedback and catch reward hacking" width="100%"><br>
+<i>
+One Possible Data System Synthesis Pipeline <a href="https://arxiv.org/abs/2605.24096">[From Here]</a>
+</i>
+</p>
 
 Other questions here involve testing whether starting from a mature system (e.g., Postgres) and removing components/functionality can lead to higher performance or more user trust. Separately, is there an opportunity to make the design composable, comprising various verified components that are mixed and matched given a workload? For example, perhaps the workload hasn't changed enough for the storage layer to be updated, but perhaps the query optimizer requires changes. A perhaps more viable proposition involves employing agents coupled with proof systems to target critical parts of the code associated with formal proofs, rather than doing so for the entire system.
 
@@ -106,7 +132,24 @@ A final opportunity here is to move away from the traditional data systems stack
 In the era of near-free intelligence, data systems matter more than ever. As agents take on the bulk of knowledge work, the workload for data systems will change, the substrate they need to run on will have to be built, and increasingly, they will participate in designing data systems themselves. Each of these shifts opens up a new, exciting research agenda.
 
 <p style="text-align:center;">
-<img src="https://bair.berkeley.edu/static/blog/intelligence-is-free-now-what/image7.png" alt="A yin-yang symbol formed by a database and a robot agent" width="250">
+<img src="https://bair.berkeley.edu/static/blog/intelligence-is-free-now-what/co-evolution.png" alt="A half-database, half-robot character next to a yin-yang symbol formed by a database and a robot agent" width="600"><br>
+<i>
+Co-Evolution of Data Systems and Agents
+</i>
 </p>
 
 Looking further out, the boundaries between agents and data systems will likely start to blur. For instance, agents may design the data systems they themselves run on, defining both the interfaces as well as the system components underneath. Both the interfaces and internals can be evolved over time by agents in a form of recursive self-improvement. There is also an opportunity to rethink data systems as a holistic source of truth for the entirety of relevant state: including raw data, memory, and coordination state, further erasing the distinctions between the data that is being queried by agents and data generated as a result of agentic activity. Finally, data systems may themselves incorporate agentic components, fundamentally evolving from passive computation engines into intelligent, proactive, self-optimizing architectures. It is hard to predict what the future may hold. We're in for a wild ride!
+
+## Acknowledgments
+
+The perspective and ongoing work described in this post are the product of joint research and many discussions with wonderful collaborators at the [EPIC Data Lab](https://epic.berkeley.edu/), [Data Systems & Foundations](https://dsf.berkeley.edu/) group, and the broader Berkeley AI-Systems community. Thank you all!
+
+BibTex for this post:
+```
+@misc{intelligence-is-free-blog,
+  title={Intelligence is Free, Now What? Data Systems for, of, and by Agents},
+  author={Aditya Parameswaran},
+  howpublished={\url{https://bair.berkeley.edu/blog/2026/07/01/intelligence-is-free-now-what/}},
+  year={2026}
+}
+```
