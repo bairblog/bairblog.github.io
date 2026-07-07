@@ -31,6 +31,10 @@ The cost of AI is dropping rapidly. GPT-4-class capabilities cost roughly <span 
 
 <!--more-->
 
+<p style="font-size: 0.8em; color: #888; font-style: italic; margin: 1em 0;">
+Disclosure: This post is a perspective led by <a href="https://people.eecs.berkeley.edu/~adityagp/">Aditya G. Parameswaran</a>&mdash;an Associate Professor of EECS and co-director of the EPIC Data Lab at UC Berkeley&mdash;together with his collaborators. It is part landscape survey and part perspective, and several of the research directions discussed below (including agentic speculation, structured memory, and synthesizing custom data systems from scratch) draw on the authors' own ongoing work. The authors aim to present each direction on its own terms.
+</p>
+
 So, what does this new era of near-free intelligence mean for data systems? We believe three new challenges&mdash;and opportunities&mdash;stem from near-zero inference costs:
 
 **Data Systems *For* Agents.** Agents will soon become the dominant workload for data systems&mdash;with swarms of agents spun up in response to each end-user request. Given differences in characteristics between agents and humans&mdash;or applications acting on their behalf&mdash;*how should we redesign data systems for such agentic users?*
