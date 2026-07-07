@@ -151,8 +151,6 @@ Looking further out, the boundaries between agents and data systems will likely 
 
 The perspective and ongoing work described in this post are the product of joint research and many discussions with wonderful collaborators at the [EPIC Data Lab](https://epic.berkeley.edu/), [Data Systems & Foundations](https://dsf.berkeley.edu/) group, and the broader Berkeley AI-Systems community. Thank you all!
 
-<div class="tex2jax_ignore">
-
 BibTex for this post:
 ```
 @misc{intelligence-is-free-blog,
@@ -164,5 +162,3 @@ BibTex for this post:
   year={2026}
 }
 ```
-
-</div>
