@@ -55,6 +55,13 @@ Styles for home page logo and nav
 	height: 100%;
 }
 
+/* BibTeX / plaintext citation blocks: monospace reads larger at the same em size */
+.language-plaintext.highlighter-rouge pre.highlight,
+.language-plaintext.highlighter-rouge pre.highlight code {
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
 
 
 
