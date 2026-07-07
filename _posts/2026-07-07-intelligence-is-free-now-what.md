@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Intelligence is Free, Now What? <br> Data Systems for, of, and by Agents"
-date: 2026-07-02 09:00:00
+date: 2026-07-07 09:00:00
 author: <a href="https://people.eecs.berkeley.edu/~adityagp/">Aditya G. Parameswaran</a>, <a href="https://skejriwal44.github.io/">Shubham Agarwal</a>, <a href="https://keremakillioglu.github.io/">Kerem Akillioglu</a>, <a href="https://www.sh-reya.com/">Shreya Shankar</a>, <a href="https://szeighami.github.io/">Sepanta Zeighami</a>, <a href="https://rishabh246.github.io/">Rishabh Iyer</a>, <a href="https://people.eecs.berkeley.edu/~matei/">Matei Zaharia</a>, <a href="https://people.eecs.berkeley.edu/~akcheung/">Alvin Cheung</a>, <a href="https://nacrooks.github.io/">Natacha Crooks</a>, <a href="https://people.eecs.berkeley.edu/~jegonzal/">Joseph Gonzalez</a>, <a href="https://dsf.berkeley.edu/jmh/">Joseph Hellerstein</a>, and <a href="https://people.eecs.berkeley.edu/~istoica/">Ion Stoica</a>
 img: https://bair.berkeley.edu/static/blog/intelligence-is-free-now-what/image6.png
 excerpt_separator: <!--more-->
@@ -32,7 +32,7 @@ The cost of AI is dropping rapidly. GPT-4-class capabilities cost roughly <span 
 <!--more-->
 
 <p style="font-size: 0.8em; color: #888; font-style: italic; margin: 1em 0;">
-Disclosure: This post is a perspective led by <a href="https://people.eecs.berkeley.edu/~adityagp/">Aditya G. Parameswaran</a>&mdash;an Associate Professor of EECS and co-director of the EPIC Data Lab at UC Berkeley&mdash;together with his collaborators. It is part landscape survey and part perspective, and several of the research directions discussed below (including agentic speculation, structured memory, and synthesizing custom data systems from scratch) draw on the authors' own ongoing work. The authors aim to present each direction on its own terms.
+Disclosure: This post is a perspective led by <a href="https://people.eecs.berkeley.edu/~adityagp/">Aditya G. Parameswaran</a>&mdash;an Associate Professor of EECS and co-director of the EPIC Data Lab at UC Berkeley&mdash;together with his collaborators. It is part landscape survey and part perspective, and several of the research directions discussed below (including agentic speculation, structured memory, and synthesizing custom data systems from scratch) draw on the authors' own ongoing work.
 </p>
 
 So, what does this new era of near-free intelligence mean for data systems? We believe three new challenges&mdash;and opportunities&mdash;stem from near-zero inference costs:
@@ -158,7 +158,7 @@ BibTex for this post:
   author={Aditya G. Parameswaran and Shubham Agarwal and Kerem Akillioglu and Shreya Shankar
           and Sepanta Zeighami and Rishabh Iyer and Matei Zaharia and Alvin Cheung
           and Natacha Crooks and Joseph Gonzalez and Joseph Hellerstein and Ion Stoica},
-  howpublished={\url{https://bair.berkeley.edu/blog/2026/07/02/intelligence-is-free-now-what/}},
+  howpublished={\url{https://bair.berkeley.edu/blog/2026/07/07/intelligence-is-free-now-what/}},
   year={2026}
 }
 ```
