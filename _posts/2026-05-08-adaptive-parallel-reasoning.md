@@ -26,7 +26,13 @@ show_comments: False
 .apr-fig--tall-1-2x img { display: inline-block; max-height: 360px; width: auto; max-width: 100%; height: auto; object-fit: contain; vertical-align: middle; }
 .apr-fig--tall-1-5x img { display: inline-block; max-height: 450px; width: auto; max-width: 100%; height: auto; object-fit: contain; vertical-align: middle; }
 .apr-fig--tall-2x img { display: inline-block; max-height: 600px; width: auto; max-width: 100%; height: auto; object-fit: contain; vertical-align: middle; }
-.apr-fig .apr-fig-cap { display: block; text-align: center; font-size: 0.9em; font-style: italic; }
+.apr-fig .apr-fig-cap {
+  display: block;
+  text-align: center;
+  font-size: 0.9em;
+  font-style: italic;
+  margin-top: 1.35em;
+}
 .apr-ack a {
   color: #1565c0;
   font-weight: 500;
