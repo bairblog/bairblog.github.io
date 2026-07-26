@@ -27,7 +27,7 @@ show_comments: False
 <img src="/assets/cuda-to-mlx-k-search/cover.png" alt="Kernel knowledge transfer from CUDA to MLX"><br>
 </p>
 
-We face a new epoch in computing. Hardware is changing rapidly — not just faster GPUs, but a growing range of chips from different vendors, each with its own architecture and often tailored to specific AI workloads. Software is changing just as fast, and AI coding tools now generate in minutes what took months of effort a few years ago. In this reality, it has become almost impossible for humans to keep pace with the change.
+We face a new epoch in computing. Hardware is changing rapidly — not just faster GPUs, but a growing range of chips from different vendors, each with its own architecture and often tailored to specific AI workloads. Software is changing just as fast, and AI coding tools now generate in minutes what took months of effort a few years ago.
 
 <!--more-->
 
@@ -35,7 +35,7 @@ With so much of computing now centered on AI, GPU kernels are a crucial componen
 
 In this work we ask whether that expertise can be transferred automatically. We built on K-Search, an evolutionary kernel search framework developed at Berkeley Sky Lab that uses AI to optimize GPU kernels, and extended it with a backend for MLX — Apple's machine-learning framework for its own Apple Silicon chips. We developed a novel structured CUDA-to-MLX translation layer that lets K-Search take existing CUDA kernels as a knowledge base and adapt them into high-quality GPU kernels for Apple Silicon, rather than rebuilding from scratch.
 
-We show that our approach reaches near-expert level performance on Apple Silicon for the Attention kernel, and a large prefill speedup over the community mlx-lm implementation on the Mamba SSM kernel; we report the numbers, and how much of the gain comes from the translation layer, in the sections below. Although we focus on MLX kernels for Apple Silicon, the method is not specific to MLX and applies to any ecosystem where CUDA expertise is transferable.
+We show that our approach reaches near-expert level performance on Apple Silicon with 0.97x speedup compared to the native MLX Attention kernel, and up to a 20x prefill speedup over the community mlx-lm implementation on the Mamba SSM kernel; we report the numbers, and how much of the gain comes from the translation layer, in the sections below. Although we focus on MLX kernels for Apple Silicon, the method is not specific to MLX and applies to any ecosystem where CUDA expertise is transferable.
 
 ## Why MLX?
 
@@ -104,9 +104,9 @@ Our translation layer consists of:
 - **MLX-specific hints and patterns:** Concrete code-level patterns for operations with no direct CUDA equivalent, such as register-based row reductions using `simd_shuffle_xor` in an 8×8 MMA tile layout, or the "exp2 trick" (replacing $exp(x)$ with $exp_2(x \log_2 e)$) for faster softmax on Apple's fast $exp_2$ hardware instruction.
 - **Reusable assertions:** Expert kernel behaviors reframed as properties the evolutionary search must preserve, rather than code to copy.
 
-## Does the translation layer matter?
+## Matching expert kernel performance: the Attention kernel
 
-To isolate the impact of the translation layer, we evaluate the same evolutionary optimization framework under four different configurations on an MLX attention kernel for Apple Silicon. The translation layer provides the optimizer with architecture-specific implementation knowledge extracted from high-performance kernels (e.g., FlashAttention-2), allowing the evolutionary search to reason about implementation strategies rather than starting from a naive kernel. We compare this against pure evolution, Claude Code operating under the same optimization budget, and a naive baseline.
+We evaluate four configurations of an MLX attention kernel for Apple Silicon: (1) a naive baseline, (2) pure evolution with no additional provided context, (3) a full context translation layer, which supplies the optimizer with architecture-specific implementation knowledge extracted from high-performance kernels (e.g., FlashAttention-2), letting the evolutionary search reason about implementation strategies rather than starting from a naive kernel, and (4) Claude Code operating under the same optimization budget. Together, these four configurations let us isolate the exact impact of the translation layer.
 
 <p style="text-align:center;">
 <!-- PRODUCTION: <img src="https://bair.berkeley.edu/static/blog/cuda-to-mlx-k-search/figure-02-attention-optimizations.png" alt="Performance scaling of the Attention Kernel through stacked optimizations" width="700"><br> -->
@@ -116,14 +116,7 @@ Figure 2: Performance scaling of the Attention Kernel through stacked optimizati
 </i>
 </p>
 
-| Configuration | Description | Performance |
-|---|---|---|
-| Naive Baseline | No evolution | 0.02× |
-| Naive + Evolve | Evolution, no translation context | 0.26× |
-| Claude Code | Claude Code operating under the same run budget | 0.46× |
-| Full Context | Evolution with translation context | 0.97× |
-
-The jump from 0.26× to 0.97× illustrates how much the translation layer matters. With full context, the evolved kernel independently discovers the key optimizations in FlashAttention 2: threadgroup memory tiling, online softmax, K-transposition for memory access, and the exp2 trick. The last of these replaces every softmax exponential with a base-2 exponential,
+The jump from 0.26× to 0.97× the speed of Apple's state-of-the-art attention kernel — illustrates how much the translation layer matters. With full context, the evolved kernel independently discovers the key optimizations in FlashAttention 2: threadgroup memory tiling, online softmax, K-transposition for memory access, and the exp2 trick. The last of these replaces every softmax exponential with a base-2 exponential,
 
 $$e^x = 2^{x \log_2 e},$$
 
