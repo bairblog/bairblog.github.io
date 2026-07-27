@@ -121,3 +121,21 @@ Styles for home page logo and nav
     margin: 0 10px;
     height: 170px;
 }
+
+/* Suppress "View on alphaXiv" badges injected by browser extensions / userscripts */
+a[href*="alphaxiv.org"],
+a[href*="alphaXiv"],
+[class*="alphaxiv"],
+[class*="alphaXiv"],
+[class*="AlphaXiv"],
+[id*="alphaxiv"],
+[id*="alphaXiv"],
+[data-alphaxiv],
+img[src*="alphaxiv"],
+button[aria-label*="alphaXiv" i],
+a[title*="alphaXiv" i],
+a[aria-label*="alphaXiv" i] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
