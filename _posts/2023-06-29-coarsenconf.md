@@ -105,7 +105,7 @@ For more details about CoarsenConf, [read the paper on arXiv](https://arxiv.org/
 
 If CoarsenConf inspires your work, please consider citing it with:
 
-```
+```bibtex
 @article{reidenbach2023coarsenconf,
       title={CoarsenConf: Equivariant Coarsening with Aggregated Attention for Molecular Conformer Generation},
       author={Danny Reidenbach and Aditi S. Krishnapriyan},

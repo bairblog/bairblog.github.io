@@ -61,7 +61,7 @@ In our runs, a single model (Gemini 3.5 Pro Preview) plays both roles: it mainta
 
 We call the persistent reasoning state a *world model*. Rather than a flat list of things to try, it is a decision (prefix) tree: each root→leaf path composes a full optimization plan, and sibling branches are competing alternatives. Every node is scored — an `overall_rating` in [0, 10], a `confidence` in [0, 1], and per-node `impacts` on memory bandwidth, register pressure, and compute/hardware fit — so the search can rank partial plans and expand the most promising ones. The tree persists and grows across rounds: refining an idea adds a child node rather than overwriting its parent, and if the best score fails to improve for a few rounds (a stagnation window) the search backs off to explore an alternative branch. A single node, as it appears mid-run on the attention kernel, looks like this:
 
-<div class="cuda-mlx-world-model-code" markdown="1">
+<div class="post-code-compact" markdown="1">
 
 ```json
 {
@@ -193,7 +193,7 @@ This work was carried out by IBM Research and builds on K-Search from the UC Ber
 }
 ```
 
-<div class="cuda-mlx-appendix" markdown="1">
+<div class="post-appendix" markdown="1">
 
 ## Appendix: Try it yourself
 

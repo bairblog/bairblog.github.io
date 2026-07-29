@@ -47,20 +47,20 @@ sup.author-affiliation-mark {
   color: #444;
 }
 
-.cuda-mlx-world-model-code pre,
-.cuda-mlx-world-model-code pre code,
-.cuda-mlx-world-model-code .highlight .p {
+.post-code-compact pre,
+.post-code-compact pre code,
+.post-code-compact .highlight .p {
   font-size: 0.74rem;
   line-height: 1.4;
 }
 
-.cuda-mlx-world-model-code pre {
+.post-code-compact pre {
   padding: 0.85em 1em;
   border-left: 3px solid #6c8ebf;
   background-color: #f5f7fb;
 }
 
-.cuda-mlx-appendix {
+.post-appendix {
   margin-top: 2em;
   padding: 1.2em 1.4em;
   border: 1px solid #cbdcf5;
@@ -70,21 +70,32 @@ sup.author-affiliation-mark {
   font-size: 0.88rem;
 }
 
-.cuda-mlx-appendix h2 {
+.post-appendix h2 {
   margin-top: 0;
   color: #31588f;
   font-size: 1.15rem;
 }
 
-.cuda-mlx-appendix pre,
-.cuda-mlx-appendix pre code,
-.cuda-mlx-appendix .highlight .p {
-  font-size: 0.72rem;
-  line-height: 1.35;
+.post-appendix pre,
+.post-appendix pre code,
+.post-appendix .highlight .p {
+  font-size: 0.8rem;
+  line-height: 1.5;
 }
 
-.cuda-mlx-appendix pre {
+.post-appendix pre {
   padding: 0.75em 1em;
+}
+
+.language-bibtex pre,
+.language-bibtex pre code,
+.language-bibtex .highlight .p {
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.language-bibtex pre {
+  padding: 1em 1.1em;
 }
 
 /*
