@@ -220,7 +220,7 @@ To tackle the challenges of building compound AI systems, multiple new approache
 Generative AI has excited every developer by unlocking a wide range of capabilities through natural language prompting. As developers aim to move beyond demos and maximize the quality of their AI applications, however, they are increasingly turning to compound AI systems as a natural way to control and enhance the capabilities of LLMs. Figuring out the best practices for developing compound AI systems is still an open question, but there are already exciting approaches to aid with design, end-to-end optimization, and operation. We believe that compound AI systems will remain the best way to maximize the quality and reliability of AI applications going forward, and may be one of the most important trends in AI in 2024.
 
 BibTex for this post:
-```
+```bibtex
 @misc{compound-ai-blog,
   title={The Shift from Models to Compound AI Systems},
   author={Matei Zaharia and Omar Khattab and Lingjiao Chen and Jared Quincy Davis

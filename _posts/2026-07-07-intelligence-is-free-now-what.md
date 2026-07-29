@@ -152,7 +152,7 @@ Looking further out, the boundaries between agents and data systems will likely 
 The perspective and ongoing work described in this post are the product of joint research and many discussions with wonderful collaborators at the [EPIC Data Lab](https://epic.berkeley.edu/), [Data Systems & Foundations](https://dsf.berkeley.edu/) group, and the broader Berkeley AI-Systems community. Thank you all!
 
 BibTex for this post:
-```
+```bibtex
 @misc{intelligence-is-free-blog,
   title={Intelligence is Free, Now What? Data Systems for, of, and by Agents},
   author={Aditya G. Parameswaran and Shubham Agarwal and Kerem Akillioglu and Shreya Shankar
