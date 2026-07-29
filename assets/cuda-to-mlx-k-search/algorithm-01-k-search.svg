@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 424 438" width="424" height="438" role="img" aria-labelledby="title desc" text-rendering="geometricPrecision" shape-rendering="geometricPrecision">
+  <title id="title">Algorithm 1: K-Search via Co-Evolving World Models</title>
+  <desc id="desc">K-Search pseudocode showing selection, local refinement, and world-model evolution.</desc>
+  <defs>
+    <style>
+      .serif{font-family:"Times New Roman","STIX Two Text",Times,serif;fill:#111}
+      .sans{font-family:Arial,"Helvetica Neue",sans-serif;fill:#111;font-weight:700}
+      .title{font-size:15.2px}
+      .body{font-size:13.7px}
+      .number{font-size:12.8px;text-anchor:end}
+      .math{font-family:"STIX Two Math","Times New Roman",serif;font-style:italic}
+      .comment{font-family:"Times New Roman","STIX Two Text",Times,serif;font-size:12.2px;fill:#aaa}
+      .sub{font-size:8.5px;baseline-shift:-3px}
+      .sup{font-size:8.5px;baseline-shift:5px}
+      .rule{stroke:#202020;stroke-width:1}
+      .comment-marker{fill:none;stroke:#aaa;stroke-width:1;stroke-linejoin:round}
+    </style>
+    <symbol id="comment-marker" viewBox="0 0 9 10">
+      <path class="comment-marker" d="M1.5 1.5L7.5 5L1.5 8.5Z"/>
+    </symbol>
+  </defs>
+
+  <rect width="424" height="438" fill="#fff"/>
+  <line class="rule" x1="12" y1="18" x2="412" y2="18"/>
+  <text class="serif title" x="12" y="33">
+    <tspan font-weight="700">Algorithm 1</tspan>
+    <tspan> K-S</tspan><tspan font-size="11.2">EARCH</tspan><tspan>: Search via Co-Evolving World</tspan>
+  </text>
+  <text class="serif title" x="12" y="49">Models</text>
+  <line class="rule" x1="12" y1="52" x2="412" y2="52"/>
+
+  <g aria-label="Algorithm body">
+    <text class="serif number" x="31" y="68">1:</text>
+    <text class="serif body" x="38" y="68"><tspan class="sans">Input:</tspan><tspan> Spec </tspan><tspan class="math">𝒯</tspan><tspan>, Evaluator </tspan><tspan class="math">ℰ</tspan><tspan>, Budget </tspan><tspan class="math">B</tspan><tspan>, Stagnation Limit</tspan></text>
+    <text class="serif body math" x="38" y="84">K</text>
+
+    <text class="serif number" x="31" y="101">2:</text>
+    <text class="serif body" x="38" y="101"><tspan class="sans">Init:</tspan><tspan class="math"> S</tspan><tspan> ← Init(</tspan><tspan class="math">𝒯</tspan><tspan>)</tspan></text>
+
+    <text class="serif number" x="31" y="117">3:</text>
+    <text class="serif body" x="38" y="117"><tspan class="sans">while</tspan><tspan class="math"> B</tspan><tspan> &gt; 0 </tspan><tspan class="sans">do</tspan></text>
+
+    <text class="serif number" x="31" y="133">4:</text>
+    <use href="#comment-marker" x="84" y="123" width="9" height="10"/>
+    <text class="comment" x="97" y="133">1. Selection: Retrieve best action from frontier</text>
+
+    <text class="serif number" x="31" y="149">5:</text>
+    <text class="serif body" x="63" y="149"><tspan class="math">a</tspan><tspan class="sub">t</tspan><tspan> ← arg max</tspan><tspan class="sub math">a∈𝒜(S)</tspan><tspan class="math"> V</tspan><tspan>(</tspan><tspan class="math">a</tspan><tspan> | </tspan><tspan class="math">S</tspan><tspan>)</tspan></text>
+
+    <text class="serif number" x="31" y="165">6:</text>
+    <text class="serif body" x="63" y="165"><tspan class="math">n</tspan><tspan> ← 0</tspan></text>
+    <use href="#comment-marker" x="281" y="155" width="9" height="10"/>
+    <text class="comment" x="294" y="165">Stagnation counter</text>
+
+    <text class="serif number" x="31" y="181">7:</text>
+    <text class="serif body" x="63" y="181"><tspan class="math">x</tspan><tspan class="sub">best</tspan><tspan> ← ⊥;   </tspan><tspan class="math">o</tspan><tspan class="sub">best</tspan><tspan> ← ⊥</tspan></text>
+
+    <text class="serif number" x="31" y="197">8:</text>
+    <use href="#comment-marker" x="139" y="187" width="9" height="10"/>
+    <text class="comment" x="152" y="197">2. Instantiation: Local refinement loop</text>
+
+    <text class="serif number" x="31" y="213">9:</text>
+    <text class="serif body" x="63" y="213"><tspan class="sans">while</tspan><tspan class="math"> B</tspan><tspan> &gt; 0 </tspan><tspan class="sans">and</tspan><tspan class="math"> n</tspan><tspan> &lt; </tspan><tspan class="math">K</tspan><tspan> </tspan><tspan class="sans">do</tspan></text>
+
+    <text class="serif number" x="31" y="229">10:</text>
+    <text class="serif body" x="91" y="229"><tspan class="math">x</tspan><tspan> ∼ </tspan><tspan class="math">π</tspan><tspan class="sub">code</tspan><tspan>(⋅ | </tspan><tspan class="math">a</tspan><tspan class="sub">t</tspan><tspan>)</tspan></text>
+
+    <text class="serif number" x="31" y="245">11:</text>
+    <text class="serif body" x="91" y="245"><tspan class="math">o</tspan><tspan> ← ℰ(</tspan><tspan class="math">x</tspan><tspan>);   </tspan><tspan class="math">B</tspan><tspan> ← </tspan><tspan class="math">B</tspan><tspan> − 1</tspan></text>
+
+    <text class="serif number" x="31" y="261">12:</text>
+    <text class="serif body" x="91" y="261"><tspan class="sans">if</tspan><tspan class="math"> J</tspan><tspan>(</tspan><tspan class="math">x</tspan><tspan>) &gt; </tspan><tspan class="math">J</tspan><tspan>(</tspan><tspan class="math">x</tspan><tspan class="sub">best</tspan><tspan>) </tspan><tspan class="sans">then</tspan></text>
+
+    <text class="serif number" x="31" y="277">13:</text>
+    <text class="serif body" x="117" y="277"><tspan class="math">x</tspan><tspan class="sub">best</tspan><tspan> ← </tspan><tspan class="math">x</tspan><tspan>;   </tspan><tspan class="math">o</tspan><tspan class="sub">best</tspan><tspan> ← </tspan><tspan class="math">o</tspan></text>
+
+    <text class="serif number" x="31" y="293">14:</text>
+    <text class="serif body" x="117" y="293"><tspan class="math">n</tspan><tspan> ← 0</tspan></text>
+    <use href="#comment-marker" x="200" y="283" width="9" height="10"/>
+    <text class="comment" x="213" y="293">Reset counter on improvement</text>
+
+    <text class="serif number" x="31" y="309">15:</text>
+    <text class="sans body" x="91" y="309">else</text>
+
+    <text class="serif number" x="31" y="325">16:</text>
+    <text class="serif body" x="117" y="325"><tspan class="math">n</tspan><tspan> ← </tspan><tspan class="math">n</tspan><tspan> + 1</tspan></text>
+    <use href="#comment-marker" x="269" y="315" width="9" height="10"/>
+    <text class="comment" x="282" y="325">Increment on failure</text>
+
+    <text class="serif number" x="31" y="341">17:</text>
+    <text class="sans body" x="91" y="341">end if</text>
+
+    <text class="serif number" x="31" y="357">18:</text>
+    <text class="sans body" x="63" y="357">end while</text>
+
+    <text class="serif number" x="31" y="373">19:</text>
+    <use href="#comment-marker" x="126" y="363" width="9" height="10"/>
+    <text class="comment" x="139" y="373">3. Evolution: Insert, Update, and Prune</text>
+
+    <text class="serif number" x="31" y="389">20:</text>
+    <text class="serif body" x="63" y="389"><tspan class="math">S</tspan><tspan> ← </tspan><tspan class="math">P</tspan><tspan class="sub">model</tspan><tspan>(</tspan><tspan class="math">S</tspan><tspan>, </tspan><tspan class="math">a</tspan><tspan class="sub">t</tspan><tspan>, </tspan><tspan class="math">x</tspan><tspan class="sub">best</tspan><tspan>, </tspan><tspan class="math">o</tspan><tspan class="sub">best</tspan><tspan>)</tspan></text>
+
+    <text class="serif number" x="31" y="405">21:</text>
+    <text class="sans body" x="38" y="405">end while</text>
+
+    <text class="serif number" x="31" y="421">22:</text>
+    <text class="serif body" x="38" y="421"><tspan class="sans">return</tspan><tspan> Best found </tspan><tspan class="math">x</tspan><tspan class="sup">∗</tspan></text>
+  </g>
+</svg>

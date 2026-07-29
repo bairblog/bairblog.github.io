@@ -106,7 +106,7 @@ All of these directions present multitudes of technical challenges; please let u
 
 **Learn more about our work: [ link to full paper ](https://arxiv.org/abs/2407.06576)**
 
-```
+```bibtex
 @article{moon2024virtual,
   title={Virtual personas for language models via an anthology of backstories},
   author={Moon, Suhong and Abdulhai, Marwa and Kang, Minwoo and Suh, Joseph and Soedarmadji, Widyadewi and Behar, Eran Kohen and Chan, David M},

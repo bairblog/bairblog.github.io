@@ -155,7 +155,7 @@ After exploring this blog post, we encourage all future LMM projects to benchmar
 
 Last but not least, please check out our [project page](https://visual-haystacks.github.io/), and [arxiv paper](https://arxiv.org/abs/2407.13766), and click the star button in our [github repo](https://github.com/visual-haystacks/vhs_benchmark)!
 
-```
+```bibtex
 @article{wu2024visual,
   title={Visual Haystacks: Answering Harder Questions About Sets of Images},
   author={Wu, Tsung-Han and Biamby, Giscard and and Quenum, Jerome and Gupta, Ritwik and Gonzalez, Joseph E and Darrell, Trevor and Chan, David M},

@@ -282,7 +282,7 @@ To summarize, we introduced TinyAgent and showed that it is indeed possible to t
 We would like to thank Apple for sponsoring this project, as well as support from NVIDIA and Microsoft through Accelerating Foundation Models Research Program. We also thank Sunjin Choi for his insights in energy cost associated with local and cloud deployment. Our conclusions do not necessarily reflect the position or the policy of our sponsors, and no official endorsement should be inferred.
 
 BibTex for this post:
-```
+```bibtex
 @misc{tiny-agent,
   title={TinyAgent: Function Calling at the Edge},
   author={Erdogan, Lutfi Eren and Lee, Nicholas and Jha, Siddharth and Kim, Sehoon and Tabrizi, Ryan and Moon, Suhong and Hooper, Coleman and Anumanchipalli, Gopala and Keutzer, Kurt and Gholami, Amir},
