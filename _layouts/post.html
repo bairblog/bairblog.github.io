@@ -11,6 +11,9 @@ layout: default
   {% if page.date %}
   {{ page.date | date: site.date_format }}
   {% endif %}
+  {% if page.affiliations %}
+  <div class="post-affiliations">{{ page.affiliations }}</div>
+  {% endif %}
   </div>
 </div>
 

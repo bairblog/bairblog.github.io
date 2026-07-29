@@ -19,6 +19,74 @@ p.center {
   text-align: center;
 }
 
+.author-affiliation-mark {
+  color: rgba(0, 0, 0, 0.24);
+}
+
+sup.author-affiliation-mark {
+  font-size: 0.65em;
+  margin-left: 0.08em;
+}
+
+.post-affiliations {
+  margin-top: 0.25em;
+  font-size: 0.85em;
+}
+
+.cuda-mlx-results-table table {
+  font-size: 0.95rem;
+}
+
+.cuda-mlx-fig-caption {
+  margin: 0.6em auto 1.6em;
+  max-width: 45em;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  text-align: center;
+  font-style: italic;
+  color: #444;
+}
+
+.cuda-mlx-world-model-code pre,
+.cuda-mlx-world-model-code pre code,
+.cuda-mlx-world-model-code .highlight .p {
+  font-size: 0.74rem;
+  line-height: 1.4;
+}
+
+.cuda-mlx-world-model-code pre {
+  padding: 0.85em 1em;
+  border-left: 3px solid #6c8ebf;
+  background-color: #f5f7fb;
+}
+
+.cuda-mlx-appendix {
+  margin-top: 2em;
+  padding: 1.2em 1.4em;
+  border: 1px solid #cbdcf5;
+  border-left: 4px solid #5278b8;
+  border-radius: 8px;
+  background-color: #f2f7ff;
+  font-size: 0.88rem;
+}
+
+.cuda-mlx-appendix h2 {
+  margin-top: 0;
+  color: #31588f;
+  font-size: 1.15rem;
+}
+
+.cuda-mlx-appendix pre,
+.cuda-mlx-appendix pre code,
+.cuda-mlx-appendix .highlight .p {
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+
+.cuda-mlx-appendix pre {
+  padding: 0.75em 1em;
+}
+
 /*
 Styles for home page logo and nav
 */
