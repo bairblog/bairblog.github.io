@@ -7,7 +7,7 @@ affiliations: "<span class=\"author-affiliation-mark\">1</span> UC Berkeley &nbs
 img: https://bair.berkeley.edu/static/blog/cuda-to-mlx-k-search/cover.png
 excerpt_separator: <!--more-->
 visible: True
-show_comments: False
+show_comments: True
 ---
 
 <!-- twitter -->
