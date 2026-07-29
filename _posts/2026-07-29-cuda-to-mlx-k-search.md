@@ -20,7 +20,7 @@ show_comments: False
 <meta name="author" content="Shiyi Cao, Gal Bloch, Assaf Toledo, Michael Factor, Gil Vernik, Joseph E. Gonzalez">
 
 <p class="center">
-<img src="https://bair.berkeley.edu/static/blog/cuda-to-mlx-k-search/cover.svg" onerror="this.onerror=null;this.src='{{ site.baseurl }}/assets/cuda-to-mlx-k-search/cover.svg';" alt="Kernel knowledge transfer from CUDA to MLX"><br>
+<img src="https://bair.berkeley.edu/static/blog/cuda-to-mlx-k-search/cover.svg" alt="Kernel knowledge transfer from CUDA to MLX"><br>
 </p>
 
 <p class="cuda-mlx-fig-caption"><strong>Figure 1: CUDA-to-MLX optimization translation map.</strong> CUDA optimization knowledge can be translated into architecture-native MLX strategies rather than copied instruction-for-instruction.</p>
@@ -50,7 +50,7 @@ K-Search is an evolutionary kernel optimization framework originally developed b
 Measurements feed back into the search, which keeps refining, pursuing promising directions and dropping dead ends until performance converges.
 
 <p class="center">
-<img src="https://bair.berkeley.edu/static/blog/cuda-to-mlx-k-search/algorithm-01-k-search.svg" onerror="this.onerror=null;this.src='{{ site.baseurl }}/assets/cuda-to-mlx-k-search/algorithm-01-k-search.svg';" alt="Pseudocode for K-Search via co-evolving world models" width="460"><br>
+<img src="https://bair.berkeley.edu/static/blog/cuda-to-mlx-k-search/algorithm-01-k-search.svg" alt="Pseudocode for K-Search via co-evolving world models" width="460"><br>
 </p>
 
 <p class="cuda-mlx-fig-caption"><strong>Algorithm 1: K-Search via co-evolving world models.</strong> The search alternates between selecting the most promising action, instantiating and evaluating code until improvement stagnates, and evolving the world model through insert, update, and prune operations. Adapted from <a href="https://arxiv.org/abs/2602.19128">Cao et al. (2026)</a>.</p>
@@ -85,7 +85,7 @@ We call the persistent reasoning state a *world model*. Rather than a flat list 
 <p class="cuda-mlx-fig-caption"><strong>Listing 1: Example K-Search world-model node.</strong> Each candidate optimization records a concrete action, estimated hardware impacts, an overall priority rating, and the model's confidence.</p>
 
 <p class="center">
-<img src="https://bair.berkeley.edu/static/blog/cuda-to-mlx-k-search/best-figure-01-ksearch-loop.svg" onerror="this.onerror=null;this.src='{{ site.baseurl }}/assets/cuda-to-mlx-k-search/best-figure-01-ksearch-loop.svg';" alt="Overview of the K-Search loop" width="700"><br>
+<img src="https://bair.berkeley.edu/static/blog/cuda-to-mlx-k-search/best-figure-01-ksearch-loop.svg" alt="Overview of the K-Search loop" width="700"><br>
 </p>
 
 <p class="cuda-mlx-fig-caption"><strong>Figure 2: Overview of K-Search.</strong> The framework operates on a <strong>Search State</strong> $S_t$ structured as a search tree. The tree consists of Closed nodes (blue, visited states with attached program like $x_{12}$) and a Frontier of Open nodes (orange, pending hypotheses like $u_{13}$). The workflow iterates through three phases: (1) <strong>Action Selection</strong>, where the most promising action node is retrieved from the frontier based on world model estimated priority score $V$; (2) <strong>Local Refinement</strong>, where a stochastic policy $\pi_{\mathrm{code}}$ samples concrete implementations until stagnation; and (3) <strong>World Model Update</strong>, where the LLM reasons over the trajectory to update the search tree via <em>Insert</em> (adding new actions), <em>Update</em> (adjusting $V$, e.g., $u_{11}$ dropping from 0.9 to 0.6), and <em>Prune</em> (removing less promising nodes like $u_{10}$).</p>
@@ -93,7 +93,7 @@ We call the persistent reasoning state a *world model*. Rather than a flat list 
 The original K-Search paper evaluated this search strategy on CUDA kernels from FlashInfer. Across GQA decode, MLA decode, MLA prefill, and MoE, K-Search improved more consistently than OpenEvolve and ShinkaEvolve over the same 120-iteration budget. These results establish the search framework we build on here; the remainder of this post asks whether its optimization knowledge can transfer beyond CUDA.
 
 <p class="center">
-<img src="https://bair.berkeley.edu/static/blog/cuda-to-mlx-k-search/best-figure-03-ksearch-main-results.svg" onerror="this.onerror=null;this.src='{{ site.baseurl }}/assets/cuda-to-mlx-k-search/best-figure-03-ksearch-main-results.svg';" alt="K-Search benchmark results compared with OpenEvolve and ShinkaEvolve" width="900"><br>
+<img src="https://bair.berkeley.edu/static/blog/cuda-to-mlx-k-search/best-figure-03-ksearch-main-results.svg" alt="K-Search benchmark results compared with OpenEvolve and ShinkaEvolve" width="900"><br>
 </p>
 
 <p class="cuda-mlx-fig-caption"><strong>Figure 3: Main results from the original K-Search paper.</strong> Across three runs, K-Search achieves stronger best-so-far search scores, per-workload kernel performance, and speedup distributions than OpenEvolve and ShinkaEvolve on four FlashInfer CUDA kernels. Reproduced exactly from <a href="https://arxiv.org/abs/2602.19128">Cao et al. (2026)</a>.</p>
@@ -125,7 +125,7 @@ Our translation layer consists of:
 We evaluate three configurations of an MLX attention kernel for Apple Silicon: (1) a naive baseline, (2) pure evolution with no additional provided context, and (3) a full context translation layer, which supplies the optimizer with architecture-specific implementation knowledge extracted from high-performance kernels (e.g., FlashAttention-2), letting the evolutionary search reason about implementation strategies rather than starting from a naive kernel. Together, these three configurations let us isolate the exact impact of the translation layer.
 
 <p class="center">
-<img src="https://bair.berkeley.edu/static/blog/cuda-to-mlx-k-search/best-figure-02-attention-optimizations.svg" onerror="this.onerror=null;this.src='{{ site.baseurl }}/assets/cuda-to-mlx-k-search/best-figure-02-attention-optimizations.svg';" alt="Performance scaling of the Attention Kernel through stacked optimizations" width="700"><br>
+<img src="https://bair.berkeley.edu/static/blog/cuda-to-mlx-k-search/best-figure-02-attention-optimizations.svg" alt="Performance scaling of the Attention Kernel through stacked optimizations" width="700"><br>
 </p>
 
 <p class="cuda-mlx-fig-caption"><strong>Figure 4:</strong> Performance scaling of the Attention Kernel through stacked optimizations. The "Full Context" configuration successfully discovers and implements advanced strategies like double buffering and loop unrolling, achieving near-expert performance.</p>
