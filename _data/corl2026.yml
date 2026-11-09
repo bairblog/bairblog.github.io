@@ -311,7 +311,7 @@ days:
     id: session-17
     tag: Workshop
     title: Everything Beneath the Policy · Posters
-    venue: Hilton Austin · Salon E
+    venue: Hilton Austin · Salon E, 4th floor
     items:
     - paper: '43'
     - paper: '44'
@@ -714,7 +714,7 @@ papers:
     first_at: Thursday, Everything Beneath the Policy · Posters
   '44':
     title: 'Workhorse: Learning Robust Whole-Body Humanoid Loco-Manipulation from Human Data'
-    url: https://arxiv.org/pdf/2610.09117
+    url: https://arxiv.org/abs/2610.09117
     authors: Songbo Hu, Qiayuan Liao, Yufeng Chi, Kevin Zakka, Sophia Shao, Pieter Abbeel, Koushil Sreenath
     sources:
     - text: Paper
