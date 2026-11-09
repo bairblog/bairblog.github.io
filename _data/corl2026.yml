@@ -11,7 +11,7 @@ stats:
   label: Main-conference papers
   sub: ''
 - num: '4'
-  label: Confirmed late-breaking results (LBR) posters
+  label: Late-breaking results (LBR) posters
   sub: ''
 - num: '10'
   label: Orals & spotlights
@@ -22,8 +22,8 @@ stats:
 updated: Updated November 8, 2026
 notes:
 - Times shown for oral and spotlight papers are session windows. Individual presentation order is not specified. Papers appear in both their talk and poster sessions.
-- <strong>Paper inclusion:</strong> At least one author must list UC Berkeley as an affiliation on the paper. Joint affiliations qualify. Flip Anything is also included based on the authors’ project affiliation and the schedule owner’s confirmation. Faculty talks, session-chair roles and workshop participation are listed separately.
-- '<strong>LBR coverage:</strong> Four LBR posters are included: three verified from manuscript affiliations and Flip Anything confirmed through its Berkeley project and the schedule owner. Verification of the remaining roster is incomplete; additional Berkeley papers may be added.'
+- <strong>Paper inclusion:</strong> At least one author must list UC Berkeley as an affiliation on the paper. Joint affiliations qualify. Faculty talks, session-chair roles and workshop participation are listed separately.
+- <strong>Late-breaking results:</strong> Four BAIR posters are listed so far. This list may grow as more late-breaking posters are confirmed.
 days:
 - id: day-1
   date: '9'
@@ -390,7 +390,7 @@ days:
     organizer: true
     tag: Workshop organizers
     title: BAIR behind the program
-    venue: Organizing roles; no separately confirmed speaking slots.
+    venue: Workshop organizing roles.
     items:
     - organizer:
         text: Do Robots Need World Models?
@@ -414,294 +414,292 @@ papers:
     url: https://www.pi.website/research/memory
     authors: Marcel Torne, Karl Pertsch, Homer Walke, Kyle Vedder, Suraj Nair, Brian Ichter, Allen Z. Ren, Haohuan Wang, Jiaming Tang, Kyle Stachowicz, Karan Dhabalia, Michael Robert Equi, Quan Vuong, Jost Tobias Springenberg, Sergey Levine, Chelsea Finn, Danny Driess
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://www.pi.website/download/Mem.pdf
   '7':
     title: Diagnosing Compositional Generalization in Sequential Robot Tasks
     url: https://yixiaowang7.github.io/Diagnosing_Compositional_Generalization_Robot_Page/
     authors: Yixiao Wang, Cheng-En Wu, Lingfeng Sun, Pengcheng Wang, Xiang Ji, Boyuan Liang, Guojian Zhan, Masayoshi Tomizuka
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://yixiaowang7.github.io/Diagnosing_Compositional_Generalization_Robot_Page/corl_2026_cg.pdf
   '48':
     title: Scaling Online Exploration for Robot Agents
     url: https://arxiv.org/html/2610.22496
     authors: Runhan Huang, Xiangcheng Zhang, Haoyu Chen, Yitong Li, Yen-Jen Wang, Bohan Lyu, Haotian Ye, Chuye Hong, Yixuan Wang, Chloe Su, Haoyu Xiong, Yangzhen Wu, Enze Xie, Travis Manderson, Stefano Ermon, Pieter Abbeel, Antonio Torralba, Dawn Song, Weirui Ye, Yilun Du
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/html/2610.22496
   '47':
     title: 'Reconstruct, Practice, Go Real: Guided Self-Improvement for Embodied Agents'
     url: https://arxiv.org/html/2610.02204
     authors: Yen-Jen Wang, Haozhe Jiang, Shuying Deng, Haoru Xue, Weirui Ye, Rocky Duan, Nika Haghtalab, S. Shankar Sastry, Pieter Abbeel, Haozhi Qi
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/html/2610.02204
   '50':
     title: Flip Anything with Agentic Robotics Self-Learning
     url: https://berkeleyautomation.github.io/flipanything/
     authors: Shuangyu Xie, Kaiyuan Chen, Ken Goldberg
     sources:
-    - text: Project authors & UC Berkeley affiliation
+    - text: GitHub
       url: https://github.com/BerkeleyAutomation/flipanything
-    - text: OpenReview submission
-      url: https://openreview.net/forum?id=Oq2jahhF6r
   '2':
     title: Large Video Planner Enables Generalizable Robot Control
     url: https://www.boyuan.space/large-video-planner/
     authors: Boyuan Chen, Tianyuan Zhang, Haoran Geng, Caiyi Zhang, Peihao Li, Kiwhan Song, William T. Freeman, Jitendra Malik, Pieter Abbeel, Russ Tedrake, Vincent Sitzmann, Yilun Du
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/html/2512.15840v2
   '4':
     title: 'How to Peel with a Knife: Aligning Fine-Grained Manipulation with Human Preference'
     url: https://toruowo.github.io/peel/
     authors: Toru Lin, Shuying Deng, Zhao-Heng Yin, Pieter Abbeel, Jitendra Malik
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/html/2603.03280v2
   '5':
     title: 'HiRE: Hindsight Reward Editing for Policy Finetuning'
     url: https://hire-project.github.io/
     authors: Haoyi Niu, Zhengtao Han, Yufeng Ji, Zhongyu Li, Koushil Sreenath
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/html/2609.27068v1
   '6':
     title: Scalable Behavior Cloning with Open Data, Training, and Evaluation
     url: https://abc.bot/
     authors: Arthur Allshire, Himanshu Gaurav Singh, Ritvik Singh, Adam Rashid, Hongsuk Choi, David McAllister, Justin Yu, Yiyuan Chen, Huang Huang, Pieter Abbeel, Xi Chen, Rocky Duan, Phillip Isola, Jitendra Malik, Fred Shentu, Guanya Shi, Philipp Wu, Angjoo Kanazawa
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/html/2606.27375
   '8':
     title: 'AsyncVLA: An Asynchronous VLA for Fast and Robust Navigation on the Edge'
     url: https://asyncvla.github.io/
     authors: Noriaki Hirose, Catherine Glossop, Dhruv Shah, Sergey Levine
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/pdf/2602.13476
   '9':
     title: 'GLST: Global-Local Spatio-Temporal Memory Decomposition Framework for Online Chained-Goal Navigation'
     url: https://github.com/Yousef-Liang/glst
     authors: Yousef Liang, Ryan Ardalan, Yarden Goraly, Chenhao Zhu, Jonas Frey, Claire Tomlin, Marco Pavone, S. Shankar Sastry
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/html/2610.17927
   '10':
     title: 'ENPIRE: Agentic Robot Policy Self-Improvement in the Real World'
     url: https://research.nvidia.com/labs/gear/enpire/
     authors: Wenli Xiao, Jia Xie, Tonghe Zhang, Haotian Lin, Letian Fu, Haoru Xue, Jalen Lu, Yi Yang, Cunxi Dai, Zi Wang, Jimmy Wu, Guanzhi Wang, S. Shankar Sastry, Ken Goldberg, Linxi Fan, Yuke Zhu, Guanya Shi
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/html/2606.19980v2
   '11':
     title: Energy-Based Policy Orchestration
     url: https://yewr.github.io/epo/
     authors: Weirui Ye, Yen-Jen Wang, Elvis Hsieh, Zhiyang Dou, Shibo Zhao, Pieter Abbeel, Yilun Du, Leslie Pack Kaelbling, Tomás Lozano-Pérez
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/html/2611.02546
   '15':
     title: Flow Policy Gradients for Robot Control
     url: https://hongsukchoi.github.io/fpo-control/
     authors: Brent Yi, Hongsuk Choi, Himanshu Gaurav Singh, Xiaoyu Huang, Takara E. Truong, Carmelo Sferrazza, Yi Ma, Rocky Duan, Pieter Abbeel, Guanya Shi, Karen Liu, Angjoo Kanazawa
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/html/2602.02481v2
   '14':
     title: 'EgoScale: Scaling Dexterous Manipulation with Diverse Egocentric Human Data'
     url: https://research.nvidia.com/labs/gear/egoscale/
     authors: Ruijie Zheng, Dantong Niu, Yuqi Xie, Jing Wang, Mengda Xu, Yunfan Jiang, Fernando Castañeda, Fengyuan Hu, You Liang Tan, Letian Fu, Trevor Darrell, Furong Huang, Yuke Zhu, Danfei Xu, Linxi Fan
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/html/2602.16710v1
   '24':
     title: 'SuperMimic: Scaling Humanoid Whole-Body Control with One Differentiable World Model'
     url: https://supermimic.github.io/
     authors: Qiayuan Liao, Yiyang Shao, Junfeng Long, Kevin Zakka, Roberto Horowitz, Pieter Abbeel, Koushil Sreenath
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/pdf/2610.28480
   '49':
     title: 'RoboSimStudio: An Interactive Toolkit for Rapid Real2Sim of Robot Manipulation Tasks'
     url: https://arxiv.org/html/2610.18835
     authors: Kaiyuan Chen, Shuangyu Xie, Uksang Yoo, Xinyue Zhu, Cael Magner, Alvin Zhu, Daehwa Kim, Eric Heiden, Erwin Coumans, Miles Macklin, Spencer Huang, Ken Goldberg
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/html/2610.18835
   '12':
     title: 'DiscreteRTC: Discrete Diffusion Policies are Natural Asynchronous Executors'
     url: https://outsider86.github.io/DiscreteRTCSite/
     authors: Pengcheng Wang, Kaiwen Hong, Chensheng Peng, Katherine Rose Driggs-Campbell, Masayoshi Tomizuka, Chenfeng Xu, Chen Tang
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/pdf/2604.25050
   '13':
     title: Improving Robotic Generalist Policies via Flow Reversal Steering
     url: https://flow-reversal-steering.github.io/
     authors: Andy Tang, William Chen, Andrew Wagenmaker, Chelsea Finn, Sergey Levine
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://flow-reversal-steering.github.io/static/Flow_Reversal_Steering.pdf
   '17':
     title: Why Does Action Chunking Improve Behavioral Cloning Performance in Robotic Control?
     url: https://action-chunking.github.io/
     authors: Filippo Lazzati, Kyle Stachowicz, William Chen, Alberto Maria Metelli, Andrew Wagenmaker, Sergey Levine
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://action-chunking.github.io/static/action_chunking.pdf
   '19':
     title: 'FTP-1: A Generalist Foundation Tactile Policy Across Tactile Sensors for Contact-Rich Manipulation'
     url: https://ftp1-policy.github.io/
     authors: Chengbo Yuan, Zicheng Zhang, Mingjie Zhou, Wendi Chen, Yi Wang, Zhuoyang Liu, Dantong Niu, Shuo Wang, Hui Zhang, Wenkang Zhang, Yingdong Hu, Yuanqing Gong, Wanli Xing, Chuan Wen, Cewu Lu, Kaifeng Zhang, Yang Gao
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/html/2606.13102v4
   '20':
     title: 'PTLD: Sim-to-Real Privileged Tactile Latent Distillation for Dexterous Manipulation'
     url: https://akashsharma02.github.io/ptld-website/
     authors: Rosy Chen, Mustafa Mukadam, Michael Kaess, Tingfan Wu, Francois Robert Hogan, Jitendra Malik, Akash Sharma
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/html/2603.04531v3
   '21':
     title: Counterfactual Video Generation Enables Scalable Humanoid Loco-Manipulation
     url: https://prism-real2sim2real.github.io/
     authors: Zihan Wang, Zhen Wu, Pieter Abbeel, Rocky Duan, Jitendra Malik, Carmelo Sferrazza, Karen Liu, Guanya Shi, Angjoo Kanazawa
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/html/2609.38172
   '22':
     title: 'VLK: Learning Humanoid Loco-Manipulation from Synthetic Interactions in Reconstructed Scenes'
     url: https://vision-language-kinematics.github.io/
     authors: Yen-Jen Wang, Jiaman Li, Sirui Chen, Takara E. Truong, Pei Xu, Pieter Abbeel, Rocky Duan, Koushil Sreenath, Angjoo Kanazawa, Carmelo Sferrazza, Guanya Shi, Karen Liu
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/html/2606.30645v1
   '23':
     title: 'Social Humanoid: Socially Responsive Human–Humanoid Interaction'
-    url: https://openreview.net/forum?id=hf8X30fAtz
+    url: https://arxiv.org/html/2611.08407
     authors: Vongani Hlavutelo Maluleke, James Ni, Kie Horiuchi, Lea Wilken, Jiahui Lei, Evonne Ng, Roei Herzig, Jitendra Malik, Trevor Darrell, Angjoo Kanazawa
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/html/2611.08407
   '29':
     title: Playful Agentic Robot Learning
     url: https://playful-rats.github.io/
     authors: Junyi Zhang, Jiaxin Ge, Hanjun Yoo, Letian Fu, Zihan Yang, Yaowei Liu, Raj Saravanan, Shaofeng Yin, Justin Yu, Dantong Niu, Zirui Wang, Roei Herzig, Ken Goldberg, Yutong Bai, David M. Chan, Ion Stoica, Angjoo Kanazawa, Jiahui Lei, Haiwen Feng, Trevor Darrell
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://playful-rats.github.io/assets/papers/rats-paper.pdf
   '30':
     title: 'GaP: A Graph-as-Policy Multi-Agent Self-Learning Harness For Variational Automation Tasks'
     url: https://graph-robots.github.io/gap/
     authors: Kaiyuan Chen, Shuangyu Xie, Letian Fu, Justin Yu, William Pacini, Sandeep Bajamahal, Hudson Kim, Jaimyn Drake, Daehwa Kim, Haoru Xue, Jonathan Francis, Christian Juette, Peter Schaldenbrand, Muhammet Yunus Seker, Ruwan Wickramarachchi, Uksang Yoo, Guanzhi Wang, Adithyavairavan Murali, Balakumar Sundaralingam, S. Shankar Sastry, Yuke Zhu, Linxi Fan, Spencer Huang, Ken Goldberg
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/html/2607.05369v3
   '38':
     title: 'LadderMan: Learning Humanoid Perceptive Ladder Climbing'
     url: https://ladderman-submission.github.io/
     authors: Siheng Zhao, Yuanhang Zhang, Ziqi Lu, Pieter Abbeel, Rocky Duan, Koushil Sreenath, Yue Wang, Karen Liu, Guanya Shi
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/html/2606.05873
   '39':
     title: 'ResSafe: Learning Safety Filtering with Residual Reinforcement Learning for Humanoids'
     url: https://sciautonomy.github.io/ResSafe_Web/
     authors: Gechen Qu, Tong Zhang, Bike Zhang, Yen-Jen Wang, Koushil Sreenath, Claire Tomlin, Jason Jangho Choi
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/html/2609.15988
   '40':
-    title: Humanoid Navigation in Cluttered Environments with a Whole-Body Vision-Language-Action Model
+    title: 'TANGO: Humanoid Navigation in Cluttered Environments with a Whole-Body Vision-Language-Action Model'
     url: https://tango-vla.github.io/
     authors: Anqi Li, Yuxin Chen, Zhaobo Li, Zhuo Cao, Junli Ren, Masayoshi Tomizuka, Dhruv Shah
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/html/2609.09158
   '26':
     title: 'Do as I Do: Dexterous Manipulation Data from Everyday Human Videos'
     url: https://do-as-i-do.com/
     authors: Bhawna Paliwal, Haritheja Etukuru, William Liang, Pieter Abbeel, Nur Muhammad Mahi Shafiullah, Jitendra Malik
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/html/2606.19333v1
   '27':
     title: 'WARP-RM: A Warp-Augmented Relative Progress Reward Model for Data Curation'
     url: https://uynitsuj.github.io/warp-rm/
     authors: Justin Yu, Andrew Goldberg, Kavish Kondap, Karim El-Refai, Ethan Ransing, Qianzhong Chen, Mac Schwager, Fred Shentu, Philipp Wu, Ken Goldberg
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/html/2606.28320v4
   '32':
     title: 'T-Rex: Tactile-Reactive Dexterous Manipulation'
     url: https://tactile-rex.github.io/
     authors: Dantong Niu, Zhuoyang Liu, Zekai Wang, Boning Shao, Zhao-Heng Yin, Anirudh Pai, Yuvan Sharma, Stefano Saravalle, Ruijie Zheng, Jing Wang, Ryan Punamiya, Mengda Xu, Yuqi Xie, Yunfan Jiang, Letian Fu, Konstantinos Kallidromitis, Matteo Gioia, Junyi Zhang, Jiaxin Ge, Haiwen Feng, Fabio Galasso, Wei Zhan, David M. Chan, Yutong Bai, Roei Herzig, Jiahui Lei, Fei-Fei Li, Ken Goldberg, Jitendra Malik, Pieter Abbeel, Yuke Zhu, Danfei Xu, Linxi Fan, Trevor Darrell
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/html/2606.17055v2
   '33':
     title: Tactile Curiosity Drives Robot Interaction
     url: https://kiten.me/projects/tacex/
     authors: Klemens Iten, Alexander Proshkin, Bhavya Sukhija, Stelian Coros, Andreas Krause, Pieter Abbeel, Carmelo Sferrazza
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/pdf/2609.40134
   '35':
     title: 'RPL: Learning Robust Humanoid Perceptive Locomotion on Challenging Terrains'
     url: https://rpl-humanoid.github.io/
     authors: Yuanhang Zhang, Younggyo Seo, Juyue Chen, Yifu Yuan, Koushil Sreenath, Pieter Abbeel, Carmelo Sferrazza, Karen Liu, Rocky Duan, Guanya Shi
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/html/2602.03002v3
   '36':
     title: 'TEXEDO: Test Time Scaling for Controller-aware Language-conditioned Humanoid Motion Generation'
     url: https://jianuocao.github.io/TEXEDO/
     authors: Jianuo Cao, Yuxin Chen, Yuzhen Song, Masayoshi Tomizuka, Chenran Li, Thomas Tian
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/html/2606.22998v2
   '37':
     title: 'CLIFT: Turning Gemini Robotics On-Device into Humanoid Specialists via Non-Invasive Closed-Loop Iterative Fine-Tuning'
     url: https://clift-robot.github.io/
     authors: Yuxin Chen, Hari Srikanth, Nathan Jew, Menglin Wu, Pengcheng Wang, Junli Ren, Masayoshi Tomizuka, Peng Xu, Jinyu Xie, Thomas Tian
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/html/2607.29172
   '43':
     title: 'TouchScale: 500 Hours of Human Vision and Touch for Visual-Tactile Learning'
     url: https://beneath-the-policy.github.io/
     authors: Dayou Li, Hao Wang, Qianqian Yang, Zihao Zhu, Haoquan Fang, Ziyao Zeng, Yan Han, Zihan Wang, Yan Wang, Baoru Huang, Dilin Wang, Kenji Shimada, Yiyue Luo, Manling Li, Teresa Lv, Mustafa Mukadam, Rakesh Ranjan, Ruohan Zhang, Qi He, Changliu Liu, Xu Chen, Marco Pavone, Bangya Liu, Jiachen Li, Masayoshi Tomizuka, Zhiwen Fan
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/html/2610.10288
   '44':
     title: 'Workhorse: Learning Robust Whole-Body Humanoid Loco-Manipulation from Human Data'
     url: https://beneath-the-policy.github.io/
     authors: Songbo Hu, Qiayuan Liao, Yufeng Chi, Kevin Zakka, Sophia Shao, Pieter Abbeel, Koushil Sreenath
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/pdf/2610.09117
   '45':
     title: 'ASPIRE: Agentic /Skills Discovery for Robotics'
     url: https://agentic-robotics-workshop.github.io/papers
     authors: Runyu Lu, Yubo Wu, Ethan Kou, Haotian Lin, Letian Fu, Wenli Xiao, Ajay Mandlekar, Yinzhen Xu, Guanya Shi, Ken Goldberg, Ang Chen, Mosharaf Chowdhury, Jan Kautz, Yuke Zhu, Linxi Fan, Guanzhi Wang
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/html/2607.00272
   '46':
-    title: Agentic World Action Model
+    title: Agentic World Action Models
     url: https://agentic-robotics-workshop.github.io/papers
     authors: Zhuoyang Liu, Dantong Niu, Botong Zhang, Boning Shao, Jing Wang, Ruijie Zheng, Yuvan Sharma, Runyu Lu, Jiaming Liu, Renrui Zhang, Roei Herzig, Yutong Bai, Ken Goldberg, Danfei Xu, Yuke Zhu, Guanzhi Wang, Linxi Fan, Trevor Darrell
     sources:
-    - text: Paper affiliation source
+    - text: Paper
       url: https://arxiv.org/html/2610.30136
 footer:
-- Schedule compiled from the conference program, paper/project pages and workshop programs, with confirmed session-chair assignments. Main-conference paper assignments and poster numbers were cross-checked against the linked unofficial paper index. Workshop schedules may change; consult each linked program for updates.
-- 'Coverage includes 33 main-conference papers and the workshop contributions listed above. The late-breaking-results review currently includes 4 posters from the 39-entry roster: 9 papers have no Berkeley affiliation in the inspected report and 26 remain pending manuscript verification. This is a partial LBR listing. Separate demo rosters remain unverified. Hilton stage content will also be streamed to viewing rooms at the Marriott.'
-- Main-conference and workshop paper affiliations reviewed November 6, 2026; late-breaking results updated November 8, 2026. Value Sim-to-Real is withheld pending verification of its on-paper affiliations; the <a href="https://r2rl-workshop.github.io/" rel="noopener noreferrer" target="_blank">workshop listing</a> provides authors but no camera-ready paper link.
+- Schedule compiled from the conference program, paper and project pages, and workshop programs. Workshop schedules may change; consult each linked program for updates.
+- Coverage includes 33 main-conference papers, 4 late-breaking results posters and the workshop contributions listed above. Conference demos are not listed. Hilton stage content will also be streamed to viewing rooms at the Marriott.
+- Main-conference and workshop listings reviewed November 6, 2026; late-breaking results updated November 8, 2026.
 footer_links:
 - text: Official CoRL program
   url: https://www.corl.org/program
