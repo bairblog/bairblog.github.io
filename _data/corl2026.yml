@@ -22,8 +22,8 @@ stats:
 updated: Updated November 8, 2026
 notes:
 - Times shown for oral and spotlight papers are session windows. Individual presentation order is not specified. Papers appear in both their talk and poster sessions.
-- <strong>Paper inclusion:</strong> At least one author must list UC Berkeley as an affiliation on the paper. Joint affiliations qualify. Faculty talks, session-chair roles and workshop participation are listed separately.
-- <strong>Late-breaking results:</strong> Four BAIR posters are listed so far. This list may grow as more late-breaking posters are confirmed.
+- <strong>Paper inclusion:</strong> At least one author is affiliated with UC Berkeley; joint affiliations qualify. Faculty talks, session-chair roles and workshop participation are also included.
+- <strong>Late-breaking results:</strong> Four late-breaking posters with Berkeley authors are listed so far. This list may grow as more late-breaking posters are confirmed.
 days:
 - id: day-1
   date: '9'
@@ -698,12 +698,12 @@ papers:
       url: https://arxiv.org/html/2610.30136
 footer:
 - Schedule compiled from the conference program, paper and project pages, and workshop programs. Workshop schedules may change; consult each linked program for updates.
-- Coverage includes 33 main-conference papers, 4 late-breaking results posters and the workshop contributions listed above. Conference demos are not listed. Hilton stage content will also be streamed to viewing rooms at the Marriott.
-- Main-conference and workshop listings reviewed November 6, 2026; late-breaking results updated November 8, 2026.
+- Coverage includes 33 main-conference papers, 4 late-breaking results posters and the workshop contributions listed above. The main conference demo track is not covered. Poster numbers follow an unofficial paper index; check the official program on the day. Hilton stage content will also be streamed to viewing rooms at the Marriott.
+- Paper affiliations reviewed November 6, 2026; late-breaking results updated November 8, 2026.
 footer_links:
 - text: Official CoRL program
   url: https://www.corl.org/program
 - text: BAIR faculty
   url: https://bair.berkeley.edu/people/faculty
-- text: Paper & poster index
+- text: Unofficial paper & poster index
   url: https://jaywu109.github.io/papers/corl-2026/
