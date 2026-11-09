@@ -11,7 +11,7 @@ stats:
   label: Main-conference papers
   sub: ''
 - num: '4'
-  label: Confirmed late-breaking posters
+  label: Confirmed late-breaking results (LBR) posters
   sub: ''
 - num: '10'
   label: Orals & spotlights
@@ -29,7 +29,7 @@ days:
   date: '9'
   eyebrow: Main conference
   name: Monday
-  count: 10 main-conference papers + 3 LBR posters
+  count: 10 papers + 3 LBR posters
   sessions:
   - kind: spotlight
     time: 9:00–9:30 AM
@@ -111,7 +111,7 @@ days:
   date: '10'
   eyebrow: Main conference
   name: Tuesday
-  count: 11 main-conference papers + 1 LBR poster
+  count: 11 papers + 1 LBR poster
   sessions:
   - kind: oral
     time: 9:00–9:30 AM
@@ -194,7 +194,7 @@ days:
   date: '11'
   eyebrow: Main conference
   name: Wednesday
-  count: 12 main-conference papers
+  count: 12 papers
   sessions:
   - kind: spotlight
     time: 8:30–9:00 AM
