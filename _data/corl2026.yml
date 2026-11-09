@@ -264,7 +264,7 @@ days:
   date: '12'
   eyebrow: Workshops
   name: Thursday
-  count: Workshop talks & research
+  count: Talks, papers and organizing roles
   sessions:
   - kind: workshop
     time: 8:40–9:50 AM
@@ -278,7 +278,7 @@ days:
       source:
         text: Session details
         url: https://r2rl-workshop.github.io/
-      blurb: Sergey Levine’s lab. Individual speaking time within the keynote block is not specified.
+      blurb: Sergey Levine’s lab. Speaks during the keynote block.
   - kind: workshop
     time: 9:40–10:15 AM
     time_note: CST
@@ -330,7 +330,7 @@ days:
       source:
         text: Session details
         url: https://bimanual-tool.github.io/
-      blurb: Talk title has not been announced. Time reflects the workshop’s updated November 6 schedule.
+      blurb: Talk title has not been announced.
   - kind: workshop
     time: 11:50 AM–12:20 PM
     time_note: CST
@@ -363,13 +363,13 @@ days:
     id: session-13
     tag: Workshop
     title: Sim-to-Real-to-Field · Invited talks
-    venue: Hilton Austin · Salon E
+    venue: Hilton Austin · Salon E, 4th floor
     items:
     - speaker: Professor Claire Tomlin
       source:
         text: Session details
         url: https://sim2real2field-corl26.github.io/
-      blurb: Shared block with Michael Lutter. Time is inferred from the 2:00 PM workshop start and relative agenda; Claire Tomlin’s individual slot is unspecified.
+      blurb: Shared invited-talk block with Michael Lutter (Boston Dynamics).
   - kind: workshop
     time: 4:15–5:55 PM
     time_note: CST
@@ -381,7 +381,6 @@ days:
     - paper: '45'
     - paper: '46'
     - paper: '47'
-      url: https://agentic-robotics-workshop.github.io/papers
     program_link:
       text: Workshop program
       url: https://agentic-robotics-workshop.github.io/
@@ -399,11 +398,11 @@ days:
     - organizer:
         text: Sim-to-Real-to-Field
         url: https://sim2real2field-corl26.github.io/
-      roles: Shankar Sastry, Bike Zhang, Siming He, Jonas Frey — organizers.
+      roles: S. Shankar Sastry, Bike Zhang, Siming He, Jonas Frey — organizers.
     - organizer:
         text: “Oops, I Erred”
         url: https://workshop.oopsie-data.com/
-      roles: Sergey Levine — faculty advisor. Zhiyuan Zhou and Renhao Wang — organizers.
+      roles: Sergey Levine — faculty advisor. Zhiyuan “Paul” Zhou and Renhao Wang — organizers.
     - organizer:
         text: 'Dexterous Manipulation: Full-Stack Robotics on Learning and Design'
         url: https://dex-manipulation.github.io/corl2026/
@@ -416,6 +415,7 @@ papers:
     sources:
     - text: Paper
       url: https://www.pi.website/download/Mem.pdf
+    first_at: Monday, Spotlight S1
   '7':
     title: Diagnosing Compositional Generalization in Sequential Robot Tasks
     url: https://yixiaowang7.github.io/Diagnosing_Compositional_Generalization_Robot_Page/
@@ -423,6 +423,7 @@ papers:
     sources:
     - text: Paper
       url: https://yixiaowang7.github.io/Diagnosing_Compositional_Generalization_Robot_Page/corl_2026_cg.pdf
+    first_at: Monday, Spotlight S1
   '48':
     title: Scaling Online Exploration for Robot Agents
     url: https://arxiv.org/html/2610.22496
@@ -430,6 +431,7 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/html/2610.22496
+    first_at: Monday, Late-breaking results, Agentic Robotics
   '47':
     title: 'Reconstruct, Practice, Go Real: Guided Self-Improvement for Embodied Agents'
     url: https://arxiv.org/html/2610.02204
@@ -437,6 +439,7 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/html/2610.02204
+    first_at: Monday, Late-breaking results, Agentic Robotics
   '50':
     title: Flip Anything with Agentic Robotics Self-Learning
     url: https://berkeleyautomation.github.io/flipanything/
@@ -444,6 +447,7 @@ papers:
     sources:
     - text: GitHub
       url: https://github.com/BerkeleyAutomation/flipanything
+    first_at: Monday, Late-breaking results, Agentic Robotics
   '2':
     title: Large Video Planner Enables Generalizable Robot Control
     url: https://www.boyuan.space/large-video-planner/
@@ -451,6 +455,7 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/html/2512.15840v2
+    first_at: Monday, Poster Session I
   '4':
     title: 'How to Peel with a Knife: Aligning Fine-Grained Manipulation with Human Preference'
     url: https://toruowo.github.io/peel/
@@ -458,6 +463,7 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/html/2603.03280v2
+    first_at: Monday, Poster Session I
   '5':
     title: 'HiRE: Hindsight Reward Editing for Policy Finetuning'
     url: https://hire-project.github.io/
@@ -465,6 +471,7 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/html/2609.27068v1
+    first_at: Monday, Poster Session I
   '6':
     title: Scalable Behavior Cloning with Open Data, Training, and Evaluation
     url: https://abc.bot/
@@ -472,6 +479,7 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/html/2606.27375
+    first_at: Monday, Poster Session I
   '8':
     title: 'AsyncVLA: An Asynchronous VLA for Fast and Robust Navigation on the Edge'
     url: https://asyncvla.github.io/
@@ -479,6 +487,7 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/pdf/2602.13476
+    first_at: Monday, Poster Session I
   '9':
     title: 'GLST: Global-Local Spatio-Temporal Memory Decomposition Framework for Online Chained-Goal Navigation'
     url: https://github.com/Yousef-Liang/glst
@@ -486,6 +495,7 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/html/2610.17927
+    first_at: Monday, Poster Session I
   '10':
     title: 'ENPIRE: Agentic Robot Policy Self-Improvement in the Real World'
     url: https://research.nvidia.com/labs/gear/enpire/
@@ -493,6 +503,7 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/html/2606.19980v2
+    first_at: Monday, Poster Session I
   '11':
     title: Energy-Based Policy Orchestration
     url: https://yewr.github.io/epo/
@@ -500,6 +511,7 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/html/2611.02546
+    first_at: Monday, Poster Session I
   '15':
     title: Flow Policy Gradients for Robot Control
     url: https://hongsukchoi.github.io/fpo-control/
@@ -507,6 +519,7 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/html/2602.02481v2
+    first_at: Tuesday, Oral O4
   '14':
     title: 'EgoScale: Scaling Dexterous Manipulation with Diverse Egocentric Human Data'
     url: https://research.nvidia.com/labs/gear/egoscale/
@@ -514,6 +527,7 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/html/2602.16710v1
+    first_at: Tuesday, Oral O5
   '24':
     title: 'SuperMimic: Scaling Humanoid Whole-Body Control with One Differentiable World Model'
     url: https://supermimic.github.io/
@@ -521,6 +535,7 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/pdf/2610.28480
+    first_at: Tuesday, Oral O7
   '49':
     title: 'RoboSimStudio: An Interactive Toolkit for Rapid Real2Sim of Robot Manipulation Tasks'
     url: https://arxiv.org/html/2610.18835
@@ -528,6 +543,7 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/html/2610.18835
+    first_at: Tuesday, Late-breaking results, Real2Sim2Real
   '12':
     title: 'DiscreteRTC: Discrete Diffusion Policies are Natural Asynchronous Executors'
     url: https://outsider86.github.io/DiscreteRTCSite/
@@ -535,6 +551,7 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/pdf/2604.25050
+    first_at: Tuesday, Poster Session II
   '13':
     title: Improving Robotic Generalist Policies via Flow Reversal Steering
     url: https://flow-reversal-steering.github.io/
@@ -542,6 +559,7 @@ papers:
     sources:
     - text: Paper
       url: https://flow-reversal-steering.github.io/static/Flow_Reversal_Steering.pdf
+    first_at: Tuesday, Poster Session II
   '17':
     title: Why Does Action Chunking Improve Behavioral Cloning Performance in Robotic Control?
     url: https://action-chunking.github.io/
@@ -549,6 +567,7 @@ papers:
     sources:
     - text: Paper
       url: https://action-chunking.github.io/static/action_chunking.pdf
+    first_at: Tuesday, Poster Session II
   '19':
     title: 'FTP-1: A Generalist Foundation Tactile Policy Across Tactile Sensors for Contact-Rich Manipulation'
     url: https://ftp1-policy.github.io/
@@ -556,6 +575,7 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/html/2606.13102v4
+    first_at: Tuesday, Poster Session II
   '20':
     title: 'PTLD: Sim-to-Real Privileged Tactile Latent Distillation for Dexterous Manipulation'
     url: https://akashsharma02.github.io/ptld-website/
@@ -563,6 +583,7 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/html/2603.04531v3
+    first_at: Tuesday, Poster Session II
   '21':
     title: Counterfactual Video Generation Enables Scalable Humanoid Loco-Manipulation
     url: https://prism-real2sim2real.github.io/
@@ -570,6 +591,7 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/html/2609.38172
+    first_at: Tuesday, Poster Session II
   '22':
     title: 'VLK: Learning Humanoid Loco-Manipulation from Synthetic Interactions in Reconstructed Scenes'
     url: https://vision-language-kinematics.github.io/
@@ -577,6 +599,7 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/html/2606.30645v1
+    first_at: Tuesday, Poster Session II
   '23':
     title: 'Social Humanoid: Socially Responsive Human–Humanoid Interaction'
     url: https://arxiv.org/html/2611.08407
@@ -584,6 +607,7 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/html/2611.08407
+    first_at: Tuesday, Poster Session II
   '29':
     title: Playful Agentic Robot Learning
     url: https://playful-rats.github.io/
@@ -591,6 +615,7 @@ papers:
     sources:
     - text: Paper
       url: https://playful-rats.github.io/assets/papers/rats-paper.pdf
+    first_at: Wednesday, Spotlight S6
   '30':
     title: 'GaP: A Graph-as-Policy Multi-Agent Self-Learning Harness For Variational Automation Tasks'
     url: https://graph-robots.github.io/gap/
@@ -598,6 +623,7 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/html/2607.05369v3
+    first_at: Wednesday, Spotlight S6
   '38':
     title: 'LadderMan: Learning Humanoid Perceptive Ladder Climbing'
     url: https://ladderman-submission.github.io/
@@ -605,6 +631,7 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/html/2606.05873
+    first_at: Wednesday, Spotlight S7
   '39':
     title: 'ResSafe: Learning Safety Filtering with Residual Reinforcement Learning for Humanoids'
     url: https://sciautonomy.github.io/ResSafe_Web/
@@ -612,6 +639,7 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/html/2609.15988
+    first_at: Wednesday, Spotlight S7
   '40':
     title: 'TANGO: Humanoid Navigation in Cluttered Environments with a Whole-Body Vision-Language-Action Model'
     url: https://tango-vla.github.io/
@@ -619,6 +647,7 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/html/2609.09158
+    first_at: Wednesday, Spotlight S7
   '26':
     title: 'Do as I Do: Dexterous Manipulation Data from Everyday Human Videos'
     url: https://do-as-i-do.com/
@@ -626,6 +655,7 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/html/2606.19333v1
+    first_at: Wednesday, Poster Session III
   '27':
     title: 'WARP-RM: A Warp-Augmented Relative Progress Reward Model for Data Curation'
     url: https://uynitsuj.github.io/warp-rm/
@@ -633,6 +663,7 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/html/2606.28320v4
+    first_at: Wednesday, Poster Session III
   '32':
     title: 'T-Rex: Tactile-Reactive Dexterous Manipulation'
     url: https://tactile-rex.github.io/
@@ -640,6 +671,7 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/html/2606.17055v2
+    first_at: Wednesday, Poster Session III
   '33':
     title: Tactile Curiosity Drives Robot Interaction
     url: https://kiten.me/projects/tacex/
@@ -647,6 +679,7 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/pdf/2609.40134
+    first_at: Wednesday, Poster Session III
   '35':
     title: 'RPL: Learning Robust Humanoid Perceptive Locomotion on Challenging Terrains'
     url: https://rpl-humanoid.github.io/
@@ -654,6 +687,7 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/html/2602.03002v3
+    first_at: Wednesday, Poster Session III
   '36':
     title: 'TEXEDO: Test Time Scaling for Controller-aware Language-conditioned Humanoid Motion Generation'
     url: https://jianuocao.github.io/TEXEDO/
@@ -661,6 +695,7 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/html/2606.22998v2
+    first_at: Wednesday, Poster Session III
   '37':
     title: 'CLIFT: Turning Gemini Robotics On-Device into Humanoid Specialists via Non-Invasive Closed-Loop Iterative Fine-Tuning'
     url: https://clift-robot.github.io/
@@ -668,34 +703,39 @@ papers:
     sources:
     - text: Paper
       url: https://arxiv.org/html/2607.29172
+    first_at: Wednesday, Poster Session III
   '43':
     title: 'TouchScale: 500 Hours of Human Vision and Touch for Visual-Tactile Learning'
-    url: https://beneath-the-policy.github.io/
+    url: https://arxiv.org/html/2610.10288
     authors: Dayou Li, Hao Wang, Qianqian Yang, Zihao Zhu, Haoquan Fang, Ziyao Zeng, Yan Han, Zihan Wang, Yan Wang, Baoru Huang, Dilin Wang, Kenji Shimada, Yiyue Luo, Manling Li, Teresa Lv, Mustafa Mukadam, Rakesh Ranjan, Ruohan Zhang, Qi He, Changliu Liu, Xu Chen, Marco Pavone, Bangya Liu, Jiachen Li, Masayoshi Tomizuka, Zhiwen Fan
     sources:
     - text: Paper
       url: https://arxiv.org/html/2610.10288
+    first_at: Thursday, Everything Beneath the Policy · Posters
   '44':
     title: 'Workhorse: Learning Robust Whole-Body Humanoid Loco-Manipulation from Human Data'
-    url: https://beneath-the-policy.github.io/
+    url: https://arxiv.org/pdf/2610.09117
     authors: Songbo Hu, Qiayuan Liao, Yufeng Chi, Kevin Zakka, Sophia Shao, Pieter Abbeel, Koushil Sreenath
     sources:
     - text: Paper
       url: https://arxiv.org/pdf/2610.09117
+    first_at: Thursday, Everything Beneath the Policy · Posters
   '45':
     title: 'ASPIRE: Agentic /Skills Discovery for Robotics'
-    url: https://agentic-robotics-workshop.github.io/papers
+    url: https://arxiv.org/html/2607.00272
     authors: Runyu Lu, Yubo Wu, Ethan Kou, Haotian Lin, Letian Fu, Wenli Xiao, Ajay Mandlekar, Yinzhen Xu, Guanya Shi, Ken Goldberg, Ang Chen, Mosharaf Chowdhury, Jan Kautz, Yuke Zhu, Linxi Fan, Guanzhi Wang
     sources:
     - text: Paper
       url: https://arxiv.org/html/2607.00272
+    first_at: Thursday, Agentic Robotics · Live demos & posters
   '46':
     title: Agentic World Action Models
-    url: https://agentic-robotics-workshop.github.io/papers
+    url: https://arxiv.org/html/2610.30136
     authors: Zhuoyang Liu, Dantong Niu, Botong Zhang, Boning Shao, Jing Wang, Ruijie Zheng, Yuvan Sharma, Runyu Lu, Jiaming Liu, Renrui Zhang, Roei Herzig, Yutong Bai, Ken Goldberg, Danfei Xu, Yuke Zhu, Guanzhi Wang, Linxi Fan, Trevor Darrell
     sources:
     - text: Paper
       url: https://arxiv.org/html/2610.30136
+    first_at: Thursday, Agentic Robotics · Live demos & posters
 footer:
 - Schedule compiled from the conference program, paper and project pages, and workshop programs. Workshop schedules may change; consult each linked program for updates.
 - Coverage includes 33 main-conference papers, 4 late-breaking results posters and the workshop contributions listed above. The main conference demo track is not covered. Main-conference poster numbers follow an unofficial paper index; check the official program on the day. Hilton stage content will also be streamed to viewing rooms at the Marriott.
